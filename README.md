@@ -1,16 +1,23 @@
-### Hi there 👋
+## 👋, I'm Rohin
+<a href="https://r0h.in/discord">
+    <img align="left" alt="Discord" width="22px" src="https://simpleicons.org/icons/discord.svg" />
+</a>
 
-<!--
-**r0hin12/r0hin12** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<a href="https://r0h.in/email">
+    <img align="left" alt="Email" width="22px" src="https://simpleicons.org/icons/gmail.svg" />
+</a>
 
-Here are some ideas to get you started:
+<a href="https://twitter.com/rohin_12">
+    <img align="left" alt="Twitter" width="22px" src="https://simpleicons.org/icons/twitter.svg" />
+</a>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<br><br>
+⚡️ I am a programmer, designer, entrepreneur, and student based in Toronto. I have been programming for years but also enjoy listening to music and getting into TV shows.
+
+[![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)](https://github.com/anuraghazra/github-readme-stats)
+
+Thanks for viewing my GitHub Page!
+<small style="font-size: 8px">Inspired by BGHDDevelopment</small>
+<br>
+👇 Keep scrolling to see my projects 👇
+

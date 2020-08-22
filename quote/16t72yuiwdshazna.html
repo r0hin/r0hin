@@ -1,0 +1,75 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eon's Urban Dictionary Client</title>
+
+    <!---==== CSS ====-->
+    <!-- Eon Styles --><link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Roboto Font--><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <!-- Material Icons --><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <!-- Roboto Font--><link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <!-- Dameonite / Bootstrap--><link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves --><link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar --><link rel="stylesheet" href="daemonite/snackbar.min.css">
+<style>
+    body {
+    background-image : url(https://images.unsplash.com/photo-1566041510632-30055e21a9cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Indie Flower', cursive
+}
+</style>
+
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+    <!-- Preflight Modals-->
+
+    <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h3>Error</h3></div><h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5><div class="modal-footer"><button type="button" class="waves btn-old-text" data-dismiss="modal">dismiss</button></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
+
+<!-- ===========================--] Content [=================================== -->
+    <br><br>
+<center><h1 id="word">Trumpy Quotes</h1>
+
+<br><br>
+<button style="outline: none;" onclick="go()" class="eon-text"><h3 style="line-height: 24px; outline: none;"><u>get a random quote</u></h3></button>
+<br><br><br>
+<h2 class="animated fadeIn" style="max-width: 80%" id="quote"></h2>
+<br><br>
+<div id="infobox" style="display: none;" class="card animated fadeIn">
+    <div class="card-body">
+
+        <p>Appeared at <b id="appearedat">2016-09-30T09:19:25.000Z</b></p>
+        <p>Source: <b><a target="_blank" id="source" href="">twitter</a></b></p>
+        <p style="display: inline-block; padding-right: 12px;">Tags: <div style="display: inline-block" id="tags"></div></p>
+
+
+    </div>
+</div>
+<br><br>
+<hr style="max-width: 80%; min-width: 50%;">
+<small>Created with <i class="material-icons animated pulse infinite" style="color: red;">favorite</i> by <a href="http://r0h.in/">Rohin</a> using <a target="_blank" href="https://rapidapi.com/matchilling/api/tronald-dump?endpoint=5848a9d9e4b02bfeb9daa6d3">this API</a>.</small>
+<br><br>
+
+
+</center>
+
+<!-- ===========================--] /Content [=================================== -->
+    <!---==== JavaScript ====--->
+    <!-- JQuery --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Bootstrap --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Eon Styles --><script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+    <!-- Daemonite --><script src="daemonite/material.min.js"></script>
+    <!-- Waves --><script src="daemonite/waves.min.js"></script><script>addWaves();function addWaves(){ Waves.attach('.eon-contained', ['waves-button', 'waves-light']);Waves.attach('.eon-outlined', ['waves-button']);Waves.attach('.eon-text', ['waves-button']);var config = {duration: 250}; Waves.init(config);}</script>
+    <!-- Snackbar --><script src="daemonite/snackbar.min.js"></script><style>.snackbar-container {padding-top: 8px !important;padding-bottom: 8px !important;border-radius: 8px !important;max-width: 8723789253786352614975678392738649502976483528059748327952px;}</style>
+    <!-- Trump --><script src="trumpy.js"></script>
+
+</body>
+</html>
+
