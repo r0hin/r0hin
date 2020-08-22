@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<body class="animated fadeIn" style="
+background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+color: white;">
+
+        <div style="color: black;" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add reponse to ChatBot</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                            <form action="#">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                      <input class="mdl-textfield__input" type="text" id="sample3">
+                                      <label class="mdl-textfield__label" for="sample3">Input...</label>
+                                    </div>
+                                  </form>
+
+                                  <form action="#">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                          <input class="mdl-textfield__input" type="text" id="sample4">
+                                          <label class="mdl-textfield__label" for="sample3">Response...</label>
+                                        </div>
+                                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button data-dismiss="modal" onclick="add()" type="button" class="btn btn-primary">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+</body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link href="css/material.min.css" rel="stylesheet">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<br><br>
+<center><button onclick="window.location.replace('index.html')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+        Home
+      </button></center>
+      <br><br><br><br>
+<center><h4 style="font-size: 250%;">Modify your ChatBot</h4>
+<ul id="list" style="font-size: 100%;text-align: left; width: 50%;" class="demo-list-three mdl-list">
+        
+      </ul>
+      <button data-toggle="modal" data-target="#exampleModal" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            Add Response
+          </button>
+    </center>
+
+
+
+    <script>
+        get()
+    function get() {
+    for(var i=0, len=localStorage.length; i<len; i++) {
+        var key = localStorage.key(i);
+  var value = localStorage[key];
+
+
+x = document.createElement('LI')
+x.classList.add('mdl-list__item')
+x.style = "rgb(224, 224, 224); border: 0.1px solid grey;"
+x.classList.add('mdl-list__item--three-line')
+var oKey = "'" + key + "'"
+x.innerHTML = '          <span style="font-size: 100%;" class="mdl-list__item-primary-content"><i style="color: black;"class="material-icons">keyboard_arrow_right</i><span>' + key + '</span><span class="mdl-list__item-text-body">' + value + '</span></span><span class="mdl-list__item-secondary-content"><a class="mdl-list__item-secondary-action" href="#"><i onclick="localStorage.removeItem(' + oKey + '); refresh()" style="color: black;" class="material-icons">delete</i></a></span>'
+document.getElementById('list').appendChild(x)
+
+    }
+    
+    
+}
+
+    
+    </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script>
+        
+function add() {
+            a = document.getElementById('sample3').value
+            b = document.getElementById('sample4').value
+            localStorage.setItem(a, b)
+            refresh()
+        }
+        function refresh() {
+            document.getElementById('list').innerHTML = ''
+            get()
+        }
+    </script>
+
+        <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
+        <script src="js/material.min.js"></script>
+

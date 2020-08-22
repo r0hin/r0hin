@@ -1,0 +1,9 @@
+.generatorCard {
+    width: 25%;
+    padding: 20px;
+    text-align: left;
+}
+
+.noBack:hover {
+    background-color: white;
+}

@@ -1,0 +1,109 @@
+<html><head>
+<title>The Excuser</title> <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="css/material.min.css" rel="stylesheet"><link rel="stylesheet" href="css/waves.min.css"><script src="js/waves.min.js"></script>
+<body> 
+
+
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModal2Label">Your excuse:</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div id="text" class="modal-body">
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Done</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Why?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <b>Why did I make this</b><br>
+                      It's hard to come up with "real" excuses when you need to cancel a plan or deny an invitation... so I made this. The goal of this "thing" is to help me generate excuses quickly of why I can't attend something. Hopefully you will find use of this, too!                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-info" data-dismiss="modal">Let's Go</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+    <div class="content animated fadeIn">
+
+
+
+<br><br><br><br><br><br><br><br><br>
+<center><h1><b>Excuser</b></h1>
+<p>By Rohin</p></center>
+<center><button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-primary waves-flat-button">Why?</button></center>
+
+<center>
+<br><br><br>
+<div class="card generatorCard">
+    <center>
+<h4>Excuse Generator V1.0</h4>
+
+
+<select id="1" style="width: 220px; display: inline-block;" class="custom-select custom-select-sm pick form-inline">
+        <option selected>What is the event</option>
+        <option value="birthday party">birthday party</option>
+        <option value="party">party</option>
+        <option value="outing">outing</option>
+        <option value="lunch">lunch</option>
+        <option value="dinner">dinner</option>
+        <option value="breakfast">breakfast</option>
+        <option value="brunch">brunch</option>
+        <option value="meeting">meeting</option>
+        <option value="sports event">sports event</option>
+        <option value="practice">practice</option>
+        <option value="event">event</option>
+        <option value="important party">important party</option>
+        <option value="important outing">important outing</option>
+      </select>
+      <select id="2" style="width: 220px; display: inline-block;" class="custom-select custom-select-sm pick form-inline">
+            <option selected>What is the goal of the event</option>
+            <option value="celebrate">celebrate</option>
+            <option value="discuss work">discuss work</option>
+            <option value="talk">talk</option>
+            <option value="get to know each other">get to know each other</option>
+            <option value="have fun">have fun</option>
+            <option value="make new friends">make new friends</option>
+            <option value="spend some time with each other">spend some time with each other</option>
+            <option value="practice">practice</option>
+            <option value="bond with each other">bond with each other</option>
+          </select>
+
+          <input id="3" style="width: 220px;" type="text" class="form-control" placeholder="Name of the other person" >
+
+      
+<br><br><br>
+          <center><button onclick="generate()" type="button" class="btn btn-primary waves-flat-button noBack">Generate Excuse</button></center>
+
+
+        </center>
+</div>
+
+
+</center>
+
+
+                
+
+
+</div>          
+<script src="js/script.js"></script><script type="text/javascript">Waves.attach(".waves-flat-button",["waves-button"]),Waves.attach(".waves-float-button",["waves-button","waves-float"]),Waves.attach(".waves-float-button-dark",["waves-button","waves-float"]),Waves.attach(".waves-float-button-light",["waves-button","waves-float","waves-light"]),Waves.attach(".waves-box",["waves-block"]),Waves.attach(".waves-float-box",["waves-block","waves-float"]),Waves.attach(".waves-image"),Waves.init();</script>   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script><script src="js/material.min.js"></script>
+</body></html>

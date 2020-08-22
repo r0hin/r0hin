@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<body class="animated fadeIn" style="
+background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+color: white;">
+<br><br><br><br><br>
+    <center><h3 class="animated fadeInUp" style="color: black;"  id="message">Hi, I'm ChatBot!</h3> </center>
+<br><br><br><br><br>
+   <center> <div style="width: 40%;" class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Chat Bot</h2><br><br>
+            </div>
+            <a href="index.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Back to Homepage
+                  </a>
+            <div class="mdl-card__supporting-text">
+       Welcome to ChatBot. Enter your reply below. Be careful, don't use captial letters and please stick to simple messages with common keywords.
+              
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+
+                    <div style="display: inline-block"class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input style="color: black;" autocomplete="off" class="mdl-textfield__input" type="text" id="sample3">
+                            <label class="mdl-textfield__label" for="sample3">Reply</label>
+                          </div>
+              <a onclick="send()"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Send
+              </a>
+            </div>
+
+          </div></center>
+
+
+
+
+
+      <script>
+      function send(){
+
+        x = document.getElementById('sample3').value
+
+        for(var i=0, len=localStorage.length; i<len; i++) {
+        var key = localStorage.key(i);
+  var value = localStorage[key];
+
+  if (x.includes(key) == true) {
+    var y = value
+}
+
+
+        }
+
+        if (y == undefined) {
+            var y = "Sorry, that input is not registered. Add it in the modify page!"
+        }
+
+        document.getElementById('message').innerHTML = y
+        document.getElementById('sample3').value = ""
+        document.getElementById('message').classList.remove('fadeInUp')
+        setTimeout(function(){document.getElementById('message').classList.add('fadeInUp')}, 1);
+        
+        
+      }
+      </script>
+</body>
