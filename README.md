@@ -16,7 +16,7 @@
 </a>
 
 <br><br>
-⚡️ I am a programmer, designer, entrepreneur, and student based in Toronto. I have been programming for years but also enjoy listening to music and getting into TV shows.
+⚡️ I am a programmer, designer, entrepreneur, and student based in Toronto. I have been programming for years but also enjoy listening to music and watching TV shows.
 
 [![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)](https://github.com/anuraghazra/github-readme-stats)
 
