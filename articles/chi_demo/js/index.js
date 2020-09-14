@@ -4,6 +4,24 @@ sessionStorage.setItem('signedin', 'false')
 firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
 
+        if (sessionStorage.getItem('newUser') == 'true') {
+            
+            sessionStorage.removeItem('newUser')
+            // Set username because user just created their account
+            username = document.getElementById('signupusernameform').value
+            await db.collection('app').doc('usernames').update({
+                usernames: firebase.firestore.FieldValue.arrayUnion(username),
+                map: firebase.firestore.FieldValue.arrayUnion(user.uid)
+            })
+            
+            await db.collection('users').doc(user.uid).set({
+                username: $('#signupusernameform').val()
+            })
+                
+            Snackbar.show({text: "Account successfully created."})
+
+        }
+
         doc = await db.collection('users').doc(user.uid).get()
         $('#username').html(doc.data().username)
         $('#email').html(user.email)
@@ -14,18 +32,6 @@ firebase.auth().onAuthStateChanged(async function(user) {
         $('#signin').addClass('hidden')
         $('#signup').addClass('hidden')
         $('#home').removeClass('hidden')
-
-        if (sessionStorage.getItem('newUser') == 'true') {
-            sessionStorage.removeItem('newUser')
-            // Set username because user just created their account
-            username = document.getElementById('signupusernameform').value
-            db.collection('app').doc('usernames').update({
-                usernames: firebase.firestore.FieldValue.arrayUnion(username),
-                map: firebase.firestore.FieldValue.arrayUnion(user.uid)
-            }).then(function() {
-                Snackbar.show({text: "Account successfully created."})
-            })
-        }
 
     } else {
         sessionStorage.setItem('signedin', 'false')
@@ -67,10 +73,6 @@ function confirmsignup() {
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(`Error ${errorCode}: ${errorMessage}`)
-    }).then(() => {
-        db.collection('users').doc(user.uid).set({
-            username: $('#signupusernameform').val()
-        })
     })
 
 }

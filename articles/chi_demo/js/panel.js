@@ -76,6 +76,9 @@ async function loadowndata() {
 
   doc = await db.collection('users').doc(user.uid).get()  
   files = doc.data().data
+  if (!files) {
+    files = []
+  }
   for (let i = 0; i < files.length; i++) {
 
     datadoc = await db.collection('parsed').doc(files[i].name).get()
