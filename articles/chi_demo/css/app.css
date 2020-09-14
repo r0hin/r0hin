@@ -1,0 +1,106 @@
+button {
+    outline: none !important;
+}
+
+.navcentered {
+    width: 200%;
+    text-align: center;
+    position: relative;
+    display: block;
+}
+.navcentered a {
+    display: inline-block;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    color: white !important;
+}
+
+.navcentered a:hover {
+    color: white !important;
+}
+
+.navbtn {
+    color: white !important;
+    margin-right: 12px;
+}
+.navbtn:hover {
+    color: white !important;
+}
+
+.eon-contained {
+    background-color: rgb(46, 98, 194) !important;
+}
+
+.eon-contained:hover {
+    background-color: rgb(56, 109, 207) !important;
+}
+
+.white {
+    color: white;
+    font-weight: 600;
+}
+
+.grey {
+    color: rgb(228, 228, 228);
+}
+
+.centered {
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.signcard {
+    width: 90%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.forms {
+    width: 300px;
+}
+
+.block {
+    display: block !important;
+    width: 100%;
+}
+
+.conten {
+    padding: 24px;
+}
+
+.black {
+    color: black !important;
+}
+
+.cloudcard {
+    width: 100%;
+    min-height: 300px;
+    background-color: #fff;
+    border-radius: 18px;
+    border: 1px solid rgb(230, 230, 230);
+    position: relative;
+}
+
+.cloudcard .centered {
+    text-align: center;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+.iconbtn {
+    min-width: 0px !important;
+    padding: 12px !important;
+}
+
+th {
+    text-align: center;
+}

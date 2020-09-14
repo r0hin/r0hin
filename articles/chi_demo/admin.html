@@ -1,0 +1,95 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!---==== CSS ====-->
+    <!-- Eon Styles --><link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Material Icons --><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <!-- Baloo Font--><link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Dameonite / Bootstrap--><link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves --><link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar --><link rel="stylesheet" href="daemonite/snackbar.min.css">
+    <!-- App CSS --> <link rel="stylesheet" href="css/app.css">
+    <!-- Background -->
+    <style>
+        #body {
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }   
+    </style>
+
+</head>
+<body id="body" style="font-family: 'Baloo Da 2', cursive;">
+    <!-- Preflight Modals-->
+    <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h3>Error</h3></div><h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5><div class="modal-footer"><button type="button" class="waves eon-text" data-dismiss="modal">dismiss</button></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eondoneelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><h1 id="doneleementicon" style="line-height: 0px; margin: 0px;" class="animated bounceIn"><i class="material-icons doneicon">done</i></h1></center></div></div></div></div>
+<!-- ===========================--] Content [=================================== -->    
+
+<nav class="navbar navbar-expand-md navbar-dark animated fadeInDown">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbar" href="index.html"><b class="black">RainTrack</b></a>
+            </li>
+        </ul>
+    </div>
+    <div class="mx-auto navcentered order-0">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul id="signedin" class="navbar-nav ml-auto">
+            <a href="panel.html" class="eon-contained navbtn">Panel</a>
+            <button onclick="logout()" class="eon-text navbtn black">Log Out</button>
+        </ul>
+    </div>
+</nav>
+
+<div class="conten">
+    <h1><b>Panel</b></h1>
+    <br><br>
+    <div id="tables">
+        <div class="card">
+            <div class="card-body">
+                <center>
+                    <select onchange="selectFile()" name="" id="n">
+                        <option value="-">Select an option</option>
+                    </select>
+                </center>
+            </div>
+        </div>
+        <br><br>
+    </div>
+</div>
+
+<!-- ===========================--] /Content [=================================== -->
+    <!---==== JavaScript ====--->
+    <!-- JQuery --><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Bootstrap --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Eon Styles --><script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+    <!-- Moment --> <script src="js/moment.js"></script>
+    <!-- Moment Range --> <script src="js/moment-range.js"></script>
+    <script>window['moment-range'].extendMoment(moment);    </script>
+    <!-- Daemonite --><script src="daemonite/material.min.js"></script>
+    <!-- Waves --><script src="daemonite/waves.min.js"></script><script>addWaves();function addWaves(){ Waves.attach('.eon-contained', ['waves-button', 'waves-light']);Waves.attach('.eon-outlined', ['waves-button']);Waves.attach('.eon-text', ['waves-button']);var config = {duration: 250}; Waves.init(config);}</script>
+    <!-- Snackbar --><script src="daemonite/snackbar.min.js"></script><style>.snackbar-container {padding-top: 8px !important;padding-bottom: 8px !important;border-radius: 8px !important;max-width: 8723789253786352614975678392738649502976483528059748327952px;}</style>
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+    <!-- Firebase --> <script src="js/firebase.js"></script>
+    <!-- Firebase --> <script src="js/admin.js"></script>
+    
+
+</body>
+</html>
