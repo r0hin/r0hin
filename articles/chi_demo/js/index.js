@@ -112,3 +112,16 @@ function logout() {
         alert(error)
       });
 }
+
+
+$("#loginpasswordform").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#signinbtn").click();
+    }
+});
+
+$("#signuppasswordform").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#signupbtn").click();
+    }
+});
