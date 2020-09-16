@@ -122,3 +122,8 @@ a:hover {
     margin-left: 3px;
     margin-right: 3px;
 }
+
+.project_Card {
+    width: 50%;
+    max-width: 800px;
+}
