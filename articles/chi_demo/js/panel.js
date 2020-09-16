@@ -183,10 +183,7 @@ async function loadowndata() {
   }
 
   addWaves()
-  $('.numbers').keypress(function(e) {
-    var x = event.charCode || event.keyCode;
-    if (isNaN(String.fromCharCode(e.which)) && x!=46 || x===32 || x===13 || (x===46 && event.currentTarget.innerText.includes('.'))) e.preventDefault();
-  });
+  donumbers()
 
 }
 
@@ -220,6 +217,7 @@ async function uploadEntry() {
   Snackbar.show({
     text: 'Added.'
   })
+  donumbers()
 
 }
 
@@ -519,3 +517,11 @@ $(function () {
     return date;
   }
 });
+
+
+function donumbers() {
+  $('.numbers').keypress(function(e) {
+    var x = event.charCode || event.keyCode;
+    if (isNaN(String.fromCharCode(e.which)) && x!=46 && x!=189 || x===32 || x===13 || (x===46 && event.currentTarget.innerText.includes('.'))) e.preventDefault();
+  });
+}
