@@ -37,6 +37,10 @@ function uploadfile() {
       }, function() {
         document.getElementById('progress').innerHTML = ''
         Snackbar.show({text: "File uploaded and is being processed..."})
+        window.setTimeout(() => {
+          Snackbar.show({text: "Reload the page in a few moments to view your uploaded file."})
+        }, 3000)
+
 
         uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
           db.collection('users').doc(user.uid).set({
