@@ -87,7 +87,8 @@ function goPanel() {
         document.getElementById('gopanelbtn').click()
     }
     else {
-        Snackbar.show({text: "You are not signed in."})
+        $('#singinbtn').click()
+        // Snackbar.show({text: "You are not signed in."})
     }
 }
 

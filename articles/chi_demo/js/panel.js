@@ -64,6 +64,12 @@ function uploadfile() {
 
 async function deleteFile(id, el) {
 
+  a = confirm('Are you sure you would like to delete file: ' + id + '?')
+  if (!a) {
+    Snackbar.show({text: "Cancelled."})
+    return;
+  }
+
   $(`#${el}`).remove()
 
   oldUser = await db.collection('users').doc(user.uid).get()
@@ -99,14 +105,14 @@ async function deleteFile(id, el) {
 
 async function loadowndata() {
   window.k = 1
+  window.i = 0
 
   userdata = await db.collection('parsed').doc(user.uid).get()
   if (userdata.exists) {
-    window.i = 0
     for (let i = 0; i < userdata.data().data.length; i++) {
 
       a = document.createElement('tr');
-      a.innerHTML = `<th scope="row"><center>${k}</center></th><th scope="row"><center>${userdata.data().data[i].date}</center></th><th contenteditable="true" scope="row"><center>${userdata.data().data[i].precip}</center></th><th contenteditable="true"scope="row"><center>${userdata.data().data[i].lat}</center></th><th contenteditable="true"scope="row"><center>${userdata.data().data[i].long}</center></th><th scope="row"><center><button id="${k}rowsave${i}" onclick="save('${k}', '${i}')" class="eon-text">save</button></center></th><th scope="row"><center><button id="${k}row${i}" onclick="deleteRow('${k}', '${i}')" class="eon-text iconbtn deletebtn"><i class="material-icons">delete</i></button></center></th>`
+      a.innerHTML = `<th scope="row">${k}</th><th scope="row">${userdata.data().data[i].date}</th><th class="numbers" contenteditable="true" scope="row">${userdata.data().data[i].precip}</th><th contenteditable="true" class="numbers" scope="row">${userdata.data().data[i].lat}</th><th class="numbers" contenteditable="true"scope="row">${userdata.data().data[i].long}</th><th scope="row"><button id="${k}rowsave${i}" onclick="save('${k}', '${i}')" class="eon-text">save</button></th><th scope="row"><button id="${k}row${i}" onclick="deleteRow('${k}', '${i}')" class="eon-text iconbtn deletebtn"><i class="material-icons">delete</i></button></th>`
       document.getElementById('tablebody').appendChild(a)
       k++
       
@@ -134,19 +140,19 @@ async function loadowndata() {
     <div class="card-body">
       <h4>
         <b>${datadoc.id}</b>
-        <b style="float: right; font-size: 12px; padding-right: 64px;"><button onclick="deleteFile('${datadoc.id}', 'file${i}')" class="eon-contained iconbtn"><i class="material-icons">delete</i></button></b>
+        <b style="float: right; font-size: 12px;"><button onclick="deleteFile('${datadoc.id}', 'file${i}')" class="eon-contained iconbtn"><i class="material-icons">delete</i></button></b>
       </h4>
       
       <table class="table">
         <thead>
           <tr>
-            <th scope="col"><center>#</center></th>
-            <th scope="col"><center>Date</center></th>
-            <th scope="col"><center>Precipitation</center></th>
-            <th scope="col"><center>Latitude</center></th>
-            <th scope="col"><center>Longitude</center></th>
-            <th scope="col"><center>Save</center></th>
-            <th scope="col"><center>Remove</center></th>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Precipitation</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Save</th>
+            <th scope="col">Remove</th>
           </tr>
         </thead>
         
@@ -168,7 +174,7 @@ async function loadowndata() {
       }
 
       a = document.createElement('tr')
-      a.innerHTML = `<th scope="row"><center>${k}</center></th><th contenteditable="false" scope="row">${parsed[o].Date}</center></th><th contenteditable="true"scope="row"><center>${parsed[o][ 'Precip in.' ]}</center></th><th contenteditable="false" scope="row"><center>${meta.lat}</center></th><th contenteditable="false" scope="row"><center>${meta.long}</center></th><th scope="row"><center><button id="${k}rowsave${o}" onclick="save('${o}', '${datadoc.id}', '${k}')" class="eon-text">save</button></center></th><th scope="row"><center><button id="${k}row${o}" onclick="deleteRow('${o}', '${datadoc.id}', '${k}')" class="eon-text iconbtn deletebtn"><i class="material-icons">delete</i></button></center></th>`
+      a.innerHTML = `<th scope="row">${k}</th><th contenteditable="false" scope="row">${parsed[o].Date}</th><th contenteditable="true" class="numbers" scope="row">${parsed[o][ 'Precip in.' ]}</th><th contenteditable="false" scope="row">${meta.lat}</th><th contenteditable="false" scope="row">${meta.long}</th><th scope="row"><button id="${k}rowsave${o}" onclick="save('${o}', '${datadoc.id}', '${k}')" class="eon-text">save</button></th><th scope="row"><button id="${k}row${o}" onclick="deleteRow('${o}', '${datadoc.id}', '${k}')" class="eon-text iconbtn deletebtn"><i class="material-icons">delete</i></button></th>`
       document.getElementById(`tablebody${i}`).appendChild(a)
       k++
       
@@ -177,6 +183,10 @@ async function loadowndata() {
   }
 
   addWaves()
+  $('.numbers').keypress(function(e) {
+    var x = event.charCode || event.keyCode;
+    if (isNaN(String.fromCharCode(e.which)) && x!=46 || x===32 || x===13 || (x===46 && event.currentTarget.innerText.includes('.'))) e.preventDefault();
+  });
 
 }
 
@@ -193,7 +203,7 @@ async function uploadEntry() {
 
   a = document.createElement('tr')
   i = i + 1
-  a.innerHTML = `<th scope="row"><center>${k}</center></th><th scope="row"><center>${date}</center></th><th contenteditable="true"scope="row"><center>${precip}</center></th><th contenteditable="true"scope="row"><center>${lat}</center></th><th contenteditable="true"scope="row"><center>${long}</center></th><th><center><button  id="${k}rowsave${i}" onclick="save('${k}', '${i}')" class="eon-text">save</button></center></th><th scope="row"><center><button id="${k}row${i}" onclick="deleteRow('${k}', '${i}')" class="eon-text iconbtn deletebtn"><i class="material-icons">delete</i></button></center></th>`
+  a.innerHTML = `<th scope="row">${k}</th><th scope="row">${date}</th><th class="numbers" contenteditable="true"scope="row">${precip}</th><th class="numbers" contenteditable="true"scope="row">${lat}</th><th class="numbers" contenteditable="true"scope="row">${long}</th><th><button  id="${k}rowsave${i}" onclick="save('${k}', '${i}')" class="eon-text">save</button></th><th scope="row"><button id="${k}row${i}" onclick="deleteRow('${k}', '${i}')" class="eon-text iconbtn deletebtn"><i class="material-icons">delete</i></button></th>`
   document.getElementById('tablebody').appendChild(a)
   k++
   addWaves()
@@ -248,23 +258,6 @@ async function initMap() {
   // console.log(heatMapData);
 
   datas.sort((a, b) => b.date - a.date)
-  
-  uniqueDates = []
-
-  $.each(datas, function(i, el){
-    if($.inArray(el.date, uniqueDates) === -1) uniqueDates.push(el.date);
-  });
-
-  for (let i = 0; i < uniqueDates.length; i++) {
-    a = document.createElement('option')
-    a.innerHTML = moment(uniqueDates[i]).format('MMMM Do YYYY')
-    a.value = uniqueDates[i]
-    document.getElementById('beforeDate').appendChild(a)
-    b = document.createElement('option')
-    b.innerHTML = moment(uniqueDates[i]).format('MMMM Do YYYY')
-    b.value = uniqueDates[i]
-    document.getElementById('afterDate').appendChild(b)
-  }
 
 }
 
@@ -275,17 +268,17 @@ async function save(a, b, c,) {
     index = b
 
     // Get new values
-    prec = $(`#${a}rowsave${index}`).parent().parent().parent().find('th:nth-child(3)').first().first().html().split('<center>').pop().split('</center>').shift()
-    lat = $(`#${a}rowsave${index}`).parent().parent().parent().find('th:nth-child(4)').first().first().html().split('<center>').pop().split('</center>').shift()
-    long = $(`#${a}rowsave${index}`).parent().parent().parent().find('th:nth-child(5)').first().first().html().split('<center>').pop().split('</center>').shift()
+    prec = $(`#${a}rowsave${index}`).parent().parent().parent().find('th:nth-child(3)').first().first().html().split('').pop().split('').shift()
+    lat = $(`#${a}rowsave${index}`).parent().parent().parent().find('th:nth-child(4)').first().first().html().split('').pop().split('').shift()
+    long = $(`#${a}rowsave${index}`).parent().parent().parent().find('th:nth-child(5)').first().first().html().split('').pop().split('').shift()
   }
   else {
     index = a
 
      // Get new values
-    prec = $(`#${c}rowsave${index}`).parent().parent().parent().find('th:nth-child(3)').first().first().html().split('<center>').pop().split('</center>').shift()
-    lat = $(`#${c}rowsave${index}`).parent().parent().parent().find('th:nth-child(4)').first().first().html().split('<center>').pop().split('</center>').shift()
-    long = $(`#${c}rowsave${index}`).parent().parent().parent().find('th:nth-child(5)').first().first().html().split('<center>').pop().split('</center>').shift()
+    prec = $(`#${c}rowsave${index}`).parent().parent().parent().find('th:nth-child(3)').first().first().html().split('').pop().split('').shift()
+    lat = $(`#${c}rowsave${index}`).parent().parent().parent().find('th:nth-child(4)').first().first().html().split('').pop().split('').shift()
+    long = $(`#${c}rowsave${index}`).parent().parent().parent().find('th:nth-child(5)').first().first().html().split('').pop().split('').shift()
   }
 
   
@@ -404,12 +397,12 @@ async function deleteRow(a, b, c) {
 // button is id of k + index
 
 function build() {
-  beforeDate = $('#beforeDate').val()
-  afterDate = $('#afterDate').val()
+  beforeDate = $('input[name ="datepicker1"]').val()
+  afterDate = $('input[name ="datepicker2"]').val()
 
   if (moment(afterDate).isAfter(beforeDate, 'day')) {
-    before = beforeDate
-    after = afterDate
+    before = moment(beforeDate)
+    after = moment(afterDate)
   }
   else {
     after = beforeDate
@@ -418,7 +411,7 @@ function build() {
 
   buildData = []
 
-  if (before == 'nope' || after == 'nope') {
+  if (before == '' || after == '') {
     Snackbar.show({text: "Invalid Dates."})
     return;
   }
@@ -481,7 +474,10 @@ function build() {
 
   heatmap.setMap(map);
 
-  
+  $('#stats').html(`
+  <b>Data Points: </b> ${heatMapData.length}.
+  `)
+
 }
 
 function logout() {
@@ -491,3 +487,35 @@ function logout() {
       alert(error)
     });
 }
+
+// Jquery UI Daterange Picker Config
+$(function () {
+  var dateFormat = "dd MM yy",
+    from = $(".checkin")
+      .datepicker({
+        dateFormat: "dd MM yy",
+        duration: "medium",
+      })
+      .on("change", function () {
+        to.datepicker("option", "minDate", getDate(this));
+      }),
+    to = $(".checkout")
+      .datepicker({
+        dateFormat: "dd MM yy",
+        duration: "medium",
+      })
+      .on("change", function () {
+        from.datepicker("option", "maxDate", getDate(this));
+      });
+
+  function getDate(element) {
+    var date;
+    try {
+      date = $.datepicker.parseDate(dateFormat, element.value);
+    } catch (error) {
+      date = null;
+    }
+
+    return date;
+  }
+});
