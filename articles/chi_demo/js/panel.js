@@ -1,4 +1,4 @@
-var storageRef = firebase.storage().ref();
+storageRef = firebase.storage().ref();
 db = firebase.firestore()
 firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
@@ -58,6 +58,41 @@ function uploadfile() {
     })  
 }
 
+async function deleteFile(id, el) {
+
+  $(`#${el}`).remove()
+
+  oldUser = await db.collection('users').doc(user.uid).get()
+
+  for (let i = 0; i < oldUser.data().data.length; i++) {
+    if (oldUser.data().data[i].name == id) {
+
+      tempArray = oldUser.data().data.splice(i, 0);
+
+      // tempArray is new array 
+
+      await db.collection('users').doc(user.uid).update({
+        data: tempArray,
+      })
+
+      await db.collection('data').doc('data').update({
+        data: firebase.firestore.FieldValue.arrayRemove({
+          url: oldUser.data().data[i].url,
+          file: oldUser.data().data[i].name,
+          user: user.uid
+        })
+      })
+
+      await db.collection("parsed").doc(oldUser.data().data[i].name).delete()
+
+      await storageRef.child('data/' + user.uid + '/' + oldUser.data().data[i].name).delete()
+
+      alert(oldUser.data().data[i].name + ' deleted.')
+
+    }
+  }
+}
+
 async function loadowndata() {
   window.k = 1
 
@@ -83,17 +118,19 @@ async function loadowndata() {
 
     datadoc = await db.collection('parsed').doc(files[i].name).get()
     if (!datadoc.exists) {
-      alert('Error Code 86786xx9. Please contact support.')
+      alert('A file is being processed. Please wait.\n\n\nIf you see this message after 2 minutes, contact support.')
       return;
     }
 
     b = document.createElement('div')
     b.classList.add('card')
+    b.id = 'file' + i
     b.classList.add('alldatacard')
     b.innerHTML = `
     <div class="card-body">
       <h4>
         <b>${datadoc.id}</b>
+        <b style="float: right; font-size: 12px; padding-right: 64px;"><button onclick="deleteFile('${datadoc.id}', 'file${i}')" class="eon-contained iconbtn"><i class="material-icons">delete</i></button></b>
       </h4>
       
       <table class="table">
