@@ -18,6 +18,8 @@
 <br><br>
 ⚡️ I am a programmer, designer, entrepreneur, and student based in Toronto. I have been programming for years but also enjoy listening to music and watching TV shows.
 
+![Profile Views](https://komarev.com/ghpvc/?username=r0hin)
+<br>
 [![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)](https://github.com/anuraghazra/github-readme-stats)
 
 Thanks for viewing my GitHub Page!
