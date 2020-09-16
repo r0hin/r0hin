@@ -1,0 +1,124 @@
+body {
+    background-color: #222335;
+    color: #fff;
+}
+
+a {
+    color: white !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.content {
+    text-align: center;
+    color: rgb(198, 246, 255);
+}
+
+.title {
+    font-size: 6em;
+}
+
+.navigation {
+    position: fixed;
+    transform: translate(-50%, 0);
+    bottom: 24px;
+    left: 50%;
+
+    z-index: 300000000;
+
+    padding: 8px 36px 8px 36px;
+
+    background-color: #222335;
+    text-align: center;
+    border-radius: 24px;
+    
+    transition: all 0.2s;
+}
+
+.navigation:hover {
+    background-color: #3a3b4d;
+
+    transition: all 0.5s;
+}
+
+.nav_options {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav_option {
+    float: left;
+    padding: 12px;
+}
+
+.nav_button {
+    cursor: pointer;
+    font-size: 16px;
+    color: #a3daff;
+    transition: all 0.5s;
+    font-weight: 300;
+}
+
+.nav_button:hover {
+    font-size: 24px;
+    transition: all 0.5s;
+    color: #ffa3bf;
+    font-weight: 600;
+}
+
+.nav_buttonactive {
+    font-size: 18px;
+    color: #ffa3bf;
+}
+
+.page {
+    padding: 24px;
+}
+
+.pfp {
+
+    border-radius: 24px;
+    object-fit: cover;
+    display: inline-block;
+}
+
+.profileCard {
+    width: 80%;
+    max-width: 500px;
+
+}
+
+.paragraph {
+    font-size: 15px;
+    text-align: left;
+    color: white;
+    font-weight: 500;
+}
+
+.project_tn {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 14px;
+    object-fit: cover;
+    left: 24px;
+}
+
+.project_content {
+    margin-top: 12px;
+    margin-left: 104px;
+    text-align: left;
+}
+
+.relative {
+    position: relative;
+}
+
+.chip {
+    margin-left: 3px;
+    margin-right: 3px;
+}
