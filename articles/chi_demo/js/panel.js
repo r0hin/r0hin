@@ -193,6 +193,28 @@ async function uploadEntry() {
   var lat = $('#latinput').val()
   var long = $('#longinput').val()
 
+  for (let i = 0; i < date.length; i++) {
+    if (isNaN(parseInt(date[i])) && date[i] !== '/') {
+      Snackbar.show({text: "Your date is formatted incorrectly."})
+      return;
+    }
+  }
+
+  if (isNaN(parseInt(precip))) {
+    Snackbar.show({text: "Your precipitation is formatted incorrectly."})
+    return;
+  }
+
+  if (isNaN(parseInt(lat))) {
+    Snackbar.show({text: "Your latitude is formatted incorrectly."})
+    return;
+  }
+
+  if (isNaN(parseInt(long))) {
+    Snackbar.show({text: "Your longitude is formatted incorrectly."})
+    return;
+  }
+
   $('#dateinput').get(0).value = '' 
   $('#precipinput').get(0).value = '' 
   $('#latinput').get(0).value = '' 
@@ -321,12 +343,12 @@ async function deleteRow(a, b, c) {
   if (parseInt(b) || b == '0') {
     index = b
     parent = $(`#${a}row${index}`).parent().parent().parent().parent()
-    $(`#${a}row${index}`).parent().parent().parent().remove()
+    $(`#${a}row${index}`).parent().parent().remove()
   }
   else {
     index = a
     parent = $(`#${c}row${index}`).parent().parent().parent().parent()
-    $(`#${c}row${index}`).parent().parent().parent().remove()
+    $(`#${c}row${index}`).parent().parent().remove()
   }
 
   $(parent).find('.deletebtn').each(function(i, obj) {
