@@ -547,3 +547,5 @@ function donumbers() {
     if (isNaN(String.fromCharCode(e.which)) && x!=46 && x!=45 || x===32 || x===13 || (x===46 && event.currentTarget.innerText.includes('.'))) e.preventDefault();
   });
 }
+
+$('.datepicker').pickadate()

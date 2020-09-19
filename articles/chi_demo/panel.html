@@ -144,9 +144,10 @@
                     <div class="cloudcard">
                         <div class="card-body">
                             <h3><b>Upload Individual Entry</b></h3>
+                     
                             <div class="floating-label textfield-box">
                                 <label for="dateinput">Date</label>
-                                <input class="form-control" id="dateinput" placeholder="Format: (mm/dd/yy)" type="text">
+                                <input readonly data-toggle="datepicker" class="form-control" id="dateinput" type="text">
                             </div>
                             <br>
                             <div class="floating-label textfield-box">
@@ -212,8 +213,15 @@
     <!-- Bootstrap --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <!-- Eon Styles --><script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
     <!-- Moment --> <script src="js/moment.js"></script>
-    <!-- Moment Range --> <script src="js/moment-range.js"></script>
-    <script>window['moment-range'].extendMoment(moment);    </script>
+    <!-- Moment --> <script src="js/moment-range.js"></script>
+
+    <script>$('[data-toggle="datepicker"]').datepicker({
+          dateFormat: "mm/dd/y"
+    });
+    </script>
+
+    <script>window['moment-range'].extendMoment(moment);    
+    </script>
     <!-- Daemonite --><script src="daemonite/material.min.js"></script>
     <!-- Waves --><script src="daemonite/waves.min.js"></script><script>addWaves();function addWaves(){ Waves.attach('.eon-contained', ['waves-button', 'waves-light']);Waves.attach('.eon-outlined', ['waves-button']);Waves.attach('.eon-text', ['waves-button']);var config = {duration: 250}; Waves.init(config);}</script>
     <!-- Snackbar --><script src="daemonite/snackbar.min.js"></script><style>.snackbar-container {padding-top: 8px !important;padding-bottom: 8px !important;border-radius: 8px !important;max-width: 8723789253786352614975678392738649502976483528059748327952px;}</style>
