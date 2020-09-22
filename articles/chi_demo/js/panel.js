@@ -422,10 +422,10 @@ function build() {
 
   if (moment(afterDate).isAfter(beforeDate, 'day')) {
     before = moment(beforeDate)
-    after = moment(afterDate)
+    after = moment(moment(afterDate).add(1, 'd')._d)
   }
   else {
-    after = beforeDate
+    after = moment(moment(beforeDate).add(1, 'd')._d)
     before = afterDate
   }
 
