@@ -1,0 +1,202 @@
+:root {
+    --e-primary: #4BA087;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+#sidebar {
+
+    background-color: #232931;
+
+    position: fixed;
+    top: 0px;
+    min-width: 260px; height: 100%;
+    width: 30%;
+    max-width: 500px;
+}
+
+.expanded {
+    left: 0px;
+    transition: all 0.5s;
+}
+
+.collapsed {
+    left: -30%; 
+    transition: all 0.5s;
+}
+
+.collapsed2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    transition: all 0.5s;    
+}
+
+
+#content {
+    position: fixed;
+    right: 0px; top: 0px;
+    max-width: calc(100% - 260px); height: 100%;
+    width: 70%;
+    min-width: calc(100% - 500px);
+
+    background-color: #262D36;
+    transition: all 0.5s;  
+
+    padding: 24px;
+}
+
+.navbar {
+    padding: 0px;
+}
+
+#sidebar_header {
+    background-color: #1F242A;
+    padding-top: 24px;
+    padding-bottom: 8px;
+
+    text-align: center;
+    width: 100%;
+}
+
+.grey {
+    color: rgb(173, 173, 173)
+}
+
+.sidebar_img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
+
+.sidebar_text {
+    margin-top: 12px;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.sidebar_content {
+    padding: 24px;
+}
+
+.nav_item {
+    background-color: #1F242A;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: rgb(190, 190, 190);
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #1F242A;
+    transition: all 0.5s;
+}
+
+.nav_item:hover {
+    border: 1px solid var(--e-primary);
+    transition: all 0.5s;
+}
+
+.b {
+    text-align: center;
+}
+
+.btn_collapse {
+    background-color: transparent;
+    border: 0px;
+    color: rgb(190, 190, 190);
+    cursor: pointer;
+}
+
+.iconbtn {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 0px;
+}
+
+.iconbtn img {
+    width: 100%;
+    
+}
+
+#bar {
+    width: 100%;
+    margin-top: 24px;
+    background-color: #1F242A;
+    padding: 18px;
+    border-radius: 6px;
+}
+
+#bar p {
+    margin: 0px;
+    line-height: 0px;
+    display: inline-block;
+    padding-left: 12px;
+}
+
+.active {
+    color: var(--e-primary);
+    padding-left: 0px !important;
+    cursor: pointer;
+}
+
+#btns a {
+    margin: 24px;
+    margin-bottom: 48px;
+}
+
+.contactbtn img {
+    width: 70px;   
+}
+
+.grey2 {
+    color: rgb(126, 126, 126);
+}
+
+.game {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    width: 300px;
+    height: 150px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #262D36;
+}
+
+.game .text{
+    opacity: 0;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    border-radius: 12px;
+    border: 2px solid var(--e-primary);
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.game:hover .text{
+    transition: all 0.5s;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.contentContaienr {
+    display: block;
+}
+
+.contentContaienr p {
+    margin: 0px;
+}
