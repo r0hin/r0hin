@@ -28,37 +28,37 @@
 
    <!-- Content -->
 
-    <div id="sidebar" class="expanded">
+   <div id="sidebar" class="expanded">
 
-        <div id="sidebar_header">
-            <img class="sidebar_img" src="assets/logo.png" alt="Error loading image">
-            <p class="sidebar_text">Text</p>
-        </div>
+    <div id="sidebar_header">
+        <img class="sidebar_img" src="assets/logo.png" alt="Error loading image">
+        <p class="sidebar_text">Text</p>
+    </div>
 
-        <div class="sidebar_content">
-            <h5 class="grey">SERVICES</h5>
-            <br>
-            <button onclick="go('index.html')" class="nav_item">
-                HOME
-            </button>
-            <br><br>
-            <button onclick="go('gameservers.html')" class="nav_item">
-                GAME SERVERS
-            </button>
-            <br><br>
-            <button onclick="go('contact.html')" class="nav_item">
-                CONTACT
-            </button>
-            <br><br>
-            <hr>
-            <button onclick="go('')" class="nav_item b">
-                LOGIN
-            </button>
-
-        </div>
-
+    <div class="sidebar_content">
+        <h5 class="grey" id="servicestext">SERVICES</h5>
+        <br>
+        <button id="homebtn" onclick="go('index.html')" class="nav_item">
+            <i class="material-icons">home</i> HOME
+        </button>
+        <br><br>
+        <button id="gamebtn" onclick="go('gameservers.html')" class="nav_item">
+            <i class="material-icons">games</i> GAME SERVERS
+        </button>
+        <br><br>
+        <button id="contactbtn" onclick="go('contact.html')" class="nav_item">
+            <i class="material-icons">contact_page</i> CONTACT
+        </button>
+        <br><br>
+        <hr>
+        <button id="loginbtn" onclick="go('')" class="nav_item b">
+            <i class="material-icons">login</i> LOGIN
+        </button>
 
     </div>
+
+
+</div>
 
     <div id="content">
 

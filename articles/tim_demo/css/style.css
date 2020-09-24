@@ -24,12 +24,14 @@ body {
 }
 
 .collapsed {
-    left: -30%; 
+    left: 0px;
+    width: 98px !important;
+    min-width: 0px !important;
     transition: all 0.5s;
 }
 
 .collapsed2 {
-    width: 100% !important;
+    width: calc(100% - 98px) !important;
     max-width: 100% !important;
     transition: all 0.5s;    
 }
@@ -59,7 +61,6 @@ body {
     padding-bottom: 8px;
 
     text-align: center;
-    width: 100%;
 }
 
 .grey {
@@ -200,4 +201,14 @@ body {
 
 .contentContaienr p {
     margin: 0px;
+}
+
+.coursalcontrol {
+    background-color: rgb(128, 128, 128, 0.2);
+    transition: all 0.5s;
+}
+
+.coursalcontrol:hover {
+    background-color: var(--e-primary);
+    transition: all 0.5s;
 }
