@@ -61,6 +61,12 @@ switch (myParam) {
       tabe('terms')
     }, 500)
     break;
+
+  case "privacy":
+    window.setTimeout(() => {
+      tabe('privacy')
+    }, 500)
+    break;
   
   default:
   break;
