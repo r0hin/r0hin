@@ -20,6 +20,7 @@ h1 {
 
 #echo img {
   width: 400px;
+  max-width: 80%;
   display: inline-block;
   margin: 16px;
   border-radius: 10px;
