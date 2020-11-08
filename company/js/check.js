@@ -38,6 +38,12 @@ switch (myParam) {
     }, 500)
     break;
 
+  case "contact":
+    window.setTimeout(() => {
+      tabe('contact')
+    }, 500)
+    break;
+
   case "eonnotes":
     window.setTimeout(() => {
       tabe('eonnotes')

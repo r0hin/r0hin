@@ -1,31 +1,17 @@
 body {
-  padding: 64px;
+  font-family: 'Source Code Pro', monospace;
+  background-color: #06030f;
+  color: white;
+  padding: 10%;
 }
 
 h1 {
-  font-weight: 600;
+  font-weight: 500;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0px; left: 0px;
-  width: 100%; padding: 8px;
-  background-color: rgb(199, 208, 209);
-  text-align: center;
-}
-
-#footer a {
-  color: rgb(27, 27, 27) !important;
-}
-
-#echo img {
-  width: 400px;
-  max-width: 80%;
-  display: inline-block;
-  margin: 16px;
-  border-radius: 10px;
-}
-
-.page {
-  margin-bottom: 250px;
+.header {
+  font-weight: bold;
+  margin-top: 36px;
+  margin-bottom: 12px;
+  color: #ddbfff;
 }
