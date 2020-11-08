@@ -1,4 +1,6 @@
-## 👋, I'm Rohin
+[![Header Loading...](main-content/funnywordsmagicman.png)](https://r0h.in)
+
+
 <a href="https://r0h.in/discord">
     <img align="left" alt="Discord" width="22px" src="https://simpleicons.org/icons/discord.svg" />
 </a>
@@ -16,13 +18,15 @@
 </a>
 
 <br><br>
-⚡️ I am a programmer, designer, entrepreneur, and student based in Toronto. I have been programming for years but also enjoy listening to music and watching TV shows.
+Programmer, designer, entrepreneur, and student based in Toronto. I also enjoy listening to music and watching TV shows.
 
 ![Profile Views](https://komarev.com/ghpvc/?username=r0hin)
-<br>
-[![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)](https://github.com/anuraghazra/github-readme-stats)
 
-Thanks for viewing my GitHub Page!
+<br>
+
+![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra)
+
 <br>
 👇 Keep scrolling to see my projects 👇
 
