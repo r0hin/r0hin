@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="js/check.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Rohin, Inc</title>
+  <!--=== CSS ===-->
+  <!-- Animate 4.0.0 Compat Ver --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.min.css">
+  <!-- Material Icons --> <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+  <!-- Snackbar --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/cdn/snackbar.min.css">
+  <!-- Daemonite / Bootstrap --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/cdn/material.min.css">
+  <!-- Waves --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/cdn/waves.min.css">
+  
+  <!-- East --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/east.css">
+  <!-- Baloo 2 Font --> <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- CSS --> <link rel="stylesheet" href="main-content/style.css">
+  
+  <!-- Injected Theme --> <style id="InjectedTheme">:root {--s-b: rgb(255, 255, 255) !important;--s-1: rgba(255, 255, 255, 0.02) !important;--s-2: rgba(255, 255, 255, 1.00) !important;--s-3: rgba(255, 255, 255, 1.00) !important;--s-4: rgba(255, 255, 255, 1.00) !important;--s-5: rgba(255, 255, 255, 1.00) !important;--s-6: rgba(255, 255, 255, 1.00) !important;--s-7: rgba(255, 255, 255, 1.00) !important;--s-8: rgba(255, 255, 255, 1.00) !important;--primary: rgb(98, 0, 238) !important;--primary-hover: #7517fa !important;--primary-hover-variant: rgb(117, 23, 250, 0.05) !important;--primary-hover-variant-variant: rgb(117, 23, 250, 0.1) !important;--primary-variant: #3700B3 !important;--secondary: rgb(3, 218, 198) !important;--secondary-hover: #18e6d1 !important;--secondary-hover-variant: rgb(24, 230, 209, 0.05) !important;--secondary-hover-variant-variant: rgb(24, 230, 209, 0.1) !important;--secondary-variant: #018786 !important;     --e-0: rgba(0, 0, 0, 1.0) !important;--e-1: rgba(0, 0, 0, 0.87) !important;--e-2: rgba(0, 0, 0, 0.60) !important;--e-3: rgba(0, 0, 0, 0.38) !important;--e-4: rgba(0, 0, 0, 0.11) !important;--c-1: rgba(0, 0, 0, 0.02) !important;--c-2: rgba(0, 0, 0, 0.04) !important;--c-3: rgba(0, 0, 0, 0.06) !important;}</style>
+</head>
+<body>
+  <!-- Preflight Modals-->
+  
+  <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modalheader"><h3>Error</h3></div><div class="modalbody"><p id="erorrModalMsg"></p><button type="button" class="btn-contained-primary block" data-dismiss="modal">dismiss</button></div></div></div></div>
+  <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
+  <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eondoneelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><h1 id="doneleementicon" style="line-height: 0px; margin: 0px;" class="animated bounceIn"><i class="material-icons doneicon">done</i></h1></center></div></div></div></div>
+  <div class="hidden animated fadeIn faster" id="bottom_sheet_background"></div>
+  
+  <!-- Content -->
+  
+  <h1>Rohin, Inc</h1>
+  
+  <div class="page animated fadeIn hidden" id="contact">
+    <br><br>
+    <b>Get in touch</b>
+    <p>Feel free to contact us at <a href="mailto:support@r0h.in">support@r0h.in</a> with any questions, concerns or comments you may have.</p>
+  </div>
+
+  <div class="page animated fadeIn" id="home">
+    <br><br>
+
+    <b>Who we are</b>
+    <p class='animated fadeIn slow'>Our mission is to benifit the world in new and innovative ways.</p>
+
+    <br><br>
+
+    <b>Get in touch</b>
+    <p>Feel free to contact us at <a href="mailto:support@r0h.in">support@r0h.in</a> with any questions, concerns or comments you may have.</p>
+
+    <br><br>
+    <b>Our Products</b>
+    <p>We are proud of everything we do here and our products are no exception.</p>
+    <div class="row">
+      <div class="col-sm">
+        <center>
+          <button onclick="tabe('echo')" class="btn-text-primary">Echo</button>
+        </center>
+        <br>
+      </div>
+      <div class="col-sm">
+        <center>
+          <button onclick="tabe('eonsound')" class="btn-text-primary">EonSound</button>
+        </center>
+        <br>
+      </div>
+      <div class="col-sm">
+        <center>
+          <button onclick="tabe('eonnotes')" class="btn-text-primary">EonNotes</button>
+        </center>
+        <br>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page hidden animated fadeIn" id="echo">
+    <h2>Echo</h2>
+    <p>Echo is a beautiful social app dedicated to providing a better experience connecting with people.</p>
+    <center>
+      <img src="assets/screenshots/2020-11-01-14-32-15.png" alt="">
+      <img src="assets/screenshots/2020-11-01-14-37-03.png" alt="">
+      <img src="assets/screenshots/2020-11-01-14-38-00.png" alt="">
+      <img src="assets/screenshots/2020-11-01-14-38-49.png" alt="">
+    </center>
+
+    <b>Use</b>
+    <p>Our webapp has just recently gone live at <a href="https://echoapp.today" target="_blank">https://echoapp.today</a>. We hope you enjoy it and invite your friends!</p>
+    <center>
+      <button onclick="window.open('https://echoapp.today')" class="btn-contained-primary">View Website</button>
+    </center>
+    <br><br>
+    <b>Security & Authenticity</b>
+    <p>Unlike other social media, Echo's source code is completely open source <a href="https://github.com/r0hin/echo" target="_blank">on GitHub</a>. Additionally, all requests to this app (including Echo Communication Platform) are encrypted and secured via HTTPS.</p>
+    <br><br>
+    <b>Credit System</b>
+    <p>You may purchase credits to support other posts.</p>
+    <br><br>
+    <b>Payments</b>
+    <p>All payments are subject to our <a href="#" onclick="tabe('payment')">Payment Policies</a>.</p>
+
+  </div>
+
+  <div class="page hidden animated fadeIn" id="eonsound">
+    <h2>EonSound</h2>
+    <p>EonSound is not currently released.</p>
+  </div>
+
+  <div class="page hidden animated fadeIn" id="eonnotes">
+    <h2>EonNotes</h2>
+    <p>EonNotes is not currently released.</p>
+  </div>
+
+  <div class="page hidden animated fadeIn" id="terms">
+    <h2>Terms of Service (TOS)</h2>
+    <br>
+    <b>Overview</b>
+    <p>Rohin, Inc provides a service (the software) and will deny user access if the user meets any of the following criteria.</p>
+
+    <b>Spam</b>
+    <p>You may not use our platforms for impersonation, scams and other deceptive content.</p>
+    <br><br>
+    <b>Sensitive Content</b>
+    <p>You may not use our platforms for harassment, harmful content, hate speech, criminal activity or graphic content.</p>
+    <b>Other</b>
+    <p>You must abide by the United States' restrictions on child safety, regulated goods, sexual content, etc.</p>
+    <b>Accounts Policy</b>
+    <p>We may terminate your account after 6 months of inactivity.</p>
+  </div>
+
+  <div class="page hidden animated fadeIn" id="payment">
+    <h2>Payment Policies</h2>
+    <br>
+    <b>Overview</b>
+    <p>Rohin, Inc works with payment providers to ensure all payments are secure. Common scenarios will be described below but for specific cases, please contact us via email.</p>
+    <p>Please note that all purchases will be made in the United States Dollar currency (USD).</p>
+    <b>Refunds</b>
+    <p>Rohin, Inc will provide a refund for up to 24 hours after the payment has been made provided the goods have not been modified.</p>
+    <p>After 24 hours, Rohin, Inc may deny your request for any reason.</p>
+    <p>Unauthorized chargebacks will result in account termination.</p>
+    <p>We will correct and refund your purchase if a technical error occurs.</p>
+    <b>Security</b>
+    <p>Your data is securely encrypted via HTTPS.</p>
+    <br><br>
+    <p>If you require more details on a specific situation, please contact us via email.</p>
+  </div>
+
+  <div class="page hidden animated fadeIn" id="privacy">
+    <h2>Privacy Policy</h2>
+    <br>
+    <b>Overview</b>
+    <p>Rohin, Inc takes your privacy very seriously. We use the "Google Analytics for Firebase" service to collect additional information. All collected data is anonymous except for a few specific user-related fields.</p>
+    <b>Analytics</b>
+    <p>We collect active user data to track the traffic being sent to and from the apps.</p>
+    <p>We track user engagement to improve our apps.</p>
+    <p>We use crash-related analytics to improve the techincal aspect of our apps.</p>
+    <p>We collect user geographic regional information such as the country of users.</p>
+    <p>We collect device information to improve our products.</p>
+    <br><br>
+    <b>This data is NOT shared with any third parties and this will never change. This is at the core of our values.</b>
+
+  </div>
+  
+  
+  <div id="footer">
+    
+    <div class="row">
+      <div class="col-sm">
+        <h4>Navigation</h4>
+        <a href="#" onclick="tabe('home')">Home</a><br>
+        <a href="#" onclick="tabe('contact')">Contact</a><br>
+      </div>
+      <div class="col-sm">
+        <h4>Products</h4>
+        <a href="#" onclick="tabe('echo')">Echo</a><br>
+        <a href="#" onclick="tabe('eonsound')">EonSound</a><br>
+        <a href="#" onclick="tabe('eonnotes')">EonNotes</a><br>
+      </div>
+      <div class="col-sm">
+        <h4>Terms</h4>
+        <a href="#" onclick="tabe('terms')">Terms of Service</a><br>
+        <a href="#" onclick="tabe('payment')">Payment Policy</a><br>
+        <a href="#" onclick="tabe('privacy')">Privacy Policy</a><br>
+      </div>
+    </div>
+
+    <br>
+    
+  </div>
+  
+  
+  
+  <!--=== JavaScript ===-->
+  <!-- JQuery --> <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <!-- Popper --> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <!-- Bootstrap --> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <!-- Daemonite --> <script src="https://eastcoastgang.github.io/style/release/cdn/material.min.js"></script>
+  <!-- Snackbar --> <script src="https://github.com/eastcoastgang/style/blob/master/release/cdn/snackbar.min.js"></script>
+  <!-- Ripplet --> <script src="https://cdn.jsdelivr.net/npm/ripplet.js@0.3.0/umd/ripplet-declarative.min.js"></script>
+  <!-- Waves --> <script src="https://eastcoastgang.github.io/style/release/cdn/waves.min.js"></script>
+  <!-- East --> <script src="https://eastcoastgang.github.io/style/release/east.js"></script>
+  
+  <!-- Scripts --> <script src="js/index.js"></script>
+</body>
+</html>
