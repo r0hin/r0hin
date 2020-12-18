@@ -1,31 +1,22 @@
 body {
-  padding: 64px;
+  background-color: black !important;
+  color: white !important;
 }
 
-h1 {
-  font-weight: 600;
+.hidden {
+  display: none;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0px; left: 0px;
-  width: 100%; padding: 8px;
-  background-color: rgb(199, 208, 209);
-  text-align: center;
+a, button{
+  margin: 12px;
+  transition: all 0.5s;
 }
 
-#footer a {
-  color: rgb(27, 27, 27) !important;
-}
-
-#echo img {
-  width: 400px;
-  max-width: 80%;
-  display: inline-block;
-  margin: 16px;
-  border-radius: 10px;
+a:hover {
+  color: white;
+  transition: all 0.5s;
 }
 
 .page {
-  margin-bottom: 250px;
+  padding: 64px;
 }
