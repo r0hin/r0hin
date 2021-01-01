@@ -19,14 +19,15 @@
 
 <br><br>
 Programmer, designer, entrepreneur, and student based in Toronto. I also enjoy listening to music and watching TV shows.
-
-![Profile Views](https://komarev.com/ghpvc/?username=r0hin)
-
 <br>
 
 ![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&hide=GLSL,HTML)
 
 <br>
-👇 Keep scrolling to see my projects 👇
+<div align="center">
+    <center>
+          👇 Keep scrolling to see my projects 👇
+    </center>
+</div>
 
