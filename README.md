@@ -1,6 +1,6 @@
 [![Header Loading...](main-content/funnywordsmagicman.png)](https://r0h.in)
 
-
+<p align="center">
 <a href="https://r0h.in/discord">
     <img align="left" alt="Discord" width="22px" src="https://simpleicons.org/icons/discord.svg" />
 </a>
@@ -16,9 +16,8 @@
 <a href="https://r0h.in">
     <img align="left" alt="Twitter" width="22px" src="https://image.flaticon.com/icons/svg/876/876765.svg" />
 </a>
+</p>
 
-<br><br>
-Programmer, designer, entrepreneur, and student based in Toronto. I also enjoy listening to music and watching TV shows.
 <br>
 
 ![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)
