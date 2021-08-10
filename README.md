@@ -1,4 +1,7 @@
-[![Header Loading...](main-content/funnywordsmagicman.png)](https://r0h.in)
+# 👋
+
+
+<!-- 
 
 <p align="center">
 <a href="https://r0h.in/discord">
@@ -28,5 +31,5 @@
     <center>
           👇 Keep scrolling to see my projects 👇
     </center>
-</div>
+</div> -->
 
