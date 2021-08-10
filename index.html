@@ -1,7 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="js/check.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    bam = window.location.href
+    if (bam.includes('rohin12.gitlab.io')) {
+      window.location.replace('https://r0h.in')
+    }
+
+    const myParam = urlParams.get('a');
+
+    switch (myParam) {
+      case "urban":
+        window.location.replace('articles/apis/urban/d35rzt6y1iu2juis.html')
+        break;
+      case "emojify":
+        window.location.replace('articles/apis/emojify/456788mu82y41s.html')
+        break;
+      case "joke":
+        window.location.replace('articles/apis/joke/7aw8ueosidah.html')
+        break;
+      case "movie":
+        window.location.replace('articles/apis/movie/283nuwsjalksjs.html')
+        break;
+      case "qr":
+        window.location.replace('articles/apis/qr/8923usjoibdsa.html')
+        break;
+      case "trumpy":
+        window.location.replace('articles/apis/quote/16t72yuiwdshazna.html')
+        break;
+      case "freedom":
+        window.location.replace('articles/apis/picture-mergifyinator/y9418hwushd.html')
+        break;
+      default:
+      break;
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Source Code Pro', monospace;
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255) !important;
+      padding: 120px 32px 0px 32px;
+    }
+
+    h1 {
+      font-weight: 500;
+    }
+
+    li {
+      color: white !important;
+    }
+
+    .header {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      color: rgb(255, 255, 255);
+    }
+
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rohin</title>
@@ -28,14 +88,17 @@
   
   <!-- Content -->
   
-  <h1>Rohin Arya</h1>
+  <center>
+    <h1>👋,</h1>
+    <h3 style="font-weight: 700">i'm Rohin.</h3>
+  </center>
 
-  <h3 class="header">About</h3>
-  <p>Hi 👋, my name is Rohin and I am a programmer, designer, and student studying in Toronto. You can find information about my projects and interests on this page. Thanks for visiting!</p>
+  <!-- <h3 class="header">About</h3> -->
+  <!-- <p>Hi 👋, my name is Rohin and I am a programmer, designer, and student studying in Toronto. You can find information about my projects and interests on this page. Thanks for visiting!</p> -->
 
   <div class="container">
     <div class="row">
-      <div class="col-sm">
+      <!-- <div class="col-sm">
         <h3 class="header">Interests</h3>
         <ul>
           <li>Music</li>
@@ -43,35 +106,43 @@
           <li>Food</li>
           <li>TV Shows</li>
         </ul>
-      </div>
+      </div> -->
       <div class="col-sm">
         <h3 class="header">Technologies</h3>
         <ul>
           <li>HTML, CSS, JavaScript</li>
           <li>TypeScript, NodeJS, Python</li>
           <li>VueJS, Firebase, Electron</li>
-          <li>Rusty: Swift, Java</li>
-          <li>Git & GitHub</li>
+          <li>Rusty: Swift, Java, ReactJS</li>
+          <li>Git</li>
         </ul>
       </div>
       <div class="col-sm">
         <h3 class="header">Projects</h3>
         <ul>
-          <li>Echo (Social Media) <a href="https://github.com/r0hin/echo" target="_blank">GitHub</a> <a href="https://echoapp.today" target="_blank">Go</a></li>
-          <li>EonSound (Music Platform) <a href="https://github.com/r0hin/eonsound" target="_blank">GitHub</a> <a href="https://github.com/r0hin/eonsound/releases" target="_blank">Go</a></li>
-          <li>EonNotes (Notes Platform) <a href="https://github.com/r0hin/eonnotes" target="_blank">GitHub</a> <a href="https://github.com/r0hin/eonnotes/releases" target="_blank">Go</a></li>
-          <li>Zoonk (Anonymous Tools) <a href="https://github.com/r0hin/zoonk" target="_blank">GitHub</a> <a href="https://zoonk.surf" target="_blank">Go</a></li>
+          <!-- <li>Echo <a href="https://github.com/r0hin/echo" target="_blank">GitHub</a> <a href="https://echoapp.today" target="_blank">Go</a></li> -->
+          <li>Parallel (Social & Music) <br><a href="https://github.com/r0hin/parallel" target="_blank">GitHub</a> / <a href="https://github.com/r0hin/parallel/releases" target="_blank">View (Soon)</a></li>
+          <!-- <li>Zoonk (Anonymous Tools) <a href="https://r0h.in/articles/zoonk/i.html" target="_blank">View</a></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <h3 class="header">Contact</h3>
+        <ul>
+          <li>Say hi at <a href="mailto:me@r0h.in">me@r0h.in</a></li>
+        </ul>
+      </div>
+      <div class="col-sm">
+        <h3 class="header">Documents</h3>
+        <ul>
+          <li>Rohin, Inc: <a href="">Payment Policy</a>, <a href="">Privacy Policy</a>, <a href="">Terms of Service</a>.</li>
+
         </ul>
       </div>
     </div>
   </div>
 
-  <h3 class="header">Contact</h3>
-  <p>Say hi at <a href="mailto:me@r0h.in">me@r0h.in</a> or reach me on <a href="discord.html">discord</a>.</p>
-  
-
-    
-  
   <!--=== JavaScript ===-->
   <!-- JQuery --> <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <!-- Popper --> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
