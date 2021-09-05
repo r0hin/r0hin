@@ -1,0 +1,166 @@
+body {
+  font-family: 'Source Code Pro', monospace;
+  color: black;
+  background-color: white;
+  padding: 60px 10% 60px 10%;
+  transition: all 0.5s;
+}
+
+body.sectionActive {
+  background-color: rgb(232, 232, 232);
+}
+
+.hidden {
+  display: none;
+}
+
+.section {
+  background-color: white;
+  position: absolute;
+  top: 60px; left: 10%;
+  width: calc(80% - 64px); height: calc(100% - 120px - 64px);
+  padding: 32px;
+  border-radius: 24px;
+  overflow-y: auto;
+}
+
+.closeButton {
+  color: white;
+  border: 0px;
+  width: 32px; height: 32px;
+  font-size: 16px;
+  position: absolute;
+  right: 32px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.closeButton:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.about_section .closeButton {
+  background-color: rgb(39, 125, 230);
+}
+
+.projects_section .closeButton {
+  background-color: rgb(184, 75, 230);
+}
+
+.documents_section .closeButton {
+  background-color: rgb(109, 230, 39);
+}
+
+#wave {
+  font-weight: 800;
+}
+
+.mainButton {
+  background-color: black;
+  display: inline-block;
+  color: white;
+  padding: 12px 24px 12px 24px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 300;
+  box-shadow: 0px;
+  border-radius: 12px;
+  transition: all 0.3s;
+  margin-bottom: 0px;
+  min-width: 120px;
+}
+
+.mainButton:hover {
+
+  cursor: pointer;
+}
+
+.aboutButton {
+  border-left: 3px solid rgb(39, 125, 230);
+}
+
+.aboutButton.mainButtonActive {
+  background-color: rgb(39, 125, 230) !important;
+}
+
+.aboutButton:hover {
+  border-left: 8px solid rgb(39, 125, 230);
+}
+
+.projectsButton {
+  border-left: 3px solid rgb(184, 75, 230);
+}
+
+.projectsButton.mainButtonActive {
+  background-color: rgb(184, 75, 230) !important;
+}
+
+.projectsButton:hover {
+  border-left: 8px solid rgb(184, 75, 230);
+}
+
+.documentsButton {
+  border-left: 3px solid rgb(109, 230, 39);
+}
+
+.documentsButton.mainButtonActive {
+  background-color: rgb(109, 230, 39) !important;
+}
+
+.documentsButton:hover {
+  border-left: 8px solid rgb(109, 230, 39);
+}
+
+.center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.sectionTitle {
+  margin-top: 0px;
+  font-weight: 7  00;
+}
+
+.sectionContent {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 300px;
+  margin: 0px 32px 16px 0px;
+  text-align: left;
+}
+
+.document {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0px 8px 16px 8px;
+  border: 3px solid rgb(225, 225, 225);
+  width: 180px; height: 120px;
+  position: relative;
+  border-radius: 12px;
+}
+
+.document:hover {
+  border: 3px solid rgb(109, 230, 39);
+  cursor: pointer;
+}
+
+.document i {
+  position: absolute;
+  left: 50%; top: 24px;
+  transform: translate(-50%, 0);
+  font-size: 36px;
+}
+
+.document a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  position: absolute;
+  width: calc(100% - 24px);
+  left: 50%; bottom: 18px;
+  transform: translate(-50%, 0);
+  font-size: 12px;
+}

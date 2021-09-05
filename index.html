@@ -1,156 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-
-    bam = window.location.href
-    if (bam.includes('rohin12.gitlab.io')) {
-      window.location.replace('https://r0h.in')
-    }
-
-    const myParam = urlParams.get('a');
-
-    switch (myParam) {
-      case "urban":
-        window.location.replace('articles/apis/urban/d35rzt6y1iu2juis.html')
-        break;
-      case "emojify":
-        window.location.replace('articles/apis/emojify/456788mu82y41s.html')
-        break;
-      case "joke":
-        window.location.replace('articles/apis/joke/7aw8ueosidah.html')
-        break;
-      case "movie":
-        window.location.replace('articles/apis/movie/283nuwsjalksjs.html')
-        break;
-      case "qr":
-        window.location.replace('articles/apis/qr/8923usjoibdsa.html')
-        break;
-      case "trumpy":
-        window.location.replace('articles/apis/quote/16t72yuiwdshazna.html')
-        break;
-      case "freedom":
-        window.location.replace('articles/apis/picture-mergifyinator/y9418hwushd.html')
-        break;
-      default:
-      break;
-    }
-  </script>
+  <script src="assets/scripts.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rohin</title>
   <!--=== CSS ===-->
-  <!-- Animate 4.0.0 Compat Ver --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.min.css">
-  <!-- Material Icons --> <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+  <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.min.css">
   <!-- Box Icons --> <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <!-- Snackbar --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/cdn/snackbar.min.css">
-  <!-- Daemonite / Bootstrap --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/cdn/material.min.css">
-  <!-- Waves --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/cdn/waves.min.css">
-  <!-- Font --> <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;1,500&display=swap" rel="stylesheet">
-  <!-- East --> <link rel="stylesheet" href="https://eastcoastgang.github.io/style/release/east.css">
-  
-  <!-- Injected Theme --> <style id="InjectedTheme">:root {--s-b: rgb(255, 255, 255) !important;--s-1: rgba(255, 255, 255, 0.02) !important;--s-2: rgba(255, 255, 255, 1.00) !important;--s-3: rgba(255, 255, 255, 1.00) !important;--s-4: rgba(255, 255, 255, 1.00) !important;--s-5: rgba(255, 255, 255, 1.00) !important;--s-6: rgba(255, 255, 255, 1.00) !important;--s-7: rgba(255, 255, 255, 1.00) !important;--s-8: rgba(255, 255, 255, 1.00) !important;--primary: rgb(98, 0, 238) !important;--primary-hover: #7517fa !important;--primary-hover-variant: rgb(117, 23, 250, 0.05) !important;--primary-hover-variant-variant: rgb(117, 23, 250, 0.1) !important;--primary-variant: #3700B3 !important;--secondary: rgb(3, 218, 198) !important;--secondary-hover: #18e6d1 !important;--secondary-hover-variant: rgb(24, 230, 209, 0.05) !important;--secondary-hover-variant-variant: rgb(24, 230, 209, 0.1) !important;--secondary-variant: #018786 !important;     --e-0: rgba(0, 0, 0, 1.0) !important;--e-1: rgba(0, 0, 0, 0.87) !important;--e-2: rgba(0, 0, 0, 0.60) !important;--e-3: rgba(0, 0, 0, 0.38) !important;--e-4: rgba(0, 0, 0, 0.11) !important;--c-1: rgba(0, 0, 0, 0.02) !important;--c-2: rgba(0, 0, 0, 0.04) !important;--c-3: rgba(0, 0, 0, 0.06) !important;}</style>
+  <!-- Font --> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body class="animated fadeIn">
-  <!-- Preflight Modals-->
-  
-  <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modalheader"><h3>Error</h3></div><div class="modalbody"><p id="erorrModalMsg"></p><button type="button" class="btn-contained-primary block" data-dismiss="modal">dismiss</button></div></div></div></div>
-  <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
-  <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eondoneelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><h1 id="doneleementicon" style="line-height: 0px; margin: 0px;" class="animated bounceIn"><i class="material-icons doneicon">done</i></h1></center></div></div></div></div>
-  <div class="hidden animated fadeIn faster" id="bottom_sheet_background"></div>
-  
+<body id="body" class="animated fadeIn">
   <!-- Content -->
   
-  <center>
-    <h1>👋,</h1>
-    <h3 style="font-weight: 700">i'm Rohin.</h3>
-  </center>
+  <div class="center">
+    <h1 id="wave">👋</h1>
 
-  <!-- <h3 class="header">About</h3> -->
-  <!-- <p>Hi 👋, my name is Rohin and I am a programmer, designer, and student studying in Toronto. You can find information about my projects and interests on this page. Thanks for visiting!</p> -->
-
-  <div class="container">
-    <div class="row">
-      <!-- <div class="col-sm">
-        <h3 class="header">Interests</h3>
-        <ul>
-          <li>Music</li>
-          <li>Coding</li>
-          <li>Food</li>
-          <li>TV Shows</li>
-        </ul>
-      </div> -->
-      <div class="col-sm">
-        <h3 class="header">Technologies</h3>
-        <ul>
-          <li>HTML, CSS, JavaScript</li>
-          <li>TypeScript, NodeJS, Python</li>
-          <li>VueJS, Firebase, Electron</li>
-          <li>Rusty: Swift, Java, ReactJS</li>
-          <li>Git</li>
-        </ul>
-      </div>
-      <div class="col-sm">
-        <h3 class="header">Projects</h3>
-        <ul>
-          <!-- <li>Echo <a href="https://github.com/r0hin/echo" target="_blank">GitHub</a> <a href="https://echoapp.today" target="_blank">Go</a></li> -->
-          <li>Parallel (Social & Music) <br><a href="https://github.com/r0hin/parallel" target="_blank">GitHub</a> / <a href="https://github.com/r0hin/parallel/releases" target="_blank">View (Soon)</a></li>
-          <!-- <li>Zoonk (Anonymous Tools) <a href="https://r0h.in/articles/zoonk/i.html" target="_blank">View</a></li> -->
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
-        <h3 class="header">Contact</h3>
-        <ul>
-          <li>Say hi at <a href="mailto:me@r0h.in">me@r0h.in</a></li>
-        </ul>
-      </div>
-      <div class="col-sm">
-        <h3 class="header">Documents</h3>
-        <ul>
-          <li>Rohin, Inc: <a href="articles/markdown/Payment Policy.pdf">Payment Policy</a>, <a href="articles/markdown/Privacy Policy.pdf">Privacy Policy</a>, <a href="articles/markdown/Terms and Conditions.pdf">Terms of Service</a>.</li>
-
-        </ul>
-      </div>
-    </div>
+    <div onclick="openSection('about', this)" class="mainButton aboutButton">About</div> <br><br>
+    <div onclick="openSection('projects', this)" class="mainButton projectsButton">Projects</div> <br><br>
+    <div onclick="openSection('documents', this)" class="mainButton documentsButton">Documents</div>
   </div>
 
-  <!--=== JavaScript ===-->
-  <!-- JQuery --> <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <!-- Popper --> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <!-- Bootstrap --> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <!-- Daemonite --> <script src="https://eastcoastgang.github.io/style/release/cdn/material.min.js"></script>
-  <!-- Snackbar --> <script src="https://github.com/eastcoastgang/style/blob/master/release/cdn/snackbar.min.js"></script>
-  <!-- Ripplet --> <script src="https://cdn.jsdelivr.net/npm/ripplet.js@0.3.0/umd/ripplet-declarative.min.js"></script>
-  <!-- Waves --> <script src="https://eastcoastgang.github.io/style/release/cdn/waves.min.js"></script>
-  <!-- East --> <script src="https://eastcoastgang.github.io/style/release/east.js"></script>
+  <div class="hidden fast section about_section">
+    <button onclick="closeSection()" class="closeButton animated zoomIn delay-1s"> <i class="bx bx-x"></i> </button>
+    <h1 class="sectionTitle">About</h1>
+
+    <div class="container">
+
+      <div class="sectionContent">
+        <b>Technologies (Full-stack)</b>
+        <ul>
+          <li>Front-end: JavaScript, TypeScript VueJS, ViteJS</li>
+          <li>Back-end: Python, NodeJS, ExpressJS</li>
+          <li>Cloud: GCP, AWS, Docker, Firebase</li>
+          <li>Misc: Git/GitHub, SASS, Electron, React Native</li>
+        </ul>
+      </div>
   
-  <style>
-    body {
-      font-family: 'Source Code Pro', monospace;
-      background-color: rgb(0, 0, 0);
-      color: rgb(255, 255, 255) !important;
-      padding: 120px 32px 0px 32px;
-    }
+      <div class="sectionContent">
+        <b>Contact</b>
+        <ul>
+          <li>Email: <a href="mailto:me@r0h.in">me@r0h.in</a></li>
+          <li>Twitter: <a target="_blank" href="https://twitter.com/r0hin12">r0hin12</a></li>
+          <li>Discord: eon#6562</li>
+        </ul>
+      </div>
 
-    h1 {
-      font-weight: 500;
-    }
+    </div>
 
-    li {
-      color: white !important;
-    }
+  </div>
 
-    .header {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 36px;
-      margin-bottom: 12px;
-      color: rgb(255, 255, 255);
-    }
+  <div class="hidden fast section projects_section">
+    <button onclick="closeSection()" class="closeButton animated zoomIn delay-1s"> <i class="bx bx-x"></i> </button>
+    <h1 class="sectionTitle">Projects</h1>
 
-  </style>
+    <p>Parallel (Case study Soon)</p>
+
+  </div>
+
+  <div class="hidden fast section documents_section">
+    <button onclick="closeSection()" class="closeButton animated zoomIn delay-1s"> <i class="bx bx-x"></i> </button>
+    <h1 class="sectionTitle">Documents</h1>
+
+    <center>
+      <div onclick="window.open(`./articles/markdown/Terms and Conditions.pdf`)" class="document">
+        <i class="bx bx-file-blank"></i>
+        <a>Terms & Conditions</a>
+      </div>
+      <div onclick="window.open(`./articles/markdown/Payment Policy.pdf`)" class="document">
+        <i class="bx bx-file-blank"></i>
+        <a>Payment Policy</a>
+      </div>
+      <div onclick="window.open(`./articles/markdown/Privacy Policy.pdf`)" class="document">
+        <i class="bx bx-file-blank"></i>
+        <a>Privacy Policy</a>
+      </div>
+    </center>
+
+  </div>
+  
+
+  <!-- JQuery --> <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  
+  <link rel="stylesheet" href="assets/styles.css">
 </body>
 </html>
