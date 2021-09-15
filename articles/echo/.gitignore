@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+firebase.json
+.firebaserc
+.firebase
+ui-debug.log
+firestore-debug.log
+firebase-debug.log
+.vscode/settings.json
+functions/keys.js

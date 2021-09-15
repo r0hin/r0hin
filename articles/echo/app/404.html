@@ -1,0 +1,81 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Imagine if I made some insane confession 
+    in one of these code comments... 
+    That would be interesting I think.
+    Maybe you should try and look for it...
+    OR maybe nothing's there -->
+<head>
+    <!---==== THEME ====-->
+    <style id="themeinjection">:root{--bg-primary:#f9f9f9;--bg-secondary:#fff;--bg-tertiary:#f6f6f6;--bg-quaternary:#e7e7e7;--eon-primary:#ce33e2;--eon-secondary:rgb(252, 69, 145);--content-primary:black;--content-secondary:#0f0f0f;--content-tertiary:#3b3b3b;--contrast-primary:white;--ripple-primary:rgba(240, 108, 245, 0.3);--ripple-secondary:rgba(240, 108, 245, 0.1);--button-primary:rgb(206, 51, 226)}</style> <script>if(localStorage.getItem('theme')==undefined||localStorage.getItem('theme')==null){partone='--bg-primary: #161922; --bg-secondary: #11131b; --bg-tertiary: #1f202e; --bg-quaternary: #2e2e3f;'; partthree='--content-primary: white; --content-secondary: #c8c8c8; --content-tertiary: #5c5c5c; --contrast-primary: black; '; parttwo='--eon-primary: rgb(51, 147, 226); --eon-secondary: #4548fc; '; partfour='--ripple-primary: rgba(51, 147, 226, 0.3); --ripple-secondary: rgba(51, 147, 226, 0.1); --button-primary: rgb(76, 110, 204); '; document.getElementById('themeinjection').innerHTML=':root {'+partone+parttwo+partthree+partfour+'}'} else{document.getElementById('themeinjection').innerHTML=localStorage.getItem('theme')}</script>
+
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/logowhite.png" />
+    <title id="title">Document</title>
+
+    <!---==== CSS ====-->
+    <!-- Eon Styles -->
+    <link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css"/>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <!-- Baloo Paaji 2 Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Dameonite / Bootstrap-->
+    <link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves -->
+    <link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar -->
+    <link rel="stylesheet" href="daemonite/snackbar.min.css">
+</head>
+<body id="body">
+
+
+  <div class="card centered">
+    <div class="card-body">
+      <h1>Four Oh Four</h1>
+      <p>Haha, page doesn't exist... loser!</p>
+      <br><br>
+      <center>
+        <a href="index.html" class="eon-contained">Return To Echo</a>
+      </center>
+      <br><br>
+    </div>
+  </div>
+
+
+
+
+    <!---==== JavaScript ====--->
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Eon Styles -->
+    <script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+    <!-- Daemonite -->
+    <script src="daemonite/material.min.js"></script>
+    <!-- Waves -->
+    <script src="daemonite/waves.min.js"></script>
+    <script>
+        addWaves();
+
+        function addWaves() {
+            Waves.attach('.eon-contained', ['waves-button']);
+            Waves.attach('.eon-outlined', ['waves-button']);
+            Waves.attach('.eon-text', ['waves-button']);
+            var config = {
+                duration: 250
+            };
+            Waves.init(config);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* UI FLIPPIN' REDESIGN :D:D:D */
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+.card {
+    background-color: var(--bg-tertiary);
+    display: inline-block;
+}
+
+.eon-outlined .waves-ripple {
+    background: var(--ripple-primary) !important;
+}
+
+.eon-text .waves-ripple {
+    background: var(--ripple-primary) !important;
+}
+
+.eon-contained {
+    background-color: var(--button-primary)  !important;
+}
+.eon-contained:hover {
+    background-color: var(--button-primary) !important;
+    color: rgb(226, 226, 226) !important;
+    opacity: 0.9;
+}
+.eon-outlined {
+    background-color: transparent !important;
+    color: var(--button-primary) !important;
+    border-color: var(--button-primary) !important;
+}
+.eon-outlined:hover {
+    background-color: var(--ripple-secondary) !important;
+}
+.eon-text {
+    color: var(--button-primary) !important;
+}
+.eon-text:hover {
+    background-color: var(--ripple-secondary) !important;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--content-primary);
+    font-family: 'Baloo Paaji 2', cursive
+}
+
+.badge-primary {
+    background-color: var(--eon-primary)
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: var(--s-1);
+    border-radius: 12px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--c-1);
+    width: 1em;
+    height: 1em;
+    border-radius: 12px;
+    transition: all 0.5s;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--c-2);
+    cursor: pointer;
+    border-radius: 0px;
+    width: 1em;
+    transition: all 0.5s;
+  }

@@ -1,0 +1,332 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!---==== THEME ====-->
+  <style id="themeinjection">:root{--bg-primary:#f9f9f9;--bg-secondary:#fff;--bg-tertiary:#f6f6f6;--bg-quaternary:#e7e7e7;--eon-primary:#ce33e2;--eon-secondary:rgb(252, 69, 145);--content-primary:black;--content-secondary:#0f0f0f;--content-tertiary:#3b3b3b;--contrast-primary:white;--ripple-primary:rgba(240, 108, 245, 0.3);--ripple-secondary:rgba(240, 108, 245, 0.1);--button-primary:rgb(206, 51, 226)}</style> <script>if(localStorage.getItem('theme')==undefined||localStorage.getItem('theme')==null){partone='--bg-primary: #161922; --bg-secondary: #11131b; --bg-tertiary: #1f202e; --bg-quaternary: #2e2e3f;'; partthree='--content-primary: white; --content-secondary: #c8c8c8; --content-tertiary: #5c5c5c; --contrast-primary: black; '; parttwo='--eon-primary: rgb(51, 147, 226); --eon-secondary: #4548fc; '; partfour='--ripple-primary: rgba(51, 147, 226, 0.3); --ripple-secondary: rgba(51, 147, 226, 0.1); --button-primary: rgb(76, 110, 204); '; document.getElementById('themeinjection').innerHTML=':root {'+partone+parttwo+partthree+partfour+'}'} else{document.getElementById('themeinjection').innerHTML=localStorage.getItem('theme')}</script>
+
+  <!---==== Meta ====--->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <title>Document</title>
+
+  <!---==== CSS ====-->
+  <!-- Eon Styles -->
+  <link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css" />
+  <!-- Animate -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <!-- Baloo Paaji 2 Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Dameonite / Bootstrap-->
+  <link rel="stylesheet" href="daemonite/material.min.css" />
+  <!-- Waves -->
+  <link rel="stylesheet" href="daemonite/waves.min.css" />
+  <!-- Snackbar -->
+  <link rel="stylesheet" href="daemonite/snackbar.min.css" />
+
+  <!-- Echo -->
+  <link rel="stylesheet" href="css/echo.css" />
+  <!-- RTC -->
+  <link rel="stylesheet" href="rtc/rtc.css" />
+</head>
+
+<body id="body">
+  <!-- Preflight Modals-->
+  <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Error</h3>
+        </div>
+        <h5 id="erorrModalMsg" class="modal-body">
+          Unable to complete process.
+        </h5>
+        <div class="modal-footer">
+          <button type="button" class="waves btn-old-text" data-dismiss="modal">
+            dismiss
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="
+        z-index: 20000049108509173268563785623467823478623478278997819871982498714;
+      " class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div style="display: inline-block; border-radius: 400px; width: 150px;" class="modal-content centered">
+        <div class="modal-body">
+          <center>
+            <div class="progress-circular">
+              <div class="progress-circular-wrapper">
+                <div class="progress-circular-inner">
+                  <div class="progress-circular-left">
+                    <div class="progress-circular-spinner"></div>
+                  </div>
+                  <div class="progress-circular-gap"></div>
+                  <div class="progress-circular-right">
+                    <div class="progress-circular-spinner"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="
+        z-index: 20000049108509173268563785623467823478623478278997819871982498714;
+      " class="modal fade bd-example-modal-sm" id="eondoneelement" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div style="display: inline-block; border-radius: 400px; width: 150px;" class="modal-content centered">
+        <div class="modal-body">
+          <center>
+            <h1 id="doneleementicon" style="line-height: 0px; margin: 0px;" class="animated bounceIn">
+              <i class="material-icons doneicon">done</i>
+            </h1>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="conInfoModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <center>
+          <h3>Connection Info</h3>
+        </center>
+        <br>
+        <p id="waitingid"></p>
+        <p id="waitingtype"></p>
+        <center>
+          <button data-dismiss="modal" class="eon-text inline">close</button>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <div id="cameramodal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <center>
+          <h3>Live Cameras</h3>
+        </center>
+
+        <div class="row">
+          <div class="col-sm">
+            <video muted id="mine"></video>
+          </div>
+          <div class="col-sm">
+            <video id="theirs"></video>
+          </div>
+        </div>
+
+        <br /><br />
+        <center>
+          <button data-dismiss="modal" class="eon-text inline">close</button>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade bd-example-modal-lg" id="infoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <center>
+                    <h2>Info</h2>
+                    <br>
+                  <h4>Room ID: <small id="roomid">a</small> running on <small id="roomtype">a</small></h4>
+                  <br><br>
+                    <button type="button" class="waves eon-contained" data-dismiss="modal">done</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- ===========================--] Content [=================================== -->
+
+  <div class="bg">
+
+  </div>
+
+  <div class="animated fadeIn" id="unconnected">
+    <center>
+      <br /><br /><br />
+      <img class="animated pulse infinite logortc slow" src="assets/logo.png" alt="" />
+      <h3>Echo communication platform</h3>
+      <div class="animated fadeIn" id="loadingtext">
+        <h2>Connecting...</h2>
+      </div>
+      <div id="waitingtext" class="hidden animated fadeInUp">
+        <h1><i class="material-icons iconactive animated pulse infinite">access_time</i></h1>
+        <br>
+        <h2>Waiting for peer...</h2>
+        <br>
+        <a data-target="#conInfoModal" data-toggle="modal" class="eon-text">connection info</a>
+      </div>
+    </center>
+    <br /><br />
+  </div>
+  <div class="hidden" id="connected">
+    <div class="card animated fadeInDown" id="rtctoplogocontainer">
+      <div class="card-body">
+        <img src="assets/logo.png" class="rtcicon" alt="" />
+        <div class="pos"></div>
+        <h1 class="logosubtext centeredy">Communication Platform</h1>
+      </div>
+    </div>
+
+    <div class="centered therow">
+      <div class="row">
+        <div class="col-5">
+          <center>
+            <div id="mecontainer" class="animated pulse infinite slower">
+              <img id="userimgme" class="userimg animated fadeInUp hidden shadow-lg" alt="" />
+              <div id="muteme" class="muteglyph1 animated zoomIn hidden"><i class="material-icons iconactive">mic_off</i></div>
+              <div id="deafenme" class="muteglyph2 animated zoomIn hidden"><i class="material-icons iconactive">hearing_disabled</i></div>
+            </div>
+            <br>
+            <h2 id="usertextme" class="usertext">Name</h2>
+          </center>
+        </div>
+        <div class="col-2">
+          <center>
+
+            <h1 class="animated heartBeat slow infinite dots dot1">.</h1>
+            <h1 class="animated heartBeat slow infinite dots dot2">.</h1>
+            <h1 class="animated heartBeat slow infinite dots dot3">.</h1>
+
+            <br><br><br>
+
+            <button id="mutebtn" onclick="togglemute()" class="eon-contained iconbtn"><i
+                class="material-icons">mic</i></button>
+            <button id="deafenbtn" onclick="toggledeafen()" class="eon-contained iconbtn"><i
+                class="material-icons">hearing</i></button>
+
+            <br><br><br><br>
+            <button data-target="#cameramodal" data-toggle="modal" id="cameorabtn" class="eon-contained">
+              View Cameras
+            </button>
+          </center>
+        </div>
+        <div class="col-5">
+          <center>
+            <div id="themcontainer" class="animated pulse infinite slower">
+              <img id="userimgthem" src="" class="userimg animated fadeInUp hidden shadow-lg" alt="" />
+              <div id="mutethem" class="muteglyph1 animated zoomIn hidden"><i class="material-icons iconactive">mic_off</i></div>
+              <div id="deafenthem" class="muteglyph2 animated zoomIn hidden"><i class="material-icons iconactive">hearing_disabled</i></div>
+            </div>
+            <br>
+            <h2 id="usertextthem" class="usertext">Name</h2>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottombar2 card animated fadeInLeft">
+      <button id="disconnectbtn" class="eon-contained">
+        <i class="material-icons">call_end</i>
+      </button>
+    </div>
+
+    <div class="bottombar card animated fadeInRight">
+      <div class="card-body">
+        <div class="dropup">
+          <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="eon-text iconbtn2">
+            <i class="material-icons">cake</i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <center>
+              <button onclick="send('heart')" class="eon-text"><i
+                  class="material-icons iconbtn2 fav">favorite</i></button>
+              <button onclick="send('happy')" class="eon-text"><i
+                  class="material-icons iconbtn2 happy">sentiment_very_satisfied</i></button>
+            </center>
+          </div>
+        </div>
+        <button onclick="getinfo()" class="eon-text iconbtn2">
+          <i class="material-icons">info</i>
+        </button>
+        <br>
+        <button class="eon-text iconbtn2">
+          <i class="material-icons">construction</i>
+        </button>
+        <br>
+        <button class="eon-text iconbtn2">
+          <i class="material-icons">settings</i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden" id="complete">
+    <div class="centered">
+      <h2>Your call has ended.</h2>
+      <p>You can close or reload this tab.</p>
+    </div>
+  </div>
+
+  <!-- ===========================--] /Content [=================================== -->
+  <!---==== JavaScript ====--->
+  <!-- Base Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <!-- Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <!-- Eon Styles -->
+  <script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+  <!-- Daemonite -->
+  <script src="daemonite/material.min.js"></script>
+  <!-- Waves -->
+  <script src="daemonite/waves.min.js"></script>
+  <script>
+    addWaves();
+
+    function addWaves() {
+      Waves.attach('.eon-contained', ['waves-button', 'waves-light']);
+      Waves.attach('.eon-outlined', ['waves-button']);
+      Waves.attach('.eon-text', ['waves-button']);
+      var config = {
+        duration: 250
+      };
+      Waves.init(config);
+    }
+  </script>
+  <!-- Snackbar -->
+  <script src="daemonite/snackbar.min.js"></script>
+  <style>
+    .snackbar-container {
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      border-radius: 8px !important;
+      max-width: 8723789253786352614975678392738649502976483528059748327952px;
+    }
+  </style>
+
+  <!-- PeerJS -->
+  <script src="rtc/peerjs.min.js"></script>
+  <!-- RTC -->
+  <script src="rtc/rtc.js"></script>
+  <!-- Expressions -->
+  <script src="rtc/expressions.js"></script>
+
+</body>
+
+</html>

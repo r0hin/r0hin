@@ -1,0 +1,1305 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- Imagine if I made some insane confession 
+  in one of these code comments... 
+  That would be interesting I think.
+  Maybe you should try and look for it...
+  OR maybe nothing's there -->
+  <head>
+    <!---==== THEME ====-->
+    <style id="themeinjection">:root{--bg-primary:#f9f9f9;--bg-secondary:#fff;--bg-tertiary:#f6f6f6;--bg-quaternary:#e7e7e7;--eon-primary:#ce33e2;--eon-secondary:rgb(252, 69, 145);--content-primary:black;--content-secondary:#0f0f0f;--content-tertiary:#3b3b3b;--contrast-primary:white;--ripple-primary:rgba(240, 108, 245, 0.3);--ripple-secondary:rgba(240, 108, 245, 0.1);--button-primary:rgb(206, 51, 226)}</style> <script>if(localStorage.getItem('theme')==undefined||localStorage.getItem('theme')==null){partone='--bg-primary: #161922; --bg-secondary: #11131b; --bg-tertiary: #1f202e; --bg-quaternary: #2e2e3f;'; partthree='--content-primary: white; --content-secondary: #c8c8c8; --content-tertiary: #5c5c5c; --contrast-primary: black; '; parttwo='--eon-primary: rgb(51, 147, 226); --eon-secondary: #4548fc; '; partfour='--ripple-primary: rgba(51, 147, 226, 0.3); --ripple-secondary: rgba(51, 147, 226, 0.1); --button-primary: rgb(76, 110, 204); '; document.getElementById('themeinjection').innerHTML=':root {'+partone+parttwo+partthree+partfour+'}'} else{document.getElementById('themeinjection').innerHTML=localStorage.getItem('theme')}</script>
+    
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/logowhite.png" />
+    <title id="title">Document</title>
+    
+    <!---==== CSS ====-->
+    <!-- Eon Styles -->
+    <link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css"/>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <!-- Baloo Paaji 2 Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Dameonite / Bootstrap-->
+    <link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves -->
+    <link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar -->
+    <link rel="stylesheet" href="daemonite/snackbar.min.css">
+    
+    <!-- Echo Base -->
+    <link rel="stylesheet" href="css/echo.css">
+    <!-- App -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Search -->
+    <link rel="stylesheet" href="css/search.css">
+    <!-- Spinner -->
+    <link rel="stylesheet" href="css/spinner.css">
+    <!-- Tags Input -->
+    <link rel="stylesheet" href="css/tagsinput.css">
+    <!-- Form -->
+    <link rel="stylesheet" href="css/form.css">
+    <!-- Dyanmic Style #1-->
+    <style id="togglegrid"></style>
+    <!-- Dynamic Style #2-->
+    <style id="animatedsidebar"></style>
+    <!-- Dynamic Style #3-->
+    <style id="dynamicstyle3"></style>
+    <!-- Dynamic Style #4-->
+    <style id="messageliststyle"></style>
+    <!-- Dynamic Style #5-->
+    <style id="changelogbamstyle"></style>
+    <!-- Dynamic Style #6-->
+    <style id="newposttitlestyle6"></style>
+    <!-- Dynamic Style #7-->
+    <style id="explorebgstyle"></style>
+    <!-- Dyanmic Style #8-->
+    <style id="togglegrid2"></style>
+    
+    
+  </head>
+  
+  <body id="body">
+    <!-- Preflight Modals-->
+    <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Error</h3>
+          </div>
+          <h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5>
+          <div class="modal-footer"><button type="button" class="eon-text" data-dismiss="modal">dismiss</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;"
+    class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered">
+        <div class="modal-body">
+          <center>
+            <div class="progress-circular">
+              <div class="progress-circular-wrapper">
+                <div class="progress-circular-inner">
+                  <div class="progress-circular-left">
+                    <div class="progress-circular-spinner"></div>
+                  </div>
+                  <div class="progress-circular-gap"></div>
+                  <div class="progress-circular-right">
+                    <div class="progress-circular-spinner"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;"
+  class="modal fade bd-example-modal-sm" id="eondoneelement" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered">
+      <div class="modal-body">
+        <center>
+          <h1 id="doneleementicon" style="line-height: 0px; margin: 0px;" class="animated bounceIn"><i
+            class="material-icons doneicon">done</i></h1>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg" id="uploadmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <center id="bigasscenter">
+            <button id="backbtn" onclick="newpost_back()" class="eon-contained connectionbtn hidden animated"><i class="material-icons">keyboard_backspace</i></button>
+            <h2 id="newposttitle">Oh, another post huh?</h2>
+            <div class="animated" id="unselectedpost">
+              <br>
+              <button onclick="newpost_selectimage()" class="eon-text">image</button>
+              <button onclick="newpost_selecttext()" class="eon-text">text</button>
+            </div>
+          </center>
+          <div class="animated hidden" id="selectimage">
+            <center>
+              <p><b>New Image Post</b></p>
+              <br>
+              <button onclick="document.getElementById('imgInp').click()" class="waves eon-outlined">Select Image</button>
+            </center>
+            
+            <input accept='image/*' style="display: none;" type='file' id="imgInp" />
+            
+            <center style="display: none; " id="captionelel">
+              <br><br>
+              <img class="shadow-sm animated fadeIn uploadpreview" id="blah" src="#" alt="your image" />
+              <div id="captionel" style="display: none;" class="textfield-box animated fadeInUp">
+                <label class="mb-2 imagepreviewtext" for="captioninput">Image Preview</label>
+                <input class="form-control" id="captioninput" placeholder="Add a Caption" type="text">
+              </div>
+              <br>
+              
+              <div class="row">
+                <div class="col-sm">
+                  <br><br><br>
+                  <input class="checkbox" type="checkbox" id="privateinp" style="display: none;">
+                  <label for="privateinp" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                      <path
+                      d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+                    </path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                  </svg>
+                </label>
+                <p class="checklabel">Private Post</p>
+                <br><br><br>
+                <a style="display: inline-block;" tabindex="0" data-toggle="popover" data-trigger="focus" title="Private Post" data-content="Private posts are only visible to your followers. Turn on follow requests in your account settings."><i class="material-icons smallicon">info</i></a>
+                
+              </div>
+              <div class="col-sm">
+                <br><br><br>
+                <input data-role="tagsinput" id="tagsinput1" placeholder="Press enter after each tag." type="text">
+                <br><br><br>
+                <a style="display: inline-block;" tabindex="0" data-toggle="popover" data-trigger="focus" title="Tags" data-content="Help others discover your post by adding tags. Your post will show up in the respective category of each tag. ie: funny, beauty, arts, photography, goals, etc"><i class="material-icons smallicon">info</i></a> 
+              </div>
+            </div>
+            
+            <br><br>
+            <button onclick="window.setTimeout(function() {newpost()},2500)" class="rocket-button"><div class="default">Upload Post</div><div class="success"> <svg> <use xlink:href="#check"> </svg><div>Uploading...</div></div><div class="animation"><div class="rocket"> <svg> <use xlink:href="#rocket"> </svg></div><div class="smoke"> <i></i><i></i><i></i><i></i><i></i><i></i></div></div> </button> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11" id="check"> <polyline stroke="currentColor" points="1 5.5 5 9.5 12 1.5"></polyline> </symbol> <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" id="rocket"> <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 L8.66666667,31 C4.22222222,19.0350877 5.33333333,8.70175439 12,0 Z" fill="var(--rocket)"></path> <path d="M12,0 C5.33333333,8.70175439 4.22222222,19.0350877 8.66666667,31 C6.72222222,17.9473684 7.83333333,7.61403509 12,0 Z" fill="var(--rocket-shadow-left)"></path> <path d="M12,0 C18.6666667,8.70175439 19.7777778,19.0350877 15.3333333,31 C17.2777778,17.9473684 16.1666667,7.61403509 12,0 Z" fill="var(--rocket-shadow-right)"></path> <path d="M22.2399372,27.25 C21.2403105,25.558628 19.4303122,23.808628 16.21,22 L15,31 L17.6512944,31 C18.2564684,31 18.8216022,31.042427 19.1572924,31.5292747 L21.7379379,35.271956 C22.0515593,35.7267976 22.5795404,36 23.1449294,36 C23.5649145,36 23.9142153,35.7073938 23.9866527,35.3215275 L24,35.146217 L23.9987214,35.1196135 C23.7534506,31.4421183 23.1671892,28.8189138 22.2399372,27.25 Z" fill="var(--rocket-wing-right)"></path> <path d="M1.76006278,27.25 C2.75968951,25.558628 4.56968777,23.808628 7.79,22 L9,31 L6.34870559,31 C5.74353157,31 5.17839777,31.042427 4.84270762,31.5292747 L2.2620621,35.271956 C1.94844071,35.7267976 1.42045963,36 0.855070627,36 C0.435085457,36 0.0857846604,35.7073938 0.0133472633,35.3215275 L0,35.146217 L0.00127855763,35.1196135 C0.24654935,31.4421183 0.832810758,28.8189138 1.76006278,27.25 Z" fill="var(--rocket-wing-left)"></path> <circle fill="var(--rocket-window-shadow)" cx="12" cy="12" r="3"></circle> <circle fill="var(--rocket-window)" cx="12" cy="12" r="2.5"></circle> <path d="M15.6021597,5.99977504 L8.39784027,5.99977504 C8.54788101,5.6643422 8.70496315,5.3309773 8.86908669,4.99968036 L15.1309133,4.99968036 C15.2950369,5.3309773 15.452119,5.6643422 15.6021597,5.99977504 Z" fill-opacity="0.3" fill="var(--rocket-line)"></path> </symbol> </svg>
+              
+              
+            </div>
+            
+            <div class='animated hidden' id="selecttext">
+              <center id="step1">
+                <div class="floating-label textfield-box">
+                  <label for="textpostbox">New Post</label>
+                  <textarea class="form-control" id="textpostbox" placeholder="What's happening, broski?" rows="3"></textarea>
+                </div>
+                <br>
+                
+                <div class="row">
+                  <div class="col-sm">    
+                    <br><br><br>
+                    <input data-role="tagsinput" id="tagsinput2" placeholder="Press enter after each tag." type="text">
+                    <br><br><br>
+                    <a style="display: inline-block;" tabindex="0" data-toggle="popover" data-trigger="focus" title="Tags" data-content="Help others discover your post by adding tags. Your post will show up in the respective category of each tag. ie: funny, beauty, arts, photography, goals, etc"><i class="material-icons smallicon">info</i></a>
+                  </div>
+                  <div class="col-sm">
+                    <br><br><br>
+                    <input class="checkbox" type="checkbox" id="privateinp2" style="display: none;">
+                    <label for="privateinp2" class="check">
+                      <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path
+                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+                      </path>
+                      <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                  </label>
+                  <p class="checklabel">Private Post</p>
+                  <br><br>
+                  <a style="display: inline-block;" tabindex="0" data-toggle="popover" data-trigger="focus" title="Private Post" data-content="Private posts are only visible to your followers. Turn on follow requests in your account settings."><i class="material-icons smallicon">info</i></a>
+                </div>
+              </div>
+              
+              <br>
+              
+              <button onclick="nexttextstep()" class="eon-contained">next</button>
+            </center>
+            <center class="hidden" id="step2">
+              <button class="eon-text" onclick="edittext()">Modify Text</button>
+              <br><br>
+              <p>Choose a theme for your text:</p>
+              
+              <div class="row">
+                <div class="col-sm">
+                  
+                  <div onclick="newTextPost('light')" class='waves-effect card lightcard textpostcard'>
+                    <div class='card-body'>
+                      <h5 class="emulatedtext"></h5>
+                    </div>
+                  </div>
+                  <br><br>
+                  <p>Light Default</p>
+                  
+                </div>
+                <div class="col-sm">
+                  
+                  <div onclick="newTextPost('deep')" class="waves-effect card superdeepcard textpostcard">
+                    <div class="card-body">
+                      <p class="relative"">
+                        <b class="emulatedtext"></b>
+                      </p>
+                    </div>
+                  </div>
+                  <br><br>
+                  <p>Deep</p>
+                  
+                </div>
+                <div class="col-sm">
+                  <div onclick="newTextPost('dark')" class='waves-effect card darkcard textpostcard'>
+                    <div class='card-body'>
+                      <h5 class="emulatedtext"></h5>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <p>Dark Default</p>
+                </div>
+              </div>
+              
+            </center>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade bd-example-modal-lg" id="leavingmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <center>
+            <h3>Heads Up!</h3>
+            <p>Looks like you requested to follow a link! Click below to proceed to your destination.</p>
+            <div style="display: inline-block" class="custom-control custom-switch">
+              <input class="custom-control-input" id="skipdialogswitch" type="checkbox">
+              <span class="custom-control-track"></span>
+              <label class="custom-control-label" for="skipdialogswitch">Always skip this dialog</label>
+            </div>
+            <br><br>
+            <button id="continuebtn" class="eon-contained">continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-lg" id="infoModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div id="infomodal-content" class="modal-content">
+          <div class="modal-body">
+            
+            <div class="card animated fast hidden modalloader" id="infoLoader"> <div class="loadingcontainermodal"> <div class="progress-circular"> <div class="progress-circular-wrapper"> <div class="progress-circular-inner"> <div class="progress-circular-left"> <div class="progress-circular-spinner"></div> </div> <div class="progress-circular-gap"></div> <div class="progress-circular-right"> <div class="progress-circular-spinner"></div> </div> </div> </div> </div> </div> </div>
+            
+            <center>
+              <h2>Post Info</h2>
+            </center>
+            
+            <ul id="infomodallist" class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                File Name
+                <span id="infoa">ok</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Date
+                <span id="infob">ok</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Image ID
+                <span id="infoc">ok</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Caption
+                <span id="infoe">ok</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                User ID
+                <span id="infod">ok</span>
+              </li>
+            </ul>
+            
+            <center id="infobtngroup">
+              <br>
+              <a data-toggle="tooltip" data-placement="top" title="View Comments" data-dismiss="modal"
+              id="commentbtnfrominfo" class="waves eon-text"><i
+              class="material-icons gradicon">comment</i></a>
+              <a data-toggle="tooltip" data-placement="top" title="View Post" data-dismiss="modal"
+              id="postbtnfrominfo" class="waves eon-text"><i
+              class="material-icons gradicon">insert_photo</i></a>
+              <a data-toggle="tooltip" data-placement="top" title="View User" data-dismiss="modal"
+              id="userbtnfrominfo" class="waves eon-text"><i
+              class="material-icons gradicon">person</i></a>
+              <a data-toggle="tooltip" data-placement="top" title="Report Post" data-dismiss="modal"
+              id="reportbtnfrominfo" class="waves eon-text"><i
+              class="material-icons gradicon">report</i></a>
+              <a data-toggle="tooltip" data-placement="top" title="Remove Post" id="deletebtnfrominfo"
+              class="waves eon-text animated deletebtnunexpanded"><i
+              class="material-icons gradicon">delete</i></a>
+              
+              
+              <br><br>
+              <button type="button" class="waves eon-contained" data-dismiss="modal">done</button>
+            </center>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-lg" id="customColorPicker" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <center>
+              <h2>Custom Theme Color</h2>
+              <br>
+              
+              <p class="colrpickertext">Primary Color</p>
+              <input class="colrpicker" value="rgba(206, 51, 226, 1)" data-jscolor="">                      
+              <br><br><br>
+              <p class="colrpickertext">Secondary Color</p>
+              <input class="colrpicker" value="rgba(252, 69, 145,1)" data-jscolor="">                      
+              
+              
+              <br><br><br>
+              
+              <button type="button" class="waves eon-text" data-dismiss="modal">cancel</button>
+              <button onclick="proceedcustomui()" type="button" class="waves eon-contained" data-dismiss="modal">done</button>
+            </center>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-lg" id="conversationInfo" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <center>
+              <h2>Conversation Info</h2>
+            </center>
+            
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                User
+                <span id="info2a">ok</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Conversation ID
+                <span id="info2b">ok</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Messages
+                <span id="info2c">ok</span>
+              </li>
+            </ul>
+            
+            <center>
+              <br>
+              <a onclick="purgemessages()" data-toggle="tooltip" data-placement="top" title="Purge Messages" data-dismiss="modal" id="purgefrominfo" class="waves eon-text">
+                <i class="material-icons gradicon deletebtnicon">delete_sweep</i>
+              </a>
+              
+              
+              <br><br>
+              <button type="button" class="waves eon-contained" data-dismiss="modal">done</button>
+            </center>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-lg" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg usermodal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <center>
+              <h2>View Post</h2>
+              <br><br>
+              <div id="postfull">
+                
+              </div>
+              <br><br>
+              <button type="button" class="waves eon-contained" data-dismiss="modal">done</button>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-lg" id="userModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered usermodal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="card animated fast hidden modalloader" id="userLoader"> <div class="loadingcontainermodal"> <div class="progress-circular"> <div class="progress-circular-wrapper"> <div class="progress-circular-inner"> <div class="progress-circular-left"> <div class="progress-circular-spinner"></div> </div> <div class="progress-circular-gap"></div> <div class="progress-circular-right"> <div class="progress-circular-spinner"></div> </div> </div> </div> </div> </div> </div>
+            <div class="row">
+              <div class="col-sm">
+                <center>
+                  <div class="row">
+                    <div class="col-sm">
+                      <img id="usermodalpfp" class="usermodalpfp" alt="Error loading image.">
+                      <br><br>
+                      <div id="connections">
+                      </div>
+                      <br>
+                      <h4 style="display: none;" id="usermodalfollowtext" class="animated"><i class="material-icons" id="followicon">done</i> Following</h4>
+                    </div>
+                    <div class="col-sm">
+                      <div style="position: relative;">
+                        <h2 id="usermodaltitle"></h2>
+                      </div>
+                      <p id="usermodalbio"></p>
+                      <br>
+                    </div>
+                  </div>
+                </center>
+              </div>
+              <div class="col-sm">
+                <div class="card userstats">
+                  <div class="card-body">
+                    <center>
+                      <div class="row">
+                        <div class="col-sm usermodalcolumn">
+                          <h2 id="userfollowers"></h2>
+                          <p class="inline">Followers</p><br>
+                        </div>
+                        <div class="col-sm usermodalcolumn">
+                          <h2 id="userfollowing"></h2>
+                          <p class="inline">Following</p><br>
+                          <br>
+                        </div>
+                      </div>
+                      <br>
+                      <button id="followbtn" class="eon-contained">Follow</button>
+                      <br>
+                      <br>
+                      <div id="privatewarning" style="display: none;" class="animated fadeInUp alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>This account is private.</strong> Follow this user to see their content.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div id="ownwarning" style="display: none;" class="animated fadeInUp alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>This is your account.</strong> Share it with people to gain followers!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    </center>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <center><button type="button" class="waves eon-contained" data-dismiss="modal">close</button>
+            </center>
+            <br>
+            <hr>
+            <br>
+            <ul class="nav nav-justified" id="justifiedTab" role="tablist">
+              <li class="nav-item">
+                <a onclick="window.setTimeout(() => {resizeUserGridItems()}, 240)" aria-controls="poststab" aria-selected="true" class="eon-text tabbtn" data-toggle="tab" href="#poststab" id="poststab-tab" role="tab">Posts</a>
+              </li>
+              <li class="nav-item">
+                <a onclick="showfollowers()" aria-controls="followerstab" aria-selected="false" class="eon-text tabbtn" data-toggle="tab" href="#followerstab" id="followerstab-tab" role="tab">Followers</a>
+              </li>
+              <li class="nav-item">
+                <a onclick="showfollowing()" aria-controls="followingtab" aria-selected="false" class="eon-text tabbtn" data-toggle="tab" href="#followingtab" id="followingtab-tab" role="tab">Following</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="justifiedTabContent">
+              <div aria-labelledby="poststab-tab" class="tab-pane fade show active" id="poststab" role="tabpanel">
+                <h1 class="font-weight-bold">
+                  Posts
+                </h1>
+                <br>
+                <div id="usergrid"></div>
+              </div>
+              <div aria-labelledby="followingtab-tab" class="tab-pane fade" id="followingtab" role="tabpanel">
+                <h1 class="font-weight-bold">
+                  Following
+                </h1>
+                <br>
+                <div id="followingcontainer"></div>
+              </div>
+              <div aria-labelledby="followerstab-tab" class="tab-pane fade" id="followerstab" role="tabpanel">
+                <h1 class="font-weight-bold">
+                  Followers
+                </h1>
+                <br>
+                <div id="followerscontainer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-lg" id="commentModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            
+            <div class="card animated fast hidden modalloader" id="commentLoader"> <div class="loadingcontainermodal"> <div class="progress-circular"> <div class="progress-circular-wrapper"> <div class="progress-circular-inner"> <div class="progress-circular-left"> <div class="progress-circular-spinner"></div> </div> <div class="progress-circular-gap"></div> <div class="progress-circular-right"> <div class="progress-circular-spinner"></div> </div> </div> </div> </div> </div> </div>
+            
+            <center>
+              <h2>Comments</h2>
+              
+              <div id="nocomments" class="hidden card">
+                <div class="card-body">
+                  <br>
+                  <i class="material-icons iconactive noitemsicon">perm_media</i>
+                  <br><br>
+                  <h4>No Comments</h4>
+                  <p>Be the first to add a comment.</p>
+                </div>
+              </div>                        
+              <br>
+              <div id="newcommentbox">
+                <div class="floating-label textfield-box">
+                  <label for="commentbox">New Comment</label>
+                  <textarea onkeydown="updatechars()" class="form-control" id="commentbox" rows="4"></textarea>
+                </div>
+                <br>
+                <a onclick="addComment()" id="charcount" style="width: 100%;"
+                class="waves eon-outlined animated">Post Comment (0/200 chars)</a>
+              </div>
+              <br><br>
+              <div id="commentsbox"></div>
+              <button id="returntopost" type="button" class="waves eon-text" data-dismiss="modal"><i class="material-icons gradicon">insert_photo</i></button> 
+              <button id="returntouser" type="button" class="waves eon-text" data-dismiss="modal"><i class="material-icons gradicon">person</i></button> 
+              <button type="button" class="waves eon-contained" data-dismiss="modal">done</button>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="changenamemodal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            
+            <h3>Change Displayname</h3>
+            
+            <div class="floating-label textfield-box">
+              <label for="newdisplayname">New Displayname</label>
+              <input class="form-control" id="newdisplayname" placeholder="" type="text">
+            </div>
+            
+            <div class="alert alert-danger" role="alert">
+              <b>Warning: </b> Changing your displayname very frequently may result in a rate limit. It is
+              recommended to change less than once a month.
+            </div>
+            
+            <br>
+            <br>
+            <center>
+              <button type="button" class="waves eon-text" data-dismiss="modal">cancel</button>
+              <button onclick="changedisplayname()" type="button" class="waves eon-contained"
+              data-dismiss="modal">change</button>
+            </center>
+            
+            
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="changebiomodal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            
+            <h3>Change Bio</h3>
+            
+            <div class="floating-label textfield-box">
+              <label for="newbio">Biography</label>
+              <textarea class="form-control" id="newbio" placeholder="" rows="3"></textarea>
+            </div>
+            
+            <br>
+            <br>
+            <center>
+              <button type="button" class="waves eon-text" data-dismiss="modal">cancel</button>
+              <button onclick="changebio()" type="button" class="waves eon-contained"
+              data-dismiss="modal">change</button>
+            </center>
+            
+            
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="newdmmodal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h3>New DM</h3>
+            <br>
+            <div class="floating-label textfield-box">
+              <label for="newdmfield">Recipient's Username</label>
+              <input class="form-control" id="newdmfield" placeholder="" type="text">
+            </div>
+            <br><br>
+            <center>
+              <button type="button" class="waves eon-text" data-dismiss="modal">cancel</button>
+              <button onclick="newdm()" type="button" class="waves eon-contained"
+              data-dismiss="modal">request</button>
+            </center>
+            
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ===========================--] Content [=================================== -->
+    <div style="display: none;" class="doprofile animated fadeIn" id="doprofile">
+      <div class="centered animated fadeIn" id="profilesetup1">
+        <div class="card">
+          <div class="card-body content">
+            <h3>Complete your Profile</h3>
+            <br>
+            <div class="floating-label textfield-box">
+              <label for="usernamefield">Username</label>
+              <input class="form-control content" placeholder="" id="usernamefield" type="text">
+            </div>
+            <div style="display: none;" id="usernametaken" class="alert alert-danger animated zoomIn"
+            role="alert">
+            This username is taken!
+          </div>
+          <br>
+          <center>
+            <button onclick="profilesetup1()" class="eon-text">next</button>
+          </center>
+        </div>
+      </div>
+    </div>
+    <div class="centered animated fadeIn" style="display: none;" id="profilesetup2">
+      <div class="card">
+        <div class="card-body maincolor">
+          <h3>Complete your Profile</h3>
+          <br>
+          <div class="floating-label textfield-box">
+            <label for="namefield">Your Name</label>
+            <input class="form-control content" placeholder="" id="namefield" type="text">
+          </div>
+          <br>
+          <center>
+            <button onclick="profilesetup2()" id="savebtn" class="eon-text">save</button>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: none;" class="doemail animated fadeIn" id="doemail">
+    <div class="centered animated fadeIn" id="emailsetup1">
+      <div class="card">
+        <div class="card-body maincolor">
+          <h3>Verify your Email</h3>
+          <br>
+          <center>
+            <button id="verifybutton" onclick="verifyemail()" class="eon-text animated fadeIn">send
+              email</button>
+              <div style="display: none;" class="animated fadeIn" id="status">
+                <p id="verifyresponse"></p>
+                <button onclick="checkverification()" class="eon-text animated fadeIn checkverifybtn">Check
+                  Verification</button>
+                </div>
+                <br><br>
+                <a href="support.html?help=forgot-email">Don't have access to this email?</a>
+              </center>
+              <br>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="main">
+        <button id="expandbtn" class="expandbtn waves-effect menuham" onclick="expand();this.classList.toggle('openedham');this.setAttribute('aria-expanded', this.classList.contains('openedham'))" aria-label="Main Menu"> <svg width="32" height="32" viewBox="0 0 100 100"> <path class="lineham line1ham" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" /> <path class="lineham line2ham" d="M 20,50 H 80" /> <path class="lineham line3ham" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" /> </svg> </button>
+        
+        <div style="display: none" class="buttonunexpanded animated" id="sidebar">
+          <center class="point" onclick="tabe('home')">
+            <img class="hidden animated zoomIn" src="assets/logo.png" id="mainLogo" alt="">
+            <h3 id="logoSupportingText">Echo</h3>
+          </center>
+          <br><br><br>
+          <center>
+            <img style="display: none;" id="mainphoto" class="avatar main-avatar animated zoomIn"
+            src=""><br><br>
+            <div style="position: relative">
+              <h2 id="sidebarname"></h2>
+            </div>
+            <br><br>
+            <div class="scrollable">
+              <div class="vertical-content">
+                <p id="usercred" class="stats-primary"></p>
+                <h6 class="stats-secondary">Credits</h6>
+              </div>
+              <div class="vertical-divider"></div>
+              <div class="vertical-content">
+                <p id="followers1" class="stats-primary"></p>
+                <h6 class="stats-secondary">Followers</h6>
+              </div>
+              <div class="vertical-divider"></div>
+              <div class="vertical-content">
+                <p id="following1" class="stats-primary"></p>
+                <h6 class="stats-secondary">Following</h6>
+              </div>
+            </div>
+          </center>
+          <br><br>
+          <div style="padding: 12px;" class="nav" id="justifiedTab" role="tablist">
+            <a onclick="tabe('home')" aria-controls="home" aria-selected="true" data-toggle="tab" href="#home" id="home-tab" role="tab" class="waves-effect waves-button navbarbutton"> <i id="home-icon" class="material-icons centeredy iconinactive">whatshot</i> <h4 id="home-text" class="navbarbuttontext">Home</h4> </a>
+            <a onclick="tabe('explore')" aria-controls="explore" aria-selected="true" data-toggle="tab" href="#explore" id="explore-tab" role="tab" class="waves-effect waves-button navbarbutton"> <i id="explore-icon" class="material-icons centeredy iconinactive">explore</i> <h4 id="explore-text" class="navbarbuttontext">Explore</h4> </a>
+            <a onclick="tabe('inbox')" aria-controls="inbox" aria-selected="true" data-toggle="tab" href="#inbox" id="inbox-tab" role="tab" class="waves-effect waves-button navbarbutton"> <i id="inbox-icon" class="material-icons centeredy iconinactive">inbox</i><h4 id="inbox-text" class="navbarbuttontext">Inbox</h4> <span id="ultimatenotifbadge" class="badge badge-pill badge-primary animated jello slower infinite"></span> </a> 
+            <a onclick="tabe('credits')" aria-controls="credits" aria-selected="true" data-toggle="tab" href="#credits" id="credits-tab" role="tab" class="waves-effect waves-button navbarbutton"> <i id="credits-icon" class="material-icons centeredy iconinactive">grass</i><h4 id="credits-text" class="navbarbuttontext">Credits</h4></a> 
+            <a onclick="tabe('account')" aria-controls="account" aria-selected="true" data-toggle="tab" href="#account" id="account-tab" role="tab" class="waves-effect waves-button navbarbutton"> <i id="account-icon" class="material-icons centeredy iconinactive">account_box</i><h4 id="account-text" class="navbarbuttontext">Settings</h4> </a>
+          </div>
+          <br>
+          <center>
+            <a href="support.html" class="eon-text">Support</a>
+          </center>
+        </div>
+        
+        <div id="expand" class="echo-main-unexpanded">
+          <div class="tab-content" id="justifiedTabContent">
+            <div aria-labelledby="credits-tab" class="tab-pane fade" id="credits" role="tabpanel">
+              <br>
+              <h2 class="leader">Credits</h2>
+              <p id="creditCount">Getting credits...</p>
+              <button onclick="managePayments()" class="eon-outlined">Manage Payments</button> <button onclick="recalculate()" class="eon-text">Recalculate</button>
+              <div id='priceLoader' class="animated fadeIn">
+                <center>
+                  <br><br>
+                  <p>Loading Items...</p>
+                </center>
+              </div>
+
+              <div id="purchaseBoxes">
+
+              </div>
+
+              <center>
+                <p>All purchases are subject to our <a href="http://r0h.in/company?a=terms" target="_blank">Terms of Service</a> and <a href="http://r0h.in/company?a=payment" target="_blank">Payment Policies</a>. All purchases will be made in USD.</p>
+              </center>
+
+            </div>
+            <div aria-labelledby="home-tab" class="tab-pane fade" id="home" role="tabpanel">
+              <button onclick="window.scrollTo(0,0);" style="display: none !important;" id="returntotoprel" class="eon-contained refreshbtn returntoptop animated shadow"><i class="material-icons">keyboard_arrow_up</i></button>
+              <nav class="navbar navbar-expand-sm">
+                <div style="display: inline-block">
+                  <form class="search-container">
+                    <input autocomplete="off" id="search-box" type="text" class="search-box" name="q" />
+                    <label for="search-box"><i class="search-icon material-icons">search</i></label>
+                    <input type="submit" id="search-submit" />
+                  </form>
+                </div>
+                <ul class="navbar-nav mr-auto"></ul>
+                <button data-toggle="modal" data-target="#uploadmodal" class="btn-hover color-4"><i
+                  class="material-icons">add</i>Add Post</button>
+                </nav>
+                <hr class="hr">
+                <nav class="navbar">
+                  <p class="white">Posts</p>
+                  <ul class="navbar-nav mr-auto"></ul>
+                  <button onclick="disablegrid_rel()" id="gridbtnrel" class="grid-list without-text">
+                    <div class="icon">
+                      <div class="dots"><i></i><i></i><i></i><i></i></div>
+                      <div class="lines"><i></i><i></i><i></i><i></i></div>
+                    </div>
+                  </button>
+                </nav>
+                <br>
+                <center id="containerhometab">
+                  <div style="display: none;" class="animated fadeIn" id="grid_rel"></div>
+                  <br><br>
+                </center>    
+                
+            </div>
+              
+            <div aria-labelledby="explore-tab" class="tab-pane fade" id="explore" role="tabpanel">
+                <button onclick="window.scrollTo(0,0);" style="display: none !important;" id="returntotop" class="eon-contained refreshbtn returntoptop animated shadow"><i class="material-icons">keyboard_arrow_up</i></button>
+                <div class="exploretabcontentactive" id="exploretabcontent">
+                  <br>
+                  <h2 class="leader">Explore</h2>
+                  <p>Trending Categories</p>
+                  <br><br>
+                  <div id="trending_tags">
+                    <div id="explore_loader" class="centered"> 
+                      <div class="progress-circular"> <div class="progress-circular-wrapper"> <div class="progress-circular-inner"> <div class="progress-circular-left"> <div class="progress-circular-spinner"></div> </div> <div class="progress-circular-gap"></div> <div class="progress-circular-right"> <div class="progress-circular-spinner"></div></div></div></div></div></div>
+                    </div>
+                    <div id="trending_build"></div>
+                    
+                    <nav class="navbar">
+                      <p class="white">Posts</p>
+                      <ul class="navbar-nav mr-auto"></ul>
+                      <button onclick="disablegrid()" id="gridbtn" class="grid-list without-text">
+                        <div class="icon">
+                          <div class="dots"><i></i><i></i><i></i><i></i></div>
+                          <div class="lines"><i></i><i></i><i></i><i></i></div>
+                        </div>
+                      </button>
+                    </nav>
+                    
+                    <center id="containerexploretab">
+                      <div style="display: none;" class="grid animated fadeIn" id="grid"></div>
+                      <br><br>
+                    </center>                    
+                  </div> 
+                  
+                  <div id="trending_content"> </div>
+                </div>
+                
+                <div aria-labelledby="inbox-tab" class="tab-pane fade" id="inbox" role="tabpanel">
+                  <div class="inboxsidebar">
+                    <div id="calculationheight1">
+                      <div class="inboxsidebarpadding">
+                        <div class="searchbarmsg floating-label textfield-box">
+                          <label for="msgsearch">Search</label>
+                          <input class="form-control" id="msgsearch" type="text">
+                        </div>
+                        <button data-toggle="modal" data-target="#newdmmodal" class="eon-text centeredy refreshbtn adddmbtn">
+                          <i class="material-icons">add</i>
+                        </button>
+                      </div>
+                      <br>
+                      <div class="inboxsidebarpadding">
+                        <center>
+                          <button onclick="showdmrq()" class="eon-text iconbtn">
+                            <i class="material-icons">email</i>
+                            <span id="dmreqstatus" class="badge animated infinite slower">0</span>
+                          </button>
+                          <button onclick="showfrq()" class="eon-text iconbtn">
+                            <i class="material-icons">group_add</i>
+                            <span id="frreqstatus" class="badge animated infinite slower">0</span>
+                          </button>
+                        </center>
+                      </div>
+                      <br>
+                    </div>
+                    <div id="frlist">
+                      
+                    </div>
+                    <div id="dmlist">
+                      
+                    </div>
+                    <div id="messagelist">
+                      <div onclick="showEchoNews()" class="messagelistbox animated shadow-sm fadeInUp" id="echoNewschatsidebarboxel">
+                        <img class="hidden animated zoomIn centeredy msgimg" src="assets/logo.png" class="msgimg centeredy" alt="">
+                        <div class="boxtext centeredy">
+                          <h4 class="heavy">What's New?</h4>
+                          <br>
+                          <p id="echoNewsrecenttextel" class="grey nolineheight">Echo v0.9.x</p>
+                        </div>
+                        <div class="boxtext2 centeredy">
+                          <span id="echoNewsnotifbadge" class="badge badge-pill notifbadge animated jello infinite"></span>
+                        </div>
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+                  
+                  <div id="chatcontent" class="inboxcontent">
+                    <nav id="chatnav" class="navbar animated fadeIn basicpadding hidden">
+                      <button class="eon-text" id="topbarimg">
+                        <img class="topbarimg" src="" alt="">
+                      </button>
+                      <div class="centeredy dmdetails">
+                        <h3 id="navbarname" class="content2 nolineheight"></h3>
+                        <p id="navbarstatus" class="content2 nolineheight"></p> <button id="refreshstatusbtn"
+                        class="eon-text refreshbtn centeredy"><i class="material-icons">refresh</i></button>
+                      </div>
+                      <ul class="navbar-nav mr-auto"></ul>
+                      
+                      <div class="dropdown dropdownmanagecontainer">
+                        <button aria-expanded="false" aria-haspopup="true" class="eon-text navbtnicon animated fadeInUp delay1" data-toggle="dropdown" type="button"><i class="material-icons">phone</i></button>
+                        <div aria-labelledby="dropdownMenuButton1" class="dropdown-menu menu accmanagedropdown">
+                          <center>
+                            <button id="direct-callbtn" class="eon-text navbtnicon animated zoomIn"><i class="material-icons">phone</i></button>
+                            <button id="direct-videobtn" class="eon-text navbtnicon animated zoomIn delay1"><i class="material-icons">video_call</i></button>
+                          </center>
+                        </div>
+                      </div>
+                      <button id="direct-flagbtn" class="eon-text navbtnicon animated fadeInUp delay3"><i class="material-icons">flag</i></button>
+                      <button id="direct-infobtn" class="eon-text navbtnicon animated fadeInUp delay4"><i class="material-icons">info</i></button>
+                    </nav>
+                    
+                    <center>
+                      <hr id="divider1" class="divider1 hidden animated zoomIn">
+                    </center>
+                    
+                    <div id="unselected">
+                      <div id="unselectedconten" class="centered animated unselectedconten">
+                        <p class="subtext">Select a message or choose "+" to start a new thread.</p>
+                      </div>
+                    </div>
+                    
+                    <div id="messagecontent">
+                      <div class="hidden animated fadeIn" id='echoFollowRequests'>
+                        <div class="dm_request_container">
+                          <p>Follow Requests</p>
+                          
+                          <div id="follow_req"></div>
+                          <div id="potentailmorebtn"></div>
+                          <center class="hidden animated fadeIn" id="nofollowrq">
+                            <br><br><br><br>
+                            <p class="light">No follow requests. <small>Very lonely.</small></p>
+                          </center>
+                        </div>
+                      </div>
+                      <div class="hidden animated fadeIn" id='echoDMRequests'>
+                        <div class="dm_request_container">
+                          <p>DM Requests</p>
+                          
+                          <div id="dm_rq"></div>
+                          <div id="potentailmorebtn2"></div>
+                          <center class="hidden animated fadeIn" id="nodmrq">
+                            <br><br><br><br>
+                            <p class="light">No DM requests. <small>Very lonely.</small></p>
+                          </center>
+                        </div>
+                      </div>
+                      <div class="hidden animated fadeIn" id='echoNewsContent'>
+                        <center>
+                          <br><br>
+                          <span class="chip"><span id="echo-dm-version">loading</span></span>
+                          <br><br>
+                          <h3>Changelog</h3>
+                          <p id="echo-dm-latest"></p>
+                        </center>
+                      </div>
+                    </div>
+                    
+                    <div id="directfooter" class='directfooter hidden animated fadeInUp'>
+                      <hr id="divider2" class="divider2 hidden animated zoomIn slow">
+                      <div id="quickreply" class="hidden animated faster">
+                        <br><br>
+                        <div class="row"><div class="col-sm"><center>
+                          <button id="qr-1btn" onclick="quickreply('lmao')" class="eon-outlined">lmao</button>
+                        </center></div><div class="col-sm"><center>
+                          <button id="qr-2btn" onclick="quickreply('rofl')" class="eon-outlined">rofl</button>
+                        </center></div><div class="col-sm"><center>
+                          <button id="qr-3btn" onclick="quickreply('lol')" class="eon-outlined">lol</button>
+                        </center></div>
+                      </div>
+                      <br>
+                      <button onclick="hidequickreply()" class="eon-text returnquickreplybtn iconbtn"><i class="material-icons">keyboard_arrow_down</i></button>
+                    </div>
+                    <input onchange="direct_confirmUpload()" type="file" name="" id="skiddyfileupload">
+                    <div id="uploadprogress" class="hidden progress animated fadeIn">
+                      <div id="uploadprogressbar" class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br>
+                    <div class="relative2">
+                      <div class="btn-group dropup unset">
+                        <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="eon-text addfilebtn centeredy"><i class="material-icons">add</i></button>
+                        <div class="dropdown-menu directdrop">
+                          <button id="addfilebtn" class="eon-text"><i class="material-icons">insert_drive_file</i> file</button>
+                          <button onclick="showquickreply()" class="eon-text"><i class="material-icons">quickreply</i> quick-reply</button>
+                        </div>
+                      </div>
+                      <div class="floating-label textfield-box newmsgbox">
+                        <label for="newdmmsg">New Message</label>
+                        <input class="form-control" id="newdmmsg" placeholder="" type="text">
+                      </div>
+                      <button class="eon-text newdmmsgbtn centeredy" id="newdmmsgbtn"><i class="material-icons">send</i></button>
+                    </div>
+                  </div>
+                  <!-- Out of the viewport. User can scroll down whilst image loads.  -->
+                  <div id="dimensions_calculations_box"></div>
+                </div>
+              </div>
+              
+              <!-- Oop no tab selected uwu -->
+              <div class="hidden" id="notab">
+                <div class="centered">
+                  <h4>No Tab Selected</h4>
+                  <p>Choose an option on the left.</p>
+                </div>
+              </div>
+              
+              <div aria-labelledby="account-tab" class="tab-pane fade" id="account" role="tabpanel">
+                <br><br>
+                <h2 class="leader">Account & Settings</h2>
+                <br>
+                <button id="viewprofilebtn" class="eon-text">view profile</button>
+                <hr>
+                
+                <div class="row">
+                  <div class="col-sm">
+                    <br>
+                    <h4>Your Profile Card</h4>
+                    <br>
+                    <center>
+                      <div style="display: none;" id="pfcard" class="card animated fadeIn">
+                        <div id="pfcardbody" class="card-body">
+                          <div class='animated zoomIn pfcardtop shadow-sm'>
+                            <img class="animated zoomIn delay1s" id="pfp3" alt="">
+                          </div>
+                          <br>
+                          <h4 id="name5">NAME</h4>
+                          <p id="bio5">Bio</p>
+                          <div id="cardconnections"></div>
+                          <br><br>
+                        </div>
+                      </div>
+                      <br><br>
+                    </center>
+                    <h4>Edit Your Profile</h4>
+                    <center>
+                      <br>
+                      <div id="acounteditcard" class="card animated fadeIn block">
+                        <div id="pfcardbody" class="card-body">
+                          <br>
+                          <a onclick="preflightemail()" id="changemailpopoverbtn" tabindex="0" class="eon-text block" role="button" data-toggle="popover" title="Switch Email" data-html="true" data-content="<small>Current Email: <b id='currentemail'></b></small><br><div class='floating-label textfield-box'>     <label for='newemail'>New Email</label>     <input class='form-control' id='newemail' type='text'>   </div><br><button onclick='confirmchangemeil()' class='eon-contained block'>confirm</button>">Change Email</a>
+                          <a onclick="preflightvisibility()" id="changevisibilitypopoverbtn" tabindex="0" class="eon-text block" role="button" data-toggle="popover" title="Switch Visibility" data-html="true" data-content="<small>Current Visibility: <b id='currentvisibility'></b></small><button id='btnconfirmvisibilitybtn' onclick='window.location.reload()' class='eon-contained block'>unable to load</button>">Change Visibility</a>
+                          <a id="changpasswordpopoverbtn" tabindex="0" class="eon-text block" role="button" data-toggle="popover" title="Change Password" data-html="true" data-content="<div class='floating-label textfield-box'>     <label for='newpassword'>New Password</label>     <input class='form-control' id='newpassword' type='password'>   </div><br><button onclick='confirmchangepass()' class='eon-contained block'>confirm</button>">Change Password</a>
+                          
+                          <div class="dropdown dropdownmanagecontainer">
+                            <button aria-expanded="false" aria-haspopup="true" class="eon-text" data-toggle="dropdown" type="button">Edit Profile</button>
+                            <div aria-labelledby="dropdownMenuButton1" class="dropdown-menu menu accmanagedropdown">
+                              <center>
+                                <a onclick="preparenamechange()" class="eon-text block" href="#">Change Name</a>
+                                <a onclick="preparebiochange()" class="eon-text block" href="#">Change Bio</a>
+                                <a onclick="preparenpicchange()" class="eon-text block" href="#">Change Photo</a>
+                              </center>
+                            </div>
+                          </div>
+                          
+                          <div class="dropdown dropdownmanagecontainer">
+                            <button aria-expanded="false" aria-haspopup="true" class="eon-text" data-toggle="dropdown" type="button">Edit Account</button>
+                            <div aria-labelledby="dropdownMenuButton1" class="dropdown-menu menu accmanagedropdown">
+                              <center>
+                                <a class="eon-text block" onclick="prepreflightemail()" href="#">Change Email</a>
+                                <a class="eon-text block" onclick="prepreflightpassword()" href="#">Change Password</a>
+                                <a class="eon-text block" onclick="prepreflightvisibility()" href="#">Change Visibilty</a>
+                              </center>
+                            </div>
+                          </div>
+                          
+                          <br><br>
+                        </div>
+                      </div>
+                      <br><br><br>
+                    </center>
+                  </div>
+                  
+                  <div class="col-sm">
+                    <br>
+                    <h4>Link Social Media Accounts</h4>
+                    <div id="profilepicdyndiv"></div>
+                    <br>
+                    <div class="list-group" id="socials">
+                      <div class="expansion-panel list-group-item">
+                        <a class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseTwitter"> Twitter
+                          <div class="expansion-panel-icon ml-3 text-black-secondary">
+                            <i class="collapsed-show material-icons">keyboard_arrow_down</i>
+                            <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+                          </div>
+                        </a>
+                        <div class="collapse" data-parent="#socials" id="collapseTwitter">
+                          <div class="expansion-panel-body">
+                            <p id="twitterlinktext">Link your Twitter account to Echo. You will have the option to show or hide your Twitter on your profile!</p>
+                            <center>
+                              <button id="twitterlinkbutton" onclick="linktwitter()" class="eon-outlined">Link Twitter -></button>
+                            </center>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expansion-panel list-group-item">
+                        <a class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseGitHub"> GitHub
+                          <div class="expansion-panel-icon ml-3 text-black-secondary">
+                            <i class="collapsed-show material-icons">keyboard_arrow_down</i>
+                            <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+                          </div>
+                        </a>
+                        <div class="collapse" data-parent="#socials" id="collapseGitHub">
+                          <div class="expansion-panel-body">
+                            <p id="githublinktext">Link your GitHub account to Echo. You will have the option to show or hide your GitHub on your profile!</p>
+                            <center>
+                              <button id="githublinkbutton" onclick="linkgithub()" class="eon-outlined">Link GitHub -></button>
+                            </center>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="card animated fadeIn block">
+                      <div class="card-body">
+                        <center>
+                          <h4>Customize UI</h4> <span class="badge badge-pill badge-primary">Beta</span>
+                          <button data-toggle="popover" title="Personalize UI" data-content="Customize Echo by selecting a theme. You can choose a dark or light version to choose what's best for you. This applies to this browser only!" class="eon-text gradicon">what is this?</button>
+                          <br><br>
+                          <input class="checkbox" type="checkbox" id="themeinp" style="display: none;">
+                          <label for="themeinp" class="check"> <svg width="18px" height="18px" viewBox="0 0 18 18"> <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path><polyline points="1 9 7 14 15 4"></polyline></svg> </label>
+                          <p class="checklabel">Light Theme <a style="display: inline-block;" tabindex="0" data-toggle="popover" data-trigger="focus" title="Light Theme" data-content="If this is checked, we will display dark text on a light surface."><i class="material-icons smallicon">info</i></a></p>    
+                          <select id="colorthemeinp" class="custom-select">
+                            <option value="blue" selected>Default Colors</option>
+                            <option value="red">Red</option>
+                            <option value="orange">Orange</option>
+                            <option value="lime">Lime</option>
+                            <option value="aqua">Aqua</option>
+                            <option value="blue">Blue</option>
+                            <option value="purple">Purple</option>
+                            <option value="pink">Pink</option>
+                            <option value="hotpink">Hot Pink</option>
+                            <option value="custom">Custom Color</option>
+                          </select>
+                          <br>
+                          <button onclick="updategradientui()" class="eon-contained">update</button>
+                        </center>
+                      </div>
+                    </div>
+                    <br><br><br>
+                  </div>
+                  <div class="col-sm">
+                    <br>
+                    <h4>Danger Zone</h4>
+                    <br>
+                    <div class="card animated fadeIn block">
+                      <div class="card-body">
+                        <center>
+                          <button onclick="signout()" class="eon-text block">Log Out</button>
+                          <div class="dropdown">
+                            <button style="display: block !important; width: 100% !important;" aria-expanded="false" aria-haspopup="true" class="eon-text block" data-toggle="dropdown" type="button">Account Management</button>
+                            <div aria-labelledby="dropdownMenuButton1" class="dropdown-menu menu accmanagedropdown">
+                              <center>
+                                <a class="eon-text block" href="#">Disable Account</a>
+                                <br>
+                                <a onclick="deleteAccount()" class="eon-text block" href="#">Delete Account</a>
+                              </center>
+                            </div>
+                          </div>
+                        </center>
+                      </div>
+                    </div>
+                    <br><br>
+                    <h4>Direct Messages</h4>
+                    <br>
+                    <div class="card animated fadeInUp block">
+                      <div class="card-body">
+                        <p>Quick-reply Replies</p>
+                        <br>
+                        <div class="floating-label textfield-box has-value">
+                          <label for="reply1box">Reply #1</label>
+                          <input class="form-control" id="reply1box" value="lmao" type="text">
+                        </div>
+                        <br>
+                        <div class="floating-label textfield-box has-value">
+                          <label for="reply2box">Reply #2</label>
+                          <input class="form-control" id="reply2box" value="rofl" type="text">
+                        </div>
+                        <br>
+                        <div class="floating-label textfield-box has-value">
+                          <label for="reply3box">Reply #3</label>
+                          <input class="form-control" id="reply3box" value="lol" type="text">
+                        </div>
+                        <br>
+                        <button onclick="updateReplies()" class="eon-contained">save</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ===========================--] /Content [=================================== -->
+        
+        <!---==== JavaScript ====--->
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <!-- Eon Styles -->
+        <script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+        <!-- Daemonite -->
+        <script src="daemonite/material.min.js"></script>
+        <!-- Waves -->
+        <script src="daemonite/waves.min.js"></script>
+        <script>
+          addWaves();
+          
+          function addWaves() {
+            Waves.attach('.eon-contained', ['waves-button']);
+            Waves.attach('.eon-outlined', ['waves-button']);
+            Waves.attach('.eon-text', ['waves-button']);
+            var config = {
+              duration: 250
+            };
+            Waves.init(config);
+          }
+        </script>
+        <!-- Snackbar -->
+        <script src="daemonite/snackbar.min.js"></script>
+        <style>
+          .snackbar-container {
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            border-radius: 8px !important;
+            max-width: 8723789253786352614975678392738649502976483528059748327952px;
+          }
+        </style>
+        <!-- Images Loaded-->
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        <!-- Button work-->
+        <script src='depend_js/charming.js'></script>
+        <!-- JS Color -->
+        <script src="depend_js/jscolor.js"></script>
+        <!-- Tags Input -->
+        <script src="depend_js/tagsinput.js"></script>
+        <!-- Time Ago -->
+        <script src="depend_js/timeago.js" type="text/javascript"></script>
+        <!-- Stripe -->
+        <script src="https://js.stripe.com/v3/"></script>
+        
+        <!-- Base Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+        <!-- Firebase Auth -->
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+        <!-- Firebase Firestore -->
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+        <!-- Firebase Storage -->
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+        <!-- Firebase Functions -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-functions.js"></script>
+        <!-- Firebase Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+        
+        <!-- Display -->
+        <script src="js/display.js"></script>
+        <!-- Tabs -->
+        <script src="js/tabs.js"></script>
+        <!-- Direct -->
+        <script src="js/direct.js"></script>
+        <!-- Credits -->
+        <script src="js/credits.js"></script>
+        <!-- Link Profile -->
+        <script src="js/link.js"></script>
+        <!-- Posts -->
+        <script src="js/posts.js"></script>
+        <!-- Home Tab -->
+        <script src="js/home.js"></script>
+        <!-- Explore Tab -->
+        <script src="js/explore.js"></script>
+        <!-- App -->
+        <script src="js/app.js"></script>
+        
+        <!-- Firebase Variables -->
+        <script src="js/firebase.js"></script>
+        
+      </body>
+      </html>
