@@ -1,87 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="assets/scripts.js"></script>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rohin</title>
-  <!--=== CSS ===-->
-  <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.min.css">
-  <!-- Box Icons --> <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <!-- Font --> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body id="body" class="animated fadeIn">
-  <!-- Content -->
-  
-  <div class="center">
-    <h1 id="wave">👋</h1>
-
-    <div onclick="openSection('about', this)" class="mainButton aboutButton">About</div> <br><br>
-    <div onclick="openSection('projects', this)" class="mainButton projectsButton">Projects</div> <br><br>
-    <div onclick="openSection('documents', this)" class="mainButton documentsButton">Documents</div>
-  </div>
-
-  <div class="hidden fast section about_section">
-    <button onclick="closeSection()" class="closeButton animated zoomIn delay-1s"> <i class="bx bx-x"></i> </button>
-    <h1 class="sectionTitle">About</h1>
-
-    <div class="container">
-
-      <div class="sectionContent">
-        <b>Technologies (Full-stack)</b>
-        <ul>
-          <li>Front-end: JavaScript, TypeScript VueJS, ViteJS</li>
-          <li>Back-end: Python, NodeJS, ExpressJS</li>
-          <li>Cloud: GCP, AWS, Docker, Firebase</li>
-          <li>Misc: Git/GitHub, SASS, Electron, React Native</li>
-        </ul>
-      </div>
-  
-      <div class="sectionContent">
-        <b>Contact</b>
-        <ul>
-          <li>Email: <a href="mailto:me@r0h.in">me@r0h.in</a></li>
-          <li>Twitter: <a target="_blank" href="https://twitter.com/r0hin12">r0hin12</a></li>
-          <li>Discord: eon#6562</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="hidden fast section projects_section">
-    <button onclick="closeSection()" class="closeButton animated zoomIn delay-1s"> <i class="bx bx-x"></i> </button>
-    <h1 class="sectionTitle">Projects</h1>
-
-    <p>Parallel (Case study Soon)</p>
-
-  </div>
-
-  <div class="hidden fast section documents_section">
-    <button onclick="closeSection()" class="closeButton animated zoomIn delay-1s"> <i class="bx bx-x"></i> </button>
-    <h1 class="sectionTitle">Documents</h1>
-
-    <center>
-      <div onclick="window.open(`./articles/markdown/Terms and Conditions.pdf`)" class="document">
-        <i class="bx bx-file-blank"></i>
-        <a>Terms & Conditions</a>
-      </div>
-      <div onclick="window.open(`./articles/markdown/Payment Policy.pdf`)" class="document">
-        <i class="bx bx-file-blank"></i>
-        <a>Payment Policy</a>
-      </div>
-      <div onclick="window.open(`./articles/markdown/Privacy Policy.pdf`)" class="document">
-        <i class="bx bx-file-blank"></i>
-        <a>Privacy Policy</a>
-      </div>
-    </center>
-
-  </div>
-  
-
-  <!-- JQuery --> <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  
   <link rel="stylesheet" href="assets/styles.css">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <title>Rohin</title>
+</head>
+<body class="animate__animated animate__fadeIn">
+  
+  <div class="centered">
+    <h1>Rohin <code class="small">me@r0h.in</code></h1>
+    <p>Full-stack developer.</p>
+    <a href="https://twitter.com/r0hin12" target="_blank"><i class="bx bxl-twitter"></i></a>
+    <a href="https://www.github.com/r0hin/" target="_blank"><i class="bx bxl-github"></i></a>
+    <a href="https://discord.com/users/258024781981548544" target="_blank"><i class="bx bxl-discord"></i></a>
+    <a href="https://www.instagram.com/r0hin12/" target="_blank"><i class="bx bxl-instagram"></i></a>
+    <a href="https://www.paypal.me/rohinarya/" target="_blank"><i class="bx bxl-paypal"></i></a>
+
+  </div>
+
+  <script src="assets/scripts.js"></script>
+
 </body>
 </html>
