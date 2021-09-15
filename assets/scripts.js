@@ -9,14 +9,8 @@ switch (myParam) {
   case "emojify":
     window.location.replace('articles/apis/emojify/456788mu82y41s.html')
     break;
-  case "joke":
-    window.location.replace('articles/apis/joke/7aw8ueosidah.html')
-    break;
   case "movie":
     window.location.replace('articles/apis/movie/283nuwsjalksjs.html')
-    break;
-  case "qr":
-    window.location.replace('articles/apis/qr/8923usjoibdsa.html')
     break;
   case "trumpy":
     window.location.replace('articles/apis/quote/16t72yuiwdshazna.html')
