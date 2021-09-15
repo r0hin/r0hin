@@ -1,35 +1,3 @@
 # 👋
 
-
-<!-- 
-
-<p align="center">
-<a href="https://r0h.in/discord">
-    <img align="left" alt="Discord" width="22px" src="https://simpleicons.org/icons/discord.svg" />
-</a>
-
-<a href="https://r0h.in/email">
-    <img align="left" alt="Email" width="22px" src="https://simpleicons.org/icons/gmail.svg" />
-</a>
-
-<a href="https://twitter.com/r0hin12">
-    <img align="left" alt="Twitter" width="22px" src="https://simpleicons.org/icons/twitter.svg" />
-</a>
-
-<a href="https://r0h.in">
-    <img align="left" alt="Twitter" width="22px" src="https://image.flaticon.com/icons/svg/876/876765.svg" />
-</a>
-</p>
-
-<br>
-
-![Github Stats](https://github-readme-stats.vercel.app/api?username=r0hin)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&hide=GLSL,HTML)
-
-<br>
-<div align="center">
-    <center>
-          👇 Keep scrolling to see my projects 👇
-    </center>
-</div> -->
-
+Hello! Welcome to my GitHub page. I've left my old repos private and my favourites public.
