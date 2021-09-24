@@ -1,0 +1,458 @@
+<script>
+  function error(error) {
+    $('#errorModal').modal('toggle')
+    document.getElementById('errMsg').innerHTML = error
+  }
+
+</script>
+
+<html>
+
+<head>
+    <script data-ad-client="ca-pub-8081704287260776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="css/material.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/waves.min.css">
+  <script src="js/waves.min.js"></script>
+  <title>FlashNote</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148495536-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-148495536-1');
+  </script>
+
+</head>
+
+<body style="color: #fff; background-color: #121212;" id="body" class="bodNormal animated">
+
+  <div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 120px;-webkit-app-region: drag"></div>
+  <div style="position: absolute; z-index: 2000; background-color: #121212; width: 100%; height: 100%;" id="loader"
+    class="animated slow">
+
+    <div class="animated fadeIn" style="position: absolute; top: 50%; left: 50%;transform: translate(-50%,-50%);">
+      <center>
+        <h3>Welcome (back)!</h3>
+        <img style="width: 25%" src="images/logolight.png" alt="">
+      </center>
+    </div>
+
+  </div>
+
+
+  <div class="modal fade" id="profilepic" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #1a1a1a;" class="modal-content">
+        <div class="modal-header">
+          <h3>Set your profile picture.</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="floating-label">
+            <label style="color: #ffffff;" for="imgurlthing123">Image link</label>
+            <input style="color: white;" aria-describedby="exampleFloatingLabel1Help" class="form-control"
+              id="imgurlthing123" placeholder="" type="text">
+            <small style="color: white;" id="exampleFloatingLabel1Help" class="form-text">Paste a link to your
+              <code>profile picture url</code>.</small>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button onclick="addPic()" data-dismiss="modal" type="button"
+            class="waves-flat-button btn-text-primary">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Sign in with Email</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="display: inline-block; width: 100%;" class="floating-label textfield-box">
+            <label for="email1">Email Address</label>
+            <input class="form-control" id="email1" type="text">
+          </div>
+          <br><br>
+          <div style="display: inline-block; width: 100%;" class="floating-label textfield-box">
+            <label for="password1">Password</label>
+            <input class="form-control" id="password1" type="password">
+
+          </div>
+          <br><br>
+        </div>
+        <div class="modal-footer">
+          <button onclick="signEmail()" type="button" class="waves-flat-button">SIGN IN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #1a1a1a;" class="modal-content">
+        <div class="modal-header">
+          <h3>User Settings</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="custom-control custom-radio custom-control-inline">
+            <input checked="" type="radio" id="customRadioInline11" name="customRadioInline3"
+              class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline11">Light Mode</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline22" name="customRadioInline3" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline22">Dark Mode</label>
+          </div>
+          <br>
+          <br><br>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input checked="" type="radio" id="customRadioInline33" name="customRadioInline4"
+              class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline33">Minimal Font</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline44" name="customRadioInline4" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline44">Typewriter Font</label>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button onclick="settings()" data-dismiss="modal" type="button" class="waves-flat-button">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create account with Email</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div style="display: inline-block; width: 100%;" class="floating-label textfield-box">
+            <label for="name2323">Name</label>
+            <input class="form-control" id="name2323" type="text">
+          </div>
+
+          <div style="display: inline-block; width: 100%;" class="floating-label textfield-box">
+            <label for="email2">Email Address</label>
+            <input class="form-control" id="email2" type="text">
+          </div>
+          <br><br>
+          <div style="display: inline-block; width: 100%;" class="floating-label textfield-box">
+            <label for="password2">Password</label>
+            <input class="form-control" id="password2" type="password">
+
+          </div>
+          <br><br>
+        </div>
+        <div class="modal-footer">
+          <button onclick="createEmail()" type="button" class="waves-flat-button">CREATE ACCOUNT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="background-color: #fff" class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Error</h3>
+
+        </div>
+        <div class="modal-body">
+          <h5 id="errMsg"></h5>
+        </div>
+        <div class="modal-footer">
+          <button data-dismiss="modal" class="waves-flat-button">DISMISS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background-color: #121212;" class="card">
+    <div class="card-body">
+      <br><br>
+    </div>
+  </div>
+
+  <img id="user-pic"
+    style="border: 2px solid #6200EE; width: 120px; border-radius: 120px; transform: translate(-50%, -50%); position: absolute; left: 50%;"
+    src="images/profile_placeholder.png" alt="">
+  <br><br><br><br>
+  <center>
+    <h3 id="user-name"></h3>
+
+
+  </center>
+
+  <div class="animated fadeIn" id="Signed">
+    <br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+
+          <div style="background-color: #171717;" class="card">
+            <div id="profiletabcard" style="padding: 40px;" class="card-body">
+              <h4>Profile</h4>
+
+              <h5>Name: <b id="user-name2"></b></h5>
+              <h5>Email: <b id="user-email"></b></h5>
+              <br>
+              <button data-toggle="modal" data-target="#exampleModal3"
+                class="waves-flat-button btn-outline-primary">visual settings</button>
+              <br><br>
+              <button onclick="signOut()" class="waves-flat-button btn-outline-primary">sign out</button>
+
+
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col-sm">
+          <div style="display: none;" id="first">
+            <center>
+              <div class="card">
+                <div class="card-body">
+                  <br>
+                  <img style="width: 40%" src="images/logo.png" alt=""><br><br>
+                  <h5>Let's get you set up.</h5>
+                  <br>
+
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input checked="" type="radio" id="customRadioInline1" name="customRadioInline1"
+                      class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline1">Light Mode</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline2">Dark Mode</label>
+                  </div>
+                  <br>
+                  <br><br>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input checked="" type="radio" id="customRadioInline3" name="customRadioInline2"
+                      class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline3">Minimal Font</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline4" name="customRadioInline2" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline4">Typewriter Font</label>
+                  </div>
+
+                  <br><br>
+                  <button onclick="startFirst()" class="waves-flat-button btn-outline-primary">Start</button>
+
+
+
+                </div>
+              </div>
+
+            </center>
+          </div>
+
+
+          <div style="display: none;" id="returning">
+            <center>
+              <div style="background-color: #171717;" class="card">
+                <div class="card-body">
+                  <br>
+                  <h4>FlashNote v1.2.0</h4>
+                  <img style="width: 30%" src="images/logolight.png" alt=""><br><br>
+
+
+
+                  <button onclick="startReturn()" class="waves-flat-button btn-outline-primary">START</button>
+
+
+
+                </div>
+              </div>
+
+            </center>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="card">
+            <div style="background-color: #171717; padding: 40px;" class="card-body">
+              <h4>FlashNote News</h4>
+              <br>
+              <div style="color: rgb(193, 193, 193);">
+                <h5>- New game added to FlashNote! Button game, play it now on the homepage.</h5>
+                <h5>- Community messaging is now here. It follows the same rules as the other community features!</h5>
+                <h5>- New options to disable (this) landing page are now here. </h5>
+                <h5>- Date and time now shows on messages</h5>
+                <h5>- Messages cooldown changed to 5seconds</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <div class="animated fadeIn" id="unSigned">
+
+
+    <br><br><br><br><br>
+    <center>
+      <div id="mainCard" class="card mainCard">
+        <div id="mainCardBody" class='card-body'>
+          <h3><b>FlashNote</b> | The Ultimate Productivity App</h3>
+          <div class="tab-content" id="justifiedTabContent">
+            <div aria-labelledby="home-tab" class="tab-pane fade " id="home" role="tabpanel">
+              <br>
+              <h4>Sign In</h4>
+
+              <button onclick="signGoogle()" class="waves-flat-button btn-outline-primary">Sign in with Google</button>
+
+
+              <button data-toggle="modal" data-target="#exampleModal" class="waves-flat-button btn-outline-primary"><i
+                  class="material-icons">email</i></button>
+
+              <br><br>
+
+
+
+            </div>
+            <div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role="tabpanel">
+              <br>
+
+              <h4>Create Account</h4>
+
+              <button onclick="signGoogle()" class="waves-flat-button btn-outline-primary">Sign up with Google</button>
+
+
+              <button data-toggle="modal" data-target="#exampleModal2" class="waves-flat-button btn-outline-primary"><i
+                  class="material-icons">email</i></button>
+
+
+
+
+
+
+            </div>
+          </div>
+          <br><br>
+          <button style="color: #6200EE;" id="getStarted" onclick="expandSign()" class="waves-flat-button animated">GET
+            STARTED</button>
+        </div>
+
+
+
+        <div class="list-group list-group-flush" id="accordionTwo">
+          <div class="expansion-panel">
+            <a style="display: none;" id="expansion" aria-controls="collapseFour" aria-expanded="false"
+              class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseFour" id="headingFour">
+              Connected expansion panel item #1</a>
+            <div aria-labelledby="headingFour" class="collapse" data-parent="#accordionTwo" id="collapseFour">
+              <div class="expansion-panel-body">
+
+                <a id="nothometab" onclick="expandIn()" class="waves-flat-button animated" data-toggle="tab"
+                  style="color: black; width: 40%;">SIGN IN</a>
+
+                <a id="notprofiletab" onclick="expandUp()" class="waves-flat-button animated" data-toggle="tab"
+                  style="color: black; width: 40%;">SIGN UP</a>
+
+
+                <ul style="padding: 0px; width: 100%;" class="nav" id="justifiedTab" role="tablist">
+
+
+                  <a aria-controls="home" aria-selected="false" class="waves-flat-button" data-toggle="tab" href="#home"
+                    id="home-tab" role="tab" style="color: black; width: 50%; display: none;">SIGN IN</a>
+
+                  <a aria-controls="profile" aria-selected="false" class="waves-flat-button" data-toggle="tab"
+                    href="#profile" id="profile-tab" role="tab" style="color: black; width: 50%; display: none;">SIGN
+                    UP</a>
+
+
+                </ul>
+
+                <div id="expandPanelExpand"></div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </center>
+  </div>
+  <link rel="stylesheet" href="css/eonstyles.css">
+  <script type="text/javascript">addWaves; function addWaves() { Waves.attach(".waves-flat-button", ["waves-button"]), Waves.attach(".waves-float-button", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-dark", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-light", ["waves-button", "waves-float", "waves-light"]), Waves.attach(".waves-box", ["waves-block"]), Waves.attach(".waves-float-box", ["waves-block", "waves-float"]), Waves.attach(".waves-image"), Waves.init(); }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="js/material.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+  <script>var firebaseConfig = { apiKey: "AIzaSyACYrT3CvkMDVqF2xoherkVeH-01iWFweg", authDomain: "flashnote-9ed12.firebaseapp.com", databaseURL: "https://flashnote-9ed12.firebaseio.com", projectId: "flashnote-9ed12", storageBucket: "", messagingSenderId: "425977760813", appId: "1:425977760813:web:b510d514db5626be" }; firebase.initializeApp(firebaseConfig); const db = firebase.firestore()</script>
+  <script src="js/eonstyles.js"></script>
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
+
+<!-- 
+    shadow-sm // Small shadow
+    shadow // Regular shadow
+    shadow-lg // Large shadow
+
+    waves-flat-button // Button flat
+    waves-float-button // Button float
+    waves-float-button-dark // Button float dark waves
+    waves-float-button-light // Button float dark waves
+    waves-flat-box // Box flat
+    waves-float-box // Box float
+    waves-image // Image waves  
+-->
+<script>addWaves()</script>

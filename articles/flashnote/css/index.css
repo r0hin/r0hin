@@ -1,0 +1,34 @@
+.bodNormal {
+    display: block;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.4s;
+}
+
+.bodLighten {
+    background-color: #fff;
+    transition: all 0.4s;
+}
+.bodDarken {
+    background-color: #121212;
+    transition: all 0.4s;
+}
+
+.mainCard {
+    padding: 20px;
+    width: 60%;
+    height: auto;
+    transition: all 1s;
+}
+
+.mainCardExpand {
+    width: 80%;
+    transition: all 1s;
+}
+
+.height1 {
+    height: 250px;
+}
+.height {
+    height: 500px;
+}
+

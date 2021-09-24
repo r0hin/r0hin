@@ -1,0 +1,908 @@
+<link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script>sessionStorage.clear()</script>
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<style>
+  .ql-font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<html>
+
+<head>
+    <script data-ad-client="ca-pub-8081704287260776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/eonstyles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="css/material.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/waves.min.css">
+  <script src="js/waves.min.js"></script>
+</head>
+
+<body style="color: white; background-color: #121212" id="body">
+  <title>FlashNote | Ultimate Productivity App</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148495536-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-148495536-1');
+  </script>
+
+  <div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 120px;-webkit-app-region: drag"></div>
+
+
+  <!-- MODALS -->
+
+  <!-- Error Modal -->
+  <div style="background-color: #fff" class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3>Error</h3>
+        </div>
+        <div class="modal-body">
+          <h5 id="errMsg"></h5>
+        </div>
+        <div class="modal-footer"><button id="errorDismiss" data-dismiss="modal"
+            class="waves-flat-button btn-raised-primary">DISMISS</button></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="modal fade" id="creditmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3>Credits</h3>
+        </div>
+        <div class="modal-body">
+          <h5>
+            Created by Rohin -
+            <a href="https://twitter.com/rohin_12">twitter</a>
+            <a href="https://discord.gg/pGB4XbT">discord</a>
+            <br><br>
+            ...with the help of Motoharu, Xan, and Will B and to you, <a id="username222"> </a>, for using FlashNote!
+          </h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="flashcardmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3 id="flashcardmodaltitle">Flashnote | Unavailable. Please try again later.</h3>
+        </div>
+        <div class="modal-body">
+          <bR>
+          <center>
+            <div style="display: inline-block" class="floating-label textfield-box">
+              <label style="color: white;" for="flashcardnewquestion">Question</label>
+              <input style="color: white;" class="form-control" id="flashcardnewquestion" placeholder="..." type="text">
+            </div>
+            <div style="display: inline-block; width: 20px;"></div>
+            <div style="display: inline-block" class="floating-label textfield-box">
+              <label style="color: white;" for="flashcardnewanswer">Answer</label>
+              <input style="color: white;" class="form-control" id="flashcardnewanswer" placeholder="..." type="text">
+            </div>
+            <div style="display: inline-block; width: 20px;"></div>
+            <button id="newFlashBtn" onclick="newFlashCard()" class="waves-flat-button btn-text-primary">add</button>
+          </center><br><br>
+
+          <div id="flashcardmodalbody">
+
+            <div class="card">
+              <div id="two2" class="card animated flipInX fast"
+                style="position: absolute; width: 100%; height: 100%; background-color: #121212; display: none;">
+                <BR>
+                <CENTER>
+                  <h2 style="color: white;">Answer</h2>
+                </CENTER>
+                <br>
+              </div>
+
+              <br>
+              <center>
+                <h2>Card</h2>
+              </center>
+              <br>
+              <button id="two1" onclick="toggleFlash(this.id, 'two2')" class="waves-flat-button btn-text-primary">reveal
+                answer</button>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="flashnew" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3>New Flashcard</h3>
+        </div>
+        <div class="modal-body">
+
+          <div class="floating-label textfield-box">
+            <label style="color: white;" for="createflashset">New Flashcard Set Name</label>
+            <input style="color: white;" class="form-control" id="createflashset" placeholder="..." type="text">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">cancel</button>
+          <button onclick="createFlashcard()" type="button" class="waves-flat-button btn-outline-primary"
+            data-dismiss="modal">create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="commentsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3 id="commentsTopItem">Comments</h3>
+        </div>
+        <div class="modal-body">
+          <center> <button id="refreshCommentsBtn" class="waves-flat-button btn-text-primary"><i
+                class="material-icons">refresh</i></button> <button id="reportCommentBtn"
+              class="waves-flat-button btn-text-primary"><i class="material-icons">flag</i></button> </center>
+          <br>
+          <ul id="commentsUl" class="list-group animated">
+
+          </ul>
+          <Br><Br>
+          <center>
+            <div style="display: inline-block;" class="floating-label textfield-box">
+              <label style="color: white;" for="postCommentBox">New Comment</label>
+              <input style="color: white;" class="form-control" id="postCommentBox" placeholder="..." type="text">
+            </div>
+            <button id="newCommentButton" onclick="newComment()"
+              class="waves-flat-button btn-text-primary">comment</button>
+          </center>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3 id="colabTopItem">New Post</h3>
+        </div>
+        <div class="modal-body">
+
+          <div class="floating-label textfield-box">
+            <label style="color: white;" for="communityPostTitleInput">Post Title</label>
+            <input style="color: white;" class="form-control" id="communityPostTitleInput" placeholder="..."
+              type="text">
+          </div>
+          <br>
+          <div class="floating-label textfield-box">
+            <label style="color: white;" for="communityPostDescriptionInput">Whats going on?</label>
+            <textarea style="color: white;" class="form-control" id="communityPostDescriptionInput" placeholder="..."
+              rows="3"></textarea>
+          </div>
+          <br>
+          <div style="display: none;" class="floating-label textfield-box">
+            <label for="communityPostAttachedInput">Attach a note (Optional)</label>
+            <select class="form-control" id="communityPostAttachedInput">
+              <option value='none'></option>
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">cancel</button>
+          <button onclick="newPost()" type="button" class="waves-flat-button btn-outline-primary"
+            data-dismiss="modal">post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="collabModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3 id="colabTopItem">Collaboration</h3>
+        </div>
+        <div id="collborats" class="modal-body">
+
+
+
+          <ul class="list-group">
+            <div id="usersNotes">
+
+
+
+            </div>
+
+            <br>
+            <center>
+              <div style="display: inline-block;" class="card">
+                <div class="card-body">
+
+
+                  <div style="display: inline-block" class="floating-label">
+                    <label for="addcolabinput">Add collaborator</label>
+                    <input class="form-control" id="addcolabinput" placeholder="Enter user email" type="text">
+
+                  </div>
+                  <button id="addColabbtnEl" onclick="addColab()" style="display: inline-block"
+                    class="waves-flat-button btn-text-primary">Add</button>
+                </div>
+              </div>
+            </center>
+
+          </ul>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">cancel</button>
+          <button type="button" class="waves-flat-button btn-outline-primary" data-dismiss="modal">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3>Create a Note</h3>
+        </div>
+        <div class="modal-body">
+          <div class="floating-label textfield-box">
+            <label style="color: #ffffff;" for="createInput">Note Name</label>
+            <input style="color: #ffffff;" class="form-control" id="createInput" placeholder="" type="text">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button onclick="createNote()" id="noteCreateBtn" type="button" class="waves-flat-button btn-text-primary"
+            data-dismiss="modal">CREATE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="createModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="background-color: #262626;" class="modal-content">
+        <div class="modal-header">
+          <h3>Create a Task</h3>
+        </div>
+        <div class="modal-body">
+          <div class="floating-label textfield-box">
+            <label style="color: white;" for="taslcreateInput">Task Name</label>
+            <input style="color: white;" class="form-control" id="taskcreateInput" placeholder="" type="text">
+          </div>
+          <br><br>
+          <div class="floating-label textfield-box">
+            <label style="color: white;" for="taskdescriptionInput">Task Description</label>
+            <textarea style="color: white;" class="form-control" id="taskdescriptionInput" placeholder=""
+              rows="3"></textarea>
+          </div>
+          <br><br>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" value="true" class="custom-control-input" id="taskImportantInput">
+            <label class="custom-control-label" for="taskImportantInput">Important</label>
+          </div>
+          <br><br>
+
+          <input id="taskDateInput" class="flatpickr flatpickr-input" type="text" placeholder="Select Date.."
+            readonly="readonly">
+
+          <script>
+
+            flatpickr("#taskDateInput", {});
+
+          </script>
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button onclick="createTask()" id="taskCreateBtn" type="button" class="waves-flat-button btn-text-primary"
+            data-dismiss="modal">CREATE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar / Tabs -->
+
+  <div
+    style="position: absolute; z-index: 2000; background-color: #121212; width: 100%; height: 100%; top: 0px; left: 0px;"
+    id="loader" class="animated">
+
+    <div class="animated fadeIn" style="position: absolute; top: 50%; left: 50%;transform: translate(-50%,-50%);">
+
+      <center>
+
+        <h3>Signing in</h3>
+
+      </center>
+    </div>
+
+  </div>
+
+  <center>
+    <div style="width: 100%; background-color: #1a1a1a" class="card">
+      <div style="text-align: center;" class="card-body">
+
+        <center>
+          <div style="align-items: center; text-align: center;" class="nav" id="justifiedTab" role="tablist"> <a
+              style="width: 14.2%;" aria-selected="true" class="waves-flat-button" data-toggle="tab" data-target="#home"
+              role="tab" aria-controls="home" id="home-tab">HOME</a><a style="width: 14.2%;" aria-selected="false"
+              class="waves-flat-button" data-toggle="tab" data-target="#notes" role="tab" aria-controls="notes"
+              id="notes-tab">NOTES</a><a style="width: 14.2%;" aria-selected="false" class="waves-flat-button"
+              data-toggle="tab" data-target="#tasks" role="tab" aria-controls="tasks" id="tasks-tab">TASKS</a><a
+              style="width: 14.2%;" aria-selected="false" class="waves-flat-button" data-toggle="tab"
+              data-target="#cards" role="tab" aria-controls="cards" id="cards-tab">CARDS</a><a style="width: 14.2%;"
+              aria-selected="false" class="waves-flat-button" data-toggle="tab" data-target="#community" role="tab"
+              aria-controls="community" id="community-tab">COMMUNITY</a><a style="width: 14.2%;" aria-selected="false"
+              class="waves-flat-button" data-toggle="tab" data-target="#profile" role="tab" aria-controls="profile"
+              id="profile-tab">PROFILE</a><a style="width: 14.2%;" aria-selected="false" class="waves-flat-button"
+              data-toggle="tab" data-target="#settings" role="tab" aria-controls="settings"
+              id="settings-tab">SETTINGS</a> </div>
+        </center>
+
+      </div>
+    </div>
+  </center>
+
+
+
+  <br><br>
+
+  <!-- Content -->
+  <div class="tab-content" id="justifiedTabContent">
+
+
+    <div aria-labelledby="home-tab" id="home" role="tabpanel" class="tab-pane fade show active" id="home">
+
+      <center>
+        <h2><b>Home</b></h2>
+        <h5>Your personal dashboard.</h5>
+
+        <br><br>
+
+
+        <div style="display: inline-block; padding: 20px; text-align: left; width: 30%;">
+          <div style="background-color: #212121;width: 100%;" class="card">
+            <div class="card-body">
+
+
+              <h4>Stuck? Bored?</h4>
+              <p>We all could use some epic writing ideas. So why not get some? r/writingprompts on reddit is a great
+                place to start and I highly recommend going there for some epic story ideas!</p>
+
+              <br>
+              <a onclick="window.open('https://reddit.com/r/writingprompts')"
+                class="waves-flat-button btn-outline-primary">Writing
+                Prompts</a>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div style="display: inline-block; padding: 20px; text-align: left; width: 30%;">
+          <div style="background-color: #212121;width: 100%;" class="card">
+            <div class="card-body">
+
+
+              <h4>Any Questions?</h4>
+              <p>Feel free to email me with your questions, comments, feedback or whatever it may be. I might even
+                respond or use it in a future update. Thanks!</p>
+
+              <br>
+              <a href="mailto:me@r0h.in" class="waves-flat-button btn-outline-primary">Email Me</a>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div style="display: inline-block; padding: 20px; text-align: left; width: 30%;">
+          <div style="background-color: #212121;width: 100%;" class="card">
+            <div class="card-body">
+
+
+              <h4>Have an idea for a card here?</h4>
+              <p>If you have an idea or something you would want right on this home page feel free to email me with your
+                suggestions. Looking for fun new ideas for this. Games, maybe? Let me know!</p>
+
+              <br>
+              <a href="mailto:me@r0h.in" class="waves-flat-button btn-outline-primary">Email Me</a>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div style="display: inline-block; padding: 20px; text-align: left; width: 30%;">
+          <div style="background-color: #212121;width: 100%;" class="card">
+            <div class="card-body">
+
+
+              <h4>Button Game</h4>
+              <p>Wanna play the Button Game? It's a new game I created about holding down a button for a long time. It's
+                pretty easy to play you only need a mouse...</p>
+
+              <br>
+              <a onclick="window.open('https://btngame.netlify.com')"
+                class="waves-flat-button btn-outline-primary">play now</a>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </center>
+
+    </div>
+    <div aria-labelledby="notes-tab" id="notes" role="tabpanel" class="tab-pane fade" id="notes">
+      <center><button id="createNoteEl" data-toggle="modal" data-target="#createModal"
+          style="outline: none;height: 60px; width: 60px; border-radius: 60px; background-color: #21D4FD; background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%); color: white;position: absolute; left: 17.5%; top: 90px;"
+          class="shadow-sm waves-float-button" type="button">
+          <center><i class="material-icons">add</i></center>
+        </button>
+
+
+
+
+
+
+
+
+
+        <div
+          style="background-color: #212121;position: absolute; left: 5%; top: 120px; width: 30%; padding-top: 20px; overflow:scroll; height: 80%; border-radius: 15px"
+          class="card shadow">
+          <div style="left: 10px; position: absolute;" class="dropdown">
+            <button class="waves-flat-button btn-text-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">more_vert</i>
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button onclick="refresh()" class="waves-flat-button btn-text-primary"><i
+                  class="material-icons">refresh</i> Refresh</button>
+              <a style="text-align: left; width: 100%;" href="mailto:me@r0h.in"
+                class="waves-flat-button btn-text-primary"><i class="material-icons">help</i> Help</a>
+            </div>
+          </div>
+
+          <br><br>
+          <div id="notesbox" style="display: inline-block; padding: 15px;">
+            <ul class="list-group animated" id="starrednotescontainer"></ul>
+            <hr style="background-color: white">
+            <ul class="list-group animated" id="notescontainer"></ul>
+          </div>
+
+          <h5 class="animated fadeInUp" style="padding: 10px; display: none;" id="notewarning">You haven't created any
+            notes yet! <button data-toggle="modal" data-target="#createModal"
+              class="waves-flat-button btn-text-primary">Create a Note!</button></h5>
+
+
+        </div><Br><Br>
+        <div id="notesboxbox"
+          style="background-color: #212121;display: none; position: absolute;top: 120px; left: 37%; width: 58%; border-radius: 15px;"
+          class="card shadow animated">
+          <div class="card-body">
+            <div style="text-align: left; padding: 20px;" id="contentcontainer">
+
+            </div>
+          </div>
+        </div>
+
+      </center>
+
+
+
+    </div>
+
+
+    <div aria-labelledby="tasks-tab" id="tasks" role="tabpanel" class="tab-pane fade" id="tasks">
+      <center><button id="createTaskEl" data-toggle="modal" data-target="#createModal2"
+          style="outline: none;height: 60px; width: 60px; border-radius: 60px; background-color: #21D4FD; background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%); color: white;position: absolute; left: 17.5%; top: 90px;"
+          class="shadow-sm waves-float-button" type="button">
+          <center><i class="material-icons">add</i></center>
+        </button>
+
+        <div
+          style="background-color: #212121;border-radius: 15px; position: absolute; left: 5%; top: 120px; width: 30%; padding-top: 20px; overflow:scroll; height: 80%"
+          class="card shadow">
+
+          <div style="left: 10px; position: absolute;" class="dropdown">
+            <button class="waves-flat-button btn-text-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">more_vert</i>
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button onclick="refresh()" class="waves-flat-button btn-text-primary"><i
+                  class="material-icons">refresh</i> Refresh</button>
+              <a style="text-align: left; width: 100%;" href="mailto:me@r0h.in"
+                class="waves-flat-button btn-text-primary"><i class="material-icons">help</i> Help</a>
+            </div>
+          </div>
+
+          <br><br>
+          <div id="tasksbox" style="display: inline-block; padding: 15px; ">
+            <ul class="list-group animated" id="taskscontainer"></ul>
+          </div>
+
+          <h5 class="animated fadeInUp" style="padding: 10px; display: none;" id="taskwarning">You haven't created any
+            tasks yet! <button data-toggle="modal" data-target="#createModal2"
+              class="waves-flat-button btn-text-primary">Create a Task!</button></h5>
+          <br><br><br>
+        </div><Br><Br>
+        <div id="tasksboxbox"
+          style="background-color: #212121; border-radius: 15px; display: none; position: absolute;top: 120px; left: 37%; width: 58%;"
+          class="card animated shadow">
+          <div class="card-body">
+            <div style="text-align: left; padding: 20px;" id="taskcontentcontainer">
+
+            </div>
+          </div>
+        </div>
+      </center>
+
+    </div>
+
+    <div style="padding-left: 25px; padding-right:25px" aria-labelledby="cards-tab" id="cards" role="tabpanel"
+      class="tab-pane fade" id="cards">
+
+      <center>
+        <h2><b>Flashcards</b></h2>
+        <h5>Your set of flashcards, just below.</h5>
+      </center>
+
+      <br><br>
+      <center>
+
+        <div style="padding: 15px; display: inline-block; width: 40%;">
+          <div data-toggle="modal" data-target="#flashnew" style="display: inline-block; width: 100%; height: 120px;"
+            class="card waves-float-box shadow-sm btn-raised-primary">
+            <div class="card-body">
+
+              <div style="position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+                <h4>Create a Set</h4>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div id="flashcards">
+
+
+
+
+        </div>
+
+
+
+      </center>
+    </div>
+
+    <div style="padding-left: 25px; padding-right: 25px;" aria-labelledby="community-tab" id="community" role="tabpanel"
+      class="tab-pane fade" id="community">
+
+      <center>
+        <h2><b>Community</b></h2>
+        <h5>Interact with other FlashNote users.</h5>
+        <button data-toggle="modal" data-target="#postModal" class="waves-flat-button btn-outline-primary">New
+          Post</button>
+        <div style="display: inline-block" class="dropdown">
+          <button class="waves-flat-button btn-text-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">more_vert</i>
+          </button>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button onclick="refresh()" class="waves-flat-button btn-text-primary"><i class="material-icons">refresh</i>
+              Refresh</button>
+            <a style="text-align: left; width: 100%;" href="mailto:me@r0h.in"
+              class="waves-flat-button btn-text-primary"><i class="material-icons">help</i> Help</a>
+          </div>
+        </div>
+
+        <br><br>
+
+      </center>
+      <div class="animated" id="communitycontainer">
+
+
+        <center>
+          <div style="width: 100%" id="commcontainer1pinned">
+        </center>
+
+
+      </div>
+
+
+
+      <div style="padding: 20px;" class="row">
+        <div class="col-sm animated" style="width: 45%" id="commcontainer">
+        </div>
+        <div style="padding-left: 10px; padding-right: 10px;" class="col-sm">
+
+          <div style="background-color: #212121; height: 1005px;" class="card">
+            <!-- Messaging Section -->
+
+            <div
+              style="border-radius: 10px; position: absolute; left: 0px; top: 0px; width: 100%; background-color: rgb(46, 46, 46);">
+              <br>
+              <center>
+                <h3>FlashNote Chat</h3>
+
+              </center>
+              <br>
+
+
+            </div>
+
+
+            <br><br><br><br>
+
+            <center>
+              <div class="animated" style="display: flex;flex-direction: column-reverse;" id="messages">
+
+
+
+              </div>
+            </center>
+
+            <div
+              style="position: absolute; bottom: 0px;border-radius: 10px;width: 100%; background-color:  rgb(46, 46, 46);">
+              <br>
+              <center>
+                <h5 style="display: inline-block; ">Send a message: </h5>
+                <div style="padding: 10px; display: inline-block;" class="floating-label">
+
+                  <input style="color: white; width: 100%;" class="form-control" id="messageinput" placeholder=""
+                    type="text">
+
+                </div>
+                <button id="sendmsgbtn" onclick="newMessage()" class="waves-flat-button btn-text-primary">send</button>
+              </center>
+              <br>
+            </div>
+
+
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+      <center class="animated" id="commcontainer2container">
+        <div style="width: 100%">
+          <center class="animated" id="commcontainer2">
+          </center>
+        </div>
+      </center>
+
+    </div>
+
+    <div aria-labelledby="profile-tab" id="profile" role="tabpanel" class="tab-pane fade" id="profile">
+
+      <center>
+        <h2><b>Profile</b></h2>
+        <h5>Your FlashNote Profile</h5>
+      </center>
+      <br><br>
+      <center>
+        <div style="background-color: #212121; width: 50%;" class="card">
+          <div class="card-body">
+
+            <br><br><br>
+            <img id="user-pic"
+              style="border: 2px solid #6200EE; width: 120px; border-radius: 120px; transform: translate(-50%, -50%); position: absolute; left: 50%;"
+              src="https://34yigttpdc638c2g11fbif92-wpengine.netdna-ssl.com/wp-content/uploads/2016/09/default-user-img.jpg"
+              alt="">
+            <br><br><br><br>
+            <center>
+              <h3 id="user-name"></h3>
+              <h4 id="user-email"></h4>
+              <button class="waves-flat-button btn-outline-primary" onclick="signOut()">SIGN OUT</button>
+              <button class="waves-flat-button btn-outline-primary"
+                onclick="document.getElementById('settings-tab').click()">SETTINGS</button>
+            </center>
+
+          </div>
+        </div>
+      </center>
+    </div>
+    <div style="padding-left: 25px; padding-right: 25px;" aria-labelledby="settings-tab" id="settings" role="tabpanel"
+      class="tab-pane fade" id="settings">
+
+      <center>
+        <h2><b>Settings</b></h2>
+        <h5>Change your preferences here.</h5>
+      </center>
+
+      <br><br>
+
+      <center>
+
+        <div style="display: inline-block; padding: 20px; text-align: left; width: 45%;">
+          <div style="background-color: #212121; width: 100%;" class="card">
+            <div class="card-body">
+
+
+              <h4>General</h4>
+
+              <div class="dropdown">
+                <button class="waves-flat-button btn-text-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Theme
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a style="display: inline-block;" class="dropdown-item waves-flat-button btn-text-primary"
+                    onclick="db.collection('users').doc(user()).update({dark: 'light'}).then(function() {window.location.replace('home.html')})"><i
+                      class="material-icons">invert_colors_off</i> Light Theme</a>
+                  <a style="display: inline-block;" class="dropdown-item waves-flat-button btn-text-primary"
+                    onclick="db.collection('users').doc(user()).update({dark: 'dark'}).then(function() {window.location.replace('homedark.html')})"><i
+                      class="material-icons">invert_colors</i> Dark Theme</a>
+                </div>
+              </div>
+
+              <div class="dropdown">
+                <button class="waves-flat-button btn-text-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Font
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a style="display: inline-block; font-family: Roboto;"
+                    class="dropdown-item waves-flat-button btn-text-primary"
+                    onclick="db.collection('users').doc(user()).update({font: 'minimal'}).then(function() {snackbar('Changed font.', '', '', '5000');document.getElementById('body').style.fontFamily = 'roboto'})">Minimal
+                    Font</a>
+                  <a style="display: inline-block; font-family: Alegreya;"
+                    class="dropdown-item waves-flat-button btn-text-primary"
+                    onclick="db.collection('users').doc(user()).update({font: 'typewriter'}).then(function() {snackbar('Changed font.', '', '', '5000');document.getElementById('body').style.fontFamily = 'alegreya'})">Typewriter
+                    Font</a>
+                </div>
+              </div>
+              <br>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="skiplanding">
+                <label class="custom-control-label" for="skiplanding">Skip Landing Page</label>
+              </div>
+
+              <br>
+              <button onclick="document.getElementById('community-tab').click()"
+                class="waves-flat-button btn-outline-primary">Send Feedback</button>
+              <br><br>
+              <button onclick="window.close()" class="waves-flat-button btn-outline-primary">Quit FlashNote</button>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div style="display: inline-block; padding: 20px; text-align: left; width: 45%;">
+          <div style="background-color: #212121; width: 100%;" class="card">
+            <div class="card-body">
+
+              <h4>Extra</h4>
+
+              <button data-toggle="modal" data-target="#creditmodal"
+                class="waves-flat-button btn-outline-primary">Credits</button>
+              <button onclick="window.location.replace('index.html')"
+                class="waves-flat-button btn-outline-primary">Landing</button>
+              <button onclick="window.close()" class="waves-flat-button btn-outline-primary">quit</button>
+
+
+            </div>
+          </div>
+        </div>
+
+      </center>
+
+
+
+
+    </div>
+
+  </div>
+
+  <script src="js/moment.js"></script>
+  <script>
+    moment().format();
+  </script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+  <link rel="stylesheet" href="css/home.css">
+
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+  <script>var firebaseConfig = { apiKey: "AIzaSyACYrT3CvkMDVqF2xoherkVeH-01iWFweg", authDomain: "flashnote-9ed12.firebaseapp.com", databaseURL: "https://flashnote-9ed12.firebaseio.com", projectId: "flashnote-9ed12", storageBucket: "", messagingSenderId: "425977760813", appId: "1:425977760813:web:b510d514db5626be" }; firebase.initializeApp(firebaseConfig); const db = firebase.firestore()</script>
+  <script src="js/homedark.js"></script>
+  <script src="js/eonstyles.js"></script>
+  <script
+    type="text/javascript">addWaves(); function addWaves() { Waves.attach(".waves-flat-button", ["waves-button"]), Waves.attach(".waves-float-button", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-dark", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-light", ["waves-button", "waves-float", "waves-light"]), Waves.attach(".waves-box", ["waves-block"]), Waves.attach(".waves-float-box", ["waves-block", "waves-float"]), Waves.attach(".waves-image"), Waves.init(); }</script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="js/material.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+
+  <!-- Firepad -->
+  <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
+  <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
+
+</body>
+
+</html>
+
+<!-- 
+    shadow-sm // Small shadow
+    shadow // Regular shadow
+    shadow-lg // Large shadow
+
+    waves-flat-button // Button flat
+    waves-float-button // Button float
+    waves-float-button-dark // Button float dark waves
+    waves-float-button-light // Button float dark waves
+    waves-flat-box // Box flat
+    waves-float-box // Box float
+    waves-image // Image waves  
+-->
+
+<script>addWaves()</script>
