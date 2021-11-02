@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="styles.css">
+  <title>Parallel</title>
+</head>
+<body>
+
+  <div class="content">
+    <div class="cenetered">
+      <div class="cenetedcontent">
+        <h1 class="primary">Parallel <div class="smallText secondary">/ˈperəˌlel/</div></h1>
+        <p>Parallel is an <b>upcoming</b> entertainment/social app soon available on MacOS, Windows and Linux. Our mission is to build communities through relatability of taste in music and shared experiences.</p>
+        <button id="joinButton" class="button buttonPrimary">Download</button> <button onclick="openWebVersion()" class="button buttonSecondary">Web Version (Soon)</button>
+        <br>
+        <small><a href="company.html">Legal</a></small>
+      </div>
+    </div>
+    <img src="promo.png" alt="">
+  </div>
+  
+  <script>
+
+    function openWebVersion() {
+      // window.location.replace('https://parallel-by-wop.firebaseapp.com/');
+    }
+
+    if (navigator.platform.toLowerCase().includes('mac')) {
+      document.getElementById('joinButton').innerHTML = `<i class="bx bxl-apple"></i> Download (Soon)`
+      document.getElementById('joinButton').onclick = () => {
+        // window.open('https://github.com/r0hin/parallel/releases/download/v1/Parallel-MacOS.dmg')
+      }
+    }
+    else if (navigator.platform.toLowerCase().includes('win')) {
+      document.getElementById('joinButton').innerHTML = `<i class="bx bxl-windows"></i> Download (Soon)`
+      document.getElementById('joinButton').onclick = () => {
+        // window.open('https://github.com/r0hin/parallel/releases/download/v1/Parallel-Windows.exe')
+      }
+    }
+    else {
+      document.getElementById('joinButton').innerHTML = `<i class="bx bx-download"></i> Download (Soon)`
+      document.getElementById('joinButton').onclick = () => {
+        // window.open('https://github.com/r0hin/parallel/releases/download/v1/Parallel-Linux.zip')
+      }
+    }
+
+  </script>
+
+</body>
+</html>
