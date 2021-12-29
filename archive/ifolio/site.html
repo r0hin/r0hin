@@ -1,0 +1,153 @@
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/eonstyles.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="css/material.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/waves.min.css">
+        <script src="js/waves.min.js"></script>
+
+        <title id="title">Portfolio</title>
+    </head>
+
+    <body style="font-family: 'Quattrocento Sans', sans-serif;background-color:
+        rgb(255, 255, 255);" id="body">
+
+        <div class="modal fade bd-example-modal-sm" id="errorModal"
+            tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Error</h3>
+                    </div>
+                    <h5 id="erorrModalMsg" class="modal-body">Unable to complete
+                        process.</h5>
+                    <div class="modal-footer"><button type="button"
+                            class="waves-flat-button btn-text-primary"
+                            data-dismiss="modal">dismiss</button></div>
+                </div>
+            </div>
+        </div>
+
+<div id="modals"></div>
+
+<div style="position: absolute;left:50%;transform:translate(-50%, 0);">
+    <center><h3 style="display: inline-block" class="underline">
+        <br>
+        <b id="a"></b>
+    </h3>
+
+
+    <br>
+    <h5 style="line-height: 12px;" id='b'></h5>
+    </center>
+</div>
+        <nav class="navbar navbar-expand-lg">
+            <img class="shadow" style="height: 100px; display: none; border-radius: 15px; width: 100px; object-fit: cover;" id="c" src="" alt="No logo uploaded.">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+
+                
+
+                <a style="display: none;" id="d" target="_blank" class="waves-flat-button
+                    btn-text-primary animated " href=""> <i class="material-icons">people</i>
+                </a>
+                <a style="display: none;" id="e" target="_blank" class="waves-flat-button
+                    btn-text-primary animated" href=""><i
+                        class="material-icons">people</i></a>
+                <a style="display: none;" id="f" target="_blank" class="waves-flat-button
+                    btn-text-primary animated" href=""><i
+                        class="material-icons">people</i></a>
+                        <a style="display: none;" id="g" class="waves-flat-button
+                        btn-text-primary animated"><i
+                            class="material-icons">phone</i></a>
+            </div>
+        </nav>
+
+
+
+        <!-- Name-->
+
+
+<center>
+<div id="contentdivs"></div>
+</center>
+
+
+<center>
+    <br><br>
+    <div id="blogcontainer" style="display: none; border-radius: 15px; width: 80%;" class="animated slower card"><div class="card-body">
+<center>
+    <h3>Blogs</h3>
+        <div style="width: 98%;" id="blogs"></div>
+    </center>
+    </div></div>
+    <br><br><br><br><br>
+    </center>
+
+
+
+
+
+
+            <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+            <script
+                src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+            <!-- Add Firebase products that you want to use -->
+            <script
+                src="https://www.gstatic.com/firebasejs/7.4.0/firebase-storage.js"></script>
+            <script
+                src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+            <script
+                src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+        </body>
+        <script src="js/eonstyles.js"></script>
+        <script
+            type="text/javascript">addWaves(); function addWaves() { Waves.attach(".waves-flat-button", ["waves-button"]), Waves.attach(".waves-float-button", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-dark", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-light", ["waves-button", "waves-float", "waves-light"]), Waves.attach(".waves-box", ["waves-block"]), Waves.attach(".waves-float-box", ["waves-block", "waves-float"]), Waves.attach(".waves-image"), Waves.init(); }</script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="js/material.min.js"></script>
+        <script src="js/basic.js"></script>
+
+        <script src="js/site.js"></script>
+    </body>
+
+</html>
+
+
+<script>
+    //snackbar('Look at this note', 'Button', 'error("lol")', "7000")
+</script>
+
+
+
+<!-- 
+    waves-light // Light Waves
+    waves-flat-button // Button flat
+    waves-float-button // Button float
+    waves-float-button-dark // Button float dark waves
+    waves-float-button-light // Button float dark waves
+    waves-flat-box // Box flat
+    waves-float-box // Box float
+    waves-image // Image waves  
+-->
