@@ -1,4 +1,4 @@
-<h1><a href="./app/index.html">Web version</a></h1>
+<h1><a href="https://eonsound.firebaseapp.com/app.html">Web version</a></h1>
 
 <p align="center">
     <img width="240" src="./app/assets/eonsound.png">
