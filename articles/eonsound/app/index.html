@@ -1,0 +1,64 @@
+<html>
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;} </script>
+  <!-- Baloo 2 Font --> <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600&display=swap" rel="stylesheet">
+  <body class="regular">
+    <center>
+      <br><br><br>
+      <h2>Loading...</h2>
+    </center>
+  </body>
+</html>
+
+<style>
+  .regular {
+    background-color: #000;
+    color: white;
+    font-family: 'Baloo 2';
+
+  }
+
+  .dark {
+    background-color: #0E131E;
+    color: white;
+    transition: all 0.4s;
+    font-family: 'Baloo 2';
+  }
+</style>
+
+<!-- Check user's status, etc -->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBNf1JpByuDebVLq_lns8fYv4Pyo3kzvoM",
+    authDomain: "eonsound.firebaseapp.com",
+    databaseURL: "https://eonsound.firebaseio.com",
+    projectId: "eonsound",
+    storageBucket: "eonsound.appspot.com",
+    messagingSenderId: "824179683788",
+    appId: "1:824179683788:web:81830e10e40b4b887ded69"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    document.getElementsByTagName("body")[0].classList.add('dark')
+    window.setTimeout(() => {
+      window.location.replace('app.html')
+    }, 500)
+    // ...
+  } else {
+      
+    document.getElementsByTagName("body")[0].classList.add('dark')
+    window.setTimeout(() => {
+      window.location.replace('welcome.html')
+    }, 500)
+  }
+})
+
+</script>

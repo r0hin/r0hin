@@ -1,59 +1,70 @@
-
-
-<script>
-function error(error) {
-  $('#errorModal').modal('toggle')
-  document.getElementById('errMsg').innerHTML = error
-}
-
-</script>
-
-<html><head>
-    <script data-ad-client="ca-pub-8081704287260776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="css/index.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="css/material.min.css" rel="stylesheet"><link rel="stylesheet" href="css/waves.min.css"><script src="js/waves.min.js"></script>
-<title>FlashNote</title> 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148495536-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-148495536-1');
-</script>
-
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="index/eonstyles.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="index/material.min.css" rel="stylesheet"><link rel="stylesheet" href="index/waves.min.css"><script src="index/waves.min.js"></script><script src="https://kit.fontawesome.com/974fa7d414.js" crossorigin="anonymous"></script>
+<title>FlashNote| Download</title> 
 </head>
-<style>
- .light {
-   background-color: #fff;
-   transition: 0.5s;
- } 
-.darken {
-  background-color: #121212;
-   transition: 0.5s;
-}
+<body id="body" style="padding: 40px; background-image: url('https://images.unsplash.com/photo-1569189878393-8ab0b571b1eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')">   
+    <div class="modal fade" id="download" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Download FlashNote - Choose your platform</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+<center>
+<button onclick="window.open('https://github.com/r0hin/FlashNote/releases/download/1.2/flashnote-mac.zip')" class="waves-flat-button btn-text-primary">MacOS</button>
+<div style="display: inline-block; width: 14px;"></div>
+<button onclick="window.open('https://github.com/r0hin/FlashNote/releases/download/1.2/flashnote-win.zip')" class="waves-flat-button btn-text-primary">Windows</button>
+<div style="display: inline-block; width: 14px;"></div>
+<button onclick="window.open('https://github.com/r0hin/FlashNote/releases/download/1.2/flashnote-linux.zip')" class="waves-flat-button btn-text-primary">Linux</button>
+<br><br>
+<button onclick="window.open('https://github.com/r0hin/FlashNote/releases/latest')" class="waves-flat-button btn-text-primary">GitHub</button>
+</center>
 
 
-</style>
-<body id="body" class="bodNormal animated light">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div style="padding: 25px; position: absolute; left: 50%; top: 50%; display: inline-block; transform: translate(-50%, -50%)" class="card"><div class="card-body">
+
+<center><img style="width: 120px" src="assets/logo.png" alt="">
+    <br><br>
+    <h3>The simple app for busy lives.</h3>
+    <br>
+    <button data-toggle="modal" data-target="#download" class="waves-flat-button btn-outline-primary">Download</button>
+</center>
+
+    
+</div></div>
 
 
 
 
-  
-<link rel="stylesheet" href="css/eonstyles.css">
-<script type="text/javascript">addWaves;function addWaves() {Waves.attach(".waves-flat-button",["waves-button"]),Waves.attach(".waves-float-button",["waves-button","waves-float"]),Waves.attach(".waves-float-button-dark",["waves-button","waves-float"]),Waves.attach(".waves-float-button-light",["waves-button","waves-float","waves-light"]),Waves.attach(".waves-box",["waves-block"]),Waves.attach(".waves-float-box",["waves-block","waves-float"]),Waves.attach(".waves-image"),Waves.init();}
-</script>   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script><script src="js/material.min.js"></script><script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-auth.js"></script><script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script><script>var firebaseConfig = {apiKey: "AIzaSyACYrT3CvkMDVqF2xoherkVeH-01iWFweg",authDomain: "flashnote-9ed12.firebaseapp.com",databaseURL: "https://flashnote-9ed12.firebaseio.com",projectId: "flashnote-9ed12",storageBucket: "",messagingSenderId: "425977760813",appId: "1:425977760813:web:b510d514db5626be"};firebase.initializeApp(firebaseConfig);const db = firebase.firestore()</script>
-<script src="js/eonstyles.js"></script>
-<script src="js/transfer.js"></script>
 
+
+
+
+
+<script src="index/eonstyles.js"></script> <script type="text/javascript">addWaves(); function addWaves() {Waves.attach(".waves-flat-button",["waves-button"]),Waves.attach(".waves-float-button",["waves-button","waves-float"]),Waves.attach(".waves-float-button-dark",["waves-button","waves-float"]),Waves.attach(".waves-float-button-light",["waves-button","waves-float","waves-light"]),Waves.attach(".waves-box",["waves-block"]),Waves.attach(".waves-float-box",["waves-block","waves-float"]),Waves.attach(".waves-image"),Waves.init();}</script>   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script><script src="index/material.min.js"></script>
+<script src="index/script.js"></script>
 </body></html>
-                
-<!-- 
-    shadow-sm // Small shadow
-    shadow // Regular shadow
-    shadow-lg // Large shadow
+        
 
+<script>
+
+        //snackbar('Look at this note', 'Button', "func()", "5000")
+        </script>
+    
+
+
+<!-- 
+    waves-light // Light Waves
     waves-flat-button // Button flat
     waves-float-button // Button float
     waves-float-button-dark // Button float dark waves
@@ -62,4 +73,3 @@ function error(error) {
     waves-float-box // Box float
     waves-image // Image waves  
 -->
-<script>addWaves()</script>

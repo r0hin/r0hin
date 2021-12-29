@@ -1,0 +1,73 @@
+/* context.css
+Styling for the right-click context menus. */
+
+.context-menu {
+  display: none;
+  position: absolute;
+  z-index: 30000001000000;
+}
+
+.context_active {
+  display: block;
+  margin-left: 0 !important;
+  opacity: 1 !important;
+}
+
+.context-menu__items {
+  background-color: var(--bg-tertiary);
+  list-style-type: none;
+  padding: 16px 0px 16px 0px;
+  border-radius: 12px;
+  min-width: 120px;
+
+  -webkit-box-shadow: 0px 3px 24px 1px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 3px 24px 1px rgba(0,0,0,1);
+  box-shadow: 0px 3px 24px 1px rgba(0,0,0,1);
+}
+
+.context-menu__item {
+  padding: 0px;
+  background-color: var(--bg-tertiary);
+  width: 100%; text-align: left;
+}
+
+.contextbtn {
+  color: var(--content-primary) !important;
+  font-weight: 300 !important;
+  width: 100%; text-align: left;
+  padding: 0px 56px 0px 0x;
+  border-radius: 0px !important;
+  transition: all 0s !important;
+}
+
+.contextbtndanger {
+  color: var(--danger) !important;
+}
+
+.contextbtn:hover {
+  transition: all 0.3s !important;
+}
+
+.context_divider {
+  width: calc(100% - 24px); height: 1px;
+  margin: 12px;
+  background-color: grey;
+}
+
+.contextAnim {
+  animation: contextExpand 0.3s linear;
+  margin-left: 100px;
+  transition: all 0.4s;
+  opacity: 0;
+}
+
+@keyframes contextExpand {
+  0%   {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "flashnote",
+  "version": "1.0.0",
+  "description": "A beautiful productivity application",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^9.4.0",
+    "firebase-admin": "^8.6.0",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "electron-packager": "^14.0.6"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build-mac": "electron-packager . --platform=darwin --arch=x64",
+    "build-win": "electron-packager . --platform=win32",
+    "build-lin": "electron-packager . --platform=linux"
+  },
+  "author": "rohin",
+  "license": "ISC"
+}

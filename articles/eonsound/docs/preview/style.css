@@ -1,0 +1,42 @@
+#waiting {
+  padding: 24px;
+}
+
+a {
+  text-decoration: none !important;;
+  padding: 8px !important;
+}
+
+.album img {
+  width: 200px;
+  margin: 8px; border-radius: 12px; margin-bottom: 24px;
+}
+
+.track img {
+  width: 200px; 
+  margin: 8px; border-radius: 12px; margin-bottom: 24px;
+}
+
+.playlist img {
+  width: 200px; 
+  margin: 8px; border-radius: 12px; margin-bottom: 24px;
+}
+
+.userPlaylist img {
+  width: 200px; 
+  margin: 8px; border-radius: 12px; margin-bottom: 24px;
+}
+
+.artist img {
+  width: 200px; 
+  margin: 8px; border-radius: 50%; margin-bottom: 24px;
+}
+
+.btn-contained {
+  margin: 8px;
+}
+
+h4 {
+  line-height: 4px;
+  margin-bottom: 12px;
+}

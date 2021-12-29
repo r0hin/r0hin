@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/eonstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Underdog&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="css/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/waves.min.css">
+    <script src="js/waves.min.js"></script>
+    <script src="https://kit.fontawesome.com/974fa7d414.js" crossorigin="anonymous"></script>
+    <title>Button Game | Sign In</title>
+</head>
+
+<body style="background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+" id="body">
+
+
+    <div style="display: inline-block" class="card">
+        <div class="card-body">
+            <center>
+                <h2>Button Game</h2>
+                <button onclick="signin()" class="waves-flat-button btn-text-primary">Sign in with Google</button>
+            </center>
+
+        </div>
+    </div>
+
+
+
+    </center>
+
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-firestore.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCKTwV89AdcnABouwKNmN7zUqmpPYsVibY",
+            authDomain: "button-game-2de85.firebaseapp.com",
+            databaseURL: "https://button-game-2de85.firebaseio.com",
+            projectId: "button-game-2de85",
+            storageBucket: "",
+            messagingSenderId: "644798893579",
+            appId: "1:644798893579:web:2bed4b881a8a9eb1bec10e"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="index.js"></script>
+    <script src="js/eonstyles.js"></script>
+    <script
+        type="text/javascript">addWaves(); function addWaves() { Waves.attach(".waves-flat-button", ["waves-button"]), Waves.attach(".waves-float-button", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-dark", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-light", ["waves-button", "waves-float", "waves-light"]), Waves.attach(".waves-box", ["waves-block"]), Waves.attach(".waves-float-box", ["waves-block", "waves-float"]), Waves.attach(".waves-image"), Waves.init(); }</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+
+
+<script>//snackbar('Look at this note', 'Button', "func()", "5000")</script>
+
+
+
+<!-- 
+        waves-light // Light Waves
+        waves-flat-button // Button flat
+        waves-float-button // Button float
+        waves-float-button-dark // Button float dark waves
+        waves-float-button-light // Button float dark waves
+        waves-flat-box // Box flat
+        waves-float-box // Box float
+        waves-image // Image waves  
+    -->
