@@ -1,0 +1,242 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - RainTrack</title>
+
+    <!---==== CSS ====-->
+    <!-- Eon Styles --><link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Material Icons --><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <!-- Baloo Font--><link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Dameonite / Bootstrap--><link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves --><link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar --><link rel="stylesheet" href="daemonite/snackbar.min.css">
+    <!-- App CSS --> <link rel="stylesheet" href="css/app.css">
+    <!-- Background -->
+    <style>
+        #body {
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }   
+    </style>
+
+</head>
+<body id="body" style="font-family: 'Baloo Da 2', cursive;">
+    <!-- Preflight Modals-->
+    <div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h3>Account</h3></div>
+        <div class="modal-body"> 
+            <h2 id="username"></h2>
+            <p id="email">Username</p>
+            <br><br>
+            <button class="eon-text" onclick="logout()">Log Out</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="waves eon-text" data-dismiss="modal">close</button>
+        </div>
+    </div></div></div>
+    <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h3>Error</h3></div><h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5><div class="modal-footer"><button type="button" class="waves eon-text" data-dismiss="modal">dismiss</button></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eondoneelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><h1 id="doneleementicon" style="line-height: 0px; margin: 0px;" class="animated bounceIn"><i class="material-icons doneicon">done</i></h1></center></div></div></div></div>
+<!-- ===========================--] Content [=================================== -->    
+
+<nav class="navbar navbar-expand-md navbar-dark animated fadeInDown">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbar" href="index.html"><b class="black">RainTrack</b></a>
+            </li>
+        </ul>
+    </div>
+    <div class="mx-auto navcentered order-0">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul id="signedin" class="navbar-nav ml-auto">
+            <!-- <button data-toggle="modal" data-target="#accountModal" class="eon-contained navbtn">Account</button> -->
+            <button onclick="logout()" class="eon-text navbtn black">Log Out</button>
+        </ul>
+    </div>
+</nav>
+
+<div class="conten">
+    <h1><b>Panel</b></h1>
+    <br><br>
+
+    <ul class="nav nav-justified nav-tabs" id="justifiedTab" role="tablist">
+        <li class="nav-item">
+          <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#home" id="home-tab" role="tab">All Data</a>
+        </li>
+        <li class="nav-item">
+          <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#profile" id="profile-tab" role="tab">Upload Data</a>
+        </li>
+        <li class="nav-item">
+          <a aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" href="#contact" id="contact-tab" role="tab">Your Data</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="justifiedTabContent">
+        <div aria-labelledby="home-tab" class="tab-pane fade show active" id="home" role="tabpanel">
+            <br><br>
+            <div class="card alldatacard">
+                <div class="card-body">
+                    <h4><b>All Data</b></h4>
+
+                    <div class="container">
+                        <div class="wrapper">
+
+                            <center>
+                                <h2 class="bold">Filter</h2>
+                                <br>
+                            </center>
+
+                            <form class="form">
+                                <div class="form-group">
+                                    <input autocomplete="off" type="text" name="datepicker1" class="input-field checkin" placeholder="Date #1">
+                                    <input autocomplete="off" type="text" name="datepicker2" class="input-field checkout" placeholder="Date #2">
+                                </div>
+                            </form>
+
+                            <center>
+                                <button onclick="build()" class="eon-contained">Build</button>
+                            </center>
+
+                        </div>
+                    </div>
+
+                    <br><br>
+       
+                    <div id="map"></div>
+                </div>
+            </div>
+            <br><br>
+            <div class="card alldatacard">
+                <div class="card-body">
+                    <h4><b>Statistics</b></h4>
+
+                    <br>
+
+                    <div id="stats"></div>
+
+                </div>
+            </div>
+        </div>
+        <div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role="tabpanel">
+            <br>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="cloudcard">
+                        <div class="centered">
+                            <h3><b>Upload a File</b></h3>
+                            <p class='grey'>Click the button below</p>
+                            <button onclick="document.getElementById('inputfile').click()" class="eon-contained">select file</button>
+                            <br>
+                            <h3 id="progress"></h3>
+                            <input onchange="uploadfile()" class="hidden" type="file" id="inputfile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.csv">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="cloudcard">
+                        <div class="card-body">
+                            <h3><b>Upload Individual Entry</b></h3>
+                     
+                            <div class="floating-label textfield-box">
+                                <label for="dateinput">Date</label>
+                                <input readonly data-toggle="datepicker" class="form-control" id="dateinput" type="text">
+                            </div>
+                            <br>
+                            <div class="floating-label textfield-box">
+                                <label for="precipinput">Precipitation</label>
+                                <input class="form-control" id="precipinput" placeholder="Example: (0.05)" type="text">
+                            </div>
+                            <br>
+                            <div class="floating-label textfield-box">
+                                <label for="latinput">Latitude</label>
+                                <input class="form-control" id="latinput" placeholder="Example: (-174.9456)" type="text">
+                            </div>
+                            <br>
+                            <div class="floating-label textfield-box">
+                                <label for="longinput">Longitude</label>
+                                <input class="form-control" id="longinput" placeholder="Example: (-97.54)" type="text">
+                            </div>
+                            <br>
+                            <button onclick="uploadEntry()" class="eon-contained block">Upload Entry</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div aria-labelledby="contact-tab" class="tab-pane fade" id="contact" role="tabpanel">
+            <br><br>
+            <div id="tables">
+                <div class="card alldatacard">
+                    <div class="card-body">
+                        <h4>
+                          <b>Manual Input</b>
+                        </h4>
+                        
+                        <table class="table">
+                          <thead>
+                            <tr>
+                                <th scope="col"><center>#</center></th>
+                                <th scope="col"><center>Date</center></th>
+                                <th scope="col"><center>Precipitation</center></th>
+                                <th scope="col"><center>Latitude</center></th>
+                                <th scope="col"><center>Longitude</center></th>
+                                <th scope="col"><center>Save</center></th>
+                                <th scope="col"><center>Remove</center></th>
+                            </tr>
+                          </thead>
+                          
+                          <tbody id="tablebody">
+                          </tbody>
+                        </table>
+                  
+                      </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+      </div>
+</div>
+
+<!-- ===========================--] /Content [=================================== -->
+    <!---==== JavaScript ====--->
+    <!-- JQuery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- JQ UI --> <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Popper --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Bootstrap --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Eon Styles --><script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+    <!-- Moment --> <script src="js/moment.js"></script>
+    <!-- Moment --> <script src="js/moment-range.js"></script>
+
+    <script>$('[data-toggle="datepicker"]').datepicker({
+          dateFormat: "mm/dd/y"
+    });
+    </script>
+
+    <script>window['moment-range'].extendMoment(moment);    
+    </script>
+    <!-- Daemonite --><script src="daemonite/material.min.js"></script>
+    <!-- Waves --><script src="daemonite/waves.min.js"></script><script>addWaves();function addWaves(){ Waves.attach('.eon-contained', ['waves-button', 'waves-light']);Waves.attach('.eon-outlined', ['waves-button']);Waves.attach('.eon-text', ['waves-button']);var config = {duration: 250}; Waves.init(config);}</script>
+    <!-- Snackbar --><script src="daemonite/snackbar.min.js"></script><style>.snackbar-container {padding-top: 8px !important;padding-bottom: 8px !important;border-radius: 8px !important;max-width: 8723789253786352614975678392738649502976483528059748327952px;}</style>
+
+    <!-- MAPS -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRX6g2Q_LSePFC9XPQIyQrL5dTjiv0dnc&callback=initMap&libraries=visualization"></script>
+        
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+    <!-- Firebase --> <script src="js/firebase.js"></script>
+    <!-- Firebase --> <script src="js/panel.js"></script>
+    
+
+</body>
+</html>
