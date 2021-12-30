@@ -3,4 +3,4 @@ iFolio is a portfolio management website inteded to help people create their ima
 
 ## Directory
 <a target="_blank" href="https://r0h.in/articles/learning/ifolio">Website</a><br>
-<a target="_blank" href="https://github.com/r0hin/r0hin/articles/learning/ifolio">Source</a><br>
+<a target="_blank" href="https://github.com/r0hin/r0hin/tree/master/articles/learning/ifolio">Source</a><br>
