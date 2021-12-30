@@ -19,7 +19,7 @@
   <p>Completed, but unmaintained projects.</p>
   <b><a target="_blank" href="https://r0h.in/articles/echo/">Echo</a>: </b> Relational social media website.<br>
   <b><a target="_blank" href="https://r0h.in/articles/eonnotes">EonNotes</a>: </b>Free note-taking application created with VueJS.<br>
-  <b><a target="_blank" href="https://r0h.in/articles/echo/">EonSound</a>: </b>A spotify API interface and music library management system created for my Year 10 Computer Science project.<br>
+  <b><a target="_blank" href="https://r0h.in/articles/eonsound/">EonSound</a>: </b>A spotify API interface and music library management system created for my Year 10 Computer Science project.<br>
 </details>
 
 <br>
@@ -29,7 +29,7 @@
   <p>Old, unmaintained projects primarily for experimentation.</p>
   <b><a target="_blank" href="https://r0h.in/articles/apis/">API Collection</a>: </b>A collection of web-based interfaces for public APIs.<br>
   <b><a target="_blank" href="https://r0h.in/articles/paid/">Front-end Paid</a>: </b>A collection of paid front-ends for various clients.<br>
-  <b><a target="_blank" href="https://r0h.in/articles/echo/">Learning Collection</a>: </b>A collection of tiny JavaScript projects for learning (years 8-9).<br>
+  <b><a target="_blank" href="https://r0h.in/articles/learning/">Learning Collection</a>: </b>A collection of tiny JavaScript projects for learning (years 8-9).<br>
   <b><a target="_blank" href="https://r0h.in/articles/zoonk/">Zoonk</a>: </b>A URL tracker and anonymous private chatting service built in year 10.<br>
   <b><a target="_blank" href="https://r0h.in/articles/flashnote/">FlashNote</a>: </b>Cloud-synced, collaborative notes built in year 9.<br>
 </details>

@@ -27,10 +27,10 @@ function doit() {
                 document.getElementById('made').classList.remove('fadeOut')
                 document.getElementById('made').style.display = 'block'
 
-                document.getElementById('daurl').innerHTML = 'https://r0h.in/articles/zoonk/i.html?s=' + docRef.id
-                document.getElementById('daurl').href = 'https://r0h.in/articles/zoonk/i.html?s=' + docRef.id
-                document.getElementById('dastatsurl').innerHTML = 'https://r0h.in/articles/zoonk/analytics.html?s=' + docRef.id
-                document.getElementById('dastatsurl').href = 'https://r0h.in/articles/zoonk/analytics.html?s=' + docRef.id
+                document.getElementById('daurl').innerHTML = 'https://r0h.in/articles/zoonk/app/i.html?s=' + docRef.id
+                document.getElementById('daurl').href = 'https://r0h.in/articles/zoonk/app/i.html?s=' + docRef.id
+                document.getElementById('dastatsurl').innerHTML = 'https://r0h.in/articles/zoonk/app/analytics.html?s=' + docRef.id
+                document.getElementById('dastatsurl').href = 'https://r0h.in/articles/zoonk/app/analytics.html?s=' + docRef.id
             })
 
         }
@@ -60,10 +60,10 @@ function doit2() {
             document.getElementById('made2').classList.remove('fadeOut')
             document.getElementById('made2').style.display = 'block'
 
-            document.getElementById('daurl2').innerHTML = 'https://r0h.in/articles/zoonk/i.html?s=' + docRef.id
-            document.getElementById('daurl2').href = 'https://r0h.in/articles/zoonk/i.html?s=' + docRef.id
-            document.getElementById('dastatsurl2').innerHTML = 'https://r0h.in/articles/zoonk/analytics.html?s=' + docRef.id
-            document.getElementById('dastatsurl2').href = 'https://r0h.in/articles/zoonk/analytics.html?s=' + docRef.id
+            document.getElementById('daurl2').innerHTML = 'https://r0h.in/articles/zoonk/app/i.html?s=' + docRef.id
+            document.getElementById('daurl2').href = 'https://r0h.in/articles/zoonk/app/i.html?s=' + docRef.id
+            document.getElementById('dastatsurl2').innerHTML = 'https://r0h.in/articles/zoonk/app/analytics.html?s=' + docRef.id
+            document.getElementById('dastatsurl2').href = 'https://r0h.in/articles/zoonk/app/analytics.html?s=' + docRef.id
         })
 
     }
@@ -121,7 +121,7 @@ function checkurl() {
                 else {
 
                     alert('That URL is disabled.')
-                    window.location.replace('http://r0h.in/articles/zoonk/')
+                    window.location.replace('http://r0h.in/articles/zoonk/app/')
 
                 }
 
@@ -147,14 +147,14 @@ function checkurl() {
                         }
                         else {
                             alert('That URL is disabled.')
-                            window.location.replace('http://r0h.in/articles/zoonk/')
+                            window.location.replace('http://r0h.in/articles/zoonk/app')
                         }
 
 
                     }
                     else {
                         alert('That URL is invalid.')
-                        window.location.replace('http://r0h.in/articles/zoonk/')
+                        window.location.replace('http://r0h.in/articles/zoonk/app')
                     }
                 })
 

@@ -37,7 +37,7 @@ function checkurl() {
                     }
                     else {
                         alert('That URL is invalid.')
-                        window.location.replace('http://r0h.in/articles/zoonk/')
+                        window.location.replace('http://r0h.in/articles/zoonk/app')
                     }
                 })
 
@@ -170,8 +170,8 @@ function auth() {
             }
 
 
-            document.getElementById("finallnk2").innerHTML = 'https://r0h.in/articles/zoonk/i.html?s=' + geturl()
-            document.getElementById("finallnk2").href = 'https://r0h.in/articles/zoonk/i.html?s=' + geturl()
+            document.getElementById("finallnk2").innerHTML = 'https://r0h.in/articles/zoonk/app/i.html?s=' + geturl()
+            document.getElementById("finallnk2").href = 'https://r0h.in/articles/zoonk/app/i.html?s=' + geturl()
 
 
         }
@@ -261,8 +261,8 @@ function auth2() {
             }
 
 
-            document.getElementById("finallnk2").innerHTML = 'https://r0h.in/articles/zoonk.html/i?s=' + geturl()
-            document.getElementById("finallnk2").href = 'https://r0h.in/articles/zoonk.html/i?s=' + geturl()
+            document.getElementById("finallnk2").innerHTML = 'https://r0h.in/articles/zoonk/app/i.html/i?s=' + geturl()
+            document.getElementById("finallnk2").href = 'https://r0h.in/articles/zoonk/app/i.html/i?s=' + geturl()
 
 
         }
