@@ -1,12 +1,11 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyBVCgI3v-rUOKDeY2XhQi8Q04fe4zmh1SQ",
-    authDomain: "ifolio-9e7f3.firebaseapp.com",
-    databaseURL: "https://ifolio-9e7f3.firebaseio.com",
-    projectId: "ifolio-9e7f3",
-    storageBucket: "ifolio-9e7f3.appspot.com",
-    messagingSenderId: "580192910150",
-    appId: "1:580192910150:web:1de82e4e37c08564a74347"
-};
+    apiKey: "AIzaSyCIlx2gttCjPdwJI0dibigwtwicGiBzVmI",
+    authDomain: "ifolio-11bc7.firebaseapp.com",
+    projectId: "ifolio-11bc7",
+    storageBucket: "ifolio-11bc7.appspot.com",
+    messagingSenderId: "933332687581",
+    appId: "1:933332687581:web:b2cd29440447006397d934"
+  };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var storage = firebase.storage();
