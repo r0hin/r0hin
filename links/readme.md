@@ -1,1 +1,0 @@
-# Personal use link shortener.
