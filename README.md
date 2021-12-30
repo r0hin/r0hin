@@ -18,7 +18,7 @@
   <summary>Past Projects</summary>
   <p>Completed, but unmaintained projects.</p>
   <b><a target="_blank" href="https://r0h.in/articles/echo/">Echo</a>: </b> Relational social media website.<br>
-  <b><a target="_blank" href="https://r0h.in/articles/eonnotes/dist">EonNotes</a>: </b>Free note-taking application created with VueJS.<br>
+  <b><a target="_blank" href="https://r0h.in/articles/eonnotes">EonNotes</a>: </b>Free note-taking application created with VueJS.<br>
   <b><a target="_blank" href="https://r0h.in/articles/echo/">EonSound</a>: </b>A spotify API interface and music library management system created for my Year 10 Computer Science project.<br>
 </details>
 
@@ -39,11 +39,13 @@
 <p align="left">
   <b>Technologies</b>
   <br>
+
   <img src="./assets/html.png"/> <img src="./assets/css.png"/> <img src="./assets/js.png"/> <img src="./assets/node.png"/> <img src="./assets/react.png"/> <img src="./assets/vue.png"/> <img src="./assets/java.png"/> <img src="./assets/python.png"/> <img src="./assets/flutter.png"/>
 </p>
 
 <p align="left">
   <b>Tools</b>
   <br>
+
   <img src="./assets/vscode.png"/> <img src="./assets/git.png"/> <img src="./assets/github.png"/> <img src="./assets/aws.png"/> <img src="./assets/gcloud.png"/> <img src="./assets/firebase.png"/> <img src="./assets/docker.png"/> <img src="./assets/tailwind.png"/> <img src="./assets/markdown.png"/>
 </p>
