@@ -26,13 +26,12 @@ const app = new Vue({
 });
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBi2Vg9UQfkK7y7FEmEb4oySB0loDFNg0M",
-  authDomain: "eonnote-78e57.firebaseapp.com",
-  databaseURL: "https://eonnote-78e57.firebaseio.com",
-  projectId: "eonnote-78e57",
-  storageBucket: "eonnote-78e57.appspot.com",
-  messagingSenderId: "424859217085",
-  appId: "1:424859217085:web:c6894536bbad6254fa5bd4",
+  apiKey: "AIzaSyCWFxIICA104LdZMHCOxga8tsQuPptOr3w",
+  authDomain: "eonnotes-b41e7.firebaseapp.com",
+  projectId: "eonnotes-b41e7",
+  storageBucket: "eonnotes-b41e7.appspot.com",
+  messagingSenderId: "529864517069",
+  appId: "1:529864517069:web:f6a1853ec4ee7b5fa65084"
 };
 
 firebase.initializeApp(firebaseConfig);
