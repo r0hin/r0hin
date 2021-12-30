@@ -1,0 +1,244 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/eonstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="css/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/waves.min.css">
+    <script src="js/waves.min.js"></script>
+    <script src="https://kit.fontawesome.com/974fa7d414.js" crossorigin="anonymous"></script>
+    <title>Zoonk | To-the-point link shortener / tracker</title>
+</head>
+
+<body id="body" style="background-color: #121212">
+
+  <div style="z-index: 2001;     position: fixed;left: 50%;top: 50%;transform: translate(-50%,-50%);"
+  class="animated" id="loader">
+  <div style="position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+      <div class="progress-circular progress-circular-primary">
+          <div class="progress-circular-wrapper">
+              <div class="progress-circular-inner">
+                  <div class="progress-circular-left">
+                      <div class="progress-circular-spinner"></div>
+                  </div>
+                  <div class="progress-circular-gap"></div>
+                  <div class="progress-circular-right">
+                      <div class="progress-circular-spinner"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  <br><br><br><br><br>
+  <h4 style="width: 100%;color: white;font-family: 'Roboto Mono'"><small>created with <i class="material-icons" style="color: red;">favorite</i> by <a href="https://r0h.in" target="_blank">rohin</a>.</small> </h4>
+</div>
+
+
+
+<div class="animated" id="loaderbg"
+  style="position: fixed; z-index: 2000; background-color: #121212; width: 100%; height: 100%; top: 0px; left: 0px;">
+
+</div>
+
+
+<div id="displaypaste" class="animated zoomIn" style="position: fixed; z-index: 2000009090381923; width: 100%; height: 100%; display: none; font-family: 'Roboto Mono'; border-radius: 12px;">
+<br><br>
+<center><div class="card" style="text-align: left;overflow: scroll; width: 90%; height: 90%; ">
+  <div id="contentcontent" class="card-body">
+  </div></div></center>
+
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div style="background-color: #2c2c2c; color: white;" class="modal-content"><div class="modal-header"><h3>Error</h3></div><h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5><div class="modal-footer"><button type="button" class="waves-flat-button btn-text-primary" data-dismiss="modal">dismiss</button></div></div></div></div>
+  <div style="display: inline-block; position: relative; width: 100%;">
+<img src="assets/logo.png" style="width: 120px; height: 120px; display: inline-block" alt="">
+<h1 style="top: 36px; color: white; left: 130px; position: absolute;" class="centeredy">Zoonk</h1>
+</div>
+<center>
+<div id="stuff" class="container">
+  <div class="row">
+    <div class="col-sm">
+<br><br><br>
+      <div style="border-radius: 15px; width: 80%; display: inline-block; background-color: #202020;" class="card">
+        <div style="color: white;" class="card-body">
+        
+        <div class="animated faster" id="notmade">
+        <center><h2>Zoonk URL Shortener</h2>
+          <p>Trackable and Editable URL Management</p>
+        
+            <br>
+        
+            <div class="floating-label textfield-box">
+                <label style="color: rgb(196, 196, 196);" for="urlbox">Paste link to track</label>
+                <input id="urlbox" style="color: white;" class="form-control" placeholder="" type="text">
+              </div>
+        
+              <br>
+        <form action="">
+              <div class="floating-label textfield-box">
+                <label style="color: rgb(196, 196, 196);" for="passbox">Analytics Passcode</label>
+                <input id="passbox" style="color: white;" class="form-control" placeholder="" type="password">
+                <small style="color: grey;">Without the passcode, anyone can view your stats and disable your link.</small>
+              </div>
+            </form>
+              <br>
+        
+              <a onclick="doit()" style="width: 100%;" class="waves-flat-button waves-light btn-outline-primary">zoonkify</a>
+        
+        </center>
+        </div>
+        
+        <div class="animated faster" style="  top: 50%; position: absolute;left: 50%;transform: translate(-50%, -50%); display: none;" id="made">
+        <center>
+        
+            <h3>Public URL:</h3>
+        
+            <a target="_blank" id="daurl" href=""></a>
+            <br><br>
+            <h3>URL Stats:</h3>
+        
+            <a target="_blank" id="dastatsurl" href=""></a>
+            <br><br>
+            <button onclick="again()"" class="waves-flat-button waves-light btn-outline-primary">Again</button>
+        
+        </center>
+        </div>
+        
+        </div>
+        </div>
+
+    </div>
+    <div class="col-sm">
+      <br><br><br>
+
+      <div style="border-radius: 15px; width: 80%; display: inline-block; background-color: #202020;" class="card">
+        <div style="color: white;" class="card-body">
+        
+        <div class="animated faster" id="notmade">
+        <center>        
+          <div class="animated faster" id="notmade2">
+            <h2>Zoonk Paste Bin</h2>
+            <p>Trackable and Editable Paste Manager</p>
+<style>
+  ::placeholder {
+    color: grey !important;
+    visibility: visible !important;
+  }
+</style>
+<br>
+            <div class="floating-label textfield-box">
+              <textarea style="color: white; font-family: 'Roboto Mono'" class="form-control" id="exampleFloatingBox4" placeholder="Your text here" rows="2"></textarea>
+            </div>
+            <br>
+  <form action="">
+            <div class="floating-label textfield-box">
+              <label style="color: rgb(196, 196, 196);" for="passbox2">Analytics Passcode</label>
+              <input id="passbox2" style="color: white;" class="form-control" placeholder="" type="password">
+              <small style="color: grey;">Without the passcode, anyone can view your stats and disable your paste.</small>
+            </div>
+          </form>
+            <br>
+            <a onclick="doit2()" style="width: 100%;" class="waves-flat-button waves-light btn-outline-primary">zoonkify</a>
+
+            <br>
+        </div>
+        <div class="animated faster" style="  top: 50%; position: absolute;left: 50%;transform: translate(-50%, -50%); display: none;" id="made2">
+          <center>
+          
+              <h3>Public URL:</h3>
+          
+              <a target="_blank" id="daurl2" href=""></a>
+              <br><br>
+              <h3>URL Stats:</h3>
+          
+              <a target="_blank" id="dastatsurl2" href=""></a>
+
+              <br><br>
+              <button onclick="again2()" class="waves-flat-button waves-light btn-outline-primary">Again</button>
+          
+          </center>
+          </div>
+   
+        </center>
+        </div>
+        
+        
+        
+        </div>
+        </div>
+
+    </div>
+  </div>
+
+  <br><br>
+
+  <div style="max-width: 50%; border-radius: 15px; width: 80%; display: inline-block; background-color: #202020; color: white;" class="card">
+    <div class="card-body">
+
+      <h2>Zoonk Private Chat</h2>
+      <button onclick="window.location.replace('privatechat.html')" class="waves-flat-button waves-light btn-outline-primary">Go</button>
+
+    </div>
+  </div>
+
+</div>
+</center>
+
+
+
+
+
+
+
+
+
+    
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBng6WpHhwc1a7tNpYtqqBqqtLPsZTW_xU",
+      authDomain: "zoonk-7701c.firebaseapp.com",
+      databaseURL: "https://zoonk-7701c.firebaseio.com",
+      projectId: "zoonk-7701c",
+      storageBucket: "zoonk-7701c.appspot.com",
+      messagingSenderId: "981760252149",
+      appId: "1:981760252149:web:71cc28b41349857b2f4dbc"
+    };
+  </script>
+    <script src="js/eonstyles.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript">addWaves();function addWaves() {Waves.attach(".waves-flat-button", ["waves-button"]), Waves.attach(".waves-float-button", ["waves-button","waves-float"]), Waves.attach(".waves-float-button-dark", ["waves-button", "waves-float"]), Waves.attach(".waves-float-button-light", ["waves-button", "waves-float", "waves-light"]), Waves.attach(".waves-box", ["waves-block"]), Waves.attach(".waves-float-box", ["waves-block", "waves-float"]),Waves.attach(".waves-image"), Waves.init();}</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="js/material.min.js"></script>
+
+</body>
+
+</html>
+
+
+<script>
+   // snackbar('Look at this note', 'Button', 'error("lol")', "7000")
+</script>
+
+
+
+<!-- 
+    waves-light // Light Waves
+    waves-flat-button // Button flat
+    waves-float-button // Button float
+    waves-float-button-dark // Button float dark waves
+    waves-float-button-light // Button float dark waves
+    waves-flat-box // Box flat
+    waves-float-box // Box float
+    waves-image // Image waves  
+-->

@@ -1,0 +1,134 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database API by Rohin</title>
+
+    <!---==== CSS ====-->
+    <!-- Eon Styles --><link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Material Icons --><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <!-- Roboto Font--><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <!-- Dameonite / Bootstrap--><link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves --><link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar --><link rel="stylesheet" href="daemonite/snackbar.min.css">
+
+
+</head>
+<body id="body" style="padding-bottom: 24px; overflow-x: hidden; font-family: Roboto; background-color: #0c0c0c; color: white;">
+    <!-- Preflight Modals-->
+
+
+    <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h3>Error</h3></div><h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5><div class="modal-footer"><button type="button" class="waves btn-old-text" data-dismiss="modal">dismiss</button></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
+<style>
+  .grid {
+    display: grid;
+  grid-gap: 15px;
+  grid-template-columns: auto auto auto;
+   justify-content: center; 
+  }
+
+
+
+  ::placeholder {
+    color: rgb(194, 194, 194) !important;
+}
+
+.floating-label label {
+    color: grey;
+}
+</style>
+<!-- ===========================--] Content [=================================== -->
+
+<br><br>
+<center>
+<br><br>
+
+<div style="min-width: 50%; display: inline-block; background-color: #272727;" class="card"><div class="card-body">
+  <h2 style="color: rgb(255, 102, 0);">Movie Viewer</h2>
+  <p>IMDB API Test by Rohin v1.1</p>
+  <small>Created with <i class="material-icons animated pulse infinite" style="color: red;">favorite</i> by <a href="http://r0h.in/">Rohin</a> using <a href="https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial">this API</a>.</small>
+  <br><br>
+  <div class="floating-label textfield-box">
+    <label for="exampleFloatingBox1">Search for a movie</label>
+    <input class="form-control" id="exampleFloatingBox1" style="color: white;" placeholder="Enter text then hit enter" type="text">
+  </div>
+  <button style="display: none !important;" id="myBtn" onclick="searchmovies()" class="eon-text">GO</button>
+  
+
+</div></div>
+<br><br><br>
+<div id="viewer" style="position: absolute; display: none; width: 90%; background-color: #272727" class="card centeredx"><div class="card-body">
+  <center>
+    <div id="message"></div>
+  <div class="grid" id="movies">
+
+
+
+  </div>
+</center>
+</div></div>
+
+<div id="infopanel" style="position: absolute; width: 90%; height: 800px; display: none; background-color: #272727" class="card centeredx"><div class="card-body">
+  <center>
+
+    <h1 id="title">unknown</h1>
+    <p><b id="length">unknown</b> length. Released in <b id="year">unknown</b></p> 
+
+    <hr>
+
+    <div class="row">
+      <div class="col-sm">
+
+<img id="poster" style="width: 90%; max-height: 650px; object-fit: cover;" class="shadow" src="" alt="">
+
+      </div>
+      <div style="text-align: left;" class="col-6">
+<center><h4>Description</h4></center>
+        <p id="description">unknown</p>
+<hr style="background-color: rgb(212, 212, 212)">
+<center><h4>Ratings</h4><b id="rating">unknown</b>/10 Rating from <b id="votes">unknown</b> votes.</center>
+<hr style="background-color: rgb(212, 212, 212)">
+<center><h4>Back</h4>
+
+  <a id="imdbbutton" class="eon-outlined">View IMDB</a>
+  <button onclick="back()" class="eon-outlined">Return to Browse</button>
+
+</center>
+
+      </div>
+    </div>
+
+
+</center>
+</div></div>
+
+
+
+
+<br><br><br><br>
+
+<br><br>
+
+</center>
+
+
+
+<!-- ===========================--] /Content [=================================== -->
+    <!---==== JavaScript ====--->
+    <!-- JQuery --><!-- JQuery --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Bootstrap --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Eon Styles --><script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+    <!-- Daemonite --><script src="daemonite/material.min.js"></script>
+    <!-- Waves --><script src="daemonite/waves.min.js"></script><script>addWaves();function addWaves(){ Waves.attach('.eon-contained', ['waves-button', 'waves-light']);Waves.attach('.eon-outlined', ['waves-button']);Waves.attach('.eon-text', ['waves-button']);var config = {duration: 250}; Waves.init(config);}</script>
+    <!-- Snackbar --><script src="daemonite/snackbar.min.js"></script><style>.snackbar-container {padding-top: 8px !important;padding-bottom: 8px !important;border-radius: 8px !important;max-width: 8723789253786352614975678392738649502976483528059748327952px;}</style>
+    <!-- Movie --><script src="movie.js"></script>
+
+</body>
+</html>
+

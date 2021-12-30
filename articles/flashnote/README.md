@@ -1,7 +1,7 @@
-<h1><a href="./app/index.html">Web version</a></h1>
+## Archived Project: FlashNote
+FlashNote is a collaborative note taking application built in year 8 and 9.
 
-# FlashNote
-Productivity application with notes, tasks, flashcards and more. The simple app for busy lives.
-
-### warning
-This app is no longer in active development. We still encourage contributions and issue reporting and will fix bugs and add small feature requests.
+## Directory
+<a target="_blank" href="https://r0h.in/articles/flashnote/app/index.html">Website</a>
+<a target="_blank" href="https://r0h.in/articles/flashnote/btngame/index.html">Website (Button Game)</a>
+<a target="_blank" href="https://github.com/r0hin/r0hin/articles/flashnote">Source</a>

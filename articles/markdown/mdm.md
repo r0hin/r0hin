@@ -1,18 +1,19 @@
-# Unconfirmed MDM Removal Steps
-###### Personal Use Only
---
+# Confirmed MDM Removal Steps
+###### Personal Use Only.
+
+<p>You may need to fiddle around to gain access to these files.</p>
+
+## 0.0
+<a href="https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection">Disable SIP</a> if not already.
 
 ## 0.1
-Locate the following folder ![](assets/screenshots/2020-07-12-16-36-54.png) and delete folder "<b>Managed Preferences</b>".
+Delete folder <b>/Library/Managed Preferences</b>.
 
 ## 0.2
-Locate the following folder ![](assets/screenshots/2020-07-12-16-38-06.png) and delete folder "<b>ConfigurationProfiles</b>".
+Delete folder <b>/var/db/ConfigurationProfiles</b>.
 
 ## 0.3
-Locate the following folder ![](assets/screenshots/2020-07-12-16-38-50.png) and delete file "<b>apsd.keychain</b>".
+Delete file <b>/Library/apsd.keychain</b>.
 
 ## 0.4
-Reboot and run the following command in terminal: ![](assets/screenshots/2020-07-12-16-50-04.png) 
-
-Let me know if it worked for you 😄
-<small><pre>Written by Rohin</pre></small>
+Reboot

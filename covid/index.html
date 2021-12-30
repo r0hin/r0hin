@@ -1,0 +1,323 @@
+<!-- Dark Theme --> <style id="lightinjection"></style>
+<script>a = localStorage.getItem('quicker');if (a == "light") {document.getElementById('lightinjection').innerHTML = ':root {--bg-primary: rgb(240, 240, 240) !important;--bg-secondary: rgb(255, 255, 255) !important;--bg-tertiary: #d8d7ff !important;--bg-quaternary: #5B39DB !important;--eon-primary: rgb(255, 100, 247) !important;--eon-secondary: rgb(255, 0, 0) !important;--content-primary: rgb(0, 0, 0) !important;--content-secondary: rgb(31, 24, 110) !important;--contrast-primary: #000 !important;--list-item-one: rgb(229, 255, 0) !important;}'}</script>
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Dashboard - Y9 Design Project</title>
+    <!---==== CSS ====-->
+    <!-- Eon Styles --><link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Material Icons --><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <!-- Font --><link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Dameonite / Bootstrap--><link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves --><link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar --><link rel="stylesheet" href="daemonite/snackbar.min.css">
+
+    <!-- Base CSS--> <link rel="stylesheet" href="css/base.css">
+    <!-- App CSS--> <link rel="stylesheet" href="css/app.css">
+
+</head>
+<body id="body">
+
+    <!-- Preflight Modals-->
+
+    <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h3>Error</h3></div><h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5><div class="modal-footer"><button type="button" class="waves btn-old-text" data-dismiss="modal">dismiss</button></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
+
+    <div class="modal fade" id="newsmodal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+        <div class="modal-body">
+
+            <img src="" class="newsbanner" id="newsbanner" alt="">
+            <br><br>
+
+            <center><h2 id="newstitle"></h2></center>
+            <br><br>
+            <h5><b>Description</b></h5>
+            <h5 id="newsdescription"></h5>
+<center>
+<span class="chip" id="newsdate"></span><div style="display: inline-block; padding: 2px;"></div>
+
+<br><br><hr> <br><br>
+
+    <button onclick="closenews()" class="eon-text">close</button><div style="display: inline-block; padding: 2px;"></div><button id="newsbutton" class="eon-contained">view article</button>
+</center>
+
+        </div>
+    </div></div></div>
+
+    <div class="modal fade" id="settingsmodal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+        <div class="modal-body">
+
+<h3>Settings</h3>
+<div style="display: inline-block" class="custom-control custom-switch">
+    <input class="custom-control-input" id="customSwitch" type="checkbox">
+    <span class="custom-control-track"></span>
+    <label class="custom-control-label" for="customSwitch">Autoplay "Eon" Radio</label>
+  </div>
+
+  <br><br>
+
+  <div style="display: inline-block" class="custom-control custom-switch">
+    <input class="custom-control-input" id="customSwitch2" type="checkbox">
+    <span class="custom-control-track"></span>
+    <label class="custom-control-label" for="customSwitch2">Light Theme</label>
+  </div>
+  <br><br>
+<p>Questions? Suggestions? Comments? Please send us an email <a href="support@r0h.in">here</a></p>
+  <br><br>
+
+           
+<center>
+    <button data-dismiss="modal" class="eon-text">cancel</button>    <button onclick="savesettings()" class="eon-contained">save</button>
+</center>
+
+        </div>
+    </div></div></div>
+
+<!-- ===========================--] Content [=================================== -->
+    
+<div id="sidebar"><div class="shadow" id="sidebarcontent">
+<img class="logo1 centeredx" src="assets/virus.png" alt="">
+
+<br><br><br><br><br>
+    <center><h4 class="content">Covid Dashboard</h4></center>
+    Created by <a target="_blank" href="https://github.com/wolfywolf33">John</a> and <a target="_blank" href="https://r0h.in">Rohin</a>.
+</br>
+
+<div class="centered">
+    <div style="padding: 12px;" class="nav" id="justifiedTab" role="tablist">
+    <a onclick="tabe('home'); closeNav2()" aria-controls="home" aria-selected="false" data-toggle="tab" href="#home" id="home-tab" role="tab" class="eon-text iconinactive">
+        <i id="home-icon" class="material-icons iconinactive">whatshot</i>
+    </a>
+    <br><br>
+    <a onclick="tabe('map'); closeNav2(); closeNav()" aria-controls="map" aria-selected="false" data-toggle="tab" href="#map" id="map-tab" role="tab" class="eon-text iconinactive" href="">
+        <i id="map-icon" class="material-icons iconinactive">map</i>
+    </a>
+    <br><br>
+    <a onclick="tabe('news'); closeNav2()" aria-controls="news" aria-selected="false" data-toggle="tab" href="#news" id="news-tab" role="tab" class="eon-text iconinactive" href="">
+        <i id="news-icon" class="material-icons iconinactive">book</i>
+    </a>
+    <br><br>
+    <a onclick="tabe('list'); closeNav2()" aria-controls="list" aria-selected="false" data-toggle="tab" href="#list" id="list-tab" role="tab" class="eon-text iconinactive" href="">
+        <i id="list-icon" class="material-icons iconinactive">view_list</i>
+    </a>
+    <br><br>
+    <a onclick="tabe('info'); closeNav2()" aria-controls="info" aria-selected="false" data-toggle="tab" href="#info" id="info-tab" role="tab" class="eon-text iconinactive" href="">
+        <i id="info-icon" class="material-icons iconinactive">notes</i>
+    </a>
+    <br><br>
+    </div>
+</div>
+
+<div class="bottombar2">
+    
+        <div style="display: none;" id="usercardtrue" class="card animated fadeIn">
+            <div class="card-body">
+                <center>
+                    <img id="pfp1" class="pfp1" src="https://lh3.googleusercontent.com/-QIxqknvU8S8/AAAAAAAAAAI/AAAAAAAABDM/d-jCR6EPNOEui33AQoMEzffnwgNPxly3QCLcDEAE/s32-c-k-no/photo.jpg" alt="">
+                    <br>
+                    <p id="pfptext" class="pfptext">Rohin Arya</p><br>
+                    <button onclick="signout()" class="eon-text fixbtn"><i class="material-icons">power_settings_new</i></button>
+                    <button onclick="settings()" class="eon-text fixbtn"><i class="material-icons">settings</i></button>
+                </center>
+            </div>
+        </div>
+        <div style="display: none;" id="usercardfalse" class="card animated fadeIn">
+            <div class="card-body">
+                <center>
+                    <button onclick="signin()" class="eon-text shadow-sm">Sign In</button>
+                    <button  onclick="signin()" class="eon-text">Sign Up</button>
+                    <button onclick="settings()" class="eon-text"><i class="material-icons">settings</i></button>
+                </center>
+            </div>
+        </div>
+</div>
+
+</div></div>
+
+<button style="transition: all 0.5s !important;" id="musicbtn" class="eon-text animated zoomIn fadeIn musicbtn musicbtnactive" onclick="closeNav2()"><i class="material-icons">library_music</i><i id="musicbtnicon" class="material-icons">keyboard_arrow_up</i></button>
+<div style="height: 0px; display: none;" class="popout2 popout2padding animated zoomIn card centeredx shadow" id="popout2">
+    <div class="card-body">
+        <br><br>
+        <center><h4 class="content">Exclusive <b>Eon Radio</b></h4><p style="line-height: 0; margin: 0;" class="content2">Now Playing: Theme Song</p><br></center>
+    <div id="music"><audio id="player" style="outline: none;" autoplay controls>Unsupported Audio</audio></div>
+    <center style="padding-top: 2px;"><small>Notice: You can disable autoplay in settings</small></center>
+</div>
+</div>
+
+<div style="margin-right: 250px;" id="tabs">
+    <div class="tab-content" id="justifiedTabContent">
+        <div aria-labelledby="home-tab" class="tab-pane fade" id="home" role="tabpanel">
+
+            <h1>Home</h1>
+            
+            <div class="row">
+                <div class="col-sm">
+                    <img src="assets/virus.png" class="home-img animated pulse infinite" alt="">    
+                </div>
+                <div class="col-sm">
+                    <br><br><br>
+                    <h2>
+                        <b>COVID-19 Dashboard</b>
+                    </h2>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+            <h4><b>Global Bulletin</b></h4>
+            <center>
+            <div style="display: inline-block; padding: 6px;">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h1 id="globalcases">...</h1>
+                            <p>Global Active Cases</p>
+                            <p class="content2" id="globalcasestime">Updated on ...</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: inline-block; padding: 6px;">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h1 id="globaldeaths">...</h1>
+                            <p>Global Total Deaths</p>
+                            <p class="content2" id="globaldeathstime">Updated on ...</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </center>
+
+        </div>
+        <div aria-labelledby="map-tab" class="tab-pane fade" id="map" role="tabpanel">
+
+            <h1>Map <span id="mapdarkmodeindicator" class="chip"></span></h1>
+            <p class="subtext">This is our map. Click a country for it's statistics. For a better experience, choose the fullscreen icon.</p>
+            <div id="mapcontainer">
+                <div id="mapel"></div>
+
+            </div>
+        </div>
+        <div aria-labelledby="news-tab" class="tab-pane fade" id="news" role="tabpanel">
+
+            <h1>News</h1>
+            <p class="subtext">View the latest news on COVID-19. New news available <b>every fifteen minutes</b>.</p>
+<br><br>
+            <div id="articles"></div>
+
+
+        </div>
+        <div aria-labelledby="list-tab" class="tab-pane fade" id="list" role="tabpanel">
+
+            <h1>List</h1>
+            <p class="subtext">View each country's statistics. You must be signed in to pin a country to keep it at the top.</p>
+            
+            <h5 style="display: none" class="animated fadeInRight" id="pinnedtext"><br><br><b>Pinned Regions</b></h5>
+            <div id="pinnedlist">
+
+            </div>
+            <br><br>
+            <h5 id="pinnedtext"><b>Everything</b></h5>
+            <div id="regionlist">
+
+            </div>
+
+
+
+        </div>
+        <div aria-labelledby="info-tab" class="tab-pane fade" id="info" role="tabpanel">
+
+            <h1>Info</h1>
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID‑19), caused by severe acute respiratory syndrome coronavirus 2 (SARS‑CoV‑2).
+                        <br><br>
+                        The outbreak was first identified in Wuhan, China, in December 2019. The World Health Organization declared the outbreak a public health emergency of international concern on 30 January, and a pandemic on 11 March. 
+                        <br><br>
+                        As of 26 May 2020, more than 5.49 million cases of COVID-19 have been reported in more than 188 countries and territories, resulting in more than 346,000 deaths. More than 2.23 million people have recovered from the virus.
+                        <br><br>
+                        Common symptoms include fever, cough, fatigue, shortness of breath, and loss of sense of smell. Complications may include pneumonia and acute respiratory distress syndrome. The time from exposure to onset of symptoms is typically around five days but may range from two to fourteen days.
+                    </p>
+                    <p><b>All information here is directly sourced from <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic" target="_blank">wikipedia</a> and summarized using <a href="https://github.com/William-Banquier" target="_blank">Will Banquer's</a> <a href="https://pastebin.com/raw/aj9XUQZs" target="_blank">Wikipedia Summarizer</a>. View <a target="_blank" href="https://pastebin.com/raw/PxnsiBmc">academic source</a>.</b></p>
+
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h3>Website Info</h3>
+                    <p>
+                        All documentation and writeup of this website is located <a target="_blank" href="https://zoonk.surf/i?s=vBXfgj0sl4vbz93DK5tc">here</a>
+                    </p>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<button style="transition: all 0.5s !important;" id="chatbtn" class="eon-text chatbtn chatbtnactive" onclick="closeNav()">
+<i id="chatbtnicon" class="material-icons">keyboard_arrow_right</i>
+</button>  
+
+<div style="width: 280px;" class="overlay overlaypadding" id="overlaychat">
+    <div class="shadow-sm overlaycontent">
+        <div class="marginshit">
+            <br>
+            <center>
+                <h3 class="content inline">Chat</h3> <button data-toggle="popover" data-trigger="focus" title="CV Dashboard Chat" data-content="This is a place for users to come together to discuss current issues such as COVID-19 and other related issues. Please follow the rules. Press enter in the message field to send a message. You must be signed in to use this feature. " class="chatinfobtn eon-text"><i class="material-icons">info</i></button>
+                <p class="content2">Use this to discuss current issues with other users. You may NOT send any links!</p>
+                <div id="messages">
+                </div>
+            </center>
+
+            <div class="bottombar">
+                <div style="width: 100%;" class="floating-label textfield-box">
+                    <label for="msgbox">Send Message</label>
+                    <input class="form-control" id="msgbox" placeholder="" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- ===========================--] /Content [=================================== -->
+    <!---==== JavaScript ====--->
+    <!-- JQuery --><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Popper --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Bootstrap --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Eon Styles --><script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+    <!-- Daemonite --><script src="daemonite/material.min.js"></script>
+    <!-- Waves --><script src="daemonite/waves.min.js"></script><script>addWaves();function addWaves(){ Waves.attach('.eon-contained', ['waves-button', 'waves-light']);Waves.attach('.eon-outlined', ['waves-button']);Waves.attach('.eon-text', ['waves-button']);var config = {duration: 250}; Waves.init(config);}</script>
+    <!-- Snackbar --><script src="daemonite/snackbar.min.js"></script><style>.snackbar-container {padding-top: 8px !important;padding-bottom: 8px !important;border-radius: 8px !important;max-width: 8723789253786352614975678392738649502976483528059748327952px;}</style>
+    <!-- Google Maps --> <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtQWVotdypyMEttsTUpg5MA9JW7jUuyck" async defer></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+    <!-- Firebase --><script src="js/firebase.js"></script>
+    <!-- News --> <script src="js/news.js"></script>
+    <!-- List --> <script src="js/list.js"></script>
+    <!-- Map --> <script src="js/map.js"></script>
+    <!-- Chat --><script src="js/chat.js"></script>
+    <!-- Tabs --><script src="js/tabs.js"></script> <!-- (modfied from eonnect) -->
+
+</body>
+</html>

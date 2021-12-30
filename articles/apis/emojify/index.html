@@ -1,0 +1,175 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---==== Meta ====--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Emojifier v1.2 by Rohin</title>
+
+    <!---==== CSS ====-->
+    <!-- Eon Styles --><link rel="stylesheet" href="https://eastcoastgang.github.io/eonstyles/new/eon.css">
+    <!-- Animate --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Material Icons --><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <!-- Roboto Font--><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <!-- Dameonite / Bootstrap--><link rel="stylesheet" href="daemonite/material.min.css">
+    <!-- Waves --><link rel="stylesheet" href="daemonite/waves.min.css">
+    <!-- Snackbar --><link rel="stylesheet" href="daemonite/snackbar.min.css">
+
+
+</head>
+<body id="body" style="font-family: Roboto; background-color: #23272A
+; color: white;">
+    <!-- Preflight Modals-->
+
+    <div class="modal fade bd-example-modal-sm" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h3>Error</h3></div><h5 id="erorrModalMsg" class="modal-body">Unable to complete process.</h5><div class="modal-footer"><button type="button" class="waves btn-old-text" data-dismiss="modal">dismiss</button></div></div></div></div>
+    <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
+
+<!-- ===========================--] Content [=================================== -->
+<center><br><br><br>
+<h1><b>Discord Emojifier</b> <span class="chip">1.2</span></h1>
+<style>
+::placeholder {
+  color: #99AAB5 !important
+}
+
+.floating-label label {
+  color: #fff;
+}
+
+</style>
+<br><br>
+<div style="max-width: 80%; background-color: #7289DA;" class="card">
+  <div class="card-body">
+    <div style="border-radius: 34px; width: 95%; " class="floating-label textfield-box">
+      <label for="eop">Type something then hit enter to emojify it!</label>
+      <input style="color: white;" class="form-control" id="eop" placeholder="..." type="text">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<br><br><br>
+
+
+<p style="color: white;">Created with <i style="color: red" class="material-icons animated pulse infinite">favorite</i> by <a target="_blank" href="https://r0h.in/">Rohin<textarea style="display: block; width: 1px; height: 1px;" id="eopeop"></textarea></a></p>
+
+</center>
+<!-- ===========================--] /Content [=================================== -->
+    <!---==== JavaScript ====--->
+    <!-- JQuery --><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper --><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Bootstrap --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- Eon Styles --><script src="https://eastcoastgang.github.io/eonstyles/new/eon.js"></script>
+    <!-- Daemonite --><script src="daemonite/material.min.js"></script>
+    <!-- Waves --><script src="daemonite/waves.min.js"></script><script>addWaves();function addWaves(){ Waves.attach('.eon-contained', ['waves-button', 'waves-light']);Waves.attach('.eon-outlined', ['waves-button']);Waves.attach('.eon-text', ['waves-button']);var config = {duration: 250}; Waves.init(config);}</script>
+    <!-- Snackbar --><script src="daemonite/snackbar.min.js"></script><style>.snackbar-container {padding-top: 8px !important;padding-bottom: 8px !important;border-radius: 8px !important;max-width: 8723789253786352614975678392738649502976483528059748327952px;}</style>
+    <script>
+
+      function eop() {
+          
+      a = document.getElementById('eop').value
+      document.getElementById('eop').value = ''
+      
+      a = a.split(" ").join("    ")
+      a = a.split("").join(" ")
+      
+      a = a.split('a').join(':[][][][][][][]_a:')
+      a = a.split('b').join(':[][][][][][][]_b:')
+      a = a.split('c').join(':[][][][][][][]_c:')
+      a = a.split('d').join(':[][][][][][][]_d:')
+      a = a.split('e').join(':[][][][][][][]_e:')
+      a = a.split('f').join(':[][][][][][][]_f:')
+      a = a.split('g').join(':[][][][][][][]_g:')
+      a = a.split('h').join(':[][][][][][][]_h:')
+      a = a.split('i').join(':[][][][][][][]_i:')
+      a = a.split('j').join(':[][][][][][][]_j:')
+      a = a.split('k').join(':[][][][][][][]_k:')
+      a = a.split('l').join(':[][][][][][][]_l:')
+      a = a.split('m').join(':[][][][][][][]_m:')
+      a = a.split('n').join(':[][][][][][][]_n:')
+      a = a.split('o').join(':[][][][][][][]_o:')
+      a = a.split('p').join(':[][][][][][][]_p:')
+      a = a.split('q').join(':[][][][][][][]_q:')
+      a = a.split('r').join(':[][][][][][][]_r:')
+      a = a.split('s').join(':[][][][][][][]_s:')
+      a = a.split('t').join(':[][][][][][][]_t:')
+      a = a.split('u').join(':[][][][][][][]_u:')
+      a = a.split('v').join(':[][][][][][][]_v:')
+      a = a.split('w').join(':[][][][][][][]_w:')
+      a = a.split('x').join(':[][][][][][][]_x:')
+      a = a.split('y').join(':[][][][][][][]_y:')
+      a = a.split('z').join(':[][][][][][][]_z:')
+      
+      a = a.split('A').join(':[][][][][][][]_a:')
+      a = a.split('B').join(':[][][][][][][]_b:')
+      a = a.split('C').join(':[][][][][][][]_c:')
+      a = a.split('D').join(':[][][][][][][]_d:')
+      a = a.split('E').join(':[][][][][][][]_e:')
+      a = a.split('F').join(':[][][][][][][]_f:')
+      a = a.split('G').join(':[][][][][][][]_g:')
+      a = a.split('H').join(':[][][][][][][]_h:')
+      a = a.split('I').join(':[][][][][][][]_i:')
+      a = a.split('J').join(':[][][][][][][]_j:')
+      a = a.split('K').join(':[][][][][][][]_k:')
+      a = a.split('L').join(':[][][][][][][]_l:')
+      a = a.split('M').join(':[][][][][][][]_m:')
+      a = a.split('N').join(':[][][][][][][]_n:')
+      a = a.split('O').join(':[][][][][][][]_o:')
+      a = a.split('P').join(':[][][][][][][]_p:')
+      a = a.split('Q').join(':[][][][][][][]_q:')
+      a = a.split('R').join(':[][][][][][][]_r:')
+      a = a.split('S').join(':[][][][][][][]_s:')
+      a = a.split('T').join(':[][][][][][][]_t:')
+      a = a.split('U').join(':[][][][][][][]_u:')
+      a = a.split('V').join(':[][][][][][][]_v:')
+      a = a.split('W').join(':[][][][][][][]_w:')
+      a = a.split('X').join(':[][][][][][][]_x:')
+      a = a.split('Y').join(':[][][][][][][]_y:')
+      a = a.split('Z').join(':[][][][][][][]_z:')
+      
+      
+      a = a.split('[][][][][][][]').join('regional_indicator')
+      a = a.split('?').join(':question:')
+      a = a.split('!').join(':exclamation:')
+      
+      document.getElementById('eopeop').innerHTML = a
+      
+      var copyText = document.getElementById("eopeop");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+      document.execCommand("copy");
+      
+      document.getElementById("eopeop").innerHTML = ''
+      $("#eop").trigger("focus");
+      
+      Snackbar.show({text: 'Copied to clipboard.'})
+      
+      }
+      $("#eop").trigger("focus");
+      
+      var input = document.getElementById("eop");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    
+
+eop()
+
+  }
+});
+
+      
+      
+      </script>
+</body>
+</html>
+

@@ -1,11 +1,9 @@
-# API Viewers
+## Collection: Public API Interfaces
+A collection of web-based interfaces for public APIs.
 
-A list of items hosted here:
-
-<ul>
-  <li><a href="https://r0h.in/?a=emojify">Discord Regional Indicator Converter</a></li>
-  <li><a href="https://r0h.in/?a=movie">IMDB Viewer</a></li>
-  <li><a href="https://r0h.in/?a=freedom">Merge Picture with American Flag</a></li>
-  <li><a href="https://r0h.in/?a=trumpy">Donald Trump Quotes</a></li>
-  <li><a href="https://r0h.in/?a=urban">Urban Dictionary Navigator</a></li>
-</ul>
+## Directory
+<a target="_blank" href="https://r0h.in/articles/apis/emojify">Text to Discord regional indicators</a>
+<a target="_blank" href="https://r0h.in/articles/apis/movie">IMDB Library Browser</a>
+<a target="_blank" href="https://r0h.in/articles/apis/american">HTML5 Canvas Image Merge</a>
+<a target="_blank" href="https://r0h.in/articles/apis/quote">Random Trump Quote</a>
+<a target="_blank" href="https://r0h.in/articles/apis/urban">Urban Dictionary Browser</a>
