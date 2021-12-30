@@ -1,4 +1,7 @@
-# Hi 👋
+
+<h1 align="center">Hi 👋 </h1>
+
+<hr>
 
 ### Project Directory 📂
 <details>
@@ -31,33 +34,16 @@
   <b><a target="_blank" href="https://r0h.in/articles/flashnote/">FlashNote</a>: </b>Cloud-synced, collaborative notes built in year 9.<br>
 </details>
 
-### Repository Directory 📦
-<details>
-  <summary>Folders</summary>
-  <p>Folder structure for this repository.</p>
-  <b>Projects: </b> Top-level folders for Parallel, Re, and Covid.<br>
-  <b>Articles: </b> Folder for past projects, old projects, clients, etc.<br>
-  <b>Articles/markdown: </b> Personal notes and writing.<br>
-</details>
 
-<details>
-  <summary>Files</summary>
-  <p>Top-level files for this repository.</p>
-  <b>Firebase: </b> firebase.json, .firebaserc files for Firebase.<br>
-  <b>CNAME: </b> Connects this repository to r0h.in.<br>
-</details>
-
-
-### Stack ✨
-
-<b>Technologies</b>
-
-<p align="center">
+<h3 align="left">Stack 📚</h3>
+<p align="left">
+  <b>Technologies</b>
+  <br>
   <img src="./assets/html.png"/> <img src="./assets/css.png"/> <img src="./assets/js.png"/> <img src="./assets/node.png"/> <img src="./assets/react.png"/> <img src="./assets/vue.png"/> <img src="./assets/java.png"/> <img src="./assets/python.png"/> <img src="./assets/flutter.png"/>
 </p>
 
-<b>Tools</b>
-
-<p align="center">
+<p align="left">
+  <b>Tools</b>
+  <br>
   <img src="./assets/vscode.png"/> <img src="./assets/git.png"/> <img src="./assets/github.png"/> <img src="./assets/aws.png"/> <img src="./assets/gcloud.png"/> <img src="./assets/firebase.png"/> <img src="./assets/docker.png"/> <img src="./assets/tailwind.png"/> <img src="./assets/markdown.png"/>
 </p>
