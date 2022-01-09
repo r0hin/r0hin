@@ -7,7 +7,7 @@
 <details>
   <summary>Top Projects</summary>
   <p>Here are some of my recent, favourite projects.</p>
-  <b><a target="_blank" href="https://r0h.in/parallel">Parallel</a>: </b> A messaging/music app built with Vite, Firebase, Electron, and a lot of Stack Overflow.<br>
+  <b><a target="_blank" href="https://parallelsocial.ca">Parallel</a>: </b> A messaging/music app built with Vite, Firebase, Electron, and a lot of Stack Overflow.<br>
   <b><a target="_blank" href="https://r0h.in/re/">Re</a>:</b> Free, lightning-fast link shortening and tracking website created with TailwindCSS and Parcel.<br>
   <b><a target="_blank" href="https://r0h.in/covid/">COVID-19 Dashboard</a>:</b> Collaborative web-based dashboard built using APIs.
 </details>
