@@ -164,9 +164,7 @@ body,html {
 }
 
 .button:hover {
-  background-color: transparent;
-  border: 2px solid orange;
-  color: orange;
+  opacity: 0.8;
 }
 
 p.p {
@@ -215,14 +213,25 @@ p.p {
 }
 
 .disabled {
-  background-color: rgb(138, 138, 138); 
+  background-color: red; 
   border: 2px transparent;
   color: white;
-  pointer-events: none;
 }
 
 hr {
   background-color: white;
   width: 100%;
   height: 4px !important;
+}
+
+#footer {
+  color: white;
+  padding: 24px;
+  background-color: rgb(49, 54, 59);
+}
+
+#footer p {
+  text-align: center;
+  color: rgb(194, 194, 194);
+  margin: 0px;
 }

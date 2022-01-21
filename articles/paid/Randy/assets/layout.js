@@ -29,9 +29,6 @@ function loadHeader(activePage) {
           <li class="nav-item">
             <a id="workshopsLink" class="nav-link" onclick="goToPage('workshops')">Community Workshops</a>
           </li>
-          <li class="nav-item">
-            <a id="resourcesLink" class="nav-link" onclick="goToPage('resources')">Resources</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -40,6 +37,18 @@ function loadHeader(activePage) {
 
   document.getElementById('header').appendChild(a);
   document.getElementById(`${activePage}Link`).classList.add('active')
+}
+
+loadFooter();
+function loadFooter() {
+  const a = document.createElement('div');
+  a.innerHTML = `
+    <div class="footerContent">
+      <p>projarticulate@gmail.com</p>
+    </div>
+  `
+
+  document.getElementById('footer').appendChild(a);
 }
 
 function loadBackground(titleText, src) {
