@@ -4,69 +4,60 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/98.css">
   <title>Rohin</title>
 </head>
-<body class="animate__animated animate__fadeIn">
-  <div class="centered">
-    <h1>Rohin <code class="small">me@r0h.in</code></h1>
-    <p>Full-stack developer. </p>
-    <a href="https://twitter.com/r0hin12" target="_blank"><i class="bx bxl-twitter"></i></a>
-    <a href="https://www.github.com/r0hin/" target="_blank"><i class="bx bxl-github"></i></a>
-    <a href="https://discord.com/users/258024781981548544" target="_blank"><i class="bx bxl-discord"></i></a>
-    <a href="https://www.instagram.com/r0hin12/" target="_blank"><i class="bx bxl-instagram"></i></a>
-    <a href="https://www.paypal.me/rohinarya/" target="_blank"><i class="bx bxl-paypal"></i></a>
-    <br><br>
-    <a class="link" href="https://parallelsocial.ca"><h2>Parallel</h2></a>
-    <!-- <a class="link" href="https://rainbow.me/0x5C02605aE595c418790259c8631b693737884368"><h2>NFTs</h2></a> -->  
-</div>
-
+<body>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;600&display=swap');
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      color: white; background-color: black;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      animation-delay: 0.5s;
+      background-color: #c0c0c0;  
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .centered {
       position: absolute;
-      left: 50%; top: 50%;
+      top: 50%; left: 50%; 
       transform: translate(-50%, -50%);
     }
 
-    p, h1 {
-      margin: 0px;
-      margin-bottom: 6px;
+    .title {
+      font-weight: 600;
+      font-size: 3rem;
     }
 
-    p {
-      margin-bottom: 12px;
-    }
-
-    .small {
-      color: rgb(125, 125, 125);
-      font-size: 14px;
-    }
-
-    a {
-      font-size: 18px;
-      color: white;
-    }
-
-    a:hover {
-      color:#a5a5a5;
-    }
-    
-    .link {
-      color: pink;
-      text-decoration: none;
-    }
-    .link {
-      text-decoration: underline;
+    h4 {
+      margin-top: 16px;
+      margin-bottom: 8px;
     }
   </style>
+
+  <div class="centered">
+    <div class="window" style="width: 300px">
+      <div class="title-bar">
+        <div class="title-bar-text">Rohin's Website v2.0.0</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <p>Welcome to my personal website!</p>
+        <h4>Links</h4>
+        <a href="https://twitter.com/r0hin12" target="_blank">Twitter (@r0hin12)</a> - For my various musings. <br>
+        <a href="https://github.com/r0hin" target="_blank">GitHub (@r0hin)</a> - For programming. <br>
+        <a href="https://www.linkedin.com/in/rohin-kumar-a8a8b817b/" target="_blank">LinkedIn</a> - For professional endeavors. <br>
+        <h4>Projects</h4>
+        <a href="https://parallelsocial.net" target="_blank">Parallel</a> - A social media and entertainment platform.<br>
+        <a href="https://r0h.in/re" target="_blank">Re</a> - A link shortener and tracker.<br>
+        <h4>Contact</h4>
+        <a href="mailto:me@r0h.in">Email (me@r0h.in)</a> - For anything you'd like.<br>
+
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
