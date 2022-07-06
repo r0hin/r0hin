@@ -1,5 +1,5 @@
 ## Notes
-Collection of published notes for school courses.
+IB Notes
 
 ## Directory
-<a href="https://r0h.in/articles/notes/econs">Economics</a><br>
+<!-- <a href="https://r0h.in/articles/notes/econs">Economics</a><br> -->
