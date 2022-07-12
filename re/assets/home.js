@@ -1,7 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, addDoc, collection, serverTimestamp, doc, updateDoc, getDoc, onSnapshot } from "firebase/firestore";
 
-const firebaseConfig={apiKey:"AIzaSyD0cjujkVwtSvN8cYwmm_ttEl6fKsmx5mM",authDomain:"r0hin0.firebaseapp.com",projectId:"r0hin0",storageBucket:"r0hin0.appspot.com",messagingSenderId:"55202468987",appId:"1:55202468987:web:042c0c864d1afa672ffede"};
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCNuiHb0Pp-ccdqrkUrpICvFAM6SiJLBqY",
+  authDomain: "re-app0.firebaseapp.com",
+  projectId: "re-app0",
+  storageBucket: "re-app0.appspot.com",
+  messagingSenderId: "683468001343",
+  appId: "1:683468001343:web:5aabcd6a486ec426cc288a"
+};
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
