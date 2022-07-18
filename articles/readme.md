@@ -2,6 +2,7 @@
 `r0hin/articles` is a collection of projects I am no longer or infrequently working on.
 
 ## Directory
+<a href="https://r0h.in/articles/polarbears">Polar Bears<br>
 <a href="https://r0h.in/articles/echo">Echo (social media)<br>
 <a href="https://r0h.in/articles/eonnotes">EonNotes (note taking)<br>
 <a href="https://r0h.in/articles/eonsound">Echo (music streaming)<br>
