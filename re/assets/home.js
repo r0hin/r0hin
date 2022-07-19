@@ -72,8 +72,11 @@ async function analytics(urlInput) {
   url = url.split(`r0h.in/re?u=`)[1];
 
   if (!url) {
-    displayError("Invalid URL.");
-    return;
+    url = url.split(`r0h.in/re/?u=`)[1];
+    if (!url) {
+      displayError("Invalid URL.");
+      return;
+    }
   }
 
   $("#urlInput").val('');
