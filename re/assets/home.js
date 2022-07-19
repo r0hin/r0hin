@@ -67,12 +67,13 @@ function toGenerate() {
 
 async function analytics(urlInput) {
   let url = urlInput;
+  let originalURL = `${url}`;
 
   url = url.trim(); // Remove leading and trailing spaces.
   url = url.split(`r0h.in/re?u=`)[1];
 
   if (!url) {
-    url = url.split(`r0h.in/re/?u=`)[1];
+    url = originalURL.split(`r0h.in/re/?u=`)[1];
     if (!url) {
       displayError("Invalid URL.");
       return;
