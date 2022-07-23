@@ -17,3 +17,4 @@ The storyline of this game were carefully crafted with the help of OpenAI's Gene
 The early version of the game is published [here](https://r0h.in/articles/polarbears/).
 
 ### Game
+The full story and questions can be browsed [here](https://r0h.in/articles/polarbears/story.png)
