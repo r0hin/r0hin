@@ -13,8 +13,7 @@ In this game, you will choose your own adventure in a story involving questions 
 
 The storyline of this game were carefully crafted with the help of OpenAI's Generative Pre-trained Transformer (GPT-3) 3 which is a textual machine learning model for private, non-commerical, personal use. 
 
-### How To Play
-The early version of the game is published [here](https://r0h.in/articles/polarbears/).
+The list of questions and answers are auto-generated and updated [here](https://r0h.in/articles/polarbears?a=answers). The full story and questions can be browsed [here](https://r0h.in/articles/polarbears/story.png)
 
-### Game
-The full story and questions can be browsed [here](https://r0h.in/articles/polarbears/story.png)
+### Play
+The early version of the game is published [here](https://r0h.in/articles/polarbears/).

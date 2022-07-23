@@ -215,15 +215,15 @@ const scenarios = {
         "correct": false
       },
       {
-        "text": "None of the above",
-        "correct": false
-      },
-      {
         "text": "Transfer of thermal energy from one substance to another",  
         "correct": true
       },
       {
         "text": "All of the above",
+        "correct": false
+      },
+      {
+        "text": "None of the above",
         "correct": false
       },
       {
@@ -309,7 +309,7 @@ const scenarios = {
     ]
   },
   "cry": {
-    "text": "You cry. Luckily, a genie sees you crying and pops out of a random pebble in the ground. The pebble is made out of rocks. The genie asks what wish you would like.",
+    "text": "You cry. Luckily, a genie sees you crying and pops out of a random pebble in the ground. The genie asks what wish you would like.",
     "options": [
       {
         "text": "You ask for your house to reappear",
@@ -375,6 +375,25 @@ const scenarios = {
         "text": "You ask for superpowers",
         "to": "superpowers"
       }
+    ],
+    "question": "This question is about equilibrium. H2 + F2 = 2HF, where [H2]i = 2.00M, [F2]i = 2.00M, [HF]i = 0M, and [F2]e = 0.48M. What is the equilibrium concentration of HF?",
+    "answers": [
+      {
+        "text": "0.48M",
+        "correct": false
+      },
+      {
+        "text": "3.04M",
+        "correct": true
+      },
+      {
+        "text": "2.04M",
+        "correct": false
+      },
+      {
+        "text": "4.04M",
+        "correct": false
+      },
     ]
   },
   "superpowers": {
@@ -410,11 +429,11 @@ const scenarios = {
     ]
   },
   "starbucks": {
-    "text": "You walk to Starbucks. You order a cup of coffee and start daydreaming as you drink it. You daydream about the following:",
+    "text": "You walk to Starbucks. You order a cup of coffee and start daydreaming as you drink it.",
     "options": [
       {
         "text": "Learn what you are daydreaminging about",
-        "to": "start"
+        "to": "start2"
       }
     ],
     "question": "This question is about electrochemistry.",
@@ -426,11 +445,11 @@ const scenarios = {
     ]
   },
   "mattress": {
-    "text": "You walk to the nearest mattress store. You test out a mattress but accidentally fall asleep. You dream about the following:",
+    "text": "You walk to the nearest mattress store. You test out a mattress but accidentally fall asleep.",
     "options": [
       {
         "text": "Learn what you are dreaming about",
-        "to": "start"
+        "to": "start2"
       }
     ],
     "question": "This question is about electrochemistry.",
@@ -447,22 +466,35 @@ function initializeGame(autoStart) {
   if (autoStart) {
     $(`#start`).addClass('hidden');
     $(`#scene`).removeClass('hidden');
+    $(`#answers`).addClass('hidden');
     loadScene('start');
     scoreTotal = 0;
   }
   else {
     $(`#start`).removeClass('hidden');
+    $(`#answers`).addClass('hidden');
     $(`#scene`).addClass('hidden');
   }  
 }
 
-function loadScene(id) {
+function loadScene(id, startingAgain) {
+
+  if (id == 'start2') {
+    alert(`Your score is ${scoreTotal}. This is because you selected the wrong answer ${scoreTotal} times.`);
+    loadScene('start', true);
+    return;
+  }
+
+
   $(`#sceneText`).html("");
   $(`#sceneOptions`).empty();
   const sceneDetails = scenarios[id];
 
   // Type-writer effect 
-  const text = sceneDetails.text;
+  let text = sceneDetails.text;
+  if (startingAgain) {
+    text = "You dream of the following: " + text;
+  }
   let i = 0;
   const typeWriter = setInterval(() => {
     $(`#sceneText`).append(text[i]);
@@ -487,7 +519,7 @@ function loadScene(id) {
         }, delay);
       }, 0)
     }
-  }, 25);
+  }, 15);
 }
 
 function loadQuestions(id, selection) {
@@ -526,6 +558,35 @@ function loadQuestions(id, selection) {
         }, delay);
       }, 99)
     }
-  }, 25);
+  }, 15);
 
+}
+
+const scenes = Object.keys(scenarios);
+scenes.forEach((sceneKey) => {
+  scene = scenarios[sceneKey];
+  $(`#answersContent`).append(scene.question + "<br></br>");
+
+  scene.answers.forEach(answer => {
+    if (answer.correct) {
+      $(`#answersContent`).append(`<button class="button animate__animated animate__fadeIn">${answer.text}</button><br><br>`);
+    }
+    else {
+      $(`#answersContent`).append(`<button class="button danger animate__animated animate__fadeIn">${answer.text}</button><br><br>`);
+    }
+  });
+
+  $(`#answersContent`).append(`<br><hr><br<br><br>`);
+});
+
+// GET URL Parameters
+const urlParams = new URLSearchParams(window.location.search);
+const a = urlParams.get('a');
+if (a == "answers") {
+  loadAnswers();
+}
+
+function loadAnswers() {
+  $(`#answers`).removeClass('hidden');
+  $(`#start`).addClass('hidden');
 }
