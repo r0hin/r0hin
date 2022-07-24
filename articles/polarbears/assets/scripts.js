@@ -4,6 +4,7 @@ let scoreTotal = 0; // Number of failed questions
 const scenarios = {
   "start": {
     "text": "You are on an expedition in the Arctic Circle when you see a polar bear in the distance.",
+    "image": "",
     "question": "This question is about structures and properties. Speaking of polar bears, which one of the following VESPR shapes are typically polar?",
     "answers": [
       {
@@ -393,7 +394,7 @@ const scenarios = {
       {
         "text": "4.04M",
         "correct": false
-      },
+      }
     ]
   },
   "superpowers": {
@@ -469,11 +470,14 @@ function initializeGame(autoStart) {
     $(`#answers`).addClass('hidden');
     loadScene('start');
     scoreTotal = 0;
+
+    $(`#content`).addClass("gameOn");
   }
   else {
     $(`#start`).removeClass('hidden');
     $(`#answers`).addClass('hidden');
     $(`#scene`).addClass('hidden');
+    $(`#content`).removeClass("gameOn");
   }  
 }
 
@@ -485,11 +489,15 @@ function loadScene(id, startingAgain) {
     return;
   }
 
-
   $(`#sceneText`).html("");
   $(`#sceneOptions`).empty();
+  $(`#sceneImage`).addClass('hidden');
   const sceneDetails = scenarios[id];
-
+  
+  if (sceneDetails.image) {
+    $(`#sceneImage`).removeClass('hidden');
+    $(`#sceneImage`).get(0).setAttribute(`src`, `${sceneDetails.image}`)
+  }
   // Type-writer effect 
   let text = sceneDetails.text;
   if (startingAgain) {
