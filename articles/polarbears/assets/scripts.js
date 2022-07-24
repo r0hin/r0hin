@@ -3,7 +3,7 @@ let scoreTotal = 0; // Number of failed questions
 
 const scenarios = {
   "start": {
-    "text": "You are on an expedition in the Arctic Circle when you see a polar bear in the distance.",
+    "text": "You are on an expedition in the Arctic Circle looking for polar bears. After many hours of searching, you finally see a polar bear in the distance! What do you do?",
     "image": "",
     "question": "This question is about structures and properties. Speaking of polar bears, which one of the following VESPR shapes are typically polar?",
     "answers": [
@@ -26,7 +26,7 @@ const scenarios = {
     ]
   },
   "scare": {
-    "text": "You decide to try to scare the polar bear away by making loud noises. You start banging on your pots and pans and shouting. Unfortunately, your pots and pans still had some water on it thus dampening your sound. The polar bear starts to approach you.",
+    "text": "You decide to try to scare the polar bear away by making loud noises. You start banging on your pots and pans and shouting. Unfortunately, your pots and pans still had some water on it thus dampening your sound. The polar bear starts to approach you. What do you do?",
     "question": "This question is about structures and properties. You left some water on the pans. Which of the following is not true (INCORRECT) about H2O?",
     "answers": [
       {
@@ -54,7 +54,7 @@ const scenarios = {
     ]
   },
   "scare2": {
-    "text": "You keep making noise and the polar bear comes closer and closer. You are about to be attacked now.",
+    "text": "You keep making noise to try and scare the polar bear away but it just comes closer and closer. You are about to be attacked now. What do you do?",
     "question": "This question is about structures and properties. As the polar bear approaches you, you notice that it is actually coloured white. Speaking of colors, how might colors be produced when photons interact with molecules?",
     "answers": [
       {
@@ -82,7 +82,7 @@ const scenarios = {
     ]
   },
   "fight": {
-    "text": "You try to fight the polar bear. You are not very good at fighting, so you die.",
+    "text": "You try to fight the polar bear. However, since polar bears weigh up to 1600 pounds and are significantly stronger than humans, it knocks you out in a single hit. Also, you are garbage at fighting, so you die.",
     "question": "This question is about organic chemistry. Speaking of death... NOT, humans are carbon based life forms with a lot of organic chemistry! Which of the following images is a line drawing of: 2,3-Dimethylpentane?",
     "answers": [
       {
@@ -110,7 +110,7 @@ const scenarios = {
     ]
   },
   "sneak": {
-    "text": "You decide to try to sneak away and hope the polar bear doesn’t see you. Unfortunately, while you’re sneaking away you trip and make a loud sound which causes the polar bear to look directly at you.",
+    "text": "You decide to try to sneak away and hope the polar bear doesn’t see you. Unfortunately, while you’re sneaking away you trip and make a loud sound which causes the polar bear to look directly at you. What do you do?",
     "question": "This question is about organic chemistry. What is an alkyne?",
     "answers": [
       {
@@ -153,7 +153,7 @@ const scenarios = {
         "correct": true
       }
     ],
-    "text": "You try to climb a nearby tree but fall off and die.",
+    "text": "You notice a tree closeby. So, you run towards it and try your best to climb it. The polar bear follows you to it and starts shaking the tree. You fall off and die.",
     "options": [
       {
         "text": "Die",
@@ -162,7 +162,7 @@ const scenarios = {
     ]
   },
   "death": {
-    "text": "To your surprise, after trying to survive the polar bear attack, you wake up in the emergency room. The doctors are struggling to keep you alive.",
+    "text": "To your surprise, after trying to survive the polar bear attack, you wake up in the emergency room. Somehow, you did not die and are barely alive. However, the doctors are struggling to keep you alive because they totally forgot their organic chemistry knowledge.",
     "question": "This question is about organic chemistry. The doctors seem to have forgotten their organic chemistry knowledge. Which of the following is an example of a hydrogenation reaction?",
     "answers": [
       {
@@ -262,7 +262,7 @@ const scenarios = {
     ]
   },
   "home": {
-    "text": "You arrive at home. Unfortunately, you see that your house is completely missing! What do you do?",
+    "text": "You decide to walk home. As you arrive, you notice that your house appears to be missing. It has simply dissapeared. You think there must be some dark magic involved or you are still spooked from the polar bear encounter. What do you do?",
     "question": "This question is about thermochemistry. What is the change in enthalpy of Ca3(PO4)2 + 3H2SO4 = 3CaSO4 + 2H3PO4?",
     "answers": [
       {
@@ -310,7 +310,7 @@ const scenarios = {
     ]
   },
   "cry": {
-    "text": "You cry. Luckily, a genie sees you crying and pops out of a random pebble in the ground. The genie asks what wish you would like.",
+    "text": "You cry because that is the only option. Luckily, a genie sees you crying and pops out of a random pebble in the ground. You decide that you're definitely still under some medicinal influences. The genie asks what wish you would like.",
     "options": [
       {
         "text": "You ask for your house to reappear",
@@ -450,7 +450,7 @@ const scenarios = {
     "options": [
       {
         "text": "Learn what you are dreaming about",
-        "to": "start2"
+        "to": "dream"
       }
     ],
     "question": "This question is about electrochemistry.",
@@ -458,6 +458,210 @@ const scenarios = {
       {
         "text": "This is correct answer",
         "correct": true
+      }
+    ]
+  },
+  "dream": {
+    "text": "You suddenly wake up in the hospital. The doctors inform you that you have been unconcious for six months after getting hit by a polar bear. You realize that your entire previous encounter was a dream while you were unconcious! The doctors perform more tests and advice you to relax for the next little while and let you go. You exit the hospital. What do you do?",
+    "options": [
+      {
+        "text": "Go watch a movie to relax",
+        "to": "movie"
+      },
+      {
+        "text": "Go get some food",
+        "to": "food"
+      },
+      {
+        "text": "Go inform your homies that you are alive",
+        "to": "homies"
+      },
+      {
+        "text": "Look at more polar bears",
+        "to": "polar"
+      }
+    ],
+    "question": "What type of compound is: 3-methyl-3-pentanol?",
+    "answers": [
+      {
+        "text": "Alkane",
+        "correct": false
+      },
+      {
+        "text": "Alkene",
+        "correct": false
+      },
+      {
+        "text": "Secondary alcohol",
+        "correct": false
+      },
+      {
+        "text": "Tertiary alcohol",
+        "correct": true
+      }
+    ]
+  },
+  "movie": {
+    "text": "You go watch a movie called Minions 2. It is the most incredible movie you have ever watched. You are feeling sufficiently relaxed to go do other things.",
+    "options": [
+      {
+        "text": "Look at more polar bears",
+        "to": "polar"
+      }
+    ],
+    "question": "This question is about equilibrium. If heat were added to the exothermic reaction A + B = AB + heat, where would the equilibrium position shift?",
+    "answers": [
+      {
+        "text": "Leftward",
+        "correct": true
+      },
+      {
+        "text": "Rightward",
+        "correct": false
+      },
+      {
+        "text": "Neither",
+        "correct": false
+      }
+    ]
+  },
+  "food": {
+    "text": "You go get some food. You are feeling sufficiently relaxed to go do other things.",
+    "options": [
+      {
+        "text": "Look at more polar bears",
+        "to": "polar"
+      }
+    ],
+    "question": "This question is about thermochemistry. Which of the following are NOT factors that affect reaction rates?",
+    "answers": [
+      {
+        "text": "Chemical nature of the reactants",
+        "correct": false
+      },
+      {
+        "text": "Concentration of the reactants",
+        "correct": false
+      },
+      {
+        "text": "Surface area",
+        "correct": false
+      },
+      {
+        "text": "Presence of a catalyst",
+        "correct": false
+      },
+      {
+        "text": "Chemical nature of the products",
+        "correct": true
+      }
+    ]
+  },
+  "homies": {
+    "text": "You go inform your homies that you are alive. They are very happy! You are feeling sufficiently relaxed to go do other things.",
+    "options": [
+      {
+        "text": "Look at more polar bears",
+        "to": "polar"
+      }
+    ],
+    "question": "This question is about thermochemistry. If a chemical reaction is exothermic, which of the following is true about its change in enthalpy?",
+    "answers": [
+      {
+        "text": "△H > 0 (It is positive)",
+        "correct": false
+      },
+      {
+        "text": "△H < 0 (It is negative)",
+        "correct": true
+      }
+    ]
+  },
+  "polar": {
+    "text": "You decide to see more polar bears again. So, you purchase a plane ticket to the arctic circle again and board it. The plane takes off. Unfortunately, while you are flying, the plane starts to shake. What do you do?",
+    "options": [
+      {
+        "text": "Panic and jump out of the plane with a parachute",
+        "to": "panic"
+      },
+      {
+        "text": "Remain calm and hope the plane lands",
+        "to": "calm"
+      }
+    ],
+    "question": "This question is about organic chemistry. A common component in jet fuel (the fuel used in the plane you are on) is gasoline which is a substance that commonly contains 2,2,3-trimethylbutane. Which of the following is a 3D structure of this?",
+    "answers": [
+      {
+        "text": "<img src='https://i.imgur.com/9qVbStR.png' />",
+        "correct": true
+      },
+      {
+        "text": "<img src='https://i.imgur.com/BPWzrpG.png' />",
+        "correct": false
+      },
+      {
+        "text": "<img src='https://i.imgur.com/EmuHOOW.png' />",
+        "correct": false
+      },
+      {
+        "text": "<img src='https://i.imgur.com/upxyxYm.png' />",
+        "correct": false
+      }
+    ]
+  },
+  "panic": {
+    "text": "You panic and jump out of the plane with a parachute. You are now happen to be in the arctic circle are are feeling very cold now. You are very lost and don't know where to go.",
+    "options": [
+      {
+        "text": "Find polar bears",
+        "to": "start2"
+      },
+      {
+        "text": "Search for other people",
+        "to": "start2"
+      },
+      {
+        "text": "Search for shelter",
+        "to": "start2"
+      }
+    ],
+    "question": "This question is about thermochemistry. What is the purpose of a catalyst?",
+    "answers": [
+      {
+        "text": "To prevent the reaction from occurring",
+        "correct": false
+      },
+      {
+        "text": "To make the reaction possible to occur",
+        "correct": false
+      },
+      {
+        "text": "To lower the activation energy required to progress the reaction",
+        "correct": true
+      },
+      {
+        "text": "To increase the activation energy required to progress the reaction",
+        "correct": false
+      }
+    ]
+  },
+  "calm": {
+    "text": "You remain calm and hope the plane lands. Fortunately, it was just turbulence. Glad you didn't jump out the plane! Anyway, you land and decide to search for polar bears. You start wandering around the arctic circle.",
+    "options": [
+      {
+        "text": "Find polar bears",
+        "to": "start2"
+      }
+    ],
+    "question": "This question is about equilibrium. Polar bears are very strong. Speaking of strong things... do strong acids have greater or lesser Ka values than weak acids?",
+    "answers": [
+      {
+        "text": "Greater",
+        "correct": true
+      },
+      {
+        "text": "Lesser",
+        "correct": false
       }
     ]
   }
@@ -501,7 +705,7 @@ function loadScene(id, startingAgain) {
   // Type-writer effect 
   let text = sceneDetails.text;
   if (startingAgain) {
-    text = "You dream of the following: " + text;
+    text = "As you search the arctic, you decide to search for some polar bears. Wow, looks like this story just went full circle! " + text;
   }
   let i = 0;
   const typeWriter = setInterval(() => {
@@ -571,9 +775,9 @@ function loadQuestions(id, selection) {
 }
 
 const scenes = Object.keys(scenarios);
-scenes.forEach((sceneKey) => {
+scenes.forEach((sceneKey, index) => {
   scene = scenarios[sceneKey];
-  $(`#answersContent`).append(scene.question + "<br></br>");
+  $(`#answersContent`).append(`<b>Question ${index+1}:</b> ${scene.question}<br></br>`);
 
   scene.answers.forEach(answer => {
     if (answer.correct) {
