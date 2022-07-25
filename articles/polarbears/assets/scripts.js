@@ -437,11 +437,15 @@ const scenarios = {
         "to": "start2"
       }
     ],
-    "question": "This question is about electrochemistry.",
+    "question": "This question is about electrochemistry. What is oxidation?",
     "answers": [
       {
-        "text": "This is correct answer",
+        "text": "Loss of electron(s)",
         "correct": true
+      },
+      {
+        "text": "Gain of electron(s)",
+        "correct": false
       }
     ]
   },
@@ -453,11 +457,27 @@ const scenarios = {
         "to": "dream"
       }
     ],
-    "question": "This question is about electrochemistry.",
+    "question": "This question is about electrochemistry. What is the oxidization number for C in Na2CO3?",
     "answers": [
       {
-        "text": "This is correct answer",
+        "text": "2",
+        "correct": false
+      },
+      {
+        "text": "3",
+        "correct": false
+      },
+      {
+        "text": "4",
         "correct": true
+      },
+      {
+        "text": "5",
+        "correct": false
+      },
+      {
+        "text": "6",
+        "correct": false
       }
     ]
   },
