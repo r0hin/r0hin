@@ -434,7 +434,7 @@ const scenarios = {
     "options": [
       {
         "text": "Learn what you are daydreaminging about",
-        "to": "start2"
+        "to": "dream"
       }
     ],
     "question": "This question is about electrochemistry. What is oxidation?",
@@ -501,7 +501,7 @@ const scenarios = {
         "to": "polar"
       }
     ],
-    "question": "What type of compound is: 3-methyl-3-pentanol?",
+    "question": "This question is about organic chemistry. What type of compound is: 3-methyl-3-pentanol?",
     "answers": [
       {
         "text": "Alkane",
@@ -708,7 +708,8 @@ function initializeGame(autoStart) {
 function loadScene(id, startingAgain) {
 
   if (id == 'start2') {
-    alert(`Your score is ${scoreTotal}. This is because you selected the wrong answer ${scoreTotal} times.`);
+    alert(`Congratulations on completing the game! Your score is ${scoreTotal}. This is because you selected the wrong answer ${scoreTotal} times.`);
+    scoreTotal = 0;
     loadScene('start', true);
     return;
   }
