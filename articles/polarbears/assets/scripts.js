@@ -357,11 +357,11 @@ const scenarios = {
     "answers": [
       {
         "text": "Solubility increases",
-        "correct": false
+        "correct": true
       },
       {
         "text": "Solubility decreases",
-        "correct": true
+        "correct": false
       }
     ]
   },
@@ -409,7 +409,7 @@ const scenarios = {
         "to": "mattress"
       }
     ],
-    "question": "This question is about equilibrium. With 0.2M HNO3 (a strong acid), what is the pH?",
+    "question": "This question is about equilibrium. With 0.2M HNO3 (a strong acid), what is the pH (2 s.f.)?",
     "answers": [
       {
         "text": "7.0",
@@ -552,7 +552,7 @@ const scenarios = {
         "correct": false
       },
       {
-        "text": "Chemical nature of the products",
+        "text": "Enthalpy change",
         "correct": true
       }
     ]
