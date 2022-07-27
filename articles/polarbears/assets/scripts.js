@@ -4,7 +4,7 @@ let scoreTotal = 0; // Number of failed questions
 const scenarios = {
   "start": {
     "text": "You are on an expedition in the Arctic Circle looking for polar bears. After many hours of searching, you finally see a polar bear in the distance! What do you do?",
-    "image": "",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F1.png?alt=media",
     "question": "This question is about structures and properties. Speaking of polar bears, which one of the following VESPR shapes are typically polar?",
     "answers": [
       {
@@ -27,6 +27,7 @@ const scenarios = {
   },
   "scare": {
     "text": "You decide to try to scare the polar bear away by making loud noises. You start banging on your pots and pans and shouting. Unfortunately, your pots and pans still had some water on it thus dampening your sound. The polar bear starts to approach you. What do you do?",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F2.png?alt=media",
     "question": "This question is about structures and properties. You left some water on the pans. Which of the following is not true (INCORRECT) about H2O?",
     "answers": [
       {
@@ -55,6 +56,7 @@ const scenarios = {
   },
   "scare2": {
     "text": "You keep making noise to try and scare the polar bear away but it just comes closer and closer. You are about to be attacked now. What do you do?",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F2.png?alt=media",
     "question": "This question is about structures and properties. As the polar bear approaches you, you notice that it is actually coloured white. Speaking of colors, how might colors be produced when photons interact with molecules?",
     "answers": [
       {
@@ -83,6 +85,7 @@ const scenarios = {
   },
   "fight": {
     "text": "You try to fight the polar bear. However, since polar bears weigh up to 1600 pounds and are significantly stronger than humans, it knocks you out in a single hit. Also, you are garbage at fighting, so you die.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F4.png?alt=media",
     "question": "This question is about organic chemistry. Speaking of death... NOT, humans are carbon based life forms with a lot of organic chemistry! Which of the following images is a line drawing of: 2,3-Dimethylpentane?",
     "answers": [
       {
@@ -111,6 +114,7 @@ const scenarios = {
   },
   "sneak": {
     "text": "You decide to try to sneak away and hope the polar bear doesn’t see you. Unfortunately, while you’re sneaking away you trip and make a loud sound which causes the polar bear to look directly at you. What do you do?",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F2.png?alt=media",
     "question": "This question is about organic chemistry. What is an alkyne?",
     "answers": [
       {
@@ -139,6 +143,7 @@ const scenarios = {
   },
   "climb": {
     "question": "This question is about organic chemistry. What carboxylic acid and what alcohol produce pentyl hexanoate?",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F3.png?alt=media",
     "answers": [
       {
         "text": "Pentanoic acid and hexanol",
@@ -163,6 +168,7 @@ const scenarios = {
   },
   "death": {
     "text": "To your surprise, after trying to survive the polar bear attack, you wake up in the emergency room. Somehow, you did not die and are barely alive. However, the doctors are struggling to keep you alive because they totally forgot their organic chemistry knowledge.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F5.png?alt=media",
     "question": "This question is about organic chemistry. The doctors seem to have forgotten their organic chemistry knowledge. Which of the following is an example of a hydrogenation reaction?",
     "answers": [
       {
@@ -199,6 +205,7 @@ const scenarios = {
   },
   "relax": {
     "text": "You decide to stay relaxed. Luckily, the doctors are able to save you because you helped them solve the organic chemistry question.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F5.png?alt=media",
     "options": [
       {
         "text": "Go home",
@@ -263,6 +270,7 @@ const scenarios = {
   },
   "home": {
     "text": "You decide to walk home. As you arrive, you notice that your house appears to be missing. It has simply dissapeared. You think there must be some dark magic involved or you are still spooked from the polar bear encounter. What do you do?",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F7.png?alt=media",
     "question": "This question is about thermochemistry. What is the change in enthalpy of Ca3(PO4)2 + 3H2SO4 = 3CaSO4 + 2H3PO4?",
     "answers": [
       {
@@ -431,6 +439,7 @@ const scenarios = {
   },
   "starbucks": {
     "text": "You walk to Starbucks. You order a cup of coffee and start daydreaming as you drink it.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F6.png?alt=media",
     "options": [
       {
         "text": "Learn what you are daydreaminging about",
@@ -451,6 +460,7 @@ const scenarios = {
   },
   "mattress": {
     "text": "You walk to the nearest mattress store. You test out a mattress but accidentally fall asleep.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F6.png?alt=media",
     "options": [
       {
         "text": "Learn what you are dreaming about",
@@ -483,6 +493,7 @@ const scenarios = {
   },
   "dream": {
     "text": "You suddenly wake up in the hospital. The doctors inform you that you have been unconcious for six months after getting hit by a polar bear. You realize that your entire previous encounter was a dream while you were unconcious! The doctors perform more tests and advice you to relax for the next little while and let you go. You exit the hospital. What do you do?",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F5.png?alt=media",
     "options": [
       {
         "text": "Go watch a movie to relax",
@@ -631,6 +642,7 @@ const scenarios = {
   },
   "panic": {
     "text": "You panic and jump out of the plane with a parachute. You are now happen to be in the arctic circle are are feeling very cold now. You are very lost and don't know where to go.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F7.png?alt=media",
     "options": [
       {
         "text": "Find polar bears",
@@ -667,6 +679,7 @@ const scenarios = {
   },
   "calm": {
     "text": "You remain calm and hope the plane lands. Fortunately, it was just turbulence. Glad you didn't jump out the plane! Anyway, you land and decide to search for polar bears. You start wandering around the arctic circle.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F7.png?alt=media",
     "options": [
       {
         "text": "Find polar bears",
@@ -726,7 +739,7 @@ function loadScene(id, startingAgain) {
   // Type-writer effect 
   let text = sceneDetails.text;
   if (startingAgain) {
-    text = "As you search the arctic, you decide to search for some polar bears. Wow, looks like this story just went full circle! " + text;
+    text = "As you search the arctic, you decide to search for some polar bears. Wow, looks like this story just went full circle! Probably because it did!" + text;
   }
   let i = 0;
   const typeWriter = setInterval(() => {
