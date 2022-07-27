@@ -205,7 +205,6 @@ const scenarios = {
   },
   "relax": {
     "text": "You decide to stay relaxed. Luckily, the doctors are able to save you because you helped them solve the organic chemistry question.",
-    "image": "https://firebasestorage.googleapis.com/v0/b/parallel-by-wop.appspot.com/o/app%2Fpolar%20bears%2F5.png?alt=media",
     "options": [
       {
         "text": "Go home",
@@ -739,7 +738,7 @@ function loadScene(id, startingAgain) {
   // Type-writer effect 
   let text = sceneDetails.text;
   if (startingAgain) {
-    text = "As you search the arctic, you decide to search for some polar bears. Wow, looks like this story just went full circle! Probably because it did!" + text;
+    text = "As you search the arctic, you decide to search for some polar bears. Wow, looks like this story just went full circle! Probably because it did! " + text;
   }
   let i = 0;
   const typeWriter = setInterval(() => {
