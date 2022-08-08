@@ -4,6 +4,13 @@
 <p>Hi! Welcome to my GitHub profile. I keep all my projects, write-ups, and technology-related endeavors organized here. I am familiar with programming in Java, web technologies, Python, and many more.</p>
 
 <details>
+  <summary>🔨 Working at...</summary>
+  <p>Here are some recent instances of internships, jobs, and professional work:</p>
+  <b><a target="_blank" href="#">CILAR @ MaRS (Summer, 2022)</a>: </b>Upcoming...<br>
+  <b><a target="_blank" href="https://github.com/r0hin/adaptika">Tech Adaptika (Summer, 2022)</a>: </b>A company bringing virtual reality to education allowing more people around the world to access high-quality learning.<br>
+</details>
+<details>
+<details>
   <summary>✨ Projects</summary>
   <p>Here are some of my recent, favourite projects.</p>
   <b><a target="_blank" href="https://parallelsocial.ca">Parallel</a>: </b> A social music desktop application built with Firebase, Electron, and a lot of Stack Overflow.<br>
