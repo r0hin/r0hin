@@ -7,7 +7,7 @@
   <summary>🔨 Working at...</summary>
   <p>Here are some recent instances of internships, jobs, and professional work:</p>
   <b><a target="_blank" href="#">CILAR @ MaRS (Summer, 2022)</a>: </b>Upcoming...<br>
-  <b><a target="_blank" href="https://github.com/r0hin/adaptika">Tech Adaptika (Summer, 2022)</a>: </b>A company bringing virtual reality to education allowing more people around the world to access high-quality learning.<br>
+  <b><a target="_blank" href="https://github.com/r0hin/adaptika">Tech Adaptika (Summer, 2022)</a>: </b>Bringing virtual reality to education allowing more people around the world to access high-quality learning.<br>
 </details>
 <details>
   <summary>✨ Projects</summary>
