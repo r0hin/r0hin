@@ -1,0 +1,7 @@
+@font-face{font-family:computermodern; src:url(/Users/rohin/Library/Fonts/cmunss.otf);}
+@font-face{font-family:computermodernserif; src:url(/Users/rohin/Library/Fonts/cmu.serif-roman.ttf);}
+
+body {
+  /* font-family: computermodern; */
+  font-family: computermodernserif;
+}
