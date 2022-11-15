@@ -1,5 +1,5 @@
-@font-face{font-family:computermodern; src:url(/Users/rohin/Library/Fonts/cmunss.otf);}
-@font-face{font-family:computermodernserif; src:url(/Users/rohin/Library/Fonts/cmu.serif-roman.ttf);}
+@font-face{font-family:computermodern; src:url("https://r0h.in/assets/cmunss.otf");}
+@font-face{font-family:computermodernserif; src:url("https://r0h.in/assets/cmu.serif-roman.ttf");}
 
 body {
   /* font-family: computermodern; */
