@@ -73,7 +73,7 @@
           document.getElementById('status').innerHTML = `Status: Uploaded`;
 
           // Get the download URL
-          const downloadUrL = `https://firebasestorage.googleapis.com/v0/b/re-app0.appspot.com/o/files%2F${date}${file.name}?alt=media`
+          const downloadUrL = `https://firebasestorage.googleapis.com/v0/b/re-app0.appspot.com/o/files%2F${date}${file.name.replaceAll(` `, `%20`)}?alt=media`
 
           const doc = await addDoc(collection(db, `shortenedLinks`), {
             url: downloadUrL,
