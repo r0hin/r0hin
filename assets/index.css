@@ -103,3 +103,11 @@ button:hover, .button:hover {
   color: grey;
   font-size: small;
 }
+
+.toolTitle {
+  margin-right: 24px;
+}
+
+.toolFlex {
+  justify-content: space-between;
+}
