@@ -7,21 +7,11 @@
   <title>Files</title>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗃️</text></svg>">
-  <link rel="stylesheet" href="../index.ec31a86c.css">
+  <link rel="stylesheet" href="./files.css">
 
   <style>
-    .container {
-      max-width: 768px;
-    }
-
-    body.dark {
-      background-color: #111827;
-      color: white;
-    }
-
     a {
       color: lightskyblue;
-      text-decoration: underline;
       padding: 8px;
       border: 1px solid lightskyblue;
       border-radius: 4px;
@@ -55,24 +45,26 @@
   </style>
 </head>
 
-<body id="body" class="dark:bg-gray-900 h-screen hidden items-center justify-center p-4">
-  <div id="generate" class="container max-w-screen-md">
-     <p class="dark:text-gray-400 font-medium mb-2 sm:text-base text-gray-500 text-sm tracking-tight"> <span class="bg-gray-200 dark:bg-gray-800 font-semibold inline-block mr-2 px-3 py-1 rounded-full text-pink-400 text-sm">0.1</span> <span class="bg-gray-200 dark:bg-gray-800 font-semibold inline-block mr-2 px-3 py-1 rounded-full text-blue-400 text-sm">Private</span> </p>
-     <p class="dark:text-gray-50 font-extrabold mb-1 sm:text-4xl text-3xl text-gray-900 tracking-tight">Re: File Hosting</p>
-     <p class="dark:text-gray-400 font-medium inline mb-4 sm:text-1xl text-gray-500 text-xl tracking-tight"> Lightning-fast file uploading. Free, forever. </p>
-     <div class="mt-12 relative">
-       <label class="custom-file-upload">
-       <input class="" type="file" name="" id="inputElement">          
-        <p style="background-color: rgb(244 114 182)" class=" float-right px-4 py-2 rounded-md text-gray-50 text-xs">Upload File</p>
-      </label>
-      <br><br>
-      <h3 class="dark:text-gray-50 font-bold mb-1 text-xl text-gray-900" id="status">Status: Awaiting upload</h3>
-      <br>
-      <div id="downloadButtons"></div>
-
-     </div>
+<body id="body" class="dark:bg-gray-900 h-screen items-center justify-center p-4 flex">
+  <div class="bodyContainer">
+    <div id="generate" class="container max-w-screen-md">
+      <p class="dark:text-gray-400 font-medium mb-2 sm:text-base text-gray-500 text-sm tracking-tight"> <span class="bg-gray-200 dark:bg-gray-800 font-semibold inline-block mr-2 px-3 py-1 rounded-full text-pink-400 text-sm">0.1</span> <span class="bg-gray-200 dark:bg-gray-800 font-semibold inline-block mr-2 px-3 py-1 rounded-full text-blue-400 text-sm">Private</span> </p>
+      <p class="dark:text-gray-50 font-extrabold mb-1 sm:text-4xl text-3xl text-gray-900 tracking-tight">Re: File Hosting</p>
+      <p class="dark:text-gray-400 font-medium inline mb-4 sm:text-1xl text-gray-500 text-xl tracking-tight"> Lightning-fast file uploading. Free, forever. </p>
+      <div class="mt-12 relative">
+        <label class="custom-file-upload">
+        <input class="" type="file" name="" id="inputElement">          
+         <p style="background-color: rgb(244 114 182)" class=" float-right px-4 py-2 rounded-md text-gray-50 text-xs">Upload File</p>
+       </label>
+       <br><br>
+       <h3 class="dark:text-gray-50 font-bold mb-1 text-xl text-gray-900" id="status">Status: Awaiting upload</h3>
+       <br>
+       <div id="downloadButtons"></div>
+ 
+      </div>
+    </div>
   </div>
-  <script type="module" src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin></script> <script type="module" src="index.34c1fb90.js"></script> 
+  <script type="module" src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin></script> 
 </body>
 
 <script type="module">
