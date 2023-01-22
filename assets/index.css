@@ -105,9 +105,15 @@ button:hover, .button:hover {
 }
 
 .toolTitle {
-  margin-right: 24px;
+  margin-right: 36px;
 }
 
 .toolFlex {
   justify-content: space-between;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #3b2357;
 }
