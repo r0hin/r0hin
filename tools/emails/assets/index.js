@@ -20,11 +20,20 @@ function getToken() {
 }
 
 function addFilter() {
-  const target = document.getElementById('target_input').value
+  let target = document.getElementById('target_input').value
+  if (target) {
+    target = `delete+${target}@r0h.in`
+  }
+  else {
+    target = document.getElementById('target_input_alt').value
+  }
+
+  document.getElementById('button').innerHTML = "adding filter..."
+  document.getElementById('button').style.pointerEvents = "none";
 
   const filter = {
     criteria: {
-      to: `delete+${target}@r0h.in`
+      to: target,
     },
     action: {
       addLabelIds: ['TRASH']
@@ -40,7 +49,8 @@ function addFilter() {
     body: JSON.stringify(filter)
   };
 
-  fetch(url, options)
-    .then(response => response.json())
-    .then(data => console.log(data));
+  fetch(url, options).then(response => {document.getElementById('button').innerHTML = "sent!"; document.getElementById('button').style.pointerEvents = "auto";}).catch(() => {
+    document.getElementById('button').innerHTML = "error"
+    document.getElementById('button').style.pointerEvents = "auto";
+  })
 }
