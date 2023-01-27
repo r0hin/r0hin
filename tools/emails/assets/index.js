@@ -8,6 +8,7 @@ function initClient() {
     scope: 'https://www.googleapis.com/auth/gmail.settings.basic',
     callback: (tokenResponse) => {
       access_token = tokenResponse.access_token;
+      document.getElementById('button').style.color = "white";
       document.getElementById('buttonRefresh').style.color = "lime";
       document.getElementById('buttonRefresh').innerHTML = "refreshed token"
       document.getElementById('buttonRefresh').style.pointerEvents = "none";
