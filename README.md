@@ -1,4 +1,3 @@
-
 <h1 align="center">👋 </h1>
 
 <p>Hi! Welcome to my GitHub profile. I keep all my projects, write-ups, and technology-related endeavors organized here. I am familiar with programming in Java, web technologies, Python, and many more.</p>
