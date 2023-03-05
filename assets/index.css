@@ -117,3 +117,12 @@ hr {
   height: 1px;
   background: #3b2357;
 }
+
+a {
+  color: pink;
+  text-decoration: none;
+}
+
+code {
+  font-size: 1.3rem;
+}
