@@ -11,4 +11,5 @@
 <a href="https://r0h.in/articles/learning">Learning (collection)<br>
 <a href="https://r0h.in/articles/apis">API Testing (collection)</a><br>
 <a href="https://r0h.in/articles/paid">Paid (collection)</a><br>
+<a href="https://r0h.in/articles/experiments">Experiments (collection)</a><br>
 <a href="https://r0h.in/articles/notes">Notes</a>
