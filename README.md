@@ -43,10 +43,6 @@
   <summary>📧 Contact</summary>
   <b>Email:</b> <a href="mailto:me@r0h.in" target="_blank">me@r0h.in</a> - Email me about whatever you'd like!<br>
   <b>Twitter:</b> <a href="https://twitter.com/r0hin12" target="_blank">@r0hin12</a>
-  <br><br>
-
-  ![](https://dcbadge.vercel.app/api/shield/258024781981548544?style=flat)
-
 </details>
 <details>
   <summary>💔 Bad Joke</summary>
