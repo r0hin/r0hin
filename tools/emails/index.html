@@ -6,10 +6,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <link rel='icon' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>'>
-  <script src="./assets/index.js"></script>
+  <script>
+    let client;
+    let access_token;
+    
+    function initClient() {
+      client = google.accounts.oauth2.initTokenClient({
+        client_id: '184624619387-tij6ipkiq70gqe0nci2d65br299oojfs.apps.googleusercontent.com',
+        
+        scope: 'https://www.googleapis.com/auth/gmail.settings.basic',
+        callback: (tokenResponse) => {
+          access_token = tokenResponse.access_token;
+          document.getElementById('button').style.color = "white";
+          document.getElementById('buttonRefresh').style.color = "lime";
+          document.getElementById('buttonRefresh').innerHTML = "refreshed token"
+          document.getElementById('buttonRefresh').style.pointerEvents = "none";
+        },
+      });
+    }
+    
+    function getToken() {
+      client.requestAccessToken();
+    }
+    
+    function addFilter() {
+      let target = document.getElementById('target_input').value
+      if (target) {
+        target = `delete+${target}@r0h.in`
+      }
+      else {
+        target = document.getElementById('target_input_alt').value
+      }
+    
+      document.getElementById('button').innerHTML = "adding filter..."
+      document.getElementById('button').style.pointerEvents = "none";
+    
+      const filter = {
+        criteria: {
+          to: target,
+        },
+        action: {
+          addLabelIds: ['TRASH']
+        }
+      };
+    
+      const url = `https://gmail.googleapis.com/gmail/v1/users/me/settings/filters?access_token=${access_token}`;
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(filter)
+      };
+    
+      fetch(url, options).then(response => {document.getElementById('button').innerHTML = "sent!"; document.getElementById('button').style.pointerEvents = "auto";}).catch(() => {
+        document.getElementById('button').innerHTML = "error"
+        document.getElementById('button').style.pointerEvents = "auto";
+      })
+    }
+  </script>
   <script src="https://accounts.google.com/gsi/client" async defer onload="initClient()"></script>
   <link rel="stylesheet" href="https://use.typekit.net/smm3bou.css">
-  <link rel="stylesheet" href="./assets/styles.css">
+  <style>
+    body {
+      font-family: "cartograph-cf", monospace;
+      font-style: normal;
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      flex-direction: column;
+      padding: 0; margin: 0;
+    }
+    
+    .italic {
+      font-weight: 900;
+      color: var(--arc-background-simple-color, #fff);
+      font-style: italic;
+      margin: 0px;
+    }
+    
+    button {
+      background-color: rgb(26, 26, 26);
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 8px;
+      display: inline-block;
+      text-transform: capitalize;
+      transition: all 0.5s;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+    }
+    
+    input {
+      background-color: rgb(26, 26, 26);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      transition: all 0.5s;
+    }
+    
+    input:focus {
+      transform: translateY(-2px);
+      border: none;
+      outline: none;
+    }
+    
+    p {
+      margin: 0px;
+      margin-bottom: 64px;
+    }
+  </style>
 </head>
 <body>
 
