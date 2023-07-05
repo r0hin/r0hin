@@ -4,6 +4,7 @@ Welcome to my GitHub profile – please visit my [website](https://r0h.in) for m
 
 <details>
   <summary>📚 Stack</summary>
+  <br>
   <b>Technologies</b><br>
   <img src="./assets/html.png"/> 
   <img src="./assets/css.png"/> 
