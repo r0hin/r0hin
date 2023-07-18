@@ -30,11 +30,8 @@ Welcome to my GitHub profile – please visit my [website](https://r0h.in) for m
 <details>
   <summary>💔 Bad Joke</summary>
   <br>
-
   ![Jokes Card](https://readme-jokes.vercel.app/api)
 </details>
-
-<br>
 
 ![](https://komarev.com/ghpvc/?username=r0hin&color=orange)
 
