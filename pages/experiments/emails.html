@@ -6,66 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <link rel='icon' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>'>
-  <script>
-    let client;
-    let access_token;
-    
-    function initClient() {
-      client = google.accounts.oauth2.initTokenClient({
-        client_id: '184624619387-tij6ipkiq70gqe0nci2d65br299oojfs.apps.googleusercontent.com',
-        
-        scope: 'https://www.googleapis.com/auth/gmail.settings.basic',
-        callback: (tokenResponse) => {
-          access_token = tokenResponse.access_token;
-          document.getElementById('button').style.color = "white";
-          document.getElementById('buttonRefresh').style.color = "lime";
-          document.getElementById('buttonRefresh').innerHTML = "refreshed token"
-          document.getElementById('buttonRefresh').style.pointerEvents = "none";
-        },
-      });
-    }
-    
-    function getToken() {
-      client.requestAccessToken();
-    }
-    
-    function addFilter() {
-      let target = document.getElementById('target_input').value
-      if (target) {
-        target = `delete+${target}@r0h.in`
-      }
-      else {
-        target = document.getElementById('target_input_alt').value
-      }
-    
-      document.getElementById('button').innerHTML = "adding filter..."
-      document.getElementById('button').style.pointerEvents = "none";
-    
-      const filter = {
-        criteria: {
-          to: target,
-        },
-        action: {
-          addLabelIds: ['TRASH']
-        }
-      };
-    
-      const url = `https://gmail.googleapis.com/gmail/v1/users/me/settings/filters?access_token=${access_token}`;
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(filter)
-      };
-    
-      fetch(url, options).then(response => {document.getElementById('button').innerHTML = "sent!"; document.getElementById('button').style.pointerEvents = "auto";}).catch(() => {
-        document.getElementById('button').innerHTML = "error"
-        document.getElementById('button').style.pointerEvents = "auto";
-      })
-    }
-  </script>
-  <script src="https://accounts.google.com/gsi/client" async defer onload="initClient()"></script>
   <link rel="stylesheet" href="https://use.typekit.net/smm3bou.css">
   <style>
     body {
@@ -129,13 +69,24 @@
 </head>
 <body>
 
-  <h1 class="italic">Goodbye Spam 🏖️😎🍹</h1>
+  <h1 class="italic">Revoke recievable emails 🏖️😎🍹</h1>
   <p>Personal use tool</p>
   <div>
-    <button id="buttonRefresh" onclick="getToken();">Refresh Access</button>
+    <input placeholder="Password" type="text" id="password">
     <input placeholder="delete+__@r0h.in" type="text" id="target_input">
-    <input placeholder="Full email" type="text" id="target_input_alt">
-    <button id="button" style="color: red" onclick="addFilter();">add filter</button>
+    <button id="button" style="color: orange" onclick="addFilter();">add filter</button>
   </div>
+
+  <script>
+    async function addFilter() {
+      const piece = document.getElementById("target_input").value;
+      const password = document.getElementById("password").value;
+      const res = await fetch(`https://serverless.r0h.in/api/mailFilter?piece=${piece}&password=${password}`)
+      document.getElementById("button").innerHTML = "added filter";
+      window.setTimeout(() => {
+        document.getElementById("button").innerHTML = "add filter";
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
