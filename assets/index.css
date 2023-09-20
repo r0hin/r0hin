@@ -1,6 +1,6 @@
 body {
-  background-color: #05010d; 
-  color: white; 
+  background-color: white; 
+  color: black; 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -10,136 +10,120 @@ html, body {
   padding: 0;
 }
 
-.centered {
+#rohin {
+  width: 100%;
+  height: 64px;
+  margin: 12px;
+}
+
+.box a {
   position: absolute;
-  top: 50%; left: 50%; 
-  transform: translate(-50%, -50%);
-}
-
-.title {
-  font-weight: 600;
-  font-size: 3rem;
-}
-
-h4 {
-  margin-top: 16px;
-  margin-bottom: 8px;
+  bottom: 0; left: 0px;
+  width: calc(100% - 32px);
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-top: 1px solid black;
+  color: black;
+  font-family: 'Playfair Display', serif;
+  padding: 8px 16px;
+  padding-top: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8em;
 }
 
 .box {
-  background-color: #170B24;
-  padding: 8px 32px 8px 32px;
-  border-radius: 18px;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
-.box p {
-  color: lightgrey
-}
-
-h2 {
-  margin-bottom: 0px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  background: linear-gradient(45deg,#f83a3a 10%,#f13dd4 50%,#7000ff 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-button, .button {
-  background-color: #26143a;
+.box a:hover {
+  background-color: black;
   color: white;
-  border: 0px;
-  border-radius: 8px;
-  padding: 8px 16px 8px 16px;
-  font-size: 1rem;
+}
+
+.grid {
+  /* 2 by x grid */
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 24px;
+  padding: 10px;
+}
+
+.box {
+  max-width: 226px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
+  padding-bottom: 8px;
+  border-bottom: 1px solid black;
+  color: red;
 }
 
-button i, .button i {
-  margin-right: 12px;
-  margin-left: 0px;
+p.boxBody {
+  width: calc(100% - 24px);
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8em;
+  padding: 12px;
+  text-align: left;
 }
 
-.iconButton {
-  margin: 8px;
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 1s linear infinite;
+  animation-play-state: running;
 }
 
-.iconButton i {
-  margin: 0px !important;
+.marquee span {
+  font-size: 3em;
+  padding: 0 2vw;
+  white-space: nowrap;
 }
 
-button:hover, .button:hover {
-  background-color: #3a1f5a;
-  transition: all 0.3s;
+.marquee:hover .marquee__inner {
+  animation-play-state: paused;
 }
 
-@media (max-width: 500px) {
-  .centered {
-    margin: 12px;
-    position: relative;
-    top: 0; left: 0; 
-    transform: translate(0, 0);
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
   }
 }
 
-.flex {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.centered {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
 }
 
-.flex span {
-  margin-left: 12px;
-  color: lightgrey;
-}
-
-.footer {
-  color: grey;
-  font-size: small;
-}
-
-.toolTitle {
-  margin-right: 36px;
-}
-
-.toolFlex {
-  justify-content: space-between;
-}
-
-hr {
-  border: 0;
-  height: 1px;
-  background: #3b2357;
+.reel {
+  text-align: center;
+  font-size: 0.8em;
 }
 
 a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-}
-
-code {
-  font-size: 1.3rem;
-}
-
-.nasa {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0; left: 0;
-  z-index: -1;
-  /* blurr */
-  opacity: 0.15;
-  filter: blur(3px);
+  color: red;
+  text-transform: none;
 }
