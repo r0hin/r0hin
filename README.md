@@ -5,9 +5,7 @@ Welcome to my GitHub profile – please visit my [website](https://r0h.in) for m
 <details>
   <summary>📚 Stack</summary>
   <br>
-  <b>Technologies</b><br>
-  <img src="./assets/html.png"/> 
-  <img src="./assets/css.png"/> 
+  <b>Technologies (Outdated)</b><br>
   <img src="./assets/js.png"/> 
   <img src="./assets/node.png"/> 
   <img src="./assets/react.png"/> 
@@ -35,4 +33,4 @@ Welcome to my GitHub profile – please visit my [website](https://r0h.in) for m
 
 ![](https://komarev.com/ghpvc/?username=r0hin&color=orange)
 
-Repositories 👇
+More stuff 👇
