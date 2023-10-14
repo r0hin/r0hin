@@ -1,6 +1,6 @@
 <h1 align="center">👋</h1>
 
-Welcome to my GitHub profile – please visit my [website](https://r0h.in) for my projects and socials!
+Welcome to my GitHub profile – please visit my [website](https://r0h.in) or [portfolio](https://r0h.in/portfolio) for more details!
 
 <details>
   <summary>📚 Stack</summary>
