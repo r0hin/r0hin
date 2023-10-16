@@ -54,6 +54,13 @@ html, body {
   padding: 10px;
 }
 
+/* Small screens, 1 wide grid */
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .box {
   max-width: 226px;
   height: 200px;
