@@ -6,24 +6,24 @@ Welcome to my GitHub profile – please visit my [website](https://r0h.in) or [p
   <summary>📚 Stack</summary>
   <br>
   <b>Technologies (Outdated)</b><br>
-  <img src="./assets/js.png"/> 
-  <img src="./assets/node.png"/> 
-  <img src="./assets/react.png"/> 
-  <img src="./assets/vue.png"/> 
-  <img src="./assets/java.png"/> 
-  <img src="./assets/python.png"/>
-  <img src="./assets/flutter.png"/>
+  <img src="./assets/icons/js.png"/> 
+  <img src="./assets/icons/node.png"/> 
+  <img src="./assets/icons/react.png"/> 
+  <img src="./assets/icons/vue.png"/> 
+  <img src="./assets/icons/java.png"/> 
+  <img src="./assets/icons/python.png"/>
+  <img src="./assets/icons/flutter.png"/>
   <br>
   <b>Tools</b><br>
-  <img src="./assets/vscode.png"/>
-  <img src="./assets/git.png"/>
-  <img src="./assets/github.png"/>
-  <img src="./assets/aws.png"/>
-  <img src="./assets/gcloud.png"/>
-  <img src="./assets/firebase.png"/>
-  <img src="./assets/docker.png"/>
-  <img src="./assets/tailwind.png"/>
-  <img src="./assets/markdown.png"/>
+  <img src="./assets/icons/vscode.png"/>
+  <img src="./assets/icons/git.png"/>
+  <img src="./assets/icons/github.png"/>
+  <img src="./assets/icons/aws.png"/>
+  <img src="./assets/icons/gcloud.png"/>
+  <img src="./assets/icons/firebase.png"/>
+  <img src="./assets/icons/docker.png"/>
+  <img src="./assets/icons/tailwind.png"/>
+  <img src="./assets/icons/markdown.png"/>
 </details>
 <details>
   <summary>💔 Bad Joke</summary>
