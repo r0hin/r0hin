@@ -1,6 +1,6 @@
 <h1 align="center">👋</h1>
 
-Welcome to my GitHub profile – please visit my [website](https://r0h.in) or [portfolio](https://r0h.in/portfolio) for more details!
+Welcome to my GitHub profile – you can visit my [website](https://r0h.in) for more links!
 
 <details>
   <summary>📚 Stack</summary>
@@ -14,7 +14,7 @@ Welcome to my GitHub profile – please visit my [website](https://r0h.in) or [p
   <img src="./assets/icons/python.png"/>
   <img src="./assets/icons/flutter.png"/>
   <br>
-  <b>Tools</b><br>
+  <b>Tools (Outdated)</b><br>
   <img src="./assets/icons/vscode.png"/>
   <img src="./assets/icons/git.png"/>
   <img src="./assets/icons/github.png"/>
