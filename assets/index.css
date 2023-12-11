@@ -278,12 +278,13 @@ p {
 
 .project {
   margin-top: 0px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   border: 1px solid #262626;
   width: 100%;
   padding: 12px;
   border-radius: 10px;
-  margin-right: 8px;
+  margin-right: 0px;
+  margin-left: 0px;
   transition: all 0.2s;
   transform: scale(1);
 }
@@ -325,9 +326,17 @@ p {
   color: white;
 }
 
+.project:first-child {
+	margin-right: 8px;
+}
+
 .project:last-child {
   margin-left: 8px;
-  margin-right: 0px;
+}
+
+.project:last-child:first-child {
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .project img {
