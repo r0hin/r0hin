@@ -11,3 +11,6 @@ pyenv init - | source
 # GPG & SSH
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+# Fuck
+thefuck --alias | source
