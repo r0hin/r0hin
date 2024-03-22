@@ -14,3 +14,6 @@ gpgconf --launch gpg-agent
 
 # Fuck
 thefuck --alias | source
+
+# Copilot CLI
+alias !!='gh copilot suggest'
