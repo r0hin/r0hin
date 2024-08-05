@@ -1,7 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR BUN_INSTALL:/Users/rohin/\x2ebun/
-SETUVAR --export OPENAI_API_KEY:sk\x2dfRfb0ZgaVrxCvvTRmm08T3BlbkFJjLn0m28zLPzacbRYhXWr
 SETUVAR --export PYENV_ROOT:/Users/rohin/\x2epyenv
 SETUVAR --export SSH_AUTH_SOCK:/Users/rohin/\x2egnupg/S\x2egpg\x2dagent\x2essh
 SETUVAR __fish_initialized:3400
