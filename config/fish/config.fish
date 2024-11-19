@@ -15,5 +15,11 @@ gpgconf --launch gpg-agent
 # Fuck
 thefuck --alias | source
 
-# Copilot CLI
-alias !!='gh copilot suggest'
+# Clear
+function claer
+  echo 'fuck you'
+end
+
+function clera
+  echo 'lmao'
+end
