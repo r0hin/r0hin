@@ -13,6 +13,6 @@
 # @raycast.author r0hin
 # @raycast.authorURL https://raycast.com/r0hin
 
-# Move all .png into screenshots
+# Delete all downloads
 
 mv /Users/rohin/Library/Mobile\ Documents/com~apple~CloudDocs/Downloads/* /Users/rohin/.Trash

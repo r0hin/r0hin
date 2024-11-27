@@ -13,14 +13,17 @@
 # @raycast.author r0hin
 # @raycast.authorURL https://raycast.com/r0hin
 
-# Move all .png into screenshots
 
+# Delete .DS_Store
 find /Users/rohin/Downloads/ -name .DS_Store -type f -delete
 
-find /Users/rohin/Downloads/ -type f -name "*.png" -exec mv -nv {} /Users/rohin/Desktop/Folders/Files/Screenshots/ \;
-find /Users/rohin/Downloads/ -type f -name "*.jpg" -exec mv -nv {} /Users/rohin/Desktop/Folders/Files/Screenshots/ \;
-find /Users/rohin/Downloads/ -type f -name "*.jpeg" -exec mv -nv {} /Users/rohin/Desktop/Folders/Files/Screenshots/ \;
+# Move all png and jpg files to screenshots
+find /Users/rohin/Downloads/ -type f -name "*.png" -exec mv -nv {} /Users/rohin/Documents/Screenshots/ \;
+find /Users/rohin/Downloads/ -type f -name "*.jpg" -exec mv -nv {} /Users/rohin/Documents/Screenshots/ \;
+find /Users/rohin/Downloads/ -type f -name "*.jpeg" -exec mv -nv {} /Users/rohin/Documents/Screenshots/ \;
 
+# Move all big files into Working
 find /Users/rohin/Downloads/ -type f -size +30M -exec mv -nv {} /Users/rohin/Working/ \;
 
+# Move the remaining files to Downloads (iCloud)
 find /Users/rohin/Downloads/ -type f -exec mv -nv {} "/Users/rohin/Library/Mobile Documents/com~apple~CloudDocs/Downloads/" \;

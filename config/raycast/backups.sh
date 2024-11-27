@@ -13,7 +13,6 @@
 # @raycast.author r0hin
 # @raycast.authorURL https://raycast.com/r0hin
 
-# Move all .png into screenshots
-
+# Copy local config files into GitHub
 cp -r ~/.config/fish '/Users/rohin/GitHub/r0hin/config/'
 cp /users/rohin/.ssh/config /Users/rohin/GitHub/r0hin/config/.ssh/config
