@@ -5,6 +5,9 @@ end
 # Rose pine theme
 fish_config theme choose "Rosé Pine Moon"
 
+# pnpm global
+set -gx PNPM_HOME ~/.pnpm/store
+
 # Pyenv 
 pyenv init - | source
 
@@ -23,6 +26,16 @@ end
 function clera
   echo 'lmao'
 end
+
+# YTDLs
+function ytdlv
+    yt-dlp -S vcodec:h264,res,acodec:m4a $argv
+end
+
+function ytdla
+    yt-dlp -x --audio-format mp3 $argv
+end
+
 
 function deactivate
     echo (set_color magenta) "🥲 them vscode integrated terminal launch arguments messing up my terminal"
