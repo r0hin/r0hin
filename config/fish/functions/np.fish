@@ -1,4 +1,4 @@
-function np --wraps=pnpm --description 'alias np pnpm'
-  pnpm $argv
+function np --wraps=bun --description 'alias np bun'
+  bun $argv
         
 end
