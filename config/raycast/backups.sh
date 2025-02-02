@@ -18,4 +18,7 @@ cp -r ~/.config/fish '/Users/rohin/GitHub/r0hin/config/'
 
 rsync -av --exclude='.git' ~/.config/kitty/ '/Users/rohin/GitHub/r0hin/config/'
 
+# ~/.config/sketchybar
+rsync -av --exclude='.git' ~/.config/sketchybar/ '/Users/rohin/GitHub/r0hin/config/'
+
 cp /users/rohin/.ssh/config /Users/rohin/GitHub/r0hin/config/.ssh/config
