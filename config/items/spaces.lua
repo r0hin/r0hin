@@ -5,7 +5,7 @@ local app_icons = require("helpers.app_icons")
 
 local spaces = {}
 
-local BASE_PADDING = 120
+local BASE_PADDING = 130
 local ITEM_WIDTH = 20
 
 local space_app_counts = {
