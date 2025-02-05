@@ -18,7 +18,12 @@ cp -r ~/.config/fish '/Users/rohin/GitHub/r0hin/config/'
 
 rsync -av --exclude='.git' ~/.config/kitty/ '/Users/rohin/GitHub/r0hin/config/kitty'
 
-# ~/.config/sketchybar
-rsync -av --exclude='.git' ~/.config/sketchybar/ '/Users/rohin/GitHub/r0hin/config/sketchbar'
+rsync -av --exclude='.git' ~/.config/linearmouse/ '/Users/rohin/GitHub/r0hin/config/linearmouse'
+
+rsync -av --exclude='.git' ~/.config/borders/ '/Users/rohin/GitHub/r0hin/config/borders'
+
+rsync -av --exclude='.git' ~/.config/sketchybar/ '/Users/rohin/GitHub/r0hin/config/sketchybar'
+
+cp ~/.aerospace.toml '/Users/rohin/GitHub/r0hin/config/.aerospace.toml'
 
 cp /users/rohin/.ssh/config /Users/rohin/GitHub/r0hin/config/.ssh/config

@@ -64,3 +64,4 @@ function auto_venv --on-variable PWD
 end
 
 auto_venv
+
