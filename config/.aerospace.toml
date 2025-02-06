@@ -112,7 +112,11 @@ alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
 
-alt-shift-a = 'enable toggle'
+# Focus
+alt-6 = 'focus left'
+alt-7 = 'focus up'
+alt-8 = 'focus down'
+alt-9 = 'focus right'
 
 alt-shift-j = ['join-with left', 'mode main']
 alt-shift-k = ['join-with down', 'mode main']
@@ -135,6 +139,7 @@ alt-shift-semicolon = 'mode service'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+q = 'enable toggle'
 backspace = ['close-all-windows-but-current', 'mode main']
 
 down = 'volume down'
