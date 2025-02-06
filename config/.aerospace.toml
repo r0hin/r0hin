@@ -146,7 +146,21 @@ shift-down = ['volume set 0', 'mode main']
   if.app-id = 'net.kovidgoyal.kitty'
   run = 'layout floating'
 
+[[on-window-detected]]
+  if.app-id = 'com.apple.finder'
+  run = 'layout floating'
+
 # BOOP
 [[on-window-detected]]
   if.app-id = 'com.okatbest.boop'
+  run = 'layout floating'
+
+# Media Mate
+[[on-window-detected]]
+  if.app-id = 'com.tweety.MediaMate'
+  run = 'layout floating'
+
+# Vivid
+[[on-window-detected]]
+  if.app-id = 'com.goodsnooze.vivid'
   run = 'layout floating'
