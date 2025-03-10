@@ -4,7 +4,7 @@ SETUVAR BUN_INSTALL:/Users/rohin/\x2ebun/
 SETUVAR --export EDITOR:/Applications/Windsurf\x2eapp/Contents/MacOS/Electron
 SETUVAR --export PYENV_ROOT:/Users/rohin/\x2epyenv
 SETUVAR --export SSH_AUTH_SOCK:/Users/rohin/\x2egnupg/S\x2egpg\x2dagent\x2essh
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_norcalli_2F_autojump_files:\x7e/\x2econfig/fish/functions/__aj_err\x2efish\x1e\x7e/\x2econfig/fish/functions/j\x2efish\x1e\x7e/\x2econfig/fish/functions/jc\x2efish\x1e\x7e/\x2econfig/fish/functions/jco\x2efish\x1e\x7e/\x2econfig/fish/functions/jo\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autojump\x2efish\x1e\x7e/\x2econfig/fish/completions/j\x2efish\x1e\x7e/\x2econfig/fish/completions/jc\x2efish\x1e\x7e/\x2econfig/fish/completions/jco\x2efish\x1e\x7e/\x2econfig/fish/completions/jo\x2efish
