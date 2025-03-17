@@ -24,6 +24,8 @@ rsync -av --exclude='.git' ~/.config/borders/ '/Users/rohin/GitHub/r0hin/config/
 
 rsync -av --exclude='.git' ~/.config/sketchybar/ '/Users/rohin/GitHub/r0hin/config/sketchybar'
 
+rsync -av --exclude='.git' ~/.config/bat/ '/Users/rohin/GitHub/r0hin/config/bat'
+
 cp ~/.aerospace.toml '/Users/rohin/GitHub/r0hin/config/.aerospace.toml'
 
 cp /users/rohin/.ssh/config /Users/rohin/GitHub/r0hin/config/.ssh/config

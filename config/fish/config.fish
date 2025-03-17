@@ -8,6 +8,9 @@ fish_config theme choose "Rosé Pine Moon"
 # pnpm global
 set -gx PNPM_HOME ~/.pnpm/store
 
+# Bat theme
+set -gx BAT_THEME rose-pine
+
 # Pyenv 
 pyenv init - | source
 
@@ -17,25 +20,6 @@ gpgconf --launch gpg-agent
 
 # Fuck
 thefuck --alias | source
-
-# Clear
-function claer
-  echo 'fuck you'
-end
-
-function clera
-  echo 'lmao'
-end
-
-# YTDLs
-function ytdlv
-    yt-dlp -S vcodec:h264,res,acodec:m4a $argv
-end
-
-function ytdla
-    yt-dlp -x --audio-format mp3 $argv
-end
-
 
 function deactivate
     echo (set_color magenta) "🥲 them vscode integrated terminal launch arguments messing up my terminal"
