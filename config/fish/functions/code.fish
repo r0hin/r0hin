@@ -1,4 +1,4 @@
-function code --wraps=windsurf --description 'alias code windsurf'
-  windsurf $argv
+function code --wraps=c --description 'alias code c'
+  c $argv
         
 end

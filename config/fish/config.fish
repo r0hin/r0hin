@@ -9,23 +9,48 @@ fish_config theme choose "Rosé Pine Moon"
 set -gx PNPM_HOME ~/.pnpm/store
 
 # Bat theme
-set -gx BAT_THEME rose-pine
+if command -q bat
+    set -gx BAT_THEME rose-pine
+    function cat --wraps='bat --color=always --plain' --description 'alias cat bat'
+        bat $argv
+    end
+end
+
+if command -q eza
+    function ls --wraps='eza --color=always --long --git --icons=always --no-time --no-user --no-permissions' --description 'alias ls eza --color=always --long --git --icons=always --no-time --no-user --no-permissions'
+        eza --color=always --long --git --icons=always --no-time --no-user --no-permissions $argv
+    end
+end
 
 # Pyenv 
 pyenv init - | source
 
 # GPG & SSH
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+if test "$USER" = "rohin" && not set -q SSH_CLIENT
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
+end
 
 # Zoxide
-zoxide init fish | source
+if command -q zoxide
+    zoxide init fish | source
+    function cd --wraps=z --description 'alias cd z'
+        z $argv
+    end
+    function j --wraps=z --description 'alias j z'
+        z $argv
+    end
+end
 
 # FZF
-fzf --fish | source
+if command -q fzf
+    fzf --fish | source
+end
 
 # Fuck
-thefuck --alias | source
+if command -q thefuck
+    thefuck --alias | source
+end
 
 function deactivate
     echo (set_color magenta) "🥲 them vscode integrated terminal launch arguments messing up my terminal"
