@@ -1,3 +1,7 @@
+function does_command_exist
+    type -q $argv[1]
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -9,14 +13,14 @@ fish_config theme choose "Rosé Pine Moon"
 set -gx PNPM_HOME ~/.pnpm/store
 
 # Bat theme
-if command -q bat
+if does_command_exist "bat"
     set -gx BAT_THEME rose-pine
     function cat --wraps='bat --color=always --plain' --description 'alias cat bat'
         bat $argv
     end
 end
 
-if command -q eza
+if does_command_exist "eza"
     function ls --wraps='eza --color=always --long --git --icons=always --no-time --no-user --no-permissions' --description 'alias ls eza --color=always --long --git --icons=always --no-time --no-user --no-permissions'
         eza --color=always --long --git --icons=always --no-time --no-user --no-permissions $argv
     end
@@ -26,13 +30,13 @@ end
 pyenv init - | source
 
 # GPG & SSH
-if test "$USER" = "rohin" && not set -q SSH_CLIENT
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+if test "$USER" = "rohin"; and not set -q SSH_CLIENT
+    set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
     gpgconf --launch gpg-agent
 end
 
 # Zoxide
-if command -q zoxide
+if does_command_exist "zoxide"
     zoxide init fish | source
     function cd --wraps=z --description 'alias cd z'
         z $argv
@@ -43,12 +47,12 @@ if command -q zoxide
 end
 
 # FZF
-if command -q fzf
+if does_command_exist "fzf"
     fzf --fish | source
 end
 
 # Fuck
-if command -q thefuck
+if does_command_exist "thefuck"
     thefuck --alias | source
 end
 
