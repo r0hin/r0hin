@@ -26,9 +26,6 @@ if does_command_exist "eza"
     end
 end
 
-# Pyenv 
-pyenv init - | source
-
 # GPG & SSH
 if test "$USER" = "rohin"; and not set -q SSH_CLIENT
     set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
@@ -58,6 +55,10 @@ end
 
 function deactivate
     echo (set_color magenta) "🥲 them vscode integrated terminal launch arguments messing up my terminal"
+end
+
+if does_command_exist "pyenv"
+    pyenv init - | source
 end
 
 # Auto venv

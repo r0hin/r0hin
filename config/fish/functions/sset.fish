@@ -5,6 +5,17 @@ function sset --wraps='kitten ssh' --description 'alias s kitten ssh with remote
             git clone https://github.com/r0hin/r0hin ~/GitHub/r0hin
         fi
 
+        # Install repo
+        sudo apt-add-repository ppa:fish-shell/release-3
+
+        # Updates
+        sudo apt-get update && sudo apt-get upgrade
+
+        # Install fish
+        sudo apt-get install fish
+
+        sudo apt-get install pyenv
+
         # Install Oh My Fish
         curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
