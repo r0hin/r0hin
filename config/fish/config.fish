@@ -61,25 +61,26 @@ function deactivate
 end
 
 # Auto venv
-function auto_venv --on-variable PWD
-    # Check if there's a venv folder in the current directory
-    if test -d "$PWD/venv"
-        if set -q VIRTUAL_ENV
-            deactivate
-        end
-        source "$PWD/venv/bin/activate.fish"
+if test "$USER" = "rohin"; and not set -q SSH_CLIENT
+    function auto_venv --on-variable PWD
+        # Check if there's a venv folder in the current directory
+        if test -d "$PWD/venv"
+            if set -q VIRTUAL_ENV
+                deactivate
+            end
+            source "$PWD/venv/bin/activate.fish"
 
-        # Ensure venv's bin directory is at the front of the PATH
-        set -gx PATH "$VIRTUAL_ENV/bin" $PATH
-        echo (set_color green) "🐍 Activated virtual environment in $PWD" (set_color normal)
-    else
-        # Deactivate if no venv folder is found
-        if set -q VIRTUAL_ENV
-            deactivate
-            echo (set_color red) "❌ Deactivated virtual environment" (set_color normal)
-
+            # Ensure venv's bin directory is at the front of the PATH
+            set -gx PATH "$VIRTUAL_ENV/bin" $PATH
+            echo (set_color green) "🐍 Activated virtual environment in $PWD" (set_color normal)
+        else
+            # Deactivate if no venv folder is found
+            if set -q VIRTUAL_ENV
+                deactivate
+                echo (set_color red) "❌ Deactivated virtual environment" (set_color normal)
+            end
         end
     end
-end
 
-auto_venv
+    auto_venv
+end
