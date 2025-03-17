@@ -17,14 +17,14 @@ cp "${HOME}/GitHub/r0hin/config/.ssh/config" "${HOME}/.ssh/config"
 
 cp "${HOME}/GitHub/r0hin/config/.aerospace.toml" "${HOME}/.aerospace.toml"
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/bat/" "${HOME}/.config/bat"
+rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/bat/" "${HOME}/.config/bat" --delete
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/sketchybar/" "${HOME}/.config/sketchybar"
+rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/sketchybar/" "${HOME}/.config/sketchybar" --delete
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/borders/" "${HOME}/.config/borders"
+rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/borders/" "${HOME}/.config/borders" --delete
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/linearmouse/" "${HOME}/.config/linearmouse"
+rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/linearmouse/" "${HOME}/.config/linearmouse" --delete
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/kitty/" "${HOME}/.config/kitty"
+rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/kitty/" "${HOME}/.config/kitty" --delete
 
-cp -r "${HOME}/GitHub/r0hin/config/fish" "${HOME}/.config/"
+rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/fish/" "${HOME}/.config/fish" --delete
