@@ -18,6 +18,12 @@ pyenv init - | source
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
+# Zoxide
+zoxide init fish | source
+
+# FZF
+fzf --fish | source
+
 # Fuck
 thefuck --alias | source
 
@@ -48,4 +54,3 @@ function auto_venv --on-variable PWD
 end
 
 auto_venv
-
