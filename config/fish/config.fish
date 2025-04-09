@@ -64,16 +64,22 @@ end
 # Auto venv
 if test "$USER" = "rohin"; and not set -q SSH_CLIENT
     function auto_venv --on-variable PWD
-        # Check if there's a venv folder in the current directory
-        if test -d "$PWD/venv"
+        # Check if there's a venv or .venv folder in the current directory
+        if test -d "$PWD/venv" -o -d "$PWD/.venv"
             if set -q VIRTUAL_ENV
                 deactivate
             end
-            source "$PWD/venv/bin/activate.fish"
+            
+            set venv_path "$PWD/venv"
+            if test -d "$PWD/.venv"
+                set venv_path "$PWD/.venv"
+            end
+            
+            source "$venv_path/bin/activate.fish"
 
             # Ensure venv's bin directory is at the front of the PATH
             set -gx PATH "$VIRTUAL_ENV/bin" $PATH
-            echo (set_color green) "🐍 Activated virtual environment in $PWD" (set_color normal)
+            echo (set_color green) "🐍 Activated virtual environment in $venv_path" (set_color normal)
         else
             # Deactivate if no venv folder is found
             if set -q VIRTUAL_ENV
