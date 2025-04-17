@@ -2,47 +2,25 @@
   "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
   "schemes" : [
     {
-      "buttons" : {
-        "mappings" : [
-          {
-            "option" : false,
-            "control" : false,
-            "repeat" : false,
-            "action" : "missionControl.spaceLeft",
-            "button" : 3,
-            "command" : false,
-            "shift" : false
-          },
-          {
-            "shift" : false,
-            "action" : "missionControl.spaceRight",
-            "control" : false,
-            "option" : false,
-            "button" : 4,
-            "command" : false,
-            "repeat" : false
-          }
-        ]
-      },
       "scrolling" : {
         "speed" : {
           "vertical" : 0
         },
+        "acceleration" : {
+          "vertical" : 1,
+          "horizontal" : 0
+        },
         "modifiers" : {
           "vertical" : {
+            "shift" : {
+              "type" : "changeSpeed",
+              "scale" : 0.5
+            },
             "command" : {
               "type" : "changeSpeed",
               "scale" : 4.5
-            },
-            "shift" : {
-              "scale" : 0.5,
-              "type" : "changeSpeed"
             }
           }
-        },
-        "acceleration" : {
-          "horizontal" : 0,
-          "vertical" : 1
         },
         "distance" : {
           "vertical" : 3
@@ -51,15 +29,37 @@
       "if" : {
         "device" : {
           "category" : "mouse",
-          "productName" : "Razer DeathAdder Elite",
+          "vendorID" : "0x1532",
           "productID" : "0x5c",
-          "vendorID" : "0x1532"
+          "productName" : "Razer DeathAdder Elite"
         }
       },
       "pointer" : {
         "speed" : 0.25,
         "acceleration" : 1.78,
         "disableAcceleration" : true
+      },
+      "buttons" : {
+        "mappings" : [
+          {
+            "action" : "missionControl.spaceLeft",
+            "command" : false,
+            "control" : false,
+            "repeat" : false,
+            "shift" : false,
+            "button" : 3,
+            "option" : false
+          },
+          {
+            "action" : "missionControl.spaceRight",
+            "command" : false,
+            "control" : false,
+            "repeat" : false,
+            "shift" : false,
+            "button" : 4,
+            "option" : false
+          }
+        ]
       }
     },
     {
@@ -68,24 +68,19 @@
       },
       "if" : {
         "device" : {
-          "productID" : "0xf00d",
+          "productName" : "VirtualHID",
           "serialNumber" : "0001",
           "category" : "mouse",
           "vendorID" : "0xfeed",
-          "productName" : "VirtualHID"
+          "productID" : "0xf00d"
         }
       }
     },
     {
-      "if" : {
-        "device" : {
-          "category" : "trackpad",
-          "productName" : "Apple Internal Keyboard \/ Trackpad",
-          "productID" : "0x0",
-          "vendorID" : "0x0"
-        }
-      },
       "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
         "modifiers" : {
           "vertical" : {
             "command" : {
@@ -93,39 +88,41 @@
               "scale" : 3
             }
           }
-        },
-        "acceleration" : {
-          "vertical" : 1
+        }
+      },
+      "if" : {
+        "device" : {
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x0",
+          "category" : "trackpad",
+          "productID" : "0x0"
         }
       }
     },
     {
-      "buttons" : {
-        "mappings" : [
-          {
-            "shift" : false,
-            "repeat" : true,
-            "command" : false,
-            "option" : false,
-            "button" : 3,
-            "control" : false,
-            "action" : "mouse.button.left"
-          },
-          {
-            "command" : false,
-            "option" : false,
-            "control" : false,
-            "repeat" : true,
-            "action" : "mouse.button.right",
-            "shift" : false,
-            "button" : 4
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "speed" : {
+          "vertical" : 0
+        },
+        "modifiers" : {
+          "vertical" : {
+            "command" : {
+              "scale" : 3.5,
+              "type" : "changeSpeed"
+            }
           }
-        ]
+        },
+        "distance" : {
+          "vertical" : 6
+        }
       },
       "if" : {
         "device" : {
-          "category" : "mouse",
           "vendorID" : "0x68e",
+          "category" : "mouse",
           "productID" : "0xba",
           "productName" : "BSK V3 X HS"
         }
@@ -134,61 +131,64 @@
         "disableAcceleration" : true,
         "acceleration" : 0.69
       },
-      "scrolling" : {
-        "speed" : {
-          "vertical" : 0
-        },
-        "modifiers" : {
-          "vertical" : {
-            "command" : {
-              "type" : "changeSpeed",
-              "scale" : 3.5
-            }
+      "buttons" : {
+        "mappings" : [
+          {
+            "repeat" : true,
+            "action" : "mouse.button.left",
+            "option" : false,
+            "command" : false,
+            "control" : false,
+            "shift" : false,
+            "button" : 3
+          },
+          {
+            "repeat" : true,
+            "action" : "mouse.button.right",
+            "option" : false,
+            "command" : false,
+            "control" : false,
+            "shift" : false,
+            "button" : 4
           }
-        },
-        "distance" : {
-          "vertical" : 6
-        },
-        "acceleration" : {
-          "vertical" : 1
-        }
+        ]
       }
     },
     {
       "scrolling" : {
-        "acceleration" : {
-          "vertical" : 1
-        },
         "distance" : {
           "vertical" : 3
+        },
+        "modifiers" : {
+          "vertical" : {
+            "shift" : {
+              "type" : "changeSpeed",
+              "scale" : 0.5
+            },
+            "command" : {
+              "type" : "changeSpeed",
+              "scale" : 4.5
+            }
+          }
         },
         "speed" : {
           "vertical" : 0
         },
-        "modifiers" : {
-          "vertical" : {
-            "command" : {
-              "scale" : 4.5,
-              "type" : "changeSpeed"
-            },
-            "shift" : {
-              "scale" : 0.5,
-              "type" : "changeSpeed"
-            }
-          }
+        "acceleration" : {
+          "vertical" : 1
+        }
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productName" : "Razer DeathAdder Essential",
+          "vendorID" : "0x1532",
+          "productID" : "0x98"
         }
       },
       "pointer" : {
         "disableAcceleration" : true,
-        "acceleration" : 0.75
-      },
-      "if" : {
-        "device" : {
-          "vendorID" : "0x1532",
-          "productName" : "Razer DeathAdder Essential",
-          "productID" : "0x98",
-          "category" : "mouse"
-        }
+        "acceleration" : 0.81
       }
     }
   ]
