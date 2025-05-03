@@ -4,8 +4,14 @@
 # @@@@@@ LOGIN @@@@@@
 
 after-login-command = []
-after-startup-command = []
+after-startup-command = ['exec-and-forget sketchybar']
 start-at-login = true
+
+# @@@@@ SKETCHYBAR @@@@@
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 
 # @@@@@@ RANDOM THINGS @@@@@@
 
@@ -23,8 +29,8 @@ preset = 'qwerty'
 # @@@@@@ GAPS=12 because it's comfy @@@@@@
 
 [gaps]
-inner.horizontal = 12
-inner.vertical =   12
+inner.horizontal = 8
+inner.vertical =   8
 outer.left =       12
 outer.bottom =     12
 outer.top =        12
