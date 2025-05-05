@@ -26,9 +26,9 @@ for sid in $(aerospace list-workspaces --all); do
   echo "DEBUG: Space $sid has $has_windows non-empty lines of window output" >&2
   echo "DEBUG: Window output for space $sid: $window_output" >&2
   
-  # Special handling for space 5
-  if [ "$sid" -eq 5 ]; then
-    echo "DEBUG: Special handling for space 5 - forcing it to be included" >&2
+  # Special handling for spaces 0, 4, and 5
+  if [ "$sid" -eq 0 ] || [ "$sid" -eq 4 ] || [ "$sid" -eq 5 ]; then
+    echo "DEBUG: Special handling for space $sid - forcing it to be included" >&2
     spaces_with_items+=("$sid")
   elif [ "$has_windows" -gt 0 ]; then
     echo "DEBUG: Adding space $sid to spaces_with_items" >&2
