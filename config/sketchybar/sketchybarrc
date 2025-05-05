@@ -8,7 +8,7 @@ source "$CONFIG_DIR/colors.sh"
 source "$CONFIG_DIR/bar.sh"
 source "$CONFIG_DIR/defaults.sh"
 
-source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/spaces2.sh"
 
 # source "$ITEM_DIR/music.sh"
 

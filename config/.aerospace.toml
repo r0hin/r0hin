@@ -4,7 +4,7 @@
 # @@@@@@ LOGIN @@@@@@
 
 after-login-command = []
-after-startup-command = ['exec-and-forget sketchybar']
+after-startup-command = []
 start-at-login = true
 
 # @@@@@ SKETCHYBAR @@@@@
