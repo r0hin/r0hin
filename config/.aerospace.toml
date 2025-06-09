@@ -162,8 +162,8 @@ alt-down = ['volume set 0', 'mode main']
   if.app-id = 'com.bitwarden.desktop'
   run = 'layout floating'
 
-# Music
+# Messages
 [[on-window-detected]]
-  if.app-id = 'com.apple.Music'
+  if.app-id = 'com.apple.MobileSMS'
   run = 'layout floating'
   
