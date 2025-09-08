@@ -5,6 +5,9 @@ function sset --wraps='kitten ssh' --description 'alias s kitten ssh with remote
             git clone https://github.com/r0hin/r0hin ~/GitHub/r0hin
         fi
 
+        # Install git
+        sudo apt-get install git-all
+
         # Install repo
         sudo apt-add-repository ppa:fish-shell/release-3
 

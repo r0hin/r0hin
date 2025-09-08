@@ -58,8 +58,10 @@ alt-k = 'move down'
 
 # @@@@@@ RESIZE @@@@@@
 
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+alt-shift-minus = 'resize smart -250'
+alt-minus = 'resize smart -100'
+alt-shift-equal = 'resize smart +250'
+alt-equal = 'resize smart +100'
 
 # @@@@@@ GO TO WORKSPACE @@@@@@
 
@@ -167,3 +169,17 @@ alt-down = ['volume set 0', 'mode main']
   if.app-id = 'com.apple.MobileSMS'
   run = 'layout floating'
   
+# Calendar
+[[on-window-detected]]
+  if.app-id = 'com.cron.electron'
+  run = 'layout floating'
+
+# Music
+[[on-window-detected]]
+  if.app-id = 'com.apple.Music'
+  run = 'layout floating'
+
+# Electron (dev)
+[[on-window-detected]]
+  if.app-id = 'com.github.Electron'
+  run = 'layout floating'

@@ -1,7 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR BUN_INSTALL:/Users/rohin/\x2ebun/
-SETUVAR --export EDITOR:/Applications/Windsurf\x2eapp/Contents/MacOS/Electron
+SETUVAR --export CC:/opt/homebrew/opt/llvm/bin/clang
+SETUVAR --export CXX:/opt/homebrew/opt/llvm/bin/clang\x2b\x2b
+SETUVAR --export EDITOR:/Applications/Cursor\x2eapp/Contents/MacOS/Cursor
 SETUVAR --export PYENV_ROOT:/Users/rohin/\x2epyenv
 SETUVAR --export SSH_AUTH_SOCK:/Users/rohin/\x2egnupg/S\x2egpg\x2dagent\x2essh
 SETUVAR __fish_initialized:3800

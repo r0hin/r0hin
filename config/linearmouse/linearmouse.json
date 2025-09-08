@@ -1,87 +1,88 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.1",
   "schemes" : [
     {
-      "pointer" : {
-        "speed" : 0.25,
-        "acceleration" : 1.78,
-        "disableAcceleration" : true
-      },
       "buttons" : {
         "mappings" : [
           {
-            "control" : false,
-            "repeat" : false,
-            "button" : 3,
-            "shift" : false,
-            "option" : false,
             "action" : "missionControl.spaceLeft",
-            "command" : false
+            "button" : 3,
+            "command" : false,
+            "control" : false,
+            "option" : false,
+            "repeat" : false,
+            "shift" : false
           },
           {
-            "command" : false,
-            "repeat" : false,
-            "option" : false,
             "action" : "missionControl.spaceRight",
-            "control" : false,
             "button" : 4,
+            "command" : false,
+            "control" : false,
+            "option" : false,
+            "repeat" : false,
             "shift" : false
           }
         ]
       },
       "if" : {
         "device" : {
-          "vendorID" : "0x1532",
+          "category" : "mouse",
           "productID" : "0x5c",
           "productName" : "Razer DeathAdder Elite",
-          "category" : "mouse"
+          "vendorID" : "0x1532"
         }
       },
+      "pointer" : {
+        "acceleration" : 1.78,
+        "disableAcceleration" : true,
+        "speed" : 0.25
+      },
       "scrolling" : {
-        "speed" : {
-          "vertical" : 0
-        },
         "acceleration" : {
           "horizontal" : 0,
           "vertical" : 1
         },
+        "distance" : {
+          "vertical" : 3
+        },
         "modifiers" : {
           "vertical" : {
             "command" : {
-              "type" : "changeSpeed",
-              "scale" : 4.5
+              "scale" : 4.5,
+              "type" : "changeSpeed"
             },
             "shift" : {
-              "type" : "changeSpeed",
-              "scale" : 0.5
+              "scale" : 0.5,
+              "type" : "changeSpeed"
             }
           }
         },
-        "distance" : {
-          "vertical" : 3
+        "speed" : {
+          "vertical" : 0
         }
       }
     },
     {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xf00d",
+          "productName" : "VirtualHID",
+          "serialNumber" : "0001",
+          "vendorID" : "0xfeed"
+        }
+      },
       "pointer" : {
         "speed" : 0.0191
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0xf00d",
-          "vendorID" : "0xfeed",
-          "category" : "mouse",
-          "productName" : "VirtualHID",
-          "serialNumber" : "0001"
-        }
       }
     },
     {
       "if" : {
         "device" : {
-          "vendorID" : "0x0",
-          "productID" : "0x0",
           "category" : "trackpad",
-          "productName" : "Apple Internal Keyboard \/ Trackpad"
+          "productID" : "0x0",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x0"
         }
       },
       "scrolling" : {
@@ -99,65 +100,61 @@
       }
     },
     {
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 0.69
-      },
       "buttons" : {
         "mappings" : [
           {
-            "command" : false,
             "action" : "mouse.button.left",
-            "shift" : false,
+            "button" : 3,
+            "command" : false,
+            "control" : false,
             "option" : false,
             "repeat" : true,
-            "button" : 3,
-            "control" : false
+            "shift" : false
           },
           {
-            "command" : false,
             "action" : "mouse.button.right",
-            "shift" : false,
+            "button" : 4,
+            "command" : false,
+            "control" : false,
             "option" : false,
             "repeat" : true,
-            "button" : 4,
-            "control" : false
+            "shift" : false
           }
         ]
       },
       "if" : {
         "device" : {
-          "vendorID" : "0x68e",
           "category" : "mouse",
           "productID" : "0xba",
-          "productName" : "BSK V3 X HS"
+          "productName" : "BSK V3 X HS",
+          "vendorID" : "0x68e"
         }
       },
+      "pointer" : {
+        "acceleration" : 0.69,
+        "disableAcceleration" : true
+      },
       "scrolling" : {
-        "modifiers" : {
-          "vertical" : {
-            "command" : {
-              "type" : "changeSpeed",
-              "scale" : 3.5
-            }
-          }
+        "acceleration" : {
+          "vertical" : 1
         },
         "distance" : {
           "vertical" : 6
         },
+        "modifiers" : {
+          "vertical" : {
+            "command" : {
+              "scale" : 3.5,
+              "type" : "changeSpeed"
+            }
+          }
+        },
         "speed" : {
           "vertical" : 0
-        },
-        "acceleration" : {
-          "vertical" : 1
         }
       }
     },
     {
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 0.81
-      },
       "buttons" : {
         "mappings" : [
 
@@ -165,16 +162,17 @@
       },
       "if" : {
         "device" : {
-          "vendorID" : "0x1532",
-          "productName" : "Razer DeathAdder Essential",
           "category" : "mouse",
-          "productID" : "0x98"
+          "productID" : "0x98",
+          "productName" : "Razer DeathAdder Essential",
+          "vendorID" : "0x1532"
         }
       },
+      "pointer" : {
+        "acceleration" : 0.81,
+        "disableAcceleration" : true
+      },
       "scrolling" : {
-        "speed" : {
-          "vertical" : 0
-        },
         "acceleration" : {
           "vertical" : 1
         },
@@ -184,17 +182,22 @@
         "modifiers" : {
           "vertical" : {
             "command" : {
-              "type" : "changeSpeed",
-              "scale" : 4.5
+              "scale" : 4.5,
+              "type" : "changeSpeed"
+            },
+            "control" : {
+              "type" : "alterOrientation"
             },
             "shift" : {
-              "type" : "changeSpeed",
-              "scale" : 0.5
+              "scale" : 0.5,
+              "type" : "changeSpeed"
             }
           }
+        },
+        "speed" : {
+          "vertical" : 0
         }
       }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }
