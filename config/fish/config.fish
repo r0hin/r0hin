@@ -1,3 +1,15 @@
+# Normalise $HOME if a macOS path leaked into a Linux SSH session
+if test (uname) = Linux
+    if string match -q "/Users/*" "$HOME"
+        if type -q getent
+            set -l real_home (getent passwd $USER | cut -d: -f6)
+            if test -n "$real_home"
+                set -gx HOME "$real_home"
+            end
+        end
+    end
+end
+
 function does_command_exist
     type -q $argv[1]
 end
@@ -57,7 +69,7 @@ function deactivate
     echo (set_color magenta) "🥲 them vscode integrated terminal launch arguments messing up my terminal"
 end
 
-if does_command_exist "pyenv"
+if does_command_exist "pyenv" and not set -q SSH_CLIENT
     pyenv init - | source
 end
 
@@ -93,14 +105,17 @@ if test "$USER" = "rohin"; and not set -q SSH_CLIENT
 end
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /opt/anaconda3/bin/conda
-    eval /opt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "/opt/anaconda3/etc/fish/conf.d/conda.fish"
-        . "/opt/anaconda3/etc/fish/conf.d/conda.fish"
+if not set -q SSH_CLIENT
+    if test -f /opt/anaconda3/bin/conda
+        eval /opt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
     else
-        set -x PATH "/opt/anaconda3/bin" $PATH
+        if test -f "/opt/anaconda3/etc/fish/conf.d/conda.fish"
+            . "/opt/anaconda3/etc/fish/conf.d/conda.fish"
+        else
+            set -x PATH "/opt/anaconda3/bin" $PATH
+        end
     end
 end
+
 # <<< conda initialize <<<
 
