@@ -69,7 +69,7 @@ function deactivate
     echo (set_color magenta) "🥲 them vscode integrated terminal launch arguments messing up my terminal"
 end
 
-if does_command_exist "pyenv" and not set -q SSH_CLIENT
+if not set -q SSH_CLIENT; and does_command_exist pyenv
     pyenv init - | source
 end
 
