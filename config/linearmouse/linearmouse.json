@@ -169,7 +169,7 @@
         }
       },
       "pointer" : {
-        "acceleration" : 0.81,
+        "acceleration" : 0.83,
         "disableAcceleration" : true
       },
       "scrolling" : {
@@ -177,19 +177,19 @@
           "vertical" : 1
         },
         "distance" : {
-          "vertical" : 3
+          "vertical" : "101.8px"
         },
         "modifiers" : {
           "vertical" : {
             "command" : {
-              "scale" : 4.5,
+              "scale" : 5,
               "type" : "changeSpeed"
             },
             "control" : {
               "type" : "alterOrientation"
             },
             "shift" : {
-              "scale" : 0.5,
+              "scale" : 0.1,
               "type" : "changeSpeed"
             }
           }
