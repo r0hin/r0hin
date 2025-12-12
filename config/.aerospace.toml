@@ -183,3 +183,8 @@ alt-down = ['volume set 0', 'mode main']
 [[on-window-detected]]
   if.app-id = 'com.github.Electron'
   run = 'layout floating'
+
+# Facetime
+[[on-window-detected]]
+  if.app-id = 'com.apple.Facetime'
+  run = 'layout floating'

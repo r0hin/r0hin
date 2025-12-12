@@ -1,18 +1,23 @@
 shell /opt/homebrew/bin/fish
+editor .
 
 window_padding_width 24
 window_padding_height 24
+
+macos_quit_when_last_window_closed yes
 
 hide_window_decorations titlebar-only
 
 macos_show_window_title_in none
 
+cursor_trail 1000
+
 kitty_mod command
 
-initial_window_width  840
-initial_window_height 500
+initial_window_width  600
+initial_window_height 600
 
-map kitty_mod+f      launch --allow-remote-control kitty +kitten kitty_search/search.py @active-kitty-window-id
+map kitty_mod+f launch --type=overlay --stdin-source=@screen_scrollback /opt/homebrew/bin/fzf --no-sort --no-mouse --exact -i
 
 map kitty_mod+w close_window
 
@@ -34,7 +39,7 @@ map kitty_mod+9 goto_tab 9
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family      monospace
+font_family      monospace
 # bold_font        auto
 # italic_font      auto
 # bold_italic_font auto
@@ -888,7 +893,7 @@ map kitty_mod+9 goto_tab 9
 #: suffix of "c" on the width/height values to have them interpreted
 #: as number of cells instead of pixels.
 
-# enabled_layouts *
+enabled_layouts *
 
 #: The enabled window layouts. A comma separated list of layout names.
 #: The special value all means all layouts. The first listed layout
@@ -1436,7 +1441,7 @@ map kitty_mod+9 goto_tab 9
 
 #: }}}
 
-#: Advanced {{{
+Advanced {{{
 
 #: The shell program to execute. The default value of . means to use
 #: the value of of the SHELL environment variable or if unset,
@@ -1446,7 +1451,9 @@ map kitty_mod+9 goto_tab 9
 #: interactive mode and reads its startup rc files. Environment
 #: variables are expanded in this setting.
 
-# editor .
+editor /Applications/Cursor.app/Contents/MacOS/Cursor
+
+}}}
 
 #: The terminal based text editor (such as vim or nano) to use when
 #: editing the kitty config file or similar tasks.
@@ -2683,10 +2690,18 @@ map kitty_mod+9 goto_tab 9
 
 #: }}}
 
-#: }}}
+
 
 
 # BEGIN_KITTY_THEME
 # Rosé Pine
 include current-theme.conf
 # END_KITTY_THEME
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="Cartograph CF"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS

@@ -1,5 +1,5 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.1",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.2",
   "schemes" : [
     {
       "buttons" : {
@@ -169,7 +169,7 @@
         }
       },
       "pointer" : {
-        "acceleration" : 0.83,
+        "acceleration" : 0.84,
         "disableAcceleration" : true
       },
       "scrolling" : {
