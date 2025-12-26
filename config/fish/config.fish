@@ -19,7 +19,9 @@ if status is-interactive
 end
 
 # Rose pine theme
-fish_config theme choose "Rosé Pine Moon"
+if fish_config theme list &>/dev/null
+    fish_config theme choose "Rosé Pine Moon"
+end
 
 # pnpm global
 set -gx PNPM_HOME ~/.pnpm/store
@@ -118,4 +120,6 @@ if not set -q SSH_CLIENT
 end
 
 # <<< conda initialize <<<
+
+set -gx TERM xterm
 
