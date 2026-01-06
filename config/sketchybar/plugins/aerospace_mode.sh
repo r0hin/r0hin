@@ -1,11 +1,12 @@
 #!/bin/bash
 
+BAR=${BAR_NAME:-sketchybar}
 CURRENT_MODE=$(aerospace list-modes --current)
 
 if [ "$CURRENT_MODE" == "main" ]; then
-  sketchybar --set "$NAME" \
+  $BAR --set "$NAME" \
     drawing=off
 else
-  sketchybar --set "$NAME" \
+  $BAR --set "$NAME" \
     drawing=on
 fi

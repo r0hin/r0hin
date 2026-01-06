@@ -1,0 +1,89 @@
+local wezterm = require 'wezterm'
+local config = {
+    -- Themes
+    font = wezterm.font('VictorMono Nerd Font', { weight = "Medium" }),
+    font_size = 18.0,
+    freetype_load_flags = 'NO_HINTING',
+    hide_tab_bar_if_only_one_tab = true,
+    color_scheme = "{{- .wezterm.theme -}}",
+    tab_bar_at_bottom = true,
+    use_fancy_tab_bar = false,
+    window_decorations = "RESIZE",
+    window_background_opacity = 0.95,
+    macos_window_background_blur = 20,
+    window_close_confirmation = 'NeverPrompt',
+    skip_close_confirmation_for_processes_named = { 'bash', 'sh', 'zsh' },
+    default_cursor_style = 'BlinkingBar',
+    animation_fps = 1,
+    cursor_blink_ease_in = 'Constant',
+    cursor_blink_ease_out = 'Constant'
+    -- debug_key_events = true
+}
+
+config.keys = {
+    {
+        -- Works in conjunction without custom zsh clear() fn
+        key = 'k',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘k'
+    },
+    {
+        key = 'LeftArrow',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘⇦'
+    },
+    {
+
+        key = 'RightArrow',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘⇨'
+    },
+    {
+        -- Works in conjunction without custom zsh clear() fn
+        key = 'UpArrow',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘⇧'
+    },
+    {
+        key = 'DownArrow',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘⇩'
+    },
+    {
+        key = 'z',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘z'
+    },
+    {
+        key = 'e',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘e'
+    },
+    {
+        key = 'Backspace',
+        mods = 'CMD',
+        action = wezterm.action.SendString '⌘⌫'
+    },
+    {
+        key = 'Backspace',
+        mods = 'ALT',
+        action = wezterm.action.SendString '⌥⌫'
+    },
+    {
+        key = 'z',
+        mods = 'CMD|SHIFT',
+        action = wezterm.action.SendString '⌘⇪z'
+    },
+    {
+        key = 'LeftArrow',
+        mods = 'ALT',
+        action = wezterm.action.SendString '⌥⇦'
+    },
+    {
+        key = 'RightArrow',
+        mods = 'ALT',
+        action = wezterm.action.SendString '⌥⇨'
+    },
+}
+
+return config

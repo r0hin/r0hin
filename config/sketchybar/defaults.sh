@@ -17,8 +17,8 @@ default=(
   background.drawing=off
 )
 
-sketchybar --default "${default[@]}"
+${BAR_NAME:-sketchybar} --default "${default[@]}"
 
-sketchybar --add event aerospace_workspace_change
-sketchybar --add event aerospace_mode_change
-sketchybar --add event display_volume_change
+${BAR_NAME:-sketchybar} --add event aerospace_workspace_change
+${BAR_NAME:-sketchybar} --add event aerospace_mode_change
+${BAR_NAME:-sketchybar} --add event display_volume_change

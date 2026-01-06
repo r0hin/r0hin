@@ -10,7 +10,7 @@ start-at-login = true
 # @@@@@ SKETCHYBAR @@@@@
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    'bottom_bar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
 
 # @@@@@@ RANDOM THINGS @@@@@@

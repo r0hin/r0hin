@@ -2,15 +2,19 @@
 
 # make sure it's executable with:
 # chmod +x ~/.config/sketchybar/plugins/aerospace.sh
-source "$CONFIG_DIR/colors.sh"
 
+# Always use sketchybar config dir for shared resources
+SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
+source "$SKETCHYBAR_CONFIG/colors.sh"
+
+BAR=${BAR_NAME:-sketchybar}
 FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused --format "%{workspace}")
 
 if [ "$SENDER" == "mouse.entered" ]; then
   if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
     exit 0
   fi
-  sketchybar --set "$NAME" \
+  $BAR --set "$NAME" \
     background.drawing=on \
     label.color="$BACKGROUND" \
     icon.color="$BACKGROUND" \
@@ -22,7 +26,7 @@ if [ "$SENDER" == "mouse.exited" ]; then
   if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
     exit 0
   fi
-  sketchybar --set "$NAME" \
+  $BAR --set "$NAME" \
     background.drawing=off \
     label.color="$ACCENT_COLOR" \
     icon.color="$ACCENT_COLOR" \
@@ -36,7 +40,7 @@ APPS_INFO=$(aerospace list-windows --workspace "$1" --json --format "%{monitor-a
 
 IFS=$'\n'
 for sid in $(echo "$APPS_INFO" | jq -r "map ( .\"app-name\" ) | .[]"); do
-  icons+=$("$CONFIG_DIR/plugins/icon_map_fn.sh" "$sid")
+  icons+=$("$SKETCHYBAR_CONFIG/plugins/icon_map_fn.sh" "$sid")
   icons+="  "
 done
 
@@ -52,7 +56,7 @@ fi
 if [ -z "$icons" ]; then
   if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
     # Removed animation to prevent flickering during workspace switching
-    sketchybar --set "$NAME" \
+    $BAR --set "$NAME" \
       display="$monitor" \
       drawing=on \
       label="$icons" \
@@ -61,12 +65,12 @@ if [ -z "$icons" ]; then
       background.color="$ACCENT_COLOR" \
       background.drawing=on
   else
-    sketchybar --set "$NAME" drawing=off
+    $BAR --set "$NAME" drawing=off
   fi
 else
   if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
     # Removed animation to prevent flickering during workspace switching
-    sketchybar --set "$NAME" \
+    $BAR --set "$NAME" \
       display="$monitor" \
       drawing=on \
       label="$icons" \
@@ -75,7 +79,7 @@ else
       background.color="$ACCENT_COLOR" \
       background.drawing=on
   else
-    sketchybar --set "$NAME" \
+    $BAR --set "$NAME" \
       display="$monitor" \
       drawing=on \
       label="$icons" \

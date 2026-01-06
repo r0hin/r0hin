@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+# Init various programs
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(zellij setup --generate-auto-start zsh)"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# PATH
+export PATH="$HOME/.config/bin:$PATH"
+
+# Completions 
+# You may also need to forcibly rebuild zcompdump: rm -f ~/.zcompdump; compinit
+# If you receive “zsh compinit: insecure directories”. You may need to run this:: chmod -R go-w "$(brew --prefix)/share"
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+FPATH="$HOME/.config/zsh/completions:${FPATH}"
+autoload -Uz compinit
+compinit
+
+for file in "$HOME"/.config/zsh/*(.)zsh; do 
+    . "$file"
+done
+
+# Source the Plugins. $plugins sources from 0-plugin-inti.zsh
+# Not sure why I can't just source them as part of another file
+for file in $plugins; do
+    . "$file"
+done
+
+# Prompt: Place at the end of file
+starship_precmd_user_func="set_win_title"
+eval "$(starship init zsh)"

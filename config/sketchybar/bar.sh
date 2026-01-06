@@ -6,8 +6,8 @@ bar=(
   margin=0
   y_offset=12
   corner_radius=32
-  blur_radius=30
+  blur_radius=0
   color="$BAR_COLOR"
 )
 
-sketchybar --bar "${bar[@]}"
+${BAR_NAME:-sketchybar} --bar "${bar[@]}"

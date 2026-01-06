@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sketchybar --add item aerospace_mode left \
+BAR=${BAR_NAME:-sketchybar}
+
+$BAR --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
   --set aerospace_mode icon="" \
   script="$CONFIG_DIR/plugins/aerospace_mode.sh" \
@@ -10,7 +12,7 @@ sketchybar --add item aerospace_mode left \
 
 # Clear any existing space items
 for sid in $(aerospace list-workspaces --all); do
-  sketchybar --remove space."$sid" 2>/dev/null || true
+  $BAR --remove space."$sid" 2>/dev/null || true
 done
 
 # Get all workspaces with windows (spaces with items)
@@ -86,7 +88,7 @@ for sid in "${left_spaces[@]}"; do
   [ -z "$monitor" ] && monitor="1"
   echo "DEBUG: Left space $sid using monitor $monitor" >&2
   
-  sketchybar --add item space."$sid" left \
+  $BAR --add item space."$sid" left \
     --subscribe space."$sid" aerospace_workspace_change display_change system_woke mouse.entered mouse.exited \
     --set space."$sid" \
       display="$monitor" \
@@ -118,7 +120,7 @@ for sid in "${right_spaces[@]}"; do
   [ -z "$monitor" ] && monitor="1"
   echo "DEBUG: Right space $sid using monitor $monitor" >&2
   
-  sketchybar --add item space."$sid" right \
+  $BAR --add item space."$sid" right \
     --subscribe space."$sid" aerospace_workspace_change display_change system_woke mouse.entered mouse.exited \
     --set space."$sid" \
       display="$monitor" \
@@ -141,4 +143,4 @@ for sid in "${right_spaces[@]}"; do
   echo "DEBUG: Finished adding right space $sid" >&2
 done
 
-echo "DEBUG: All spaces have been added to sketchybar" >&2
+echo "DEBUG: All spaces have been added to $BAR" >&2

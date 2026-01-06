@@ -1,0 +1,123 @@
+tap "homebrew/services"
+tap "homebrew/command-not-found"
+tap "hashicorp/tap"
+
+{{ if eq .chezmoi.os "darwin" -}}
+tap "FelixKratz/formulae"
+
+brew "borders", args: ["HEAD"]
+# brew "yabai", args: ["HEAD"]
+brew "mas"
+brew "sketchybar", args: ["HEAD"]
+brew "skhd", args: ["HEAD"]
+brew "keith/formulae/reminders-cli"
+
+mas "Bitwarden", id: 1352778147
+
+cask "alfred", args: {zap: true}, greedy: true
+cask "betterdiscord-installer", args: {zap: true}, greedy: true
+cask "chromium", args: {zap: true, no_quarantine: true}, greedy: true
+cask "discord", args: {zap: true}, greedy: true
+cask "espanso", args: {zap: true}, greedy: true
+cask "firefox@developer-edition", args: {zap: true}, greedy: true
+cask "font-iosevka", args: {zap: true}, greedy: true
+cask "font-symbols-only-nerd-font", args: {zap: true}, greedy: true
+cask "font-victor-mono", args: {zap: true}, greedy: true
+cask "logi-options-plus", args: {zap: true}, greedy: true
+cask "nikitabobko/tap/aerospace", args: {zap: true}, greedy: true
+cask "via", args: {zap: true}, greedy: true
+cask "visual-studio-code", args: {zap: true}, greedy: true
+cask "wezterm", args: {zap: true}
+
+vscode "alefragnani.bookmarks"
+vscode "beardedbear.beardedicons"
+vscode "charliermarsh.ruff"
+vscode "drcika.apc-extension"
+vscode "echevarriandre.theme-dracula-clean"
+vscode "esbenp.prettier-vscode"
+vscode "firefox-devtools.vscode-firefox-debug"
+vscode "formulahendry.code-runner"
+vscode "github.remotehub"
+vscode "gruntfuggly.todo-tree"
+vscode "hashicorp.terraform"
+vscode "ibm.output-colorizer"
+vscode "ionutvmi.path-autocomplete"
+vscode "janisdd.vscode-edit-csv"
+vscode "kdl-org.kdl"
+vscode "kamikillerto.vscode-colorize"
+vscode "mathematic.vscode-pdf"
+vscode "mechatroner.rainbow-csv"
+vscode "mousavian.ssh-config-syntax-highlighter"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.python"
+vscode "ms-vscode.live-server"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "redhat.ansible"
+vscode "redhat.vscode-yaml"
+vscode "sharat.vscode-brewfile"
+vscode "sumneko.lua"
+vscode "tamasfe.even-better-toml"
+vscode "timonwong.shellcheck"
+vscode "wayou.vscode-todo-highlight"
+{{ end }}
+
+{{ if eq .headless "true" -}}
+brew "docker"
+brew "docker-compose"
+brew "lazydocker"
+{{ end }}
+
+brew "asdf"
+brew "atuin"
+brew "bat"
+brew "bat-extras"
+brew "bitwarden-cli"
+brew "chezmoi"
+brew "cloudflared" 
+brew "coreutils"
+brew "curl"
+brew "envconsul"
+brew "eza"
+brew "fclones"
+brew "fd"
+brew "fzf"
+brew "gcc" if OS.linux?
+brew "gh"
+brew "git"
+brew "glow"
+brew "gmailctl", args: ["HEAD"]
+brew "gnu-sed"
+brew "hashicorp/tap/vault"
+brew "jq"
+brew "lazygit"
+brew "navi"
+brew "neovim"
+brew "notify"
+brew "openssl"
+brew "pcre" # Required for pcre module in brew zsh?
+brew "pcre2" # Required for pcre module in brew zsh?
+brew "rclone"
+brew "php"
+brew "ncdu"
+brew "prettier"
+brew "rsync"
+brew "readline"
+brew "ripgrep"
+brew "ruff"
+brew "shellcheck"
+brew "starship"
+brew "sqlite"
+brew "tcl-tk"
+brew "tealdeer"
+brew "tmux"
+brew "trash"
+brew "watchman"
+brew "web-ext"
+brew "xz"
+brew "yazi"
+brew "yq"
+brew "zlib"
+brew "zoxide"
+brew "zsh"
