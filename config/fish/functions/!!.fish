@@ -1,4 +1,3 @@
-function !! --wraps='gh copilot suggest' --description 'alias !! gh copilot suggest'
-  gh copilot suggest $argv
-        
+function !! --description 'run shai with arguments'
+  shai $argv
 end

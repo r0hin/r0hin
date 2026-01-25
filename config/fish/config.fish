@@ -26,6 +26,13 @@ end
 # pnpm global
 set -gx PNPM_HOME ~/.pnpm/store
 
+# pnpm
+set -gx PNPM_HOME "/Users/rohin/.pnpm/store"
+if not contains "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
 # Bat theme
 if does_command_exist "bat"
     set -gx BAT_THEME rose-pine
