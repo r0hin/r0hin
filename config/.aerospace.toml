@@ -1,4 +1,4 @@
-# Rohin's Aerospace Configuration
+# Rohin's Aerospace SINGLE WINDOW Configuration
 # Mostly default, but decent customizations
 
 # @@@@@@ LOGIN @@@@@@
@@ -21,6 +21,8 @@ accordion-padding = 30
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = []
+# on-focus-changed = ['exec-and-forget ~/.config/aerospace/smart-padding.sh']
 automatically-unhide-macos-hidden-apps = false
 
 [key-mapping]
@@ -65,19 +67,22 @@ alt-equal = 'resize smart +100'
 
 # @@@@@@ GO TO WORKSPACE @@@@@@
 
-alt-0 = 'workspace 0'
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
+alt-1 = 'workspace 0'
+alt-2 = 'workspace 1'
+alt-3 = 'workspace 2'
+alt-4 = 'workspace 3'
+alt-5 = 'workspace 4'
+alt-6 = 'workspace 5'
+alt-q = 'workspace 6'
+alt-w = 'workspace 7'
+alt-a = 'workspace 8'
 
 # @@@@@@ FOCUS (NOT USED, KINDA DUMB) @@@@@@
 
-alt-6 = 'focus left'
-alt-7 = 'focus up'
-alt-8 = 'focus down'
-alt-9 = 'focus right'
+alt-7 = 'focus left'
+alt-8 = 'focus up'
+alt-9 = 'focus down'
+alt-0 = 'focus right'
 
 alt-shift-j = ['join-with left', 'mode main']
 alt-shift-k = ['join-with down', 'mode main']
@@ -86,12 +91,15 @@ alt-shift-h = ['join-with up', 'mode main']
 
 # @@@@@@ MOVING WINDOWS ALT+SHIFT+NUM @@@@@@
 
-alt-shift-0 = 'move-node-to-workspace 0'
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-1 = 'move-node-to-workspace 0'
+alt-shift-2 = 'move-node-to-workspace 1'
+alt-shift-3 = 'move-node-to-workspace 2'
+alt-shift-4 = 'move-node-to-workspace 3'
+alt-shift-5 = 'move-node-to-workspace 4'
+alt-shift-6 = 'move-node-to-workspace 5'
+alt-shift-q = 'move-node-to-workspace 6'
+alt-shift-w = 'move-node-to-workspace 7'
+alt-shift-a = 'move-node-to-workspace 8'
 
 
 # @@@@@@ SERVICE MODE @@@@@@
@@ -146,7 +154,7 @@ alt-down = ['volume set 0', 'mode main']
 
 # Github Desktop 
 [[on-window-detected]]
-  if.app-id = 'com.github.GitHubClient'
+  if.app-id = 'com.github.GitHubClientxxxxx'
   run = 'layout floating'
 
 # Shottr
@@ -156,7 +164,7 @@ alt-down = ['volume set 0', 'mode main']
 
 # Mail
 [[on-window-detected]]
-  if.app-id = 'com.apple.mail'
+  if.app-id = 'com.apple.mailxxxxx'
   run = 'layout floating'
 
 # Bitwarden
@@ -166,17 +174,17 @@ alt-down = ['volume set 0', 'mode main']
 
 # Messages
 [[on-window-detected]]
-  if.app-id = 'com.apple.MobileSMS'
+  if.app-id = 'com.apple.MobileSMSxxxxx'
   run = 'layout floating'
   
 # Calendar
 [[on-window-detected]]
-  if.app-id = 'com.cron.electron'
+  if.app-id = 'com.cron.electronxxxx'
   run = 'layout floating'
 
 # Music
 [[on-window-detected]]
-  if.app-id = 'com.apple.Music'
+  if.app-id = 'com.apple.Musicxxxx'
   run = 'layout floating'
 
 # Electron (dev)
