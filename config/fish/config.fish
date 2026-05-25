@@ -48,7 +48,7 @@ if does_command_exist "eza"
 end
 
 # GPG & SSH
-if test "$USER" = "rohin"; and not set -q SSH_CLIENT
+if test "$USER" = "rohin"; and not set -q SSH_CLIENT; and does_command_exist gpgconf
     set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
     gpgconf --launch gpg-agent
 end
