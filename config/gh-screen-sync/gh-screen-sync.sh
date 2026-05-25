@@ -85,6 +85,6 @@ for name in "${folders[@]+"${folders[@]}"}"; do
   sess_name="${PREFIX}${name}"
   if ! "$SCREEN" -ls 2>/dev/null | grep -qE "\.${sess_name}[[:space:]]"; then
     trust_folder "$GITHUB_DIR/$name"
-    "$SCREEN" -dmS "$sess_name" bash -c "cd \"$GITHUB_DIR/$name\" && exec \"$CLAUDE\" rc"
+    "$SCREEN" -dmS "$sess_name" bash -c "cd \"$GITHUB_DIR/$name\" && exec \"$CLAUDE\" rc --name \"$name\" --spawn=same-dir"
   fi
 done
