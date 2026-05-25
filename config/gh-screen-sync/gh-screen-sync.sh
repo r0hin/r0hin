@@ -11,7 +11,10 @@ CLAUDE="$HOME/.local/bin/claude"
 SCREEN="/usr/bin/screen"
 CLAUDE_JSON="$HOME/.claude.json"
 
-# write hasTrustDialogAccepted=true for the given absolute path
+# pin hasTrustDialogAccepted=true and remoteControlSpawnMode=same-dir for the
+# given absolute path. claude rc honors the saved spawn mode over the cli flag
+# when both are present, so we pin same-dir explicitly to avoid drift from
+# manual 'w' toggles persisting across restarts.
 # uses atomic rename so we don't corrupt ~/.claude.json if claude is also writing
 trust_folder() {
   /usr/bin/python3 - "$1" "$CLAUDE_JSON" <<'PY'
@@ -24,9 +27,10 @@ except FileNotFoundError:
     d = {}
 projs = d.setdefault("projects", {})
 entry = projs.setdefault(path, {})
-if entry.get("hasTrustDialogAccepted") is True:
+desired = {"hasTrustDialogAccepted": True, "remoteControlSpawnMode": "same-dir"}
+if all(entry.get(k) == v for k, v in desired.items()):
     sys.exit(0)
-entry["hasTrustDialogAccepted"] = True
+entry.update(desired)
 fd, tmp = tempfile.mkstemp(dir=os.path.dirname(home_json), prefix=".claude.json.tmp.")
 os.close(fd)
 with open(tmp, "w") as f:
