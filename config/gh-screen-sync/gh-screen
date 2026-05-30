@@ -1,0 +1,121 @@
+#!/bin/bash
+# gh-screen: manage the gh-screen-sync launch agent and its screen sessions
+# subcommands: status (default), sync, attach <name>, doctor, reload
+set -u
+
+LABEL="in.r0h.github-screen-sync"
+SCRIPT="$HOME/.local/bin/gh-screen-sync.sh"
+PLIST="$HOME/Library/LaunchAgents/${LABEL}.plist"
+GITHUB_DIR="$HOME/GitHub"
+PREFIX="gh-"
+SCREEN="/usr/bin/screen"
+
+# basenames of eligible folders (skip git worktrees: .git is a file, not a dir)
+folders() {
+  local d
+  for d in "$GITHUB_DIR"/*/; do
+    [ -d "$d" ] || continue
+    [ -f "${d}.git" ] && continue
+    basename "$d"
+  done
+}
+
+# basenames of existing gh- screen sessions
+screens() {
+  "$SCREEN" -ls 2>/dev/null | grep -oE "\.${PREFIX}[^[:space:]]+" | sed "s/^\.${PREFIX}//"
+}
+
+has_screen() {
+  "$SCREEN" -ls 2>/dev/null | grep -qE "\.${PREFIX}$1[[:space:]]"
+}
+
+cmd_status() {
+  echo "folders -> screens:"
+  local f
+  for f in $(folders); do
+    if has_screen "$f"; then
+      echo "  [ok]      $f"
+    else
+      echo "  [MISSING] $f (no screen)"
+    fi
+  done
+  # orphan screens whose folder is gone
+  local s
+  for s in $(screens); do
+    if [ ! -d "$GITHUB_DIR/$s" ]; then
+      echo "  [ORPHAN]  $s (screen but no folder)"
+    fi
+  done
+}
+
+cmd_sync() {
+  "$SCRIPT"
+  echo "synced."
+  cmd_status
+}
+
+cmd_attach() {
+  local name="${1:-}"
+  [ -z "$name" ] && { echo "usage: gh-screen attach <name>"; exit 1; }
+  exec "$SCREEN" -r "${PREFIX}${name}"
+}
+
+cmd_reload() {
+  launchctl bootout "gui/$(id -u)/${LABEL}" 2>/dev/null
+  launchctl bootstrap "gui/$(id -u)" "$PLIST" && echo "bootstrapped." || {
+    echo "bootstrap failed. run this from your gui terminal (not a background shell)."
+    exit 1
+  }
+  launchctl list | grep "$LABEL" || echo "warning: not listed after bootstrap"
+}
+
+cmd_doctor() {
+  local ok=1
+  echo "gh-screen doctor"
+  echo "----------------"
+
+  # 1. script + plist present
+  if [ -x "$SCRIPT" ]; then echo "[ok]   sync script: $SCRIPT"; else echo "[FAIL] sync script missing or not executable: $SCRIPT"; ok=0; fi
+  if [ -f "$PLIST" ]; then echo "[ok]   plist: $PLIST"; else echo "[FAIL] plist missing: $PLIST"; ok=0; fi
+
+  # 2. agent loaded
+  if launchctl list 2>/dev/null | grep -q "$LABEL"; then
+    local line; line=$(launchctl list 2>/dev/null | grep "$LABEL")
+    echo "[ok]   launch agent loaded: $line"
+  else
+    echo "[FAIL] launch agent NOT loaded. run: gh-screen reload"
+    ok=0
+  fi
+
+  # 3. domain note (gui ops only work from the aqua session)
+  local mgr; mgr=$(launchctl managername 2>/dev/null)
+  if [ "$mgr" != "Aqua" ]; then
+    echo "[warn] launchctl domain is '$mgr', not 'Aqua'. reload must be run from your gui terminal."
+  fi
+
+  # 4. polling fallback present
+  if grep -q "StartInterval" "$PLIST" 2>/dev/null; then
+    echo "[ok]   StartInterval poll configured"
+  else
+    echo "[warn] no StartInterval; relies on WatchPaths which is unreliable for new folders"
+  fi
+
+  # 5. reconciliation
+  local missing=0 orphan=0 f s
+  for f in $(folders); do has_screen "$f" || { echo "[FAIL] folder without screen: $f"; missing=1; ok=0; }; done
+  for s in $(screens); do [ -d "$GITHUB_DIR/$s" ] || { echo "[warn] screen without folder: $s"; orphan=1; }; done
+  [ "$missing" -eq 0 ] && echo "[ok]   every folder has a screen"
+  [ "$orphan" -eq 0 ] && echo "[ok]   no orphan screens"
+
+  echo "----------------"
+  if [ "$ok" -eq 1 ]; then echo "healthy."; else echo "issues found (see above). try: gh-screen sync  /  gh-screen reload"; fi
+}
+
+case "${1:-status}" in
+  status|ls) cmd_status ;;
+  sync)      cmd_sync ;;
+  attach)    shift; cmd_attach "${1:-}" ;;
+  reload)    cmd_reload ;;
+  doctor)    cmd_doctor ;;
+  *) echo "usage: gh-screen {status|sync|attach <name>|reload|doctor}"; exit 1 ;;
+esac

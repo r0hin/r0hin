@@ -5,6 +5,15 @@
 
 set -u
 
+# single-instance lock. with watchpaths + 30s polling + manual `gh-screen sync`,
+# multiple copies can run at once and race to spawn duplicate screens. mkdir is
+# atomic (macos has no flock). a concurrent run just exits; the next tick covers it.
+LOCK="/tmp/gh-screen-sync.lock"
+if ! mkdir "$LOCK" 2>/dev/null; then
+  exit 0
+fi
+trap 'rmdir "$LOCK" 2>/dev/null' EXIT INT TERM
+
 GITHUB_DIR="$HOME/GitHub"
 PREFIX="gh-"
 CLAUDE="$HOME/.local/bin/claude"

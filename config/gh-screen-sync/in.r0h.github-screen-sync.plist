@@ -14,6 +14,10 @@
     </array>
     <key>RunAtLoad</key>
     <true/>
+    <!-- watchpaths is unreliable for new entries inside a watched dir, so poll
+         every 30s as a fallback. throttleinterval still caps restarts at 2s. -->
+    <key>StartInterval</key>
+    <integer>30</integer>
     <key>ThrottleInterval</key>
     <integer>2</integer>
     <key>StandardOutPath</key>
