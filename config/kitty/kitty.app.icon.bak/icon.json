@@ -1,0 +1,19 @@
+{
+  "supported-platforms" : {
+    "circles" : [ "watchOS" ],
+    "squares" : "shared"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        { "image-name" : "kitty-background.png", "name" : "Background" }
+      ]
+    },
+    {
+      "layers" : [
+        { "image-name" : "kitty-foreground.png", "name" : "Foreground" }
+      ],
+      "shadow" : { "kind" : "neutral", "opacity" : 0.5 }
+    }
+  ]
+}
