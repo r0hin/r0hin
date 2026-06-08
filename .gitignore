@@ -1,2 +1,4 @@
 .DS_Store
 config/kitty/kitty_search/
+fish_variables
+.claude/*
