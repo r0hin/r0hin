@@ -67,15 +67,16 @@ alt-equal = 'resize smart +100'
 
 # @@@@@@ GO TO WORKSPACE @@@@@@
 
-alt-1 = 'workspace 0'
-alt-2 = 'workspace 1'
-alt-3 = 'workspace 2'
-alt-4 = 'workspace 3'
-alt-5 = 'workspace 4'
-alt-6 = 'workspace 5'
-alt-q = 'workspace 6'
-alt-w = 'workspace 7'
-alt-a = 'workspace 8'
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-q = 'workspace Q'
+alt-w = 'workspace W'
+alt-a = 'workspace A'
+alt-z = 'workspace Z'
 
 # @@@@@@ FOCUS (NOT USED, KINDA DUMB) @@@@@@
 
@@ -91,15 +92,16 @@ alt-shift-h = ['join-with up', 'mode main']
 
 # @@@@@@ MOVING WINDOWS ALT+SHIFT+NUM @@@@@@
 
-alt-shift-1 = 'move-node-to-workspace 0'
-alt-shift-2 = 'move-node-to-workspace 1'
-alt-shift-3 = 'move-node-to-workspace 2'
-alt-shift-4 = 'move-node-to-workspace 3'
-alt-shift-5 = 'move-node-to-workspace 4'
-alt-shift-6 = 'move-node-to-workspace 5'
-alt-shift-q = 'move-node-to-workspace 6'
-alt-shift-w = 'move-node-to-workspace 7'
-alt-shift-a = 'move-node-to-workspace 8'
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-q = 'move-node-to-workspace Q'
+alt-shift-w = 'move-node-to-workspace W'
+alt-shift-a = 'move-node-to-workspace A'
+alt-shift-z = 'move-node-to-workspace Z'
 
 
 # @@@@@@ SERVICE MODE @@@@@@

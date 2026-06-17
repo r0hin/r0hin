@@ -14,6 +14,9 @@
 # @raycast.author r0hin
 # @raycast.authorURL https://raycast.com/r0hin
 
+# resolve the script's own directory so vpnutil is found regardless of cwd
+cd "$(dirname "$0")" || exit 1
+
 # if ./vpnutil status USA contains "Connected", then disconnect, else connect
 if [[ $(./vpnutil status USA) == *"Connected"* ]]; then
   ./vpnutil stop USA && echo "🔓 Disconnected ‼️"
