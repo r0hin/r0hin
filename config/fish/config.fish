@@ -42,8 +42,8 @@ if does_command_exist "bat"
 end
 
 if does_command_exist "eza"
-    function ls --wraps='eza --color=always --long --git --icons=always --no-time --no-user --no-permissions' --description 'alias ls eza --color=always --long --git --icons=always --no-time --no-user --no-permissions'
-        eza --color=always --long --git --icons=always --no-time --no-user --no-permissions $argv
+    function ls --wraps='eza --color=always --long --git --icons=always --no-user --no-permissions --no-filesize --time-style=long-iso' --description 'alias ls eza --color=always --long --git --icons=always --no-user --no-permissions --no-filesize --time-style=long-iso'
+        eza --color=always --long --git --icons=always --no-user --no-permissions --no-filesize --time-style=long-iso $argv
     end
 end
 
