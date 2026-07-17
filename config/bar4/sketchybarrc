@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# 4th spaces row (Z X)
+export BAR_NAME=bar4
+export Y_OFFSET=12
+exec "$HOME/.config/sketchybar/row_bar.sh" Z X

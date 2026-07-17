@@ -7,9 +7,34 @@ export ITEM_DIR="$CONFIG_DIR/items"
 source "$CONFIG_DIR/colors.sh"
 
 # ========================================
-# TOP BAR CONFIGURATION
+# BOTTOM-LEFT STACK, TOP SPACES ROW (1-6)
+# other rows are separate instances spawned below (see row_bar.sh)
 # ========================================
+export Y_OFFSET=111
 source "$CONFIG_DIR/bar.sh"
-source "$ITEM_DIR/spaces2.sh"
+source "$CONFIG_DIR/defaults.sh"
 
-${BAR_NAME:-sketchybar} --update
+BAR=${BAR_NAME:-sketchybar}
+
+$BAR --add item aerospace_mode left \
+  --subscribe aerospace_mode aerospace_mode_change \
+  --set aerospace_mode icon="" \
+  script="$CONFIG_DIR/plugins/aerospace_mode.sh" \
+  icon.color="$ACCENT_COLOR" \
+  icon.padding_left=4 \
+  drawing=off
+
+source "$ITEM_DIR/spaces_row.sh" 1 2 3 4 5 6
+
+$BAR --update
+
+# spawn the sibling rows if not already running
+# config_dir is stripped so each instance finds its own config,
+# bar_name and path are injected so their plugin scripts target the right bar
+for sibling in bar2 bar3 bar4 powerbar; do
+  if ! pgrep -xq "$sibling"; then
+    env -u CONFIG_DIR -u PLUGIN_DIR -u ITEM_DIR -u Y_OFFSET \
+      PATH="$HOME/.local/bin:$PATH" BAR_NAME="$sibling" \
+      "$HOME/.local/bin/$sibling" &
+  fi
+done

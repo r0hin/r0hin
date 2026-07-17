@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# power distribution widget, sits above the space rows
+export PATH="$HOME/.local/bin:$PATH"
+export BAR_NAME=powerbar
+export Y_OFFSET=144
+export CONFIG_DIR="$HOME/.config/sketchybar"
+export PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/bar.sh"
+source "$CONFIG_DIR/defaults.sh"
+
+powerbar --add item power left \
+  --subscribe power system_woke power_source_change \
+  --set power \
+    update_freq=3 \
+    icon=󱐋 \
+    icon.padding_left=7 \
+    icon.padding_right=4 \
+    label.padding_right=7 \
+    label.font="Hack Nerd Font:Bold:12.0" \
+    background.drawing=on \
+    background.color="$BACKGROUND" \
+    background.corner_radius=5 \
+    background.height=25 \
+    icon.color="$ACCENT_COLOR" \
+    label.color="$ACCENT_COLOR" \
+    script="$PLUGIN_DIR/power.sh"
+
+powerbar --update

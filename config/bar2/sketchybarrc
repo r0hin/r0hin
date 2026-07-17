@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# 2nd spaces row (Q W)
+export BAR_NAME=bar2
+export Y_OFFSET=78
+exec "$HOME/.config/sketchybar/row_bar.sh" Q W
