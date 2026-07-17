@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # stack the bottom-left rows bottom-up, hiding rows whose workspaces
-# are all empty and unfocused, with the power widget always on top
+# are all empty and unfocused
 
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:$PATH"
 
@@ -31,4 +31,3 @@ place bar4 "Z X"
 place bar3 "A"
 place bar2 "Q W"
 place sketchybar "1 2 3 4 5 6"
-powerbar --bar hidden=off y_offset=$Y

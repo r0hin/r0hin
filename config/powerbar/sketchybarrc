@@ -1,17 +1,25 @@
 #!/bin/bash
 
-# power distribution widget, sits above the space rows
+# power distribution widget, top center of the screen
 export PATH="$HOME/.local/bin:$PATH"
 export BAR_NAME=powerbar
-export Y_OFFSET=128
 export CONFIG_DIR="$HOME/.config/sketchybar"
 export PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 source "$CONFIG_DIR/colors.sh"
-source "$CONFIG_DIR/bar.sh"
+
+powerbar --bar \
+  position=top \
+  height=37 \
+  margin=0 \
+  y_offset=12 \
+  corner_radius=32 \
+  blur_radius=0 \
+  color="$BAR_COLOR"
+
 source "$CONFIG_DIR/defaults.sh"
 
-powerbar --add item power left \
+powerbar --add item power center \
   --subscribe power system_woke power_source_change \
   --set power \
     update_freq=3 \
@@ -21,11 +29,11 @@ powerbar --add item power left \
     label.padding_right=7 \
     label.font="Hack Nerd Font:Bold:12.0" \
     background.drawing=on \
-    background.color="$BACKGROUND" \
+    background.color="$ACCENT_COLOR" \
     background.corner_radius=5 \
     background.height=25 \
-    icon.color="$ACCENT_COLOR" \
-    label.color="$ACCENT_COLOR" \
+    icon.color="$WHITE" \
+    label.color="$WHITE" \
     script="$PLUGIN_DIR/power.sh"
 
 powerbar --update
