@@ -21,8 +21,12 @@ RSYNC=(rsync -a --delete --exclude=.git --exclude=.DS_Store)
 DIRS=(fish kitty linearmouse borders bat sketchybar bar2 bar3 bar4 powerbar aerospace)
 
 for d in "${DIRS[@]}"; do
-  "${RSYNC[@]}" --exclude=fish_variables "$HOME/.config/$d/" "$REPO/config/$d"
+  "${RSYNC[@]}" --exclude='fish_variables*' "$HOME/.config/$d/" "$REPO/config/$d"
 done
+
+# sanitized universal vars (fisher plugins, pure theme, paths); secrets filtered
+grep -viE "api_key|token|secret|password" "$HOME/.config/fish/fish_variables" \
+  > "$REPO/config/fish/fish_variables.sanitized"
 
 # led/icon daemon (venv, logs and snapshots are machine-local)
 "${RSYNC[@]}" --exclude=.venv --exclude='*.log' --exclude=wallpaper-snapshots \

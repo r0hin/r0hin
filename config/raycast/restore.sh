@@ -21,8 +21,14 @@ RSYNC=(rsync -a --delete --exclude=.git --exclude=.DS_Store)
 DIRS=(fish kitty linearmouse borders bat sketchybar bar2 bar3 bar4 powerbar aerospace)
 
 for d in "${DIRS[@]}"; do
-  "${RSYNC[@]}" --exclude=fish_variables "$REPO/config/$d/" "$HOME/.config/$d"
+  "${RSYNC[@]}" --exclude='fish_variables*' "$REPO/config/$d/" "$HOME/.config/$d"
 done
+
+# seed universal vars on a fresh machine (secrets must be re-added manually)
+if [ ! -f "$HOME/.config/fish/fish_variables" ] && [ -f "$REPO/config/fish/fish_variables.sanitized" ]; then
+  cp "$REPO/config/fish/fish_variables.sanitized" "$HOME/.config/fish/fish_variables"
+  echo "note: fish_variables seeded without secrets, re-add api keys with set -Ux"
+fi
 
 # led/icon daemon (venv, logs and snapshots are machine-local, protect from --delete)
 "${RSYNC[@]}" --exclude=.venv --exclude='*.log' --exclude=wallpaper-snapshots \

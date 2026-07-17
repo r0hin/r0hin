@@ -1,3 +1,13 @@
+# Environment (kept here so backups capture them; secrets stay in fish_variables)
+set -gx EDITOR zed --wait
+set -gx VISUAL zed --wait
+set -gx SHELL /opt/homebrew/bin/fish
+set -gx HOMEBREW_NO_ENV_HINTS 1
+set -gx CC /opt/homebrew/opt/llvm/bin/clang
+set -gx CXX /opt/homebrew/opt/llvm/bin/clang++
+set -gx PYENV_ROOT ~/.pyenv
+set -gx BUN_INSTALL ~/.bun/
+
 # Normalise $HOME if a macOS path leaked into a Linux SSH session
 if test (uname) = Linux
     if string match -q "/Users/*" "$HOME"
