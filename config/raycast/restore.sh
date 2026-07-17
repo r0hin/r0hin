@@ -26,6 +26,14 @@ done
 
 # led/icon daemon (venv is machine-local, rebuild it if missing)
 "${RSYNC[@]}" "$REPO/config/icon-appearance/" "$HOME/.config/icon-appearance"
+
+# zed (extensions dir is machine-local, protect it from --delete)
+"${RSYNC[@]}" --exclude=extensions "$REPO/config/zed/" "$HOME/.config/zed"
+
+# home dotfiles
+cp "$REPO/config/home/.gitconfig" "$HOME/.gitconfig"
+cp "$REPO/config/home/.zshrc" "$HOME/.zshrc"
+cp "$REPO/config/home/.hushlogin" "$HOME/.hushlogin"
 if [ ! -d "$HOME/.config/icon-appearance/.venv" ]; then
   echo "note: rebuild led daemon venv: cd ~/.config/icon-appearance && uv venv && uv pip install pyserial"
 fi
@@ -58,6 +66,7 @@ fi
 
 # restart the ui services on the restored configs
 brew services restart sketchybar >/dev/null 2>&1
+brew services restart borders >/dev/null 2>&1
 aerospace reload-config 2>/dev/null
 
 echo "restore: done"

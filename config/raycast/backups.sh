@@ -28,6 +28,13 @@ done
 "${RSYNC[@]}" --exclude=.venv --exclude='*.log' --exclude=wallpaper-snapshots \
   "$HOME/.config/icon-appearance/" "$REPO/config/icon-appearance"
 
+# zed (extensions reinstall themselves, ~28mb of binaries)
+"${RSYNC[@]}" --exclude=extensions "$HOME/.config/zed/" "$REPO/config/zed"
+
+# home dotfiles
+mkdir -p "$REPO/config/home"
+cp "$HOME/.gitconfig" "$HOME/.zshrc" "$HOME/.hushlogin" "$REPO/config/home/"
+
 # which aerospace config the ~/.aerospace.toml symlink points at
 readlink "$HOME/.aerospace.toml" | xargs basename > "$REPO/config/aerospace-active"
 

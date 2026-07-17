@@ -1,0 +1,167 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "cli_default_open_behavior": "existing_window",
+  "ssh_connections": [
+    {
+      "host": "ic2",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/Users/rohin/GitHub/neutrino"
+          ]
+        },
+        {
+          "paths": [
+            "/Users/rohin/github/freesolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "git_panel": {
+    "tree_view": true
+  },
+  "terminal": {
+    "shell": {
+      "program": "/opt/homebrew/bin/fish"
+    }
+  },
+  "cursor_shape": "bar",
+  "cursor_blink": false,
+  "agent_ui_font_size": 15.0,
+  "ui_font_weight": 350.0,
+  "ui_font_family": "Cartograph CF",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "cursor": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "default_config_options": {
+        "mode": "agent-full-access"
+      },
+      "type": "registry"
+    },
+    "claude-acp": {
+      "default_config_options": {
+        "effort": "high",
+        "model": "opus[1m]"
+      },
+      "favorite_config_option_values": {
+        "mode": ["acceptEdits", "bypassPermissions"]
+      },
+      "type": "registry"
+    }
+  },
+  "ui_font_size": 15.0,
+  "buffer_font_size": 15,
+
+  "theme": {
+    "mode": "system",
+    "light": "Rosé Pine Dawn",
+    "dark": "Rosé Pine"
+  },
+  "theme_overrides": {
+    "Rosé Pine": {
+      "background.appearance": "blurred",
+      // Rosé Pine dark translucent overrides
+      "background": "#191724e0",
+      "status_bar.background": "#191724e0",
+      "title_bar.background": "#191724e0",
+      "elevated_surface.background": "#191724e0",
+      "surface.background": "#191724e0",
+      "editor.background": "#00000000",
+      "editor.gutter.background": "#00000000",
+      "editor.line_number": "#908caa99",
+      "editor.active_line_number": "#c4a7e7",
+      "editor.active_line.background": "#403d5240",
+      "editor.indent_guide": "#c4a7e71a",
+      "editor.indent_guide_active": "#c4a7e733",
+      "border": "#6e6a8640",
+      "border.variant": "#6e6a8620",
+      "hint.background": "#26233acc",
+      "tab_bar.background": "#00000000",
+      "tab.active_background": "#c4a7e720",
+      "tab.inactive_background": "#00000000",
+      "element.selected": "#c4a7e720",
+      "panel.background": "#00000000",
+      "panel.indent_guide": "#c4a7e712",
+      "panel.indent_guide_hover": "#c4a7e716",
+      "panel.indent_guide_active": "#c4a7e71a",
+      "panel.focused_border": "#00000000",
+      "toolbar.background": "#00000000",
+      "terminal.background": "#00000000",
+      "scrollbar.track.background": "#00000000",
+      "scrollbar.track.border": "#00000000",
+      "scrollbar.thumb.background": "#c4a7e720",
+      "ghost_element.background": "#c4a7e705",
+      "ghost_element.hover": "#c4a7e710",
+      "ghost_element.active": "#c4a7e715",
+      "ghost_element.selected": "#c4a7e720",
+      "drop_target.background": "#c4a7e720",
+      "element.hover": "#c4a7e710",
+      "editor.highlighted_line.background": "#c4a7e725"
+    }
+  },
+
+  "format_on_save": "on",
+  "formatter": {
+    "language_server": { "name": "biome" }
+  },
+  "code_actions_on_format": {
+    "source.organizeImports.biome": true
+  },
+  "languages": {
+    "JavaScript": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": ["!oxlint", "!oxfmt", "..."]
+    },
+    "TypeScript": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": ["!oxlint", "!oxfmt", "..."]
+    },
+    "TSX": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": ["!oxlint", "!oxfmt", "..."]
+    },
+    "JSON": { "formatter": { "language_server": { "name": "biome" } } },
+    "JSONC": { "formatter": { "language_server": { "name": "biome" } } }
+  },
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    },
+    "oxlint": {
+      "binary": {
+        "path": "/Users/rohin/.config/zed/extensions/oxlint/node_modules/.bin/oxlint",
+        "arguments": ["--lsp"]
+      }
+    },
+    "oxfmt": {
+      "binary": {
+        "path": "/Users/rohin/.config/zed/extensions/oxlint/node_modules/.bin/oxfmt",
+        "arguments": ["--lsp"]
+      }
+    }
+  }
+}
