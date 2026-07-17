@@ -2,5 +2,5 @@
 
 # 3rd spaces row (A)
 export BAR_NAME=bar3
-export Y_OFFSET=45
+export Y_OFFSET=41
 exec "$HOME/.config/sketchybar/row_bar.sh" A

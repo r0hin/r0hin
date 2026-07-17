@@ -10,7 +10,7 @@ source "$CONFIG_DIR/colors.sh"
 # BOTTOM-LEFT STACK, TOP SPACES ROW (1-6)
 # other rows are separate instances spawned below (see row_bar.sh)
 # ========================================
-export Y_OFFSET=111
+export Y_OFFSET=99
 source "$CONFIG_DIR/bar.sh"
 source "$CONFIG_DIR/defaults.sh"
 
@@ -38,3 +38,6 @@ for sibling in bar2 bar3 bar4 powerbar; do
       "$HOME/.local/bin/$sibling" &
   fi
 done
+
+# compact the stack once the siblings are up
+(sleep 2 && "$PLUGIN_DIR/restack.sh") &

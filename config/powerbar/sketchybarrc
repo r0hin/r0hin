@@ -3,7 +3,7 @@
 # power distribution widget, sits above the space rows
 export PATH="$HOME/.local/bin:$PATH"
 export BAR_NAME=powerbar
-export Y_OFFSET=144
+export Y_OFFSET=128
 export CONFIG_DIR="$HOME/.config/sketchybar"
 export PLUGIN_DIR="$CONFIG_DIR/plugins"
 
@@ -15,7 +15,7 @@ powerbar --add item power left \
   --subscribe power system_woke power_source_change \
   --set power \
     update_freq=3 \
-    icon=󱐋 \
+    icon= \
     icon.padding_left=7 \
     icon.padding_right=4 \
     label.padding_right=7 \
