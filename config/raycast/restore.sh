@@ -24,8 +24,9 @@ for d in "${DIRS[@]}"; do
   "${RSYNC[@]}" --exclude=fish_variables "$REPO/config/$d/" "$HOME/.config/$d"
 done
 
-# led/icon daemon (venv is machine-local, rebuild it if missing)
-"${RSYNC[@]}" "$REPO/config/icon-appearance/" "$HOME/.config/icon-appearance"
+# led/icon daemon (venv, logs and snapshots are machine-local, protect from --delete)
+"${RSYNC[@]}" --exclude=.venv --exclude='*.log' --exclude=wallpaper-snapshots \
+  "$REPO/config/icon-appearance/" "$HOME/.config/icon-appearance"
 
 # zed (extensions dir is machine-local, protect it from --delete)
 "${RSYNC[@]}" --exclude=extensions "$REPO/config/zed/" "$HOME/.config/zed"
