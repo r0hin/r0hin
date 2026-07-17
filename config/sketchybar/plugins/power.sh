@@ -11,7 +11,6 @@ read -r src in_w sys_w batt_w pct state t < <(echo "$j" | jq -r \
   '[.source, (.in|round), (.sys|round), (.batt|round), .pct, .state, (.time // "-")] | join(" ")')
 
 if [ "$src" = "ac" ]; then
-  icon=
   label="${in_w}W in · ${sys_w}W sys"
   if [ "$state" = "charging" ]; then
     label+=" · ${batt_w}W batt"
@@ -19,9 +18,8 @@ if [ "$src" = "ac" ]; then
   fi
   label+=" · ${pct}%"
 else
-  icon=
   label="${sys_w}W out · ${pct}%"
   [ "$t" != "-" ] && label+=" · ${t}"
 fi
 
-$BAR --set "$NAME" icon="$icon" label="$label"
+$BAR --set "$NAME" label="$label"

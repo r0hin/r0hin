@@ -8,6 +8,14 @@ export PATH="$HOME/.local/bin:/opt/homebrew/bin:$PATH"
 PITCH=29
 Y=12
 
+# at login the sibling bars may still be booting, wait briefly for them
+for b in bar2 bar3 bar4 sketchybar; do
+  for _ in $(seq 10); do
+    "$b" --query bar >/dev/null 2>&1 && break
+    sleep 0.5
+  done
+done
+
 occupied=" $(aerospace list-windows --all --format '%{workspace}' | sort -u | tr '\n' ' ')$(aerospace list-workspaces --focused) "
 
 row_visible() {

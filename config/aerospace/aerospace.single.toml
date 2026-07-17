@@ -8,9 +8,9 @@ after-startup-command = []
 start-at-login = true
 
 # @@@@@ SKETCHYBAR @@@@@
-# Notify Sketchybar about workspace change
+# Notify all sketchybar instances (space rows) about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
-    'bottom_bar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE; for b in bar2 bar3 bar4; do $HOME/.local/bin/$b --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE; done; $HOME/.config/sketchybar/plugins/restack.sh'
 ]
 
 # @@@@@@ RANDOM THINGS @@@@@@
@@ -77,6 +77,7 @@ alt-q = 'workspace Q'
 alt-w = 'workspace W'
 alt-a = 'workspace A'
 alt-z = 'workspace Z'
+alt-x = 'workspace X'
 
 # @@@@@@ FOCUS (NOT USED, KINDA DUMB) @@@@@@
 
@@ -102,6 +103,7 @@ alt-shift-q = 'move-node-to-workspace Q'
 alt-shift-w = 'move-node-to-workspace W'
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-z = 'move-node-to-workspace Z'
+alt-shift-x = 'move-node-to-workspace X'
 
 
 # @@@@@@ SERVICE MODE @@@@@@

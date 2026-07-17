@@ -13,18 +13,51 @@
 # @raycast.author r0hin
 # @raycast.authorURL https://raycast.com/r0hin
 
-cp "${HOME}/GitHub/r0hin/config/.ssh/config" "${HOME}/.ssh/config"
+REPO="$HOME/GitHub/r0hin"
+RSYNC=(rsync -a --delete --exclude=.git --exclude=.DS_Store)
 
-cp "${HOME}/GitHub/r0hin/config/.aerospace.toml" "${HOME}/.aerospace.toml"
+# config dirs mirrored 1:1 from the repo
+# fish_variables is never in the backup (secrets), so protect the local copy
+DIRS=(fish kitty linearmouse borders bat sketchybar bar2 bar3 bar4 powerbar aerospace)
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/bat/" "${HOME}/.config/bat" --delete
+for d in "${DIRS[@]}"; do
+  "${RSYNC[@]}" --exclude=fish_variables "$REPO/config/$d/" "$HOME/.config/$d"
+done
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/sketchybar/" "${HOME}/.config/sketchybar" --delete
+# led/icon daemon (venv is machine-local, rebuild it if missing)
+"${RSYNC[@]}" "$REPO/config/icon-appearance/" "$HOME/.config/icon-appearance"
+if [ ! -d "$HOME/.config/icon-appearance/.venv" ]; then
+  echo "note: rebuild led daemon venv: cd ~/.config/icon-appearance && uv venv && uv pip install pyserial"
+fi
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/borders/" "${HOME}/.config/borders" --delete
+# recreate the active aerospace config symlink
+active=$(cat "$REPO/config/aerospace-active" 2>/dev/null)
+ln -sf "$HOME/.config/aerospace/${active:-aerospace.single.toml}" "$HOME/.aerospace.toml"
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/linearmouse/" "${HOME}/.config/linearmouse" --delete
+# personal cli scripts + sketchybar sibling instances
+mkdir -p "$HOME/.local/bin"
+install -m 755 "$REPO/config/bin/power" "$HOME/.local/bin/power"
+for b in bar2 bar3 bar4 powerbar; do
+  ln -sf /opt/homebrew/opt/sketchybar/bin/sketchybar "$HOME/.local/bin/$b"
+done
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/kitty/" "${HOME}/.config/kitty" --delete
+# custom launch agents
+cp "$REPO/config/launchagents/"*.plist "$HOME/Library/LaunchAgents/" 2>/dev/null
+for p in "$REPO/config/launchagents/"*.plist; do
+  launchctl load -w "$HOME/Library/LaunchAgents/$(basename "$p")" 2>/dev/null
+done
 
-rsync -av --exclude='.git' "${HOME}/GitHub/r0hin/config/fish/" "${HOME}/.config/fish" --delete
+# ssh config
+mkdir -p "$HOME/.ssh"
+cp "$REPO/config/.ssh/config" "$HOME/.ssh/config"
+
+# packages: report drift, install manually (can be slow)
+if ! brew bundle check --file="$REPO/config/Brewfile" >/dev/null 2>&1; then
+  echo "note: packages missing, run: brew bundle --file=$REPO/config/Brewfile"
+fi
+
+# restart the ui services on the restored configs
+brew services restart sketchybar >/dev/null 2>&1
+aerospace reload-config 2>/dev/null
+
+echo "restore: done"

@@ -13,19 +13,49 @@
 # @raycast.author r0hin
 # @raycast.authorURL https://raycast.com/r0hin
 
-# Copy local config files into GitHub
-rsync -av --exclude='.git' ~/.config/fish/ '/Users/rohin/GitHub/r0hin/config/fish' --delete
+REPO="$HOME/GitHub/r0hin"
+RSYNC=(rsync -a --delete --exclude=.git --exclude=.DS_Store)
 
-rsync -av --exclude='.git' ~/.config/kitty/ '/Users/rohin/GitHub/r0hin/config/kitty' --delete
+# config dirs mirrored 1:1 into the repo
+# fish_variables is excluded everywhere: it holds exported secrets
+DIRS=(fish kitty linearmouse borders bat sketchybar bar2 bar3 bar4 powerbar aerospace)
 
-rsync -av --exclude='.git' ~/.config/linearmouse/ '/Users/rohin/GitHub/r0hin/config/linearmouse' --delete
+for d in "${DIRS[@]}"; do
+  "${RSYNC[@]}" --exclude=fish_variables "$HOME/.config/$d/" "$REPO/config/$d"
+done
 
-rsync -av --exclude='.git' ~/.config/borders/ '/Users/rohin/GitHub/r0hin/config/borders' --delete
+# led/icon daemon (venv, logs and snapshots are machine-local)
+"${RSYNC[@]}" --exclude=.venv --exclude='*.log' --exclude=wallpaper-snapshots \
+  "$HOME/.config/icon-appearance/" "$REPO/config/icon-appearance"
 
-rsync -av --exclude='.git' ~/.config/sketchybar/ '/Users/rohin/GitHub/r0hin/config/sketchybar' --delete
+# which aerospace config the ~/.aerospace.toml symlink points at
+readlink "$HOME/.aerospace.toml" | xargs basename > "$REPO/config/aerospace-active"
 
-rsync -av --exclude='.git' ~/.config/bat/ '/Users/rohin/GitHub/r0hin/config/bat' --delete
+# custom launch agents
+mkdir -p "$REPO/config/launchagents"
+cp "$HOME"/Library/LaunchAgents/in.r0h.*.plist "$REPO/config/launchagents/"
 
-cp ~/.aerospace.toml '/Users/rohin/GitHub/r0hin/config/.aerospace.toml'
+# personal cli scripts (bar2/bar3/bar4/powerbar are symlinks, recreated on restore)
+mkdir -p "$REPO/config/bin"
+cp "$HOME/.local/bin/power" "$REPO/config/bin/power"
 
-cp /users/rohin/.ssh/config /Users/rohin/GitHub/r0hin/config/.ssh/config
+# ssh config
+mkdir -p "$REPO/config/.ssh"
+cp "$HOME/.ssh/config" "$REPO/config/.ssh/config"
+
+# installed packages
+brew bundle dump --force --file="$REPO/config/Brewfile" 2>/dev/null
+
+# commit and push
+cd "$REPO" || exit 1
+git add -A
+if git diff --cached --quiet; then
+  echo "backup: nothing changed"
+else
+  git commit -q -m "chore: backup $(date '+%Y-%m-%d %H:%M')"
+  if git push -q 2>/dev/null; then
+    echo "backup: committed and pushed"
+  else
+    echo "backup: committed, push failed"
+  fi
+fi

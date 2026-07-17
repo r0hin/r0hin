@@ -1,0 +1,192 @@
+# Rohin's NORMAL Aerospace Configuration
+# Mostly default, but decent customizations
+
+# @@@@@@ LOGIN @@@@@@
+
+after-login-command = []
+after-startup-command = []
+start-at-login = true
+
+# @@@@@ SKETCHYBAR @@@@@
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'bottom_bar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+# @@@@@@ RANDOM THINGS @@@@@@
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+accordion-padding = 30
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = []
+# on-focus-changed = ['exec-and-forget ~/.config/aerospace/smart-padding.sh']
+automatically-unhide-macos-hidden-apps = false
+
+[key-mapping]
+preset = 'qwerty'
+
+# @@@@@@ GAPS=12 because it's comfy @@@@@@
+
+[gaps]
+inner.horizontal = 10
+inner.vertical =   10
+outer.left =       8
+outer.bottom =     8
+outer.top =        8
+outer.right =      8
+
+[mode.main.binding]
+
+# @@@@@@ CHANGE MODE FROM FAN (accordian) OR TILE @@@@@@
+
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion vertical horizontal'
+
+# @@@@@@ FULLSCREEN @@@@@@
+alt-enter = 'macos-native-fullscreen'
+
+# @@@@@@ MINIMIZE @@@@@@
+alt-esc = 'macos-native-minimize'
+
+# @@@@@@ MOVE WINDOWS AROUND @@@@@@
+
+alt-j = 'move left'
+alt-l = 'move right'
+alt-i = 'move up'
+alt-k = 'move down'
+
+# @@@@@@ RESIZE @@@@@@
+
+alt-shift-minus = 'resize smart -250'
+alt-minus = 'resize smart -100'
+alt-shift-equal = 'resize smart +250'
+alt-equal = 'resize smart +100'
+
+# @@@@@@ GO TO WORKSPACE @@@@@@
+
+alt-0 = 'workspace 0'
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+
+# @@@@@@ FOCUS (NOT USED, KINDA DUMB) @@@@@@
+
+alt-6 = 'focus left'
+alt-7 = 'focus up'
+alt-8 = 'focus down'
+alt-9 = 'focus right'
+
+alt-shift-j = ['join-with left', 'mode main']
+alt-shift-k = ['join-with down', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+alt-shift-h = ['join-with up', 'mode main']
+
+# @@@@@@ MOVING WINDOWS ALT+SHIFT+NUM @@@@@@
+
+alt-shift-0 = 'move-node-to-workspace 0'
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+
+
+# @@@@@@ SERVICE MODE @@@@@@
+
+alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+# ESC -> Exit service mode
+esc = ['reload-config', 'mode main']
+
+# R -> Reset layout
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+
+# F -> Toggle floating for current window
+f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+
+# Q -> Exit aerospace
+q = 'enable toggle'
+
+# Backspace -> Close all windows but current
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# Volume control
+down = 'volume down'
+up = 'volume up'
+alt-down = ['volume set 0', 'mode main']
+
+# KITTY
+[[on-window-detected]]
+  if.app-id = 'net.kovidgoyal.kitty'
+  run = 'layout floating'
+
+# Finder
+[[on-window-detected]]
+  if.app-id = 'com.apple.finder'
+  run = 'layout floating'
+
+# BOOP
+[[on-window-detected]]
+  if.app-id = 'com.okatbest.boop'
+  run = 'layout floating'
+
+# Media Mate
+[[on-window-detected]]
+  if.app-id = 'com.tweety.MediaMate'
+  run = 'layout floating'
+
+# Vivid
+[[on-window-detected]]
+  if.app-id = 'com.goodsnooze.vivid'
+  run = 'layout floating'
+
+# Github Desktop 
+[[on-window-detected]]
+  if.app-id = 'com.github.GitHubClient'
+  run = 'layout floating'
+
+# Shottr
+[[on-window-detected]]
+  if.app-name-regex-substring = 'Shottr'
+  run = 'layout floating'
+
+# Mail
+[[on-window-detected]]
+  if.app-id = 'com.apple.mail'
+  run = 'layout floating'
+
+# Bitwarden
+[[on-window-detected]]
+  if.app-id = 'com.bitwarden.desktop'
+  run = 'layout floating'
+
+# Messages
+[[on-window-detected]]
+  if.app-id = 'com.apple.MobileSMS'
+  run = 'layout floating'
+  
+# Calendar
+[[on-window-detected]]
+  if.app-id = 'com.cron.electron'
+  run = 'layout floating'
+
+# Music
+[[on-window-detected]]
+  if.app-id = 'com.apple.Music'
+  run = 'layout floating'
+
+# Electron (dev)
+[[on-window-detected]]
+  if.app-id = 'com.github.Electron'
+  run = 'layout floating'
+
+# Facetime
+[[on-window-detected]]
+  if.app-id = 'com.apple.Facetime'
+  run = 'layout floating'

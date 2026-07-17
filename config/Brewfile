@@ -1,0 +1,319 @@
+tap "anomalyco/tap", trusted: true
+tap "antoniorodr/memo", trusted: true
+tap "bendews/tap", trusted: true
+tap "danielgatis/imgcat", trusted: true
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
+tap "fwdekker/mommy", trusted: true
+tap "getsentry/tools", trusted: true
+tap "homebrew/services"
+tap "infisical/get-cli"
+tap "nikitabobko/tap", trusted: true
+tap "sidneys/homebrew", trusted: true
+tap "supabase/tap", trusted: true
+tap "tw93/tap", trusted: true
+tap "twilio/brew", trusted: true
+tap "xykong/tap", trusted: true
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Library for command-line editing
+brew "readline"
+# Download with resuming and segmented downloading
+brew "aria2"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# NaCl networking and cryptography library
+brew "libsodium"
+# YAML Parser
+brew "libyaml"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Parser generator
+brew "bison"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
+# Get/set bluetooth power and discoverable state
+brew "blueutil"
+# Collection of portable C++ source libraries
+brew "boost"
+# Change macOS display brightness from the command-line
+brew "brightness"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Extract files from Microsoft cabinet files
+brew "cabextract"
+# CD/DVD/Blu-ray premastering and recording software
+brew "cdrtools"
+# Library for processing command-line flags
+brew "gflags"
+# Application-level logging library
+brew "glog"
+# LLVM's OpenMP runtime library
+brew "libomp"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# File format designed to store large amounts of data
+brew "hdf5"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Thin wrapper around chruby to make it work with the Fish shell
+brew "chruby-fish"
+# Tool for emulating mouse and keyboard events
+brew "cliclick"
+# Cross-platform make
+brew "cmake"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
+# Cryptographic recipes and primitives for Python
+brew "cryptography"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
+# Isolated development environments using Docker
+brew "docker-compose"
+# Create Docker hosts locally and on cloud providers
+brew "docker-machine", restart_service: :changed
+# Secure your credentials in environment variables
+brew "envchain"
+# Modern, maintained replacement for ls
+brew "eza"
+# Easiest way to build and release mobile apps
+brew "fastlane"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Command-line tools for fly.io services
+brew "flyctl"
+# Fast and simple Node.js version manager
+brew "fnm"
+# X11 implementation of the Remote Desktop Protocol (RDP)
+brew "freerdp"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU database manager
+brew "gdbm"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Git extension for versioning large files
+brew "git-lfs"
+# Passphrase entry dialog utilizing the Assuan protocol
+brew "pinentry"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# GNU grep, egrep and fgrep
+brew "grep"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Compression/decompression library aiming for high speed
+brew "snappy"
+# Key-value storage library with ordered mapping
+brew "leveldb"
+# Postgres C API library
+brew "libpq", link: true
+# Next-gen compiler infrastructure
+brew "llvm"
+# Lightning memory-mapped database: key-value data store
+brew "lmdb"
+# Powerful, lightweight programming language
+brew "lua"
+# Sudoless performance monitoring for Apple Silicon processors
+brew "macmon"
+# Apple Silicon Monitor Top written in Go Lang
+brew "mactop"
+# Development kit for the Java programming language
+brew "openjdk"
+# Java-based project management
+brew "maven"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
+# Use the OpenPGP web of trust to verify ssh connections
+brew "monkeysphere"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Retrieves currently playing media, and simulates media actions
+brew "nowplaying-cli"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Open source computer vision library
+brew "opencv"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# PDF converter to SVG
+brew "pdf2svg"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Paste PNG into files
+brew "pngpaste"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Python package management tool
+brew "poetry"
+# Python version management
+brew "pyenv"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Python interface to Tcl/Tk
+brew "python-tk@3.11"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
+brew "ruby-install"
+# Extremely fast Python linter, written in Rust
+brew "ruff"
+# Safe, concurrent, practical language
+brew "rust"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
+# Prints a steam locomotive if you type sl instead of ls
+brew "sl"
+# Spoof your MAC address in macOS
+brew "spoof-mac"
+# Postgres development platform
+brew "supabase"
+# Formatting tool for reformatting Swift code
+brew "swiftformat"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
+# User interface to the TELNET protocol
+brew "telnet"
+# Extremely fast LaTeX formatter written in Rust
+brew "tex-fmt"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Terminal multiplexer
+brew "tmux"
+# Language for application scale JavaScript development
+brew "typescript"
+# Command-line interface for Vercel
+brew "vercel-cli"
+# Internet file retriever
+brew "wget"
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# High-performance, asynchronous messaging library
+brew "zeromq"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode"
+# CLI app to manage your Apple Notes and Apple reminders
+brew "antoniorodr/memo/memo"
+# A window border system for macOS
+brew "felixkratz/formulae/borders", args: ["HEAD"]
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
+# mommy's here to support you, in any shell, on any system~ ❤️
+brew "fwdekker/mommy/mommy"
+# Sentry command-line client for some generic tasks
+brew "getsentry/tools/sentry-cli"
+# The official Infisical CLI
+brew "infisical/get-cli/infisical", trusted: true
+# Comprehensive macOS cleanup and application uninstall tool
+brew "tw93/tap/mole"
+# unleash the power of Twilio from your command prompt
+brew "twilio/brew/twilio"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace"
+# Voice and text chat software
+cask "discord"
+# Per-application volume mixer, equalizer, and audio router
+cask "finetune"
+# Markdown previews in Finder QuickLook with diagrams and math
+cask "xykong/tap/flux-markdown"
+cask "font-hack-nerd-font"
+cask "font-monaspace"
+cask "font-sf-mono"
+cask "font-sf-pro"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Desktop client for GitHub repositories
+cask "github"
+# Web browser
+cask "google-chrome"
+# Tools to protect your emails and files
+cask "gpg-suite"
+# Terminal built on web technologies
+cask "hyper"
+# Apple tool to create multi-platform icons
+cask "icon-composer"
+# Free and open-source media player
+cask "iina"
+# Open-source keystroke visualiser
+cask "keycastr"
+# GPU-based terminal emulator
+cask "kitty"
+# Customise mouse behavior
+cask "linearmouse"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# VPN client for secure internet access and private browsing
+cask "nordvpn"
+# AI coding agent desktop client
+cask "opencode-desktop"
+# Finder Toolbar app to open the current directory in Terminal or Editor
+cask "openinterminal"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
+# Team communication and collaboration software
+cask "slack"
+# Music streaming service
+cask "spotify"
+# Open-source code editor
+cask "visual-studio-code"
+# Network protocol analyzer
+cask "wireshark-app"
+# Open-source version of the X.Org X Window System
+cask "xquartz"
+# Video communication and virtual meeting platform
+cask "zoom"
+vscode "anthropic.claude-code"
+vscode "biomejs.biome"
+vscode "bradlc.vscode-tailwindcss"
+vscode "catppuccin.catppuccin-vsc"
+vscode "ecmel.vscode-html-css"
+vscode "esbenp.prettier-vscode"
+vscode "github.copilot-chat"
+vscode "gruntfuggly.todo-tree"
+vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-server"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "mvllow.rose-pine"
+vscode "oven.bun-vscode"
+vscode "tonybaloney.vscode-pets"
+vscode "vadimcn.vscode-lldb"
+vscode "yuichinukiyama.vscode-preview-server"
+cargo "thokr"
+npm "@openai/codex"
+npm "ai-cli"
+npm "corepack"

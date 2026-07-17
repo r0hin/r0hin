@@ -1,0 +1,282 @@
+#!/usr/bin/env python3
+# live power distribution: wall -> adapter -> system / battery
+# live watts come from the smc (sudoless, updates instantly):
+#   PDTR = dc-in from adapter, PSTR = system load, SBAP = battery power
+#   (negative = charging), VD0R/ID0R = dc-in volts/amps
+# slow metadata (percent, rated watts, time estimates) comes from ioreg
+# usage: power [-w [seconds]]
+
+import ctypes
+from ctypes import c_uint8, c_uint16, c_uint32, c_void_p, c_char_p, c_size_t, POINTER
+import plistlib
+import struct
+import subprocess
+import sys
+import time
+
+# ---------- smc access ----------
+
+iokit = ctypes.CDLL("/System/Library/Frameworks/IOKit.framework/IOKit")
+iokit.IOServiceGetMatchingService.restype = c_uint32
+iokit.IOServiceGetMatchingService.argtypes = [c_uint32, c_void_p]
+iokit.IOServiceMatching.restype = c_void_p
+iokit.IOServiceMatching.argtypes = [c_char_p]
+iokit.IOServiceOpen.argtypes = [c_uint32, c_uint32, c_uint32, POINTER(c_uint32)]
+iokit.IOConnectCallStructMethod.argtypes = [
+    c_uint32, c_uint32, c_void_p, c_size_t, c_void_p, POINTER(c_size_t)
+]
+
+libc = ctypes.CDLL("/usr/lib/libSystem.B.dylib")
+mach_task_self = c_uint32.in_dll(libc, "mach_task_self_")
+
+
+class Vers(ctypes.Structure):
+    _fields_ = [("major", c_uint8), ("minor", c_uint8), ("build", c_uint8),
+                ("reserved", c_uint8), ("release", c_uint16)]
+
+
+class PLimit(ctypes.Structure):
+    _fields_ = [("version", c_uint16), ("length", c_uint16),
+                ("cpuPLimit", c_uint32), ("gpuPLimit", c_uint32), ("memPLimit", c_uint32)]
+
+
+class KeyInfo(ctypes.Structure):
+    _fields_ = [("dataSize", c_uint32), ("dataType", c_uint32), ("dataAttributes", c_uint8)]
+
+
+class KeyData(ctypes.Structure):
+    _fields_ = [("key", c_uint32), ("vers", Vers), ("pLimitData", PLimit),
+                ("keyInfo", KeyInfo), ("result", c_uint8), ("status", c_uint8),
+                ("data8", c_uint8), ("data32", c_uint32), ("bytes", c_uint8 * 32)]
+
+
+class SMC:
+    def __init__(self):
+        service = iokit.IOServiceGetMatchingService(
+            0, iokit.IOServiceMatching(b"AppleSMC"))
+        if not service:
+            raise RuntimeError("applesmc not found")
+        conn = c_uint32(0)
+        if iokit.IOServiceOpen(service, mach_task_self, 0, ctypes.byref(conn)) != 0:
+            raise RuntimeError("could not open applesmc")
+        self.conn = conn.value
+        self.info_cache = {}
+
+    def call(self, inp):
+        out = KeyData()
+        outsize = c_size_t(ctypes.sizeof(out))
+        r = iokit.IOConnectCallStructMethod(
+            self.conn, 2, ctypes.byref(inp), ctypes.sizeof(inp),
+            ctypes.byref(out), ctypes.byref(outsize))
+        if r != 0:
+            raise RuntimeError(f"smc call failed: {r}")
+        return out
+
+    def read(self, keystr):
+        key = struct.unpack(">I", keystr.encode())[0]
+        if keystr not in self.info_cache:
+            inp = KeyData()
+            inp.key = key
+            inp.data8 = 9  # read keyinfo
+            info = self.call(inp)
+            if info.result != 0:
+                self.info_cache[keystr] = None
+            else:
+                self.info_cache[keystr] = (info.keyInfo.dataSize, info.keyInfo.dataType)
+        cached = self.info_cache[keystr]
+        if cached is None:
+            return None
+        size, dtype = cached
+        inp = KeyData()
+        inp.key = key
+        inp.data8 = 5  # read bytes
+        inp.keyInfo.dataSize = size
+        out = self.call(inp)
+        if out.result != 0:
+            return None
+        b = bytes(out.bytes[:size])
+        typename = struct.pack(">I", dtype).decode(errors="replace")
+        if typename == "flt ":
+            return struct.unpack("<f", b)[0]
+        return None
+
+    def watts(self, key):
+        v = self.read(key)
+        return v if v is not None else 0.0
+
+
+# ---------- ioreg metadata (slow-updating, used for percent/estimates) ----------
+
+def read_ioreg():
+    out = subprocess.run(["ioreg", "-arn", "AppleSmartBattery"],
+                         capture_output=True).stdout
+    return plistlib.loads(out)[0] if out else {}
+
+
+def fmt_time(minutes):
+    if not minutes or minutes >= 65535:
+        return None
+    return f"{minutes // 60}:{minutes % 60:02d}"
+
+
+# ---------- rendering ----------
+
+BAR_WIDTH = 22
+
+
+def bar(w, scale):
+    if scale <= 0:
+        return ""
+    eighths = round(max(0.0, w) / scale * BAR_WIDTH * 8)
+    full, rem = divmod(eighths, 8)
+    return "█" * full + (chr(0x2590 - rem) if rem else "")
+
+
+def collect(smc, meta):
+    dc_in = smc.watts("PDTR")            # adapter -> system, live
+    sys_w = smc.watts("PSTR")            # system load, live
+    batt_w = -smc.watts("SBAP")          # positive = charging, negative = discharging
+    volts = smc.watts("VD0R")
+    amps = smc.watts("ID0R")
+
+    external = dc_in > 0.5
+    percent = meta.get("CurrentCapacity", 0)
+    if meta.get("MaxCapacity", 100) != 100:
+        percent = round(100 * percent / meta["MaxCapacity"])
+    rated = meta.get("AdapterDetails", {}).get("Watts")
+
+    # slow-updating estimate of wall draw overhead inside the power brick
+    tel = meta.get("PowerTelemetryData", {})
+    loss = tel.get("AdapterEfficiencyLoss", 0)
+    loss_w = (loss - (1 << 64) if loss >= (1 << 63) else loss) / 1000
+    loss_w = max(0.0, loss_w)
+
+    t = fmt_time(meta.get("TimeRemaining"))
+    if batt_w > 0.1:
+        state = "charging"
+    elif batt_w < -0.1:
+        state = "discharging"
+    elif meta.get("FullyCharged"):
+        state = "full"
+    elif external and percent < 100:
+        state = "held"
+    else:
+        state = "idle"
+
+    return dict(dc_in=dc_in, sys_w=sys_w, batt_w=batt_w, volts=volts, amps=amps,
+                external=external, percent=percent, rated=rated, loss_w=loss_w,
+                state=state, time=t)
+
+
+def render(smc, meta):
+    s = collect(smc, meta)
+    dc_in, sys_w, batt_w = s["dc_in"], s["sys_w"], s["batt_w"]
+    volts, amps = s["volts"], s["amps"]
+    external, percent, rated, loss_w = s["external"], s["percent"], s["rated"], s["loss_w"]
+    t = s["time"]
+
+    if s["state"] == "charging":
+        batt_state = f"charging, {percent}%"
+        if t and not meta.get("FullyCharged"):
+            batt_state += f", ~{t} to full"
+    elif s["state"] == "discharging":
+        batt_state = f"discharging, {percent}%"
+        if t:
+            batt_state += f", ~{t} left"
+    elif s["state"] == "full":
+        batt_state = f"full, {percent}%"
+    elif s["state"] == "held":
+        batt_state = f"idle, {percent}% (charging held)"
+    else:
+        batt_state = f"idle, {percent}%"
+
+    lines = []
+
+    def row(label, w, note="", scale=None, indent=""):
+        b = f"  {bar(w, scale)}" if scale else ""
+        note = f"  {note}" if note else ""
+        prefix = f"{indent}{label}"
+        lines.append(f"  {prefix:<21}{w:6.1f}W{b}{note}")
+
+    if external:
+        wall = dc_in + loss_w
+        charging = max(0.0, batt_w)
+        conv = max(0.0, dc_in - sys_w - charging)
+        scale = max(wall, 0.1)
+
+        src = f"wall ({rated}W adapter" if rated else "wall (adapter"
+        if volts > 0.5:
+            src += f", {volts:.1f}V x {amps:.2f}A"
+        src += ")"
+        lines.append(f"  {src}")
+        row("in", wall, scale=scale, indent="│ ")
+        if loss_w > 0.05:
+            row("adapter loss", loss_w, scale=scale, indent="├─ ")
+        row("to system", dc_in, scale=scale, indent="└─ ")
+        row("system", sys_w, "(load)", scale=scale, indent="   ├─ ")
+        if charging > 0.1:
+            row("battery", charging, f"({batt_state})", scale=scale, indent="   ├─ ")
+        else:
+            lines.append(f"  {'   ├─ battery':<21}     -   ({batt_state})")
+        if batt_w < -0.1:
+            # plugged in but battery is also contributing
+            row("from battery", -batt_w, scale=scale, indent="   ├─ ")
+        row("conversion", conv, "(charger/pmu loss)", scale=scale, indent="   └─ ")
+    else:
+        discharge = max(-batt_w, 0.0)
+        scale = max(discharge, sys_w, 0.1)
+        lines.append(f"  battery ({batt_state})")
+        row("out", discharge, scale=scale, indent="│ ")
+        row("system", sys_w, "(load)", scale=scale, indent="└─ ")
+
+    return "\n".join(lines)
+
+
+def main():
+    watch = False
+    interval = 1.0
+    args = sys.argv[1:]
+    if args and args[0] == "--json":
+        import json
+        s = collect(SMC(), read_ioreg())
+        print(json.dumps({
+            "source": "ac" if s["external"] else "battery",
+            "in": round(s["dc_in"] + s["loss_w"], 1),
+            "sys": round(s["sys_w"], 1),
+            "batt": round(s["batt_w"], 1),
+            "pct": s["percent"],
+            "state": s["state"],
+            "time": s["time"],
+        }))
+        return
+    if args and args[0] in ("-w", "--watch"):
+        watch = True
+        if len(args) > 1:
+            interval = float(args[1])
+    elif args:
+        sys.exit(f"usage: {sys.argv[0]} [-w [seconds] | --json]")
+
+    smc = SMC()
+
+    if not watch:
+        print(render(smc, read_ioreg()))
+        return
+
+    meta = read_ioreg()
+    last_meta = time.monotonic()
+    try:
+        while True:
+            frame = render(smc, meta)
+            sys.stdout.write("\x1b[H\x1b[2J" + frame + "\n")
+            sys.stdout.flush()
+            time.sleep(interval)
+            # refresh slow metadata every 10s
+            if time.monotonic() - last_meta > 10:
+                meta = read_ioreg()
+                last_meta = time.monotonic()
+    except KeyboardInterrupt:
+        pass
+
+
+if __name__ == "__main__":
+    main()
