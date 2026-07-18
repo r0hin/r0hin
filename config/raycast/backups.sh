@@ -28,8 +28,11 @@ done
 grep -viE "api_key|token|secret|password" "$HOME/.config/fish/fish_variables" \
   > "$REPO/config/fish/fish_variables.sanitized"
 
-# led/icon daemon (venv, logs and snapshots are machine-local)
-"${RSYNC[@]}" --exclude=.venv --exclude='*.log' --exclude=wallpaper-snapshots \
+# led/icon daemon (venv and logs are machine-local). wallpaper snapshots are
+# backed up so a lost snapshot dir is recoverable; the images they point at in
+# ~/Pictures/Wallpapers are not backed up here, so restore recovers the snapshot
+# on this machine but a fresh machine needs those images present too.
+"${RSYNC[@]}" --exclude=.venv --exclude='*.log' \
   "$HOME/.config/icon-appearance/" "$REPO/config/icon-appearance"
 
 # zed (extensions reinstall themselves, ~28mb of binaries)

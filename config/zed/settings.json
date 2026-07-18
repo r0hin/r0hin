@@ -7,6 +7,49 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "tool_permissions": {
+      "default": "allow"
+    },
+    "default_profile": "write",
+    "profiles": {
+
+    },
+    "default_model": {
+      "provider": "0xInference",
+      "model": "gpt-5.6-sol",
+      "enable_thinking": true,
+      "effort": "high"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "language_models": {
+      "openai_compatible": {
+        "0xInference": {
+          "api_url": "https://ai-0x41labs842142428636.openai.azure.com/openai/v1",
+          "available_models": [
+            {
+              "name": "gpt-5.6-sol",
+              "display_name": "GPT-5.6 Sol",
+              "max_tokens": 200000,
+              "max_output_tokens": 32000,
+              "max_completion_tokens": 32000,
+              "reasoning_effort": "medium",
+              "capabilities": {
+                "tools": true,
+                "images": true,
+                "parallel_tool_calls": true,
+                "prompt_cache_key": true,
+                "chat_completions": false,
+                "interleaved_reasoning": false,
+                "max_tokens_parameter": false
+              }
+            }
+          ]
+        }
+      }
+    },
   "cli_default_open_behavior": "existing_window",
   "ssh_connections": [
     {
@@ -163,5 +206,5 @@
         "arguments": ["--lsp"]
       }
     }
-  }
+  },
 }

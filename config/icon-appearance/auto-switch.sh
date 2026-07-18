@@ -39,13 +39,17 @@ if pgrep -x borders >/dev/null 2>&1; then
   /opt/homebrew/bin/borders active_color=$b_active inactive_color=0x00000000 >/dev/null 2>&1
 fi
 
-# wallpaper depends on mode only -> gate on mode change
+# wallpaper depends on mode only -> gate on mode change.
+# only record the mode as applied if the snapshot actually existed and was
+# copied, so a missing snapshot retries next run instead of silently succeeding.
 if [ "$mode" != "$(cat "$MODE_STATE" 2>/dev/null)" ]; then
   if [ -f "$SNAP/$mode/Index.plist" ]; then
     cp "$SNAP/$mode/Index.plist" "$STORE/Index.plist"
     killall WallpaperAgent 2>/dev/null || true
+    echo "$mode" > "$MODE_STATE"
+  else
+    echo "auto-switch: missing wallpaper snapshot $SNAP/$mode/Index.plist" >&2
   fi
-  echo "$mode" > "$MODE_STATE"
 fi
 
 # icon style: dark->tinted, light+focus->clear, light+no-focus->default

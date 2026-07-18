@@ -30,8 +30,10 @@ if [ ! -f "$HOME/.config/fish/fish_variables" ] && [ -f "$REPO/config/fish/fish_
   echo "note: fish_variables seeded without secrets, re-add api keys with set -Ux"
 fi
 
-# led/icon daemon (venv, logs and snapshots are machine-local, protect from --delete)
-"${RSYNC[@]}" --exclude=.venv --exclude='*.log' --exclude=wallpaper-snapshots \
+# led/icon daemon (venv and logs are machine-local, protect from --delete).
+# wallpaper snapshots are restored; the images they reference must already exist
+# in ~/Pictures/Wallpapers or the restored wallpaper will be blank.
+"${RSYNC[@]}" --exclude=.venv --exclude='*.log' \
   "$REPO/config/icon-appearance/" "$HOME/.config/icon-appearance"
 
 # zed (extensions dir is machine-local, protect it from --delete)
