@@ -16,9 +16,9 @@ if [ "$SENDER" == "mouse.entered" ]; then
   fi
   $BAR --set "$NAME" \
     background.drawing=on \
-    label.color="$BACKGROUND" \
-    icon.color="$BACKGROUND" \
-    background.color="$ACCENT_COLOR"
+    label.color="$SEL_TEXT" \
+    icon.color="$SEL_TEXT" \
+    background.color="$SEL_BG"
   exit 0
 fi
 
@@ -60,9 +60,9 @@ if [ -z "$icons" ]; then
       display="$monitor" \
       drawing=on \
       label="$icons" \
-      label.color="$BACKGROUND" \
-      icon.color="$BACKGROUND" \
-      background.color="$ACCENT_COLOR" \
+      label.color="$SEL_TEXT" \
+      icon.color="$SEL_TEXT" \
+      background.color="$SEL_BG" \
       background.drawing=on
   else
     $BAR --set "$NAME" drawing=off
@@ -74,9 +74,9 @@ else
       display="$monitor" \
       drawing=on \
       label="$icons" \
-      label.color="$BACKGROUND" \
-      icon.color="$BACKGROUND" \
-      background.color="$ACCENT_COLOR" \
+      label.color="$SEL_TEXT" \
+      icon.color="$SEL_TEXT" \
+      background.color="$SEL_BG" \
       background.drawing=on
   else
     $BAR --set "$NAME" \

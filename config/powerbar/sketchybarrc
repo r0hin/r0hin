@@ -28,11 +28,11 @@ powerbar --add item power center \
     label.padding_right=8 \
     label.font="Hack Nerd Font:Bold:12.0" \
     background.drawing=on \
-    background.color="$ACCENT_COLOR" \
+    background.color="$SEL_BG" \
     background.corner_radius=5 \
     background.height=25 \
-    icon.color="$WHITE" \
-    label.color="$WHITE" \
+    icon.color="$SEL_TEXT" \
+    label.color="$SEL_TEXT" \
     script="$PLUGIN_DIR/power.sh"
 
 powerbar --update

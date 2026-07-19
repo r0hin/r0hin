@@ -38,6 +38,21 @@ if pgrep -x borders >/dev/null 2>&1; then
   /opt/homebrew/bin/borders active_color=$b_active inactive_color=0x00000000 >/dev/null 2>&1
 fi
 
+# sketchybar theme depends on mode only. the bars read their palette from
+# colors.sh only at startup, so a mode change means restarting them. kill the
+# siblings so the main bar respawns them, then kickstart the brew-managed main
+# bar for an immediate restart (kickstart -k skips launchd's ~10s KeepAlive
+# respawn throttle, so the bars don't vanish for 10s). gate on a saved mode so
+# this fires once per change, not every poll.
+SB_STATE="$CFG/.applied-sketchybar-mode"
+if [ "$mode" != "$(cat "$SB_STATE" 2>/dev/null)" ]; then
+  if pgrep -x sketchybar >/dev/null 2>&1; then
+    killall bar2 bar3 bar4 powerbar 2>/dev/null || true
+    launchctl kickstart -k "gui/$(id -u)/homebrew.mxcl.sketchybar" >/dev/null 2>&1 || true
+  fi
+  echo "$mode" > "$SB_STATE"
+fi
+
 # wallpaper depends on mode only. the swap = copy the mode's snapshot over the
 # live store (Store/Index.plist), then relaunch WallpaperAgent so it re-reads.
 # two wrinkles on this macos:
