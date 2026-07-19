@@ -16,7 +16,6 @@
 CFG="$HOME/.config/icon-appearance"
 SNAP="$CFG/wallpaper-snapshots"
 STORE="$HOME/Library/Application Support/com.apple.wallpaper/Store"
-MODE_STATE="$CFG/.applied-mode"
 ICON_STATE="$CFG/.applied-icon"
 
 # light/dark
@@ -39,17 +38,42 @@ if pgrep -x borders >/dev/null 2>&1; then
   /opt/homebrew/bin/borders active_color=$b_active inactive_color=0x00000000 >/dev/null 2>&1
 fi
 
-# wallpaper depends on mode only -> gate on mode change.
-# only record the mode as applied if the snapshot actually existed and was
-# copied, so a missing snapshot retries next run instead of silently succeeding.
-if [ "$mode" != "$(cat "$MODE_STATE" 2>/dev/null)" ]; then
-  if [ -f "$SNAP/$mode/Index.plist" ]; then
-    cp "$SNAP/$mode/Index.plist" "$STORE/Index.plist"
-    killall WallpaperAgent 2>/dev/null || true
-    echo "$mode" > "$MODE_STATE"
+# wallpaper depends on mode only. the swap = copy the mode's snapshot over the
+# live store (Store/Index.plist), then relaunch WallpaperAgent so it re-reads.
+# two wrinkles on this macos:
+#   1. WallpaperAgent re-serializes Index.plist on every relaunch, so an exact
+#      byte compare against the snapshot always reads "different" even when the
+#      swap worked. instead we tell light vs dark apart by file size (the two
+#      snapshots differ by ~185 bytes, far more than the agent's re-serialize
+#      drift of ~10), so "closest snapshot by size" = the currently live mode.
+#   2. during an appearance transition the relaunching agent briefly re-derives
+#      the wallpaper from its own store and can clobber our copy a moment later.
+# so: apply only when the live wallpaper isn't already the wanted mode. that
+# gives no flicker in steady state, and it self-heals: if a transition clobbers
+# our copy, the next poll (15s) simply detects the mismatch and reapplies. the
+# extra re-assert after a short settle wins the race in the common case.
+snap="$SNAP/$mode/Index.plist"
+[ "$mode" = dark ] && osnap="$SNAP/light/Index.plist" || osnap="$SNAP/dark/Index.plist"
+if [ -f "$snap" ]; then
+  live=$(stat -f %z "$STORE/Index.plist" 2>/dev/null || echo 0)
+  want=$(stat -f %z "$snap")
+  d_want=$(( live > want ? live - want : want - live ))
+  if [ -f "$osnap" ]; then
+    o=$(stat -f %z "$osnap")
+    d_other=$(( live > o ? live - o : o - live ))
   else
-    echo "auto-switch: missing wallpaper snapshot $SNAP/$mode/Index.plist" >&2
+    d_other=999999
   fi
+  # live wallpaper is closer in size to the other mode -> it's wrong, (re)apply
+  if [ "$d_want" -gt "$d_other" ]; then
+    cp "$snap" "$STORE/Index.plist"
+    killall WallpaperAgent 2>/dev/null || true
+    sleep 3
+    cp "$snap" "$STORE/Index.plist"
+    killall WallpaperAgent 2>/dev/null || true
+  fi
+else
+  echo "auto-switch: missing wallpaper snapshot $snap" >&2
 fi
 
 # icon style: dark->tinted, light+focus->clear, light+no-focus->default
