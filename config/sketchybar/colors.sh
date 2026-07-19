@@ -20,10 +20,10 @@ if [ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" = "Dark" ]; then
   export ITEM_TEXT=0xffE8943A
   export ITEM_BG=0xff101314
 else
-  # light: white accent, black text
+  # light: white accent with black text; unselected space text is white
   export SEL_BG=0xffffffff
   export SEL_TEXT=0xff000000
-  export ITEM_TEXT=0xff000000
+  export ITEM_TEXT=0xffffffff
   export ITEM_BG=0xffffffff
 fi
 
