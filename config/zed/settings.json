@@ -8,6 +8,11 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "docs.github.com"
+      ]
+    },
     "tool_permissions": {
       "default": "allow"
     },
@@ -19,7 +24,7 @@
       "provider": "0xInference",
       "model": "gpt-5.6-sol",
       "enable_thinking": true,
-      "effort": "high"
+      "effort": "medium"
     },
     "favorite_models": [],
     "model_parameters": []
@@ -58,12 +63,27 @@
       "projects": [
         {
           "paths": [
+            "/Users/rohin"
+          ]
+        },
+        {
+          "paths": [
             "/Users/rohin/GitHub/neutrino"
           ]
         },
         {
           "paths": [
             "/Users/rohin/github/freesolo"
+          ]
+        },
+        {
+          "paths": [
+            "/Users/rohin/github/invariant"
+          ]
+        },
+        {
+          "paths": [
+            "/Users/rohin/github/parallel-legacy"
           ]
         }
       ]
