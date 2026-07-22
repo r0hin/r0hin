@@ -119,42 +119,45 @@ if [ "$mode" != "$(cat "$HELIUM_STATE" 2>/dev/null)" ]; then
   # else: helium is frontmost; leave it for a later poll
 fi
 
-# wallpaper depends on mode only. the swap = copy the mode's snapshot over the
-# live store (Store/Index.plist), then relaunch WallpaperAgent so it re-reads.
-# two wrinkles on this macos:
-#   1. WallpaperAgent re-serializes Index.plist on every relaunch, so an exact
-#      byte compare against the snapshot always reads "different" even when the
-#      swap worked. instead we tell light vs dark apart by file size (the two
-#      snapshots differ by ~185 bytes, far more than the agent's re-serialize
-#      drift of ~10), so "closest snapshot by size" = the currently live mode.
-#   2. during an appearance transition the relaunching agent briefly re-derives
-#      the wallpaper from its own store and can clobber our copy a moment later.
-# so: apply only when the live wallpaper isn't already the wanted mode. that
-# gives no flicker in steady state, and it self-heals: if a transition clobbers
-# our copy, the next poll (15s) simply detects the mismatch and reapplies. the
-# extra re-assert after a short settle wins the race in the common case.
-snap="$SNAP/$mode/Index.plist"
-[ "$mode" = dark ] && osnap="$SNAP/light/Index.plist" || osnap="$SNAP/dark/Index.plist"
-if [ -f "$snap" ]; then
-  live=$(stat -f %z "$STORE/Index.plist" 2>/dev/null || echo 0)
-  want=$(stat -f %z "$snap")
-  d_want=$(( live > want ? live - want : want - live ))
-  if [ -f "$osnap" ]; then
-    o=$(stat -f %z "$osnap")
-    d_other=$(( live > o ? live - o : o - live ))
-  else
-    d_other=999999
-  fi
-  # live wallpaper is closer in size to the other mode -> it's wrong, (re)apply
-  if [ "$d_want" -gt "$d_other" ]; then
-    cp "$snap" "$STORE/Index.plist"
-    killall WallpaperAgent 2>/dev/null || true
-    sleep 3
-    cp "$snap" "$STORE/Index.plist"
-    killall WallpaperAgent 2>/dev/null || true
+# wallpaper depends on mode only. dark is a plain image, so it goes through
+# system events (the proper channel: WallpaperAgent updates all its state
+# coherently). light is an aerial, which applescript can't set, so it stays a
+# snapshot swap: copy the saved store (Store/Index.plist) over the live one and
+# relaunch WallpaperAgent so it re-reads. that direction is safe because the
+# agent's own re-derive bias is toward the aerial.
+#
+# (the old approach swapped snapshots for both modes and told them apart by
+# store file size. it broke for dark: on relaunch the agent reverts the
+# Spaces/SystemDefault desktop entries -- the ones that drive the screen --
+# back to the aerial while keeping the rest of the copied bytes, so the size
+# read "dark applied" while the wallpaper stayed light, and the mismatch was
+# never re-detected.)
+#
+# detection reads the live store's current-space provider (image vs aerials),
+# i.e. what is actually displayed. apply only on a definite mismatch: no
+# flicker in steady state, and a transition clobber self-heals next poll (15s).
+DARK_WP="$HOME/Pictures/Wallpapers/WWDC25 macOS Tahoe city orange.jpeg"
+live_wp=$(/usr/bin/python3 - <<'PY'
+import plistlib
+try:
+    d = plistlib.load(open('/Users/rohin/Library/Application Support/com.apple.wallpaper/Store/Index.plist', 'rb'))
+    print(d['Spaces']['']['Default']['Desktop']['Content']['Choices'][0]['Provider'])
+except Exception:
+    print('unknown')
+PY
+)
+if [ "$mode" = dark ]; then
+  if [ "$live_wp" = "com.apple.wallpaper.choice.aerials" ]; then
+    osascript -e "tell application \"System Events\" to set picture of every desktop to \"$DARK_WP\"" >/dev/null 2>&1
   fi
 else
-  echo "auto-switch: missing wallpaper snapshot $snap" >&2
+  snap="$SNAP/light/Index.plist"
+  if [ ! -f "$snap" ]; then
+    echo "auto-switch: missing wallpaper snapshot $snap" >&2
+  elif [ "$live_wp" = "com.apple.wallpaper.choice.image" ]; then
+    cp "$snap" "$STORE/Index.plist"
+    killall WallpaperAgent 2>/dev/null || true
+  fi
 fi
 
 # icon style: dark->tinted, light+focus->clear, light+no-focus->default

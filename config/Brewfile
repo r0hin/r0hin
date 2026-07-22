@@ -147,6 +147,8 @@ brew "mkcert"
 brew "monkeysphere"
 # Fast, highly customisable system info script
 brew "neofetch"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node@24"
 # Retrieves currently playing media, and simulates media actions
 brew "nowplaying-cli"
 # Protocol buffers (Google's data interchange format)
@@ -202,7 +204,7 @@ brew "tmux"
 # Language for application scale JavaScript development
 brew "typescript"
 # Command-line interface for Vercel
-brew "vercel-cli"
+brew "vercel"
 # Internet file retriever
 brew "wget"
 # Library to create, extract, and modify Windows Imaging files
@@ -315,6 +317,4 @@ vscode "tonybaloney.vscode-pets"
 vscode "vadimcn.vscode-lldb"
 vscode "yuichinukiyama.vscode-preview-server"
 cargo "thokr"
-npm "@openai/codex"
-npm "ai-cli"
 npm "corepack"
