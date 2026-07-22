@@ -1,10 +1,10 @@
 #!/bin/bash
 # auto-switch macos appearance extras based on light/dark mode + focus.
 #
-#   dark mode:                 tinted-orange icons/folders, city wallpaper, orange borders
+#   dark mode:                 tinted-orange icons/folders, city wallpaper, orange borders, orange helium
 #   light mode + focus ON:     clear/glass icons, automatic folders
 #   light mode + focus OFF:    default icons (system default), automatic folders
-#   light mode (either):       tea gardens wallpaper, blue borders
+#   light mode (either):       tea gardens wallpaper, blue borders, light helium theme
 #
 # focus state is written to .focus-state by the focusprobe helper (it can read focus
 # via INFocusStatusCenter; a shell cannot). icon style + folder color are the same
@@ -51,6 +51,52 @@ if [ "$mode" != "$(cat "$SB_STATE" 2>/dev/null)" ]; then
     launchctl kickstart -k "gui/$(id -u)/homebrew.mxcl.sketchybar" >/dev/null 2>&1 || true
   fi
   echo "$mode" > "$SB_STATE"
+fi
+
+# helium theme depends on mode only: the recorded light color in light mode,
+# orange in dark mode. helium (chromium) only reads Preferences at startup, so
+# a color change needs a restart. to keep that unobtrusive: do nothing while
+# helium is frontmost (a later poll catches it once the user switches away) and
+# relaunch in the background (open -g) so no window steals focus. gate on a
+# saved mode so this fires once per change, not every poll.
+HELIUM_STATE="$CFG/.applied-helium-mode"
+helium_theme() {
+  /usr/bin/python3 - "$1" "$mode" <<'PY'
+import json, os, sys
+prefs_path = os.path.expanduser('~/Library/Application Support/net.imput.helium/Default/Preferences')
+targets = {
+    'light': {'user_color2': -1714692, 'color_variant2': 1, 'color_scheme2': 0},
+    'dark': {'user_color2': -32768, 'color_variant2': 1, 'color_scheme2': 2},
+}
+action, mode = sys.argv[1], sys.argv[2]
+target = targets[mode]
+prefs = json.load(open(prefs_path))
+if action == 'check':
+    theme = prefs.get('browser', {}).get('theme', {})
+    sys.exit(0 if all(theme.get(k) == v for k, v in target.items()) else 1)
+prefs.setdefault('browser', {}).setdefault('theme', {}).update(target)
+json.dump(prefs, open(prefs_path, 'w'), separators=(',', ':'))
+PY
+}
+if [ "$mode" != "$(cat "$HELIUM_STATE" 2>/dev/null)" ]; then
+  if helium_theme check; then
+    # prefs already match (e.g. set by hand); nothing to do
+    echo "$mode" > "$HELIUM_STATE"
+  elif ! pgrep -x Helium >/dev/null 2>&1; then
+    # not running: safe to edit prefs directly, no restart needed
+    helium_theme write
+    echo "$mode" > "$HELIUM_STATE"
+  elif ! lsappinfo info -only bundleid "$(lsappinfo front)" 2>/dev/null | grep -q 'net.imput.helium'; then
+    osascript -e 'tell application "Helium" to quit' >/dev/null 2>&1
+    for _ in 1 2 3 4 5 6 7 8 9 10; do
+      pgrep -x Helium >/dev/null 2>&1 || break
+      sleep 1
+    done
+    helium_theme write
+    open -g -a Helium
+    echo "$mode" > "$HELIUM_STATE"
+  fi
+  # else: helium is frontmost; leave it for a later poll
 fi
 
 # wallpaper depends on mode only. the swap = copy the mode's snapshot over the

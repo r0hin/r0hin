@@ -200,3 +200,8 @@ alt-down = ['volume set 0', 'mode main']
 [[on-window-detected]]
   if.app-id = 'com.apple.Facetime'
   run = 'layout floating'
+
+# Helium (gets floated by the default window heuristics, force tiling)
+[[on-window-detected]]
+  if.app-id = 'net.imput.helium'
+  run = 'layout tiling'
