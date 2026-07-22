@@ -87,6 +87,9 @@ if [ "$mode" != "$(cat "$HELIUM_STATE" 2>/dev/null)" ]; then
     helium_theme write
     echo "$mode" > "$HELIUM_STATE"
   elif ! lsappinfo info -only bundleid "$(lsappinfo front)" 2>/dev/null | grep -q 'net.imput.helium'; then
+    # remember which aerospace workspaces helium's windows are on; the restored
+    # session would otherwise land in whatever workspace is focused
+    old_ws=$(/opt/homebrew/bin/aerospace list-windows --all --format '%{app-bundle-id} %{workspace}' 2>/dev/null | awk '$1=="net.imput.helium"{print $2}')
     osascript -e 'tell application "Helium" to quit' >/dev/null 2>&1
     for _ in 1 2 3 4 5 6 7 8 9 10; do
       pgrep -x Helium >/dev/null 2>&1 || break
@@ -94,6 +97,23 @@ if [ "$mode" != "$(cat "$HELIUM_STATE" 2>/dev/null)" ]; then
     done
     helium_theme write
     open -g -a Helium
+    if [ -n "$old_ws" ]; then
+      want=$(echo "$old_ws" | wc -l | tr -d ' ')
+      # wait for session restore to bring the windows back
+      for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do
+        got=$(/opt/homebrew/bin/aerospace list-windows --all --format '%{app-bundle-id}' 2>/dev/null | grep -c 'net.imput.helium')
+        [ "$got" -ge "$want" ] && break
+        sleep 1
+      done
+      # move the restored windows back, pairing them with the saved
+      # workspaces in listing order (exact for the usual single window)
+      i=1
+      for id in $(/opt/homebrew/bin/aerospace list-windows --all --format '%{app-bundle-id} %{window-id}' 2>/dev/null | awk '$1=="net.imput.helium"{print $2}'); do
+        ws=$(echo "$old_ws" | sed -n "${i}p")
+        [ -n "$ws" ] && /opt/homebrew/bin/aerospace move-node-to-workspace --window-id "$id" "$ws" >/dev/null 2>&1
+        i=$((i+1))
+      done
+    fi
     echo "$mode" > "$HELIUM_STATE"
   fi
   # else: helium is frontmost; leave it for a later poll
