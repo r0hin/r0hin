@@ -2,3 +2,7 @@
 config/kitty/kitty_search/
 fish_variables
 .claude/*
+
+# absolute symlinks into ~/GitHub/goldfish: dangling on the pages runner,
+# which breaks the tar in "upload artifact" and fails the deployment
+config/raycast/*goldfish*.sh

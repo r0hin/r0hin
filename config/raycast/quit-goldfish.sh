@@ -1,1 +1,0 @@
-/Users/rohin/GitHub/goldfish/scripts/quit-goldfish.sh
