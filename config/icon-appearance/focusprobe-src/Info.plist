@@ -6,6 +6,19 @@
   <string>in.r0h.focusprobe</string>
   <key>CFBundleName</key>
   <string>focusprobe</string>
+  <key>CFBundleExecutable</key>
+  <string>focusprobe</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <!-- LSUIElement is load-bearing: auto-switch.sh launches this every 15s via
+       `open`, and without it macOS gives the bundle a real Dock icon that
+       appears and vanishes on every poll. this is a background agent and must
+       never show in the Dock or the app switcher. -->
+  <key>LSUIElement</key>
+  <true/>
+  <!-- kept for reference: the original INFocusStatusCenter implementation
+       required this. the current build reads Assertions.json instead and does
+       not need it, but it is harmless and documents the bundle's purpose. -->
   <key>NSFocusStatusUsageDescription</key>
   <string>focusprobe reports whether a Focus is active so the appearance auto-switcher can pick the matching icon style.</string>
 </dict>
