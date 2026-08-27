@@ -120,6 +120,9 @@ r = ['flatten-workspace-tree', 'mode main'] # reset layout
 # F -> Toggle floating for current window
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 
+# g -> toggle aerospace fullscreen for current window
+g = ['fullscreen', 'mode main']
+
 # Q -> Exit aerospace
 q = 'enable toggle'
 
@@ -189,6 +192,11 @@ alt-down = ['volume set 0', 'mode main']
 # Music
 [[on-window-detected]]
   if.app-id = 'com.apple.Musicxxxx'
+  run = 'layout floating'
+
+# chatgpt
+[[on-window-detected]]
+  if.app-id = 'com.openai.codex'
   run = 'layout floating'
 
 # Electron (dev)
