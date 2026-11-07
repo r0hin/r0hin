@@ -1,145 +1,22 @@
-# Environment (kept here so backups capture them; secrets stay in fish_variables)
-set -gx EDITOR zed --wait
-set -gx VISUAL zed --wait
-set -gx SHELL /opt/homebrew/bin/fish
-set -gx HOMEBREW_NO_ENV_HINTS 1
-set -gx CC /opt/homebrew/opt/llvm/bin/clang
-set -gx CXX /opt/homebrew/opt/llvm/bin/clang++
-set -gx PYENV_ROOT ~/.pyenv
-set -gx BUN_INSTALL ~/.bun/
-
-# Normalise $HOME if a macOS path leaked into a Linux SSH session
-if test (uname) = Linux
-    if string match -q "/Users/*" "$HOME"
-        if type -q getent
-            set -l real_home (getent passwd $USER | cut -d: -f6)
-            if test -n "$real_home"
-                set -gx HOME "$real_home"
-            end
-        end
-    end
-end
-
-function does_command_exist
-    type -q $argv[1]
-end
+eval (/opt/homebrew/bin/brew shellenv fish)
+set -gx EDITOR 'zed --wait'
+set -gx VISUAL 'zed --wait'
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
-# Rose pine theme
-if fish_config theme list &>/dev/null
-    fish_config theme choose "Rosé Pine Moon"
-end
-
-# pnpm global
-set -gx PNPM_HOME ~/.pnpm/store
-
-# pnpm
-set -gx PNPM_HOME "/Users/rohin/.pnpm/store"
-if not contains "$PNPM_HOME" $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
-
-# Bat theme
-if does_command_exist "bat"
-    set -gx BAT_THEME rose-pine
-    function cat --wraps='bat --color=always --plain' --description 'alias cat bat'
-        bat $argv
-    end
-end
-
-if does_command_exist "eza"
-    function ls --wraps='eza --color=always --long --git --icons=always --no-user --no-permissions --no-filesize --time-style=long-iso' --description 'alias ls eza --color=always --long --git --icons=always --no-user --no-permissions --no-filesize --time-style=long-iso'
-        eza --color=always --long --git --icons=always --no-user --no-permissions --no-filesize --time-style=long-iso $argv
-    end
-end
-
-# GPG & SSH
-if test "$USER" = "rohin"; and not set -q SSH_CLIENT
-    set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-    gpgconf --launch gpg-agent
-end
-
-# Zoxide
-if does_command_exist "zoxide"
-    zoxide init fish | source
-    function cd --wraps=z --description 'alias cd z'
-        z $argv
-    end
-    function j --wraps=z --description 'alias j z'
-        z $argv
-    end
-end
-
-# FZF
-if does_command_exist "fzf"
+    fish_config theme choose 'Rosé Pine Moon'
     fzf --fish | source
+    zoxide init fish | source
+    set -g pure_check_for_new_release false
 end
 
-# Fuck
-if does_command_exist "thefuck"
-    thefuck --alias | source
+function c --description 'Open in Zed'
+    zed $argv
 end
 
-function deactivate
-    echo (set_color magenta) "🥲 them vscode integrated terminal launch arguments messing up my terminal"
+function tmp --description 'Enter a new temporary directory'
+    cd (mktemp -d)
 end
 
-if not set -q SSH_CLIENT; and does_command_exist pyenv
-    pyenv init - | source
+function please --wraps=sudo
+    sudo $argv
 end
-
-# Auto venv
-if test "$USER" = "rohin"; and not set -q SSH_CLIENT
-    function auto_venv --on-variable PWD
-        # Check if there's a venv or .venv folder in the current directory
-        if test -d "$PWD/venv" -o -d "$PWD/.venv"
-            if set -q VIRTUAL_ENV
-                deactivate
-            end
-            
-            set venv_path "$PWD/venv"
-            if test -d "$PWD/.venv"
-                set venv_path "$PWD/.venv"
-            end
-            
-            source "$venv_path/bin/activate.fish"
-
-            # Ensure venv's bin directory is at the front of the PATH
-            set -gx PATH "$VIRTUAL_ENV/bin" $PATH
-            echo (set_color green) "🐍 Activated virtual environment in $venv_path" (set_color normal)
-        else
-            # Deactivate if no venv folder is found
-            if set -q VIRTUAL_ENV
-                deactivate
-                echo (set_color red) "❌ Deactivated virtual environment" (set_color normal)
-            end
-        end
-    end
-
-    auto_venv
-end
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if not set -q SSH_CLIENT
-    if test -f /opt/anaconda3/bin/conda
-        eval /opt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-    else
-        if test -f "/opt/anaconda3/etc/fish/conf.d/conda.fish"
-            . "/opt/anaconda3/etc/fish/conf.d/conda.fish"
-        else
-            set -x PATH "/opt/anaconda3/bin" $PATH
-        end
-    end
-end
-
-# <<< conda initialize <<<
-
-set -gx TERM xterm
-
-
-# Hermes Agent — ensure ~/.local/bin is on PATH
-fish_add_path "$HOME/.local/bin"

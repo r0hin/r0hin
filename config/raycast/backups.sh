@@ -1,75 +1,8 @@
 #!/bin/bash
-
-# Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Backups
 # @raycast.mode compact
-
-# Optional parameters:
 # @raycast.icon 🔒
 # @raycast.packageName Utilities
-
-# Documentation:
-# @raycast.author r0hin
-# @raycast.authorURL https://raycast.com/r0hin
-
-REPO="$HOME/GitHub/r0hin"
-RSYNC=(rsync -a --delete --exclude=.git --exclude=.DS_Store)
-
-# config dirs mirrored 1:1 into the repo
-# fish_variables is excluded everywhere: it holds exported secrets
-DIRS=(fish kitty linearmouse borders bat sketchybar bar2 bar3 bar4 powerbar aerospace)
-
-for d in "${DIRS[@]}"; do
-  "${RSYNC[@]}" --exclude='fish_variables*' "$HOME/.config/$d/" "$REPO/config/$d"
-done
-
-# sanitized universal vars (fisher plugins, pure theme, paths); secrets filtered
-grep -viE "api_key|token|secret|password" "$HOME/.config/fish/fish_variables" \
-  > "$REPO/config/fish/fish_variables.sanitized"
-
-# led/icon daemon (venv and logs are machine-local). wallpaper snapshots are
-# backed up so a lost snapshot dir is recoverable; the images they point at in
-# ~/Pictures/Wallpapers are not backed up here, so restore recovers the snapshot
-# on this machine but a fresh machine needs those images present too.
-"${RSYNC[@]}" --exclude=.venv --exclude='*.log' \
-  "$HOME/.config/icon-appearance/" "$REPO/config/icon-appearance"
-
-# zed (extensions reinstall themselves, ~28mb of binaries)
-"${RSYNC[@]}" --exclude=extensions "$HOME/.config/zed/" "$REPO/config/zed"
-
-# home dotfiles
-mkdir -p "$REPO/config/home"
-cp "$HOME/.gitconfig" "$HOME/.zshrc" "$HOME/.hushlogin" "$REPO/config/home/"
-
-# which aerospace config the ~/.aerospace.toml symlink points at
-readlink "$HOME/.aerospace.toml" | xargs basename > "$REPO/config/aerospace-active"
-
-# custom launch agents
-mkdir -p "$REPO/config/launchagents"
-cp "$HOME"/Library/LaunchAgents/in.r0h.*.plist "$REPO/config/launchagents/"
-
-# personal cli scripts (bar2/bar3/bar4/powerbar are symlinks, recreated on restore)
-mkdir -p "$REPO/config/bin"
-cp "$HOME/.local/bin/power" "$REPO/config/bin/power"
-
-# ssh config
-mkdir -p "$REPO/config/.ssh"
-cp "$HOME/.ssh/config" "$REPO/config/.ssh/config"
-
-# installed packages
-brew bundle dump --force --file="$REPO/config/Brewfile" 2>/dev/null
-
-# commit and push
-cd "$REPO" || exit 1
-git add -A
-if git diff --cached --quiet; then
-  echo "backup: nothing changed"
-else
-  git commit -q -m "chore: backup $(date '+%Y-%m-%d %H:%M')"
-  if git push -q 2>/dev/null; then
-    echo "backup: committed and pushed"
-  else
-    echo "backup: committed, push failed"
-  fi
-fi
+set -euo pipefail
+exec /usr/bin/python3 "$(cd -- "$(dirname -- "$0")" && pwd)/lib/setup.py" backup

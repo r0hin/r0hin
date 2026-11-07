@@ -14,4 +14,9 @@
 # @raycast.author r0hin
 # @raycast.authorURL https://raycast.com/r0hin
 
-bash "$HOME/.config/kitty/fix-icon.sh"
+SCRIPT_DIR="$(cd -- "$(dirname -- "$0")" && pwd)"
+if [ -f "$SCRIPT_DIR/../kitty/fix-icon.sh" ]; then
+  bash "$SCRIPT_DIR/../kitty/fix-icon.sh"
+else
+  bash "$HOME/.config/kitty/fix-icon.sh"
+fi

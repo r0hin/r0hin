@@ -1,4 +1,4 @@
-set --global pure_version 4.11.0 # For bug report and tag-after-merge workflow
+set --global pure_version 4.19.2  # For bug report and tag-after-merge workflow
 
 # Base colors
 _pure_set_default pure_color_primary blue
@@ -33,6 +33,7 @@ _pure_set_default pure_color_git_unpushed_commits pure_color_info
 _pure_set_default pure_color_git_branch pure_color_mute
 _pure_set_default pure_color_git_dirty pure_color_mute
 _pure_set_default pure_color_git_stash pure_color_info
+_pure_set_default pure_show_numbered_git_indicator false
 
 # Remote info (user@hostname) for SSH and containers (Docker/LXC)
 _pure_set_default pure_color_hostname pure_color_mute
@@ -46,6 +47,7 @@ _pure_set_default pure_color_jobs pure_color_normal
 
 # Show system time
 _pure_set_default pure_show_system_time false
+_pure_set_default pure_system_time_format '+%T' # 12 hour time: '+%-I:%M:%S %p'
 _pure_set_default pure_color_system_time pure_color_mute
 
 # Nix build environment
@@ -54,7 +56,7 @@ _pure_set_default pure_symbol_nixdevshell_prefix "❄️" # otherwise nerdfonts:
 _pure_set_default pure_color_nixdevshell_prefix pure_color_info
 _pure_set_default pure_color_nixdevshell_symbol pure_color_mute
 
-#  env for Python
+# env for Python
 _pure_set_default pure_enable_virtualenv true
 _pure_set_default pure_symbol_virtualenv_prefix "" # 🐍
 _pure_set_default pure_color_virtualenv pure_color_mute
@@ -69,10 +71,17 @@ _pure_set_default pure_color_aws_profile pure_color_warning
 # false:            user@hostname (ssh-only), current directory, git, command duration
 _pure_set_default pure_begin_prompt_with_current_directory true
 
-# Show exit code of last command as a separate prompt character (cf. https://github.com/sindresorhus/pure/wiki#show-exit-code-of-last-command-as-a-separate-prompt-character)
+# Show exit code of last command as a separate prompt character (cf. https://github.com/sindresorhus/pure/wiki/Customizations,-hacks-and-tweaks#show-exit-code-of-last-command-as-a-separate-prompt-character)
 # false - single prompt character, default
 # true - separate prompt character
 _pure_set_default pure_separate_prompt_on_error false
+
+# Prefix the prompt with a list of exit statuses ($pipestatus) if at least one is non-zero
+_pure_set_default pure_show_exit_status false
+_pure_set_default pure_convert_exit_status_to_signal false
+_pure_set_default pure_symbol_exit_status_prefix "|"
+_pure_set_default pure_symbol_exit_status_separator "|"
+_pure_set_default pure_color_exit_status pure_color_danger
 
 # Max execution time of a process before its run time is shown when it exits
 _pure_set_default pure_threshold_command_duration 5
@@ -96,6 +105,11 @@ _pure_set_default pure_check_for_new_release false
 _pure_set_default pure_show_prefix_root_prompt false
 _pure_set_default pure_symbol_prefix_root_prompt "#"
 _pure_set_default pure_color_prefix_root_prompt pure_color_danger
+
+# Prefix prompt when in fish private mode
+_pure_set_default pure_show_prefix_private_prompt false
+_pure_set_default pure_symbol_prefix_private_prompt "!"
+_pure_set_default pure_color_prefix_private_prompt pure_color_danger
 
 # Compact mode
 _pure_set_default pure_enable_single_line_prompt false

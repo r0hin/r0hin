@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "home": ".config/aerospace/aerospace.toml",
+      "repo": "config/aerospace/aerospace.toml"
+    },
+    {
+      "home": ".config/fish/completions/fisher.fish",
+      "repo": "config/fish/completions/fisher.fish"
+    },
+    {
+      "home": ".config/fish/conf.d/_pure_init.fish",
+      "repo": "config/fish/conf.d/_pure_init.fish"
+    },
+    {
+      "home": ".config/fish/conf.d/pure.fish",
+      "repo": "config/fish/conf.d/pure.fish"
+    },
+    {
+      "home": ".config/fish/config.fish",
+      "repo": "config/fish/config.fish"
+    },
+    {
+      "home": ".config/fish/fish_plugins",
+      "repo": "config/fish/fish_plugins"
+    },
+    {
+      "home": ".config/fish/functions/_pure_check_availability.fish",
+      "repo": "config/fish/functions/_pure_check_availability.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_check_for_new_release.fish",
+      "repo": "config/fish/functions/_pure_check_for_new_release.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_detect_container_by_cgroup_method.fish",
+      "repo": "config/fish/functions/_pure_detect_container_by_cgroup_method.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_detect_container_by_pid_method.fish",
+      "repo": "config/fish/functions/_pure_detect_container_by_pid_method.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_format_time.fish",
+      "repo": "config/fish/functions/_pure_format_time.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_get_prompt_symbol.fish",
+      "repo": "config/fish/functions/_pure_get_prompt_symbol.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_is_inside_container.fish",
+      "repo": "config/fish/functions/_pure_is_inside_container.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_is_single_line_prompt.fish",
+      "repo": "config/fish/functions/_pure_is_single_line_prompt.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_k8s_context.fish",
+      "repo": "config/fish/functions/_pure_k8s_context.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_k8s_namespace.fish",
+      "repo": "config/fish/functions/_pure_k8s_namespace.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_parse_directory.fish",
+      "repo": "config/fish/functions/_pure_parse_directory.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_parse_git_branch.fish",
+      "repo": "config/fish/functions/_pure_parse_git_branch.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_place_iterm2_prompt_mark.fish",
+      "repo": "config/fish/functions/_pure_place_iterm2_prompt_mark.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prefix_private_prompt.fish",
+      "repo": "config/fish/functions/_pure_prefix_private_prompt.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prefix_root_prompt.fish",
+      "repo": "config/fish/functions/_pure_prefix_root_prompt.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_print_prompt.fish",
+      "repo": "config/fish/functions/_pure_print_prompt.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_print_prompt_rows.fish",
+      "repo": "config/fish/functions/_pure_print_prompt_rows.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt.fish",
+      "repo": "config/fish/functions/_pure_prompt.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_aws_profile.fish",
+      "repo": "config/fish/functions/_pure_prompt_aws_profile.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_beginning.fish",
+      "repo": "config/fish/functions/_pure_prompt_beginning.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_command_duration.fish",
+      "repo": "config/fish/functions/_pure_prompt_command_duration.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_container.fish",
+      "repo": "config/fish/functions/_pure_prompt_container.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_current_folder.fish",
+      "repo": "config/fish/functions/_pure_prompt_current_folder.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_ending.fish",
+      "repo": "config/fish/functions/_pure_prompt_ending.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_exit_status.fish",
+      "repo": "config/fish/functions/_pure_prompt_exit_status.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_first_line.fish",
+      "repo": "config/fish/functions/_pure_prompt_first_line.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_git.fish",
+      "repo": "config/fish/functions/_pure_prompt_git.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_git_branch.fish",
+      "repo": "config/fish/functions/_pure_prompt_git_branch.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_git_dirty.fish",
+      "repo": "config/fish/functions/_pure_prompt_git_dirty.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_git_pending_commits.fish",
+      "repo": "config/fish/functions/_pure_prompt_git_pending_commits.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_git_stash.fish",
+      "repo": "config/fish/functions/_pure_prompt_git_stash.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_jobs.fish",
+      "repo": "config/fish/functions/_pure_prompt_jobs.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_k8s.fish",
+      "repo": "config/fish/functions/_pure_prompt_k8s.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_new_line.fish",
+      "repo": "config/fish/functions/_pure_prompt_new_line.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_nixdevshell.fish",
+      "repo": "config/fish/functions/_pure_prompt_nixdevshell.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_ssh.fish",
+      "repo": "config/fish/functions/_pure_prompt_ssh.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_symbol.fish",
+      "repo": "config/fish/functions/_pure_prompt_symbol.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_system_time.fish",
+      "repo": "config/fish/functions/_pure_prompt_system_time.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_transient.fish",
+      "repo": "config/fish/functions/_pure_prompt_transient.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_vimode.fish",
+      "repo": "config/fish/functions/_pure_prompt_vimode.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_prompt_virtualenv.fish",
+      "repo": "config/fish/functions/_pure_prompt_virtualenv.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_set_color.fish",
+      "repo": "config/fish/functions/_pure_set_color.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_set_default.fish",
+      "repo": "config/fish/functions/_pure_set_default.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_string_width.fish",
+      "repo": "config/fish/functions/_pure_string_width.fish"
+    },
+    {
+      "home": ".config/fish/functions/_pure_user_at_host.fish",
+      "repo": "config/fish/functions/_pure_user_at_host.fish"
+    },
+    {
+      "home": ".config/fish/functions/fish_mode_prompt.fish",
+      "repo": "config/fish/functions/fish_mode_prompt.fish"
+    },
+    {
+      "home": ".config/fish/functions/fish_prompt.fish",
+      "repo": "config/fish/functions/fish_prompt.fish"
+    },
+    {
+      "home": ".config/fish/functions/fish_title.fish",
+      "repo": "config/fish/functions/fish_title.fish"
+    },
+    {
+      "home": ".config/fish/functions/fisher.fish",
+      "repo": "config/fish/functions/fisher.fish"
+    },
+    {
+      "home": ".config/fish/themes/Ros\u00e9 Pine Dawn.theme",
+      "repo": "config/fish/themes/Ros\u00e9 Pine Dawn.theme"
+    },
+    {
+      "home": ".config/fish/themes/Ros\u00e9 Pine Moon.theme",
+      "repo": "config/fish/themes/Ros\u00e9 Pine Moon.theme"
+    },
+    {
+      "home": ".config/fish/themes/Ros\u00e9 Pine.theme",
+      "repo": "config/fish/themes/Ros\u00e9 Pine.theme"
+    },
+    {
+      "home": ".config/kitty/current-theme.conf",
+      "repo": "config/kitty/current-theme.conf"
+    },
+    {
+      "home": ".config/kitty/fix-icon.sh",
+      "repo": "config/kitty/fix-icon.sh"
+    },
+    {
+      "home": ".config/kitty/icon-src/glyph.png",
+      "repo": "config/kitty/icon-src/glyph.png"
+    },
+    {
+      "home": ".config/kitty/kitty.conf",
+      "repo": "config/kitty/kitty.conf"
+    },
+    {
+      "home": ".config/zed/keymap.json",
+      "repo": "config/zed/keymap.json"
+    },
+    {
+      "home": ".config/zed/settings.json",
+      "repo": "config/zed/settings.json"
+    },
+    {
+      "home": ".gitconfig",
+      "repo": "config/home/.gitconfig"
+    },
+    {
+      "home": ".gnupg/gpg-agent.conf",
+      "repo": "config/home/.gnupg/gpg-agent.conf"
+    },
+    {
+      "home": ".zprofile",
+      "repo": "config/home/.zprofile"
+    },
+    {
+      "home": ".config/raycast/backups.sh",
+      "repo": "config/raycast/backups.sh"
+    },
+    {
+      "home": ".config/raycast/clear-downloads.sh",
+      "repo": "config/raycast/clear-downloads.sh"
+    },
+    {
+      "home": ".config/raycast/fix-kitty-icon.sh",
+      "repo": "config/raycast/fix-kitty-icon.sh"
+    },
+    {
+      "home": ".config/raycast/lib/setup.py",
+      "repo": "config/raycast/lib/setup.py"
+    },
+    {
+      "home": ".config/raycast/move-downloads.sh",
+      "repo": "config/raycast/move-downloads.sh"
+    },
+    {
+      "home": ".config/raycast/restore.sh",
+      "repo": "config/raycast/restore.sh"
+    },
+    {
+      "home": ".config/raycast/toggle-dock.sh",
+      "repo": "config/raycast/toggle-dock.sh"
+    }
+  ]
+}

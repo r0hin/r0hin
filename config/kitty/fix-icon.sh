@@ -14,7 +14,7 @@
 set -e
 
 APP=/Applications/kitty.app
-SRC="$HOME/.config/kitty/icon-src/glyph.png"
+SRC="$(cd -- "$(dirname -- "$0")" && pwd)/icon-src/glyph.png"
 LIGHT_FILL="display-p3:0.945,0.910,0.960,1.0"   # soft lavender
 DARK_FILL="display-p3:0.205,0.205,0.205,1.0"    # neutral dark
 
