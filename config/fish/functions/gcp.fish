@@ -1,10 +1,7 @@
-function gcp
-    if test (count $argv) -eq 1
-        set commit_message $argv[1]
-        git add .
-        git commit -m "$commit_message"
-        git push
-    else
-        echo "Usage: gcp \"commit message\""
+function gcp --description 'Stage, commit, and push the current project'
+    if test (count $argv) -ne 1
+        echo 'Usage: gcp "commit message"' >&2
+        return 2
     end
+    git add .; and git commit -m "$argv[1]"; and git push
 end

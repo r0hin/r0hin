@@ -1,4 +1,3 @@
-function launch_server --wraps='python -m http.server' --description 'alias launch_server python -m http.server'
-  python -m http.server $argv
-        
+function launch_server --description 'Serve the current directory with Python 3'
+    python3 -m http.server $argv
 end

@@ -238,8 +238,28 @@
       "repo": "config/fish/functions/fuzz.fish"
     },
     {
+      "home": ".config/fish/functions/gcp.fish",
+      "repo": "config/fish/functions/gcp.fish"
+    },
+    {
+      "home": ".config/fish/functions/launch_server.fish",
+      "repo": "config/fish/functions/launch_server.fish"
+    },
+    {
+      "home": ".config/fish/functions/np.fish",
+      "repo": "config/fish/functions/np.fish"
+    },
+    {
       "home": ".config/fish/functions/s.fish",
       "repo": "config/fish/functions/s.fish"
+    },
+    {
+      "home": ".config/fish/functions/ytdla.fish",
+      "repo": "config/fish/functions/ytdla.fish"
+    },
+    {
+      "home": ".config/fish/functions/ytdlv.fish",
+      "repo": "config/fish/functions/ytdlv.fish"
     },
     {
       "home": ".config/fish/themes/Ros\u00e9 Pine Dawn.theme",

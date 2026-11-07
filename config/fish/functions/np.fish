@@ -1,4 +1,3 @@
-function np --wraps=bun --description 'alias np bun'
-  bun $argv
-        
+function np --wraps=bun --description 'Run Bun'
+    bun $argv
 end
