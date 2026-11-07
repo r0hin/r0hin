@@ -3,6 +3,8 @@ set -gx EDITOR 'zed --wait'
 set -gx VISUAL 'zed --wait'
 
 if status is-interactive
+    set -g fish_greeting
+    set -g pure_enable_single_line_prompt true
     fish_config theme choose 'Rosé Pine Moon'
     fzf --fish | source
     zoxide init fish | source

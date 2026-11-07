@@ -250,6 +250,10 @@
       "repo": "config/kitty/kitty.conf"
     },
     {
+      "home": ".config/linearmouse/linearmouse.json",
+      "repo": "config/linearmouse/linearmouse.json"
+    },
+    {
       "home": ".config/zed/keymap.json",
       "repo": "config/zed/keymap.json"
     },
@@ -264,6 +268,10 @@
     {
       "home": ".gnupg/gpg-agent.conf",
       "repo": "config/home/.gnupg/gpg-agent.conf"
+    },
+    {
+      "home": ".ssh/config",
+      "repo": "config/.ssh/config"
     },
     {
       "home": ".zprofile",

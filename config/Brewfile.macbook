@@ -17,9 +17,15 @@ brew "pinentry-mac"
 brew "zoxide"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace", trusted: true
+# App for managing battery charging
+cask "batfi"
 # GPU-based terminal emulator
 cask "kitty"
+# Customise mouse behavior
+cask "linearmouse"
 # Control your tools with a few keystrokes
 cask "raycast"
+# Screenshot measurement and annotation tool
+cask "shottr"
 # Multiplayer code editor
 cask "zed"

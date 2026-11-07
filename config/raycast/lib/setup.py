@@ -58,8 +58,8 @@ def clear():
     print(f'Moved {count} iCloud Downloads items to Trash.')
 
 def selected_files():
-    paths = [HOME / '.gitconfig', HOME / '.gnupg/gpg-agent.conf', HOME / '.zprofile', HOME / '.config/zed/settings.json', HOME / '.config/zed/keymap.json']
-    for name in ['aerospace', 'kitty', 'fish']:
+    paths = [HOME / '.ssh/config', HOME / '.gitconfig', HOME / '.gnupg/gpg-agent.conf', HOME / '.zprofile', HOME / '.config/zed/settings.json', HOME / '.config/zed/keymap.json']
+    for name in ['aerospace', 'kitty', 'fish', 'linearmouse']:
         root = HOME / '.config' / name
         if root.exists():
             paths.extend(p for p in root.rglob('*') if p.is_file() and not p.is_symlink()
@@ -82,7 +82,7 @@ def backup():
             records.append({'home': str(rel), 'repo': str(target_rel)})
             continue
         rel = source.relative_to(HOME)
-        target_rel = Path('config/home') / rel if str(rel) in {'.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} else Path('config') / source.relative_to(HOME / '.config')
+        target_rel = Path('config/.ssh/config') if str(rel) == '.ssh/config' else Path('config/home') / rel if str(rel) in {'.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} else Path('config') / source.relative_to(HOME / '.config')
         target = REPO / target_rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
@@ -102,7 +102,7 @@ def restore():
         rel, repo_rel = Path(record['home']), Path(record['repo'])
         if rel.is_absolute() or repo_rel.is_absolute() or '..' in rel.parts or '..' in repo_rel.parts:
             raise RuntimeError('Invalid backup path')
-        if str(rel) not in {'.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} and not (len(rel.parts) >= 3 and rel.parts[0] == '.config' and rel.parts[1] in {'fish', 'kitty', 'aerospace', 'zed', 'raycast'}):
+        if str(rel) not in {'.ssh/config', '.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} and not (len(rel.parts) >= 3 and rel.parts[0] == '.config' and rel.parts[1] in {'fish', 'kitty', 'aerospace', 'zed', 'raycast', 'linearmouse'}):
             raise RuntimeError('Unexpected restore target: ' + str(rel))
         source, target = REPO / repo_rel, HOME / rel
         if not source.is_file() or source.is_symlink() or target.is_symlink() or source.resolve().is_relative_to(REPO.resolve()) is False or target.resolve().is_relative_to(HOME.resolve()) is False:
