@@ -206,6 +206,18 @@
       "repo": "config/fish/functions/_pure_user_at_host.fish"
     },
     {
+      "home": ".config/fish/functions/bubu.fish",
+      "repo": "config/fish/functions/bubu.fish"
+    },
+    {
+      "home": ".config/fish/functions/ccp.fish",
+      "repo": "config/fish/functions/ccp.fish"
+    },
+    {
+      "home": ".config/fish/functions/code.fish",
+      "repo": "config/fish/functions/code.fish"
+    },
+    {
       "home": ".config/fish/functions/fish_mode_prompt.fish",
       "repo": "config/fish/functions/fish_mode_prompt.fish"
     },
@@ -220,6 +232,14 @@
     {
       "home": ".config/fish/functions/fisher.fish",
       "repo": "config/fish/functions/fisher.fish"
+    },
+    {
+      "home": ".config/fish/functions/fuzz.fish",
+      "repo": "config/fish/functions/fuzz.fish"
+    },
+    {
+      "home": ".config/fish/functions/s.fish",
+      "repo": "config/fish/functions/s.fish"
     },
     {
       "home": ".config/fish/themes/Ros\u00e9 Pine Dawn.theme",
