@@ -58,7 +58,7 @@ def clear():
     print(f'Moved {count} iCloud Downloads items to Trash.')
 
 def selected_files():
-    paths = [HOME / '.ssh/config', HOME / '.gitconfig', HOME / '.gnupg/gpg-agent.conf', HOME / '.zprofile', HOME / '.config/zed/settings.json', HOME / '.config/zed/keymap.json']
+    paths = [HOME / '.local/bin/power', HOME / '.ssh/config', HOME / '.gitconfig', HOME / '.gnupg/gpg-agent.conf', HOME / '.zprofile', HOME / '.config/zed/settings.json', HOME / '.config/zed/keymap.json']
     for name in ['aerospace', 'kitty', 'fish', 'linearmouse']:
         root = HOME / '.config' / name
         if root.exists():
@@ -82,13 +82,13 @@ def backup():
             records.append({'home': str(rel), 'repo': str(target_rel)})
             continue
         rel = source.relative_to(HOME)
-        target_rel = Path('config/.ssh/config') if str(rel) == '.ssh/config' else Path('config/home') / rel if str(rel) in {'.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} else Path('config') / source.relative_to(HOME / '.config')
+        target_rel = Path('config/bin/power') if str(rel) == '.local/bin/power' else Path('config/.ssh/config') if str(rel) == '.ssh/config' else Path('config/home') / rel if str(rel) in {'.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} else Path('config') / source.relative_to(HOME / '.config')
         target = REPO / target_rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
         records.append({'home': str(rel), 'repo': str(target_rel)})
     MANIFEST.write_text(json.dumps({'version': 1, 'files': records}, indent=2) + '\n')
-    result = subprocess.run(['/opt/homebrew/bin/brew', 'bundle', 'dump', '--force', '--file=' + str(REPO / 'config/Brewfile.macbook')], capture_output=True, text=True)
+    result = subprocess.run(['/opt/homebrew/bin/brew', 'bundle', 'dump', '--force', '--file=' + str(REPO / 'config/Brewfile')], capture_output=True, text=True)
     if result.returncode:
         raise RuntimeError('Configs saved, but package inventory failed: ' + result.stderr)
     print(f'Backed up {len(records)} files and package inventory to {REPO}. Review and commit/push when ready.')
@@ -102,7 +102,7 @@ def restore():
         rel, repo_rel = Path(record['home']), Path(record['repo'])
         if rel.is_absolute() or repo_rel.is_absolute() or '..' in rel.parts or '..' in repo_rel.parts:
             raise RuntimeError('Invalid backup path')
-        if str(rel) not in {'.ssh/config', '.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} and not (len(rel.parts) >= 3 and rel.parts[0] == '.config' and rel.parts[1] in {'fish', 'kitty', 'aerospace', 'zed', 'raycast', 'linearmouse'}):
+        if str(rel) not in {'.local/bin/power', '.ssh/config', '.zprofile', '.gitconfig', '.gnupg/gpg-agent.conf'} and not (len(rel.parts) >= 3 and rel.parts[0] == '.config' and rel.parts[1] in {'fish', 'kitty', 'aerospace', 'zed', 'raycast', 'linearmouse'}):
             raise RuntimeError('Unexpected restore target: ' + str(rel))
         source, target = REPO / repo_rel, HOME / rel
         if not source.is_file() or source.is_symlink() or target.is_symlink() or source.resolve().is_relative_to(REPO.resolve()) is False or target.resolve().is_relative_to(HOME.resolve()) is False:

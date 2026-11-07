@@ -214,6 +214,18 @@
       "repo": "config/fish/functions/ccp.fish"
     },
     {
+      "home": ".config/fish/functions/cinema.fish",
+      "repo": "config/fish/functions/cinema.fish"
+    },
+    {
+      "home": ".config/fish/functions/claer.fish",
+      "repo": "config/fish/functions/claer.fish"
+    },
+    {
+      "home": ".config/fish/functions/clera.fish",
+      "repo": "config/fish/functions/clera.fish"
+    },
+    {
       "home": ".config/fish/functions/code.fish",
       "repo": "config/fish/functions/code.fish"
     },
@@ -246,8 +258,16 @@
       "repo": "config/fish/functions/launch_server.fish"
     },
     {
+      "home": ".config/fish/functions/newlatex.fish",
+      "repo": "config/fish/functions/newlatex.fish"
+    },
+    {
       "home": ".config/fish/functions/np.fish",
       "repo": "config/fish/functions/np.fish"
+    },
+    {
+      "home": ".config/fish/functions/openlatex.fish",
+      "repo": "config/fish/functions/openlatex.fish"
     },
     {
       "home": ".config/fish/functions/s.fish",
@@ -308,6 +328,10 @@
     {
       "home": ".gnupg/gpg-agent.conf",
       "repo": "config/home/.gnupg/gpg-agent.conf"
+    },
+    {
+      "home": ".local/bin/power",
+      "repo": "config/bin/power"
     },
     {
       "home": ".ssh/config",

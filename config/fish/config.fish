@@ -1,4 +1,5 @@
 eval (/opt/homebrew/bin/brew shellenv fish)
+fish_add_path --path "$HOME/.local/bin"
 set -gx EDITOR 'zed --wait'
 set -gx VISUAL 'zed --wait'
 

@@ -1,11 +1,3 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "telemetry": {
     "diagnostics": true,
@@ -16,90 +8,10 @@
     "trust_all_worktrees": true
   },
   "auto_install_extensions": {
-    "rose-pine-theme": true
+    "rose-pine-theme": true,
+    "biome": true
   },
-  "agent": {
-    "sandbox_permissions": {
-      "network_hosts": [
-        "docs.github.com"
-      ]
-    },
-    "tool_permissions": {
-      "default": "allow"
-    },
-    "default_profile": "write",
-    "profiles": {
-
-    },
-    "default_model": {
-      "provider": "0xInference",
-      "model": "gpt-5.6-sol",
-      "enable_thinking": true,
-      "effort": "medium"
-    },
-    "favorite_models": [],
-    "model_parameters": []
-  },
-  "language_models": {
-      "openai_compatible": {
-        "0xInference": {
-          "api_url": "https://ai-0x41labs842142428636.openai.azure.com/openai/v1",
-          "available_models": [
-            {
-              "name": "gpt-5.6-sol",
-              "display_name": "GPT-5.6 Sol",
-              "max_tokens": 200000,
-              "max_output_tokens": 32000,
-              "max_completion_tokens": 32000,
-              "reasoning_effort": "medium",
-              "capabilities": {
-                "tools": true,
-                "images": true,
-                "parallel_tool_calls": true,
-                "prompt_cache_key": true,
-                "chat_completions": false,
-                "interleaved_reasoning": false,
-                "max_tokens_parameter": false
-              }
-            }
-          ]
-        }
-      }
-    },
   "cli_default_open_behavior": "existing_window",
-  "ssh_connections": [
-    {
-      "host": "ic2",
-      "args": [],
-      "projects": [
-        {
-          "paths": [
-            "/Users/rohin"
-          ]
-        },
-        {
-          "paths": [
-            "/Users/rohin/GitHub/neutrino"
-          ]
-        },
-        {
-          "paths": [
-            "/Users/rohin/github/freesolo"
-          ]
-        },
-        {
-          "paths": [
-            "/Users/rohin/github/invariant"
-          ]
-        },
-        {
-          "paths": [
-            "/Users/rohin/github/parallel-legacy"
-          ]
-        }
-      ]
-    }
-  ],
   "git_panel": {
     "tree_view": true
   },
@@ -110,7 +22,6 @@
   },
   "cursor_shape": "bar",
   "cursor_blink": false,
-  "agent_ui_font_size": 15.0,
   "ui_font_weight": 350.0,
   "ui_font_family": "Cartograph CF",
   "icon_theme": {
@@ -118,36 +29,8 @@
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
   },
-  "agent_servers": {
-    "opencode": {
-      "type": "registry"
-    },
-    "github-copilot-cli": {
-      "type": "registry"
-    },
-    "cursor": {
-      "type": "registry"
-    },
-    "codex-acp": {
-      "default_config_options": {
-        "mode": "agent-full-access"
-      },
-      "type": "registry"
-    },
-    "claude-acp": {
-      "default_config_options": {
-        "effort": "high",
-        "model": "opus[1m]"
-      },
-      "favorite_config_option_values": {
-        "mode": ["acceptEdits", "bypassPermissions"]
-      },
-      "type": "registry"
-    }
-  },
   "ui_font_size": 15.0,
   "buffer_font_size": 15,
-
   "theme": {
     "mode": "system",
     "light": "Rosé Pine Dawn",
@@ -156,7 +39,6 @@
   "theme_overrides": {
     "Rosé Pine": {
       "background.appearance": "blurred",
-      // Rosé Pine dark translucent overrides
       "background": "#191724e0",
       "status_bar.background": "#191724e0",
       "title_bar.background": "#191724e0",
@@ -195,47 +77,84 @@
       "editor.highlighted_line.background": "#c4a7e725"
     }
   },
-
   "format_on_save": "on",
-  "formatter": {
-    "language_server": { "name": "biome" }
-  },
-  "code_actions_on_format": {
-    "source.organizeImports.biome": true
-  },
   "languages": {
     "JavaScript": {
-      "formatter": { "language_server": { "name": "biome" } },
-      "language_servers": ["!oxlint", "!oxfmt", "..."]
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "language_servers": [
+        "biome",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true
+      }
     },
     "TypeScript": {
-      "formatter": { "language_server": { "name": "biome" } },
-      "language_servers": ["!oxlint", "!oxfmt", "..."]
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "language_servers": [
+        "biome",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true
+      }
     },
     "TSX": {
-      "formatter": { "language_server": { "name": "biome" } },
-      "language_servers": ["!oxlint", "!oxfmt", "..."]
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "language_servers": [
+        "biome",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true
+      }
     },
-    "JSON": { "formatter": { "language_server": { "name": "biome" } } },
-    "JSONC": { "formatter": { "language_server": { "name": "biome" } } }
+    "JSON": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "language_servers": [
+        "biome",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true
+      }
+    },
+    "JSONC": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "language_servers": [
+        "biome",
+        "..."
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true
+      }
+    }
   },
   "lsp": {
     "biome": {
       "settings": {
         "require_config_file": true
       }
-    },
-    "oxlint": {
-      "binary": {
-        "path": "/Users/rohin/.config/zed/extensions/oxlint/node_modules/.bin/oxlint",
-        "arguments": ["--lsp"]
-      }
-    },
-    "oxfmt": {
-      "binary": {
-        "path": "/Users/rohin/.config/zed/extensions/oxlint/node_modules/.bin/oxfmt",
-        "arguments": ["--lsp"]
-      }
     }
-  },
+  }
 }
